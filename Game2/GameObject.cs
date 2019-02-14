@@ -16,7 +16,7 @@ namespace Game2
 
         public virtual void Draw(GameTime gameTime)
         {
-
+            // her skal ikke stå noget?
         }
 
     }

@@ -30,6 +30,14 @@ namespace Game2
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            for (int i = 0; i < 20; i++)
+            {
+                for (int j = 0; j < 20; j++)
+                {
+                    allObjects.Add(new Wall());
+                }
+            }
+            
 
             base.Initialize();
         }

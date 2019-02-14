@@ -9,6 +9,20 @@ namespace Game2
 {
     class Wall : GameObject
     {
-        public override GameUpdateRequiredException()
+        public override void Update(GameTime gameTime)
+        {
+      
+            // her er evt logik fr en wall
+
+            // kalder gameobjekts update metode
+            base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+          //  tegn det her"wall" objekt
+        }
+
+        
     }
 }
