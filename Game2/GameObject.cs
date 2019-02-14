@@ -11,12 +11,12 @@ namespace Game2
     {
         public virtual void Update(GameTime gameTime)
         {
-          // skal overskrives for de enkelte objekter   
+          // skal overskrives for de enkelte objekter .
         }
 
         public virtual void Draw(GameTime gameTime)
         {
-            // her skal ikke stå noget?
+            // skal også overskrives fra de enkelt objekter.
         }
 
     }

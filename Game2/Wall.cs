@@ -9,18 +9,26 @@ namespace Game2
 {
     class Wall : GameObject
     {
+        private int coordinateX;
+        private int coordinateY;
+
+
+        public Wall(int coordinateX, int coordinateY)
+        {
+            this.coordinateX = coordinateX;
+            this.coordinateY = coordinateY;
+        }
+
         public override void Update(GameTime gameTime)
         {
-      
-            // her er evt logik fr en wall
-
+            // her er evt logik for en wall
             // kalder gameobjekts update metode
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-          //  tegn det her"wall" objekt
+          //  "Wall" skal tegnes her. 
         }
 
         

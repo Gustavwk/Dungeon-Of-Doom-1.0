@@ -30,14 +30,7 @@ namespace Game2
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            for (int i = 0; i < 20; i++)
-            {
-                for (int j = 0; j < 20; j++)
-                {
-                    allObjects.Add(new Wall());
-                }
-            }
-            
+ 
 
             base.Initialize();
         }
@@ -88,7 +81,7 @@ namespace Game2
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Azure);
 
             foreach (GameObject gameObject in allObjects)
             {
