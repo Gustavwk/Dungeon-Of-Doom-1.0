@@ -8,18 +8,22 @@ namespace Game2
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game
+    public class GameMain : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        Texture2D wallPicutreTexture2D;
         private List<GameObject> allObjects = new List<GameObject>();
-
-        public Game1()
+        
+        public GameMain()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            allObjects.Add(new Wall(wallPicutreTexture2D,0,0));
+            
         }
+
+     
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -41,10 +45,10 @@ namespace Game2
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            wallPicutreTexture2D = Content.Load<Texture2D>("wall/brick_gray_0");
+            // Create a new SpriteBatch, which can be used to draw textures
             // TODO: use this.Content to load your game content here
+
         }
 
         /// <summary>
@@ -81,11 +85,13 @@ namespace Game2
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+    
             GraphicsDevice.Clear(Color.Azure);
-
             foreach (GameObject gameObject in allObjects)
             {
+                spriteBatch.Begin();
                 gameObject.Draw(gameTime);
+                spriteBatch.End();
             }
 
             // TODO: Add your drawing code here

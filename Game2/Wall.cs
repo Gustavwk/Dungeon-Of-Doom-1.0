@@ -4,20 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2
 {
     class Wall : GameObject
     {
-        private int coordinateX;
-        private int coordinateY;
+        private SpriteBatch spriteBatch;
+        private Texture2D wallPicture;
+        private int posX;
+        private int posY;
+        
 
 
-        public Wall(int coordinateX, int coordinateY)
+        public Wall( Texture2D wallPicture, int posX, int posY)
         {
-            this.coordinateX = coordinateX;
-            this.coordinateY = coordinateY;
+            this.wallPicture = wallPicture;
+            this.posX = posX;
+            this.posY = posY; 
+
         }
+
+       
 
         public override void Update(GameTime gameTime)
         {
@@ -28,9 +36,15 @@ namespace Game2
 
         public override void Draw(GameTime gameTime)
         {
-          //  "Wall" skal tegnes her. 
+           
+            base.Draw(gameTime);
+            spriteBatch.Draw(wallPicture, new Rectangle(posX, posY, 50, 50), Color.White);
+          
+            //  "Wall" skal tegnes her. 
+           
         }
 
-        
+       
+
     }
 }

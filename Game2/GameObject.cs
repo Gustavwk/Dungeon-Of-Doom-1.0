@@ -19,5 +19,9 @@ namespace Game2
             // skal også overskrives fra de enkelt objekter.
         }
 
+        public virtual void Load()
+        {
+            //skal overskrives for de enkelte objekter
+        }
     }
 }
