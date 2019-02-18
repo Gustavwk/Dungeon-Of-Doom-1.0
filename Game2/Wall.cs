@@ -17,7 +17,7 @@ namespace Game2
         
 
 
-        public Wall( Texture2D wallPicture, int posX, int posY)
+        public Wall ( Texture2D wallPicture, int posX, int posY)
         {
             this.wallPicture = wallPicture;
             this.posX = posX;
@@ -39,6 +39,8 @@ namespace Game2
            
             base.Draw(gameTime);
             spriteBatch.Draw(wallPicture, new Rectangle(posX, posY, 50, 50), Color.White);
+            
+
           
             //  "Wall" skal tegnes her. 
            

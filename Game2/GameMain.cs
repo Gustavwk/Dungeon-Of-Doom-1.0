@@ -17,6 +17,7 @@ namespace Game2
         
         public GameMain()
         {
+            
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             allObjects.Add(new Wall(wallPicutreTexture2D,0,0));
@@ -45,6 +46,8 @@ namespace Game2
         /// </summary>
         protected override void LoadContent()
         {
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+
             wallPicutreTexture2D = Content.Load<Texture2D>("wall/brick_gray_0");
             // Create a new SpriteBatch, which can be used to draw textures
             // TODO: use this.Content to load your game content here
@@ -90,10 +93,11 @@ namespace Game2
             foreach (GameObject gameObject in allObjects)
             {
                 spriteBatch.Begin();
-                gameObject.Draw(gameTime);
+                spriteBatch.Draw(wallPicutreTexture2D, new Rectangle(0, 0, 50, 50), Color.White);
+                //gameObject.Draw(gameTime);
                 spriteBatch.End();
             }
-
+            
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
