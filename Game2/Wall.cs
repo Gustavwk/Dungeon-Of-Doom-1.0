@@ -10,6 +10,7 @@ namespace Game2
 {
     class Wall : GameObject
     {
+        
         private SpriteBatch spriteBatch;
         private Texture2D wallPicture;
         private int posX;
