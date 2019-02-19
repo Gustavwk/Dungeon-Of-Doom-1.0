@@ -19,6 +19,7 @@ namespace Game2
         {
             
             graphics = new GraphicsDeviceManager(this);
+            GameHolder.Game = this;
             Content.RootDirectory = "Content";
             allObjects.Add(new Wall(wallPicutreTexture2D,0,0));
             

@@ -27,7 +27,6 @@ namespace Game2
         }
 
        
-
         public override void Update(GameTime gameTime)
         {
             // her er evt logik for en wall

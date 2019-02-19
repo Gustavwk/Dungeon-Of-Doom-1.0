@@ -30,7 +30,10 @@ namespace Game2
             this.playerPicture = playerPicture; 
         }
 
-
+        public Player() : base (GameHolder.Game)
+        {
+            playerPicture = GameHolder.Game.Content.Load<Texture2D>("player/bloody");
+        }
 
         public Player ( Texture2D) // Jeg forstår ikke hvad det her er ? - Det virker som om at du vil tilføje player til en liste med et Texture2D parameter. Dette skal gøres i main, hvis det altså du altså vil tilføje Player til allObjects 
         {
