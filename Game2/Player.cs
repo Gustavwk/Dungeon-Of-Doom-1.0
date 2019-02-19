@@ -56,8 +56,8 @@ namespace Game2
 
         public override void Draw(GameTime gameTime)
         {
-            position = new Rectangle(x, y, HEIGHT, WIDTH);
-            spriteBatch.Draw(Player, position, Color.White);
+            Rectangle position = new Rectangle(posX, posY, HEIGHT, WIDTH);
+            spriteBatch.Draw(playerPicture, position, Color.White);
         }
 
         private class Keyboard
