@@ -15,7 +15,7 @@ namespace Game2
         private Texture2D playerPicture;
         private int posX;
         private int posY;
-        private MyPlaywwer MyPlayer;
+        private MyPlayer MyPlayer;
         private int MoveSpeed;
         private int WIDTH, HEIGHT;
 
@@ -33,31 +33,31 @@ namespace Game2
 
         public Player ( Texture2D)
         {
-            Player.add(new Player());
+            Player.add(new Player(posX, posY));
         }
 
 
         public void Update(GameTime gameTime)
         {
 
-            if (Keyboard.GetState().IsKeyDown(Keys.d))
-                Player.posx = Player.posx + Player.MoveSpeed;
+            if (Keyboard.GetState().IsKeyDown(Keys.D))
+                Player.posX = Player.posX + Player.MoveSpeed;
 
-            if (Keyboard.GetState().IsKeyDown(Keys.a))
-                Player.posx = Player.posx - Player.MoveSpeed;
+            if (Keyboard.GetState().IsKeyDown(Keys.A))
+                Player.posX = Player.posX - Player.MoveSpeed;
 
-            if (Keyboard.GetState().IsKeyDown(Keys.s))
-                Player.posy = Player.posy - Player.MoveSpeed;
+            if (Keyboard.GetState().IsKeyDown(Keys.S))
+                Player.posY = Player.posY - Player.MoveSpeed;
 
-            if (Keyboard.GetState().IsKeyDown(Keys.w))
-                Player.posx = Player.posx + Player.MoveSpeed;
+            if (Keyboard.GetState().IsKeyDown(Keys.W))
+                Player.posY = Player.posY + Player.MoveSpeed;
         }
 
 
         public override void Draw(GameTime gameTime)
         {
-            position = new Rectangle(x, y, HEIGHT, WIDTH);
-            spriteBatch.Draw(Player, position, Color.White);
+            Rectangle position = new Rectangle(posX, posY, HEIGHT, WIDTH);
+            spriteBatch.Draw(playerPicture, position, Color.White);
         }
 
         private class Keyboard
