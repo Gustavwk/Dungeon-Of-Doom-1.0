@@ -18,7 +18,7 @@ namespace Game2
         private MyPlayer MyPlayer;
         private int MoveSpeed;
         private int WIDTH, HEIGHT; 
-
+        
 
         public Player(Texture2D playerPicture, int posX, int posY)
         {
@@ -40,17 +40,19 @@ namespace Game2
 
         public override void Update(GameTime gameTime) // Det her kan ikke compiles for mig. 
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.d))
-                Player.posX = Player.posx + Player.MoveSpeed;
+            KeyboardState key = Keyboard.GetState();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.a))
-                Player.posx = Player.posx - Player.MoveSpeed;
+            if (key.IsKeyDown(Keys.D))
+                this.posX = this.posX + this.MoveSpeed;
 
-            if (Keyboard.GetState().IsKeyDown(Keys.s))
-                Player.posy = Player.posy - Player.MoveSpeed;
+            if (key.IsKeyDown(Keys.A))
+                this.posX = this.posX - this.MoveSpeed;
 
-            if (Keyboard.GetState().IsKeyDown(Keys.w))
-                Player.posx = Player.posx + Player.MoveSpeed;
+            if (key.IsKeyDown(Keys.S))
+                this.posY = this.posY + this.MoveSpeed;
+
+            if (key.IsKeyDown(Keys.W))
+                this.posY = this.posY - this.MoveSpeed;
         }
 
 
@@ -60,12 +62,12 @@ namespace Game2
             spriteBatch.Draw(playerPicture, position, Color.White);
         }
 
-        private class Keyboard
+        /*private class Keyboard
         {
             internal static object GetState()
             {
                 throw new NotImplementedException();
             }
-        }
+        }*/
     }
 }
