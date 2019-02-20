@@ -19,7 +19,7 @@ namespace Game2
             // skal også overskrives fra de enkelt objekter.
         }
 
-        public virtual void Load()
+        public virtual void Load(GameTime gameTime)
         {
             //skal overskrives for de enkelte objekter
         }

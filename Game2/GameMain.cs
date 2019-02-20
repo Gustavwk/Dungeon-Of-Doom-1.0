@@ -22,6 +22,7 @@ namespace Game2
             GameHolder.Game = this;
             Content.RootDirectory = "Content";
             allObjects.Add(new Wall(wallPicutreTexture2D,0,0));
+            allObjects.Add(new Player(0,0));
             
         }
 
@@ -95,7 +96,7 @@ namespace Game2
             {
                 spriteBatch.Begin();
                 spriteBatch.Draw(wallPicutreTexture2D, new Rectangle(0, 0, 50, 50), Color.White);
-                //gameObject.Draw(gameTime);
+                gameObject.Draw(gameTime);
                 spriteBatch.End();
             }
             

@@ -38,7 +38,7 @@ namespace Game2
         {
            
             base.Draw(gameTime);
-            spriteBatch.Draw(wallPicture, new Rectangle(posX, posY, 50, 50), Color.White);
+            //spriteBatch.Draw(wallPicture, new Rectangle(posX, posY, 50, 50), Color.White);
             
 
           

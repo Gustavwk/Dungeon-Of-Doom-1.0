@@ -20,27 +20,21 @@ namespace Game2
         private int WIDTH, HEIGHT; 
         
 
-        public Player(Texture2D playerPicture, int posX, int posY)
+        public Player( int posX, int posY)
         {
             HEIGHT = 50; // Jeg kan ikke helt forså hvorfor disse er difineret i vores constructer. Jeg synes umiddelbart de skal skal når man laver player objektet. 
             WIDTH = 20;
             MoveSpeed = 2;
             this.posX = posX; //Jeg har laver posx/y og players texture om så de defineres når man skaber objektet. 
             this.posY = posY;
-            this.playerPicture = playerPicture; 
         }
 
-        public Player() : base (GameHolder.Game)
+        public override void Load(GameTime gameTime) //jeg har prøvet at override Load men jeg får stadig en nullpointer når jeg prøver at køre det. 
         {
             playerPicture = GameHolder.Game.Content.Load<Texture2D>("player/bloody");
         }
 
-        public Player ( Texture2D) // Jeg forstår ikke hvad det her er ? - Det virker som om at du vil tilføje player til en liste med et Texture2D parameter. Dette skal gøres i main, hvis det altså du altså vil tilføje Player til allObjects 
-        {
-            Player.add(new Player());
-        }
-
-
+       
         public override void Update(GameTime gameTime) // Det her kan ikke compiles for mig. 
         {
             KeyboardState key = Keyboard.GetState();
@@ -61,8 +55,7 @@ namespace Game2
 
         public override void Draw(GameTime gameTime)
         {
-            Rectangle position = new Rectangle(posX, posY, HEIGHT, WIDTH);
-            spriteBatch.Draw(playerPicture, position, Color.White);
+            spriteBatch.Draw(playerPicture ,new Rectangle(this.posX,this.posY, 50, 50), Color.White);
         }
 
         /*private class Keyboard
