@@ -22,7 +22,7 @@ namespace Game2
             GameHolder.Game = this;
             Content.RootDirectory = "Content";
             allObjects.Add(new Wall(wallPicutreTexture2D,0,0));
-            allObjects.Add(new Player(0,0));
+            allObjects.Add(new Player(100,0));
             
         }
 
@@ -49,6 +49,11 @@ namespace Game2
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            foreach (GameObject gameObject in allObjects)
+            {
+                gameObject.Load();
+            }
 
             wallPicutreTexture2D = Content.Load<Texture2D>("wall/brick_gray_0");
             // Create a new SpriteBatch, which can be used to draw textures
@@ -92,14 +97,17 @@ namespace Game2
         {
     
             GraphicsDevice.Clear(Color.Azure);
+            spriteBatch.Begin();
+
+            spriteBatch.Draw(wallPicutreTexture2D, new Rectangle(0, 0, 50, 50), Color.White);
             foreach (GameObject gameObject in allObjects)
             {
-                spriteBatch.Begin();
-                spriteBatch.Draw(wallPicutreTexture2D, new Rectangle(0, 0, 50, 50), Color.White);
-                gameObject.Draw(gameTime);
-                spriteBatch.End();
+              
+                
+                gameObject.Draw(spriteBatch, gameTime);
+               
             }
-            
+            spriteBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

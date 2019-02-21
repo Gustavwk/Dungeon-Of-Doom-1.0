@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2
 {
@@ -14,12 +15,12 @@ namespace Game2
           // skal overskrives for de enkelte objekter .
         }
 
-        public virtual void Draw(GameTime gameTime)
+        public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             // skal også overskrives fra de enkelt objekter.
         }
 
-        public virtual void Load(GameTime gameTime)
+        public virtual void Load()
         {
             //skal overskrives for de enkelte objekter
         }

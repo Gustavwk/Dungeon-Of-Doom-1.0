@@ -11,7 +11,7 @@ namespace Game2
     class Wall : GameObject
     {
         
-        private SpriteBatch spriteBatch;
+        
         private Texture2D wallPicture;
         private int posX;
         private int posY;
@@ -34,10 +34,10 @@ namespace Game2
             base.Update(gameTime);
         }
 
-        public override void Draw(GameTime gameTime)
+        public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
            
-            base.Draw(gameTime);
+            //base.Draw(gameTime);
             //spriteBatch.Draw(wallPicture, new Rectangle(posX, posY, 50, 50), Color.White);
             
 

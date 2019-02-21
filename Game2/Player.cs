@@ -11,7 +11,7 @@ namespace Game2
 {
     class Player : GameObject
     {
-        private SpriteBatch spriteBatch;
+        
         private Texture2D playerPicture;
         private int posX;
         private int posY;
@@ -29,7 +29,7 @@ namespace Game2
             this.posY = posY;
         }
 
-        public override void Load(GameTime gameTime) //jeg har prøvet at override Load men jeg får stadig en nullpointer når jeg prøver at køre det. 
+        public override void Load() //jeg har prøvet at override Load men jeg får stadig en nullpointer når jeg prøver at køre det. 
         {
             playerPicture = GameHolder.Game.Content.Load<Texture2D>("player/bloody");
         }
@@ -53,7 +53,7 @@ namespace Game2
         }
 
 
-        public override void Draw(GameTime gameTime)
+        public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             spriteBatch.Draw(playerPicture ,new Rectangle(this.posX,this.posY, 50, 50), Color.White);
         }
