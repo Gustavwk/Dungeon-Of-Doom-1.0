@@ -15,9 +15,9 @@ namespace Game2
         private Texture2D playerPicture;
         private int posX;
         private int posY;
-        private MyPlayer MyPlayer;
+        private MyPlayer MyPlayer; //Hvad er det? Bliver ikke brugt pt
         private int MoveSpeed;
-        private int WIDTH, HEIGHT; 
+        private int WIDTH, HEIGHT; //same
         
 
         public Player( int posX, int posY)
@@ -57,13 +57,5 @@ namespace Game2
         {
             spriteBatch.Draw(playerPicture ,new Rectangle(this.posX,this.posY, 50, 50), Color.White);
         }
-
-        /*private class Keyboard
-        {
-            internal static object GetState()
-            {
-                throw new NotImplementedException();
-            }
-        }*/
     }
 }
