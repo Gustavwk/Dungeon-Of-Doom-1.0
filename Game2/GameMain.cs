@@ -12,7 +12,6 @@ namespace Game2
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D wallPicutreTexture2D;
         private List<GameObject> allObjects = new List<GameObject>();
         
         public GameMain()
@@ -21,7 +20,7 @@ namespace Game2
             graphics = new GraphicsDeviceManager(this);
             GameHolder.Game = this;
             Content.RootDirectory = "Content";
-            allObjects.Add(new Wall(wallPicutreTexture2D,0,0));
+            allObjects.Add(new Wall(,0,0));
             allObjects.Add(new Player(100,0));
             
         }
@@ -55,7 +54,6 @@ namespace Game2
                 gameObject.Load();
             }
 
-            wallPicutreTexture2D = Content.Load<Texture2D>("wall/brick_gray_0");
             // Create a new SpriteBatch, which can be used to draw textures
             // TODO: use this.Content to load your game content here
 
@@ -99,11 +97,9 @@ namespace Game2
             GraphicsDevice.Clear(Color.Azure);
             spriteBatch.Begin();
 
-            spriteBatch.Draw(wallPicutreTexture2D, new Rectangle(0, 0, 50, 50), Color.White);
             foreach (GameObject gameObject in allObjects)
             {
-              
-                
+
                 gameObject.Draw(spriteBatch, gameTime);
                
             }

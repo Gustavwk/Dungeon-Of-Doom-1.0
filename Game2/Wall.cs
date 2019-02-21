@@ -12,38 +12,35 @@ namespace Game2
     {
         
         
-        private Texture2D wallPicture;
+        private Texture2D defaultWall;
         private int posX;
         private int posY;
         
 
 
-        public Wall ( Texture2D wallPicture, int posX, int posY)
+        public Wall ( int posX, int posY)
         {
-            this.wallPicture = wallPicture;
+      
             this.posX = posX;
             this.posY = posY; 
 
         }
 
-       
+        public override void Load()
+        {
+           defaultWall = GameHolder.Game.Content.Load<Texture2D>("wall/brick_gray_0.");
+        }
+
+
         public override void Update(GameTime gameTime)
         {
-            // her er evt logik for en wall
-            // kalder gameobjekts update metode
             base.Update(gameTime);
         }
 
+
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-           
-            //base.Draw(gameTime);
-            //spriteBatch.Draw(wallPicture, new Rectangle(posX, posY, 50, 50), Color.White);
-            
-
-          
-            //  "Wall" skal tegnes her. 
-           
+            spriteBatch.Draw(defaultWall,new Rectangle(this.posX,this.posY, 32, 32), Color.White);
         }
 
        
