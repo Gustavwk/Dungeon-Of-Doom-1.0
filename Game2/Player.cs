@@ -11,21 +11,21 @@ namespace Game2
 {
     class Player : GameObject
     {
-        
+
         private Texture2D playerPicture;
         private int posX;
         private int posY;
-        private MyPlayer MyPlayer;
+        private MyPlayer MyPlayer; //Hvad er det? Bliver ikke brugt pt
         private int MoveSpeed;
-        private int WIDTH, HEIGHT; 
-        
+        private int WIDTH, HEIGHT; //same
+
 
         public Player( int posX, int posY)
         {
-            HEIGHT = 32; 
+            HEIGHT = 32;
             WIDTH = 32;
             MoveSpeed = 2;
-            this.posX = posX; 
+            this.posX = posX;
             this.posY = posY;
         }
 
@@ -34,8 +34,8 @@ namespace Game2
             playerPicture = GameHolder.Game.Content.Load<Texture2D>("player/bloody");
         }
 
-       
-        public override void Update(GameTime gameTime) 
+
+        public override void Update(GameTime gameTime)
         {
             KeyboardState key = Keyboard.GetState();
 
@@ -57,7 +57,5 @@ namespace Game2
         {
             spriteBatch.Draw(playerPicture ,new Rectangle(this.posX,this.posY, 50, 50), Color.White);
         }
-
-  
     }
 }
