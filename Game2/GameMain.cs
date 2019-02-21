@@ -20,7 +20,7 @@ namespace Game2
             graphics = new GraphicsDeviceManager(this);
             GameHolder.Game = this;
             Content.RootDirectory = "Content";
-            allObjects.Add(new Wall(,0,0));
+            allObjects.Add(new Wall(0,0));
             allObjects.Add(new Player(100,0));
             
         }

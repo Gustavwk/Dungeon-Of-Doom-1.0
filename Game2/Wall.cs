@@ -28,7 +28,7 @@ namespace Game2
 
         public override void Load()
         {
-           defaultWall = GameHolder.Game.Content.Load<Texture2D>("wall/brick_gray_0.");
+           defaultWall = GameHolder.Game.Content.Load<Texture2D>("wall/brick_gray_0");
         }
 
 

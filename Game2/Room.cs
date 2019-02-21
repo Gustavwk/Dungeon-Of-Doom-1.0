@@ -12,9 +12,9 @@ namespace Game2
     {
         List<Wall> walls = new List<Wall>();
 
-        //hej xD
-        //adfadsfadsfadsf
-        //rgthjk
+        public Room()
+        {
+        }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
