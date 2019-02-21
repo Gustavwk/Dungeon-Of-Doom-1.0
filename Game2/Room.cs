@@ -22,7 +22,7 @@ namespace Game2
             {
                 wall.Draw(spriteBatch, gameTime);
             }
-            
+
         }
     }
 }
