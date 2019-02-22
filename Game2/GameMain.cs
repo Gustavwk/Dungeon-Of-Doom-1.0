@@ -22,6 +22,7 @@ namespace Game2
             Content.RootDirectory = "Content";
             allObjects.Add(new Wall(0,0));
             allObjects.Add(new Player(100,0));
+            //allObjects.Add(new Room());
             
         }
 
