@@ -20,13 +20,17 @@ namespace Game2
         private int  unitPosY;                                       //Holder styr på hvor den næste wall sættes på y-aksen
         private int prevUnitPosX;                                //Holder styr på hvor den sidste wall blev sat på x-aksen  - Denne bliver ikke brugt pt.
         private int prevUnitPosY;                                //Holder styr på hvor den sidste wall blev sat på y-aksen  - Denne bliver ikke brugt pt.
-
+        private int resX;                                             //Resolution x-akse
+        private int resY;                                             //Resolution y-akse
         List<Wall> walls = new List<Wall>();
 
         public Room(int borderX, int borderY)
         {
+            this.resX = borderX;
+            this.resY = borderY;
             this.unitsAvailableX = borderX / this.unit;
             this.unitsAvailableY = borderY / this.unit;
+           
             porpulateRoom();
         }
 
@@ -40,7 +44,8 @@ namespace Game2
 
         public void porpulateRoom()
         {
-            for (int i = 0; i < unitsAvailableX; i++)
+            
+            for (int i = 0; i < unitsAvailableX; i++) 
             {
                 /*
                  * Første wall bliver lavet på unitPosX(0), unitPosY(0).
@@ -49,15 +54,23 @@ namespace Game2
                  * Næste Wall bliver lavet på unitPosX(32), unitPosY(0)
                  * ....
                  * Dette sker indtil i < unitAvailableX
+                 *
+                 * Når mans sætter et object til at "spawne" uden for et gyldigt x eller y, sætter den x / y til 0.
+                 * Den anden wall der bliver sat i  dette loop bliver sat på det samme X-koordinat, men med et Y-koordinat
+                 * der er skærmens højre - unit (32 - Dette gør at billedet går lige til kanten).
                  */
               
                 walls.Add(new Wall(unitPosX,0));
+                //Console.WriteLine("Wall(Outer) Placed at: X" + unitPosX + " Y:" + unitPosY);
+
+                walls.Add(new Wall(unitPosX,resY-unit));
+                //Console.WriteLine("Wall(Inner) Placed at: X" + unitPosX + " Y:" + unitPosY);
+
                 prevUnitPosX = unitPosX;       
                 unitPosX = unitPosX+unit;
-                Console.WriteLine("Wall Placed at: X" + unitPosX + " Y:" + unitPosY);
+                
             }
-
-    
+          
 
             for (int i = 0; i < unitsAvailableY; i++)
             {
@@ -68,15 +81,24 @@ namespace Game2
                  * Næste Wall bliver lavet på unitPosX(0), unitPosY(32)
                  * ....
                  * Dette sker indtil i < unitAvailableY
+                 *
+                 * Når mans sætter et object til at "spawne" uden for et gyldigt x eller y, sætter den x / y til 0.
+                 * Den anden wall der bliver sat i i dette loop bliver sat på det samme Y-koordinat, men med et X-koordinat
+                 * der er skærmens højre - unit (32 - Dette gør at billedet går lige til kanten).
                  */
-                
+
                 walls.Add(new Wall(0,unitPosY));
+                //Console.WriteLine("Wall(Outer) Placed at: X" + unitPosX + " Y:" + unitPosY);
+
+                walls.Add(new Wall(resX-unit, unitPosY));
+                //Console.WriteLine("Wall(Inner) Placed at: X" + unitPosX + " Y:" + unitPosY);
+
                 prevUnitPosY = unitPosY;
                 unitPosY = unitPosY+unit;
-                Console.WriteLine("Wall Placed at: X" + unitPosX + " Y:" + unitPosY);
+               
             }
         }
-
+        
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             foreach (Wall wall in walls)
