@@ -11,21 +11,31 @@ namespace Game2
    
     class Room : GameObject
     {
-        //800 x 480 pixels er vores nuværende x og y - dette kan sikkert gøres mere scalable
+                                                                                 //800 x 480 pixels er vores nuværende x og y - dette kan sikkert gøres mere scalable
        
-        private static int unit = 32;                               //Den fælles sidelænge på det wall-billede vi bruger!
-        private int unitsAvailableX = 800 / unit;          //Længden af skærmen delt i 32
-        private int unitsAvailableY = 480 / unit;          //Højden af skærmen delt i 32
+        private int unit = 32;                                       //Den fælles sidelænge på det wall-billede vi bruger!
+        private int unitsAvailableX;                              //Længden af skærmen - bliver delt i 32 i Room();
+        private int unitsAvailableY;                              //Højden af skærmen - bliver delt i 32 i Room();
         private int unitPosX;                                        //Holder styr på hvor den næste wall sættes på x-aksen
         private int  unitPosY;                                       //Holder styr på hvor den næste wall sættes på y-aksen
-        private int prevUnitPosX;                                //Holder styr på hvor den sidste wall blev sat på x-aksen
-        private int prevUnitPosY;                                //Holder styr på hvr den sidste wall blev sat på y-aksen
+        private int prevUnitPosX;                                //Holder styr på hvor den sidste wall blev sat på x-aksen  - Denne bliver ikke brugt pt.
+        private int prevUnitPosY;                                //Holder styr på hvor den sidste wall blev sat på y-aksen  - Denne bliver ikke brugt pt.
 
         List<Wall> walls = new List<Wall>();
 
-        public Room()
+        public Room(int borderX, int borderY)
         {
+            this.unitsAvailableX = borderX / this.unit;
+            this.unitsAvailableY = borderY / this.unit;
             porpulateRoom();
+        }
+
+        public override void Load()
+        {
+            foreach (var Wall in walls)
+            {
+                Wall.Load();                                            //Loader alle billederne den skal bruge!
+            }
         }
 
         public void porpulateRoom()
@@ -40,11 +50,14 @@ namespace Game2
                  * ....
                  * Dette sker indtil i < unitAvailableX
                  */
-                unitPosX = 0;
-                walls.Add(new Wall(unitPosX,unitPosY));
+              
+                walls.Add(new Wall(unitPosX,0));
                 prevUnitPosX = unitPosX;       
-                unitPosX = +unit;
+                unitPosX = unitPosX+unit;
+                Console.WriteLine("Wall Placed at: X" + unitPosX + " Y:" + unitPosY);
             }
+
+    
 
             for (int i = 0; i < unitsAvailableY; i++)
             {
@@ -56,10 +69,11 @@ namespace Game2
                  * ....
                  * Dette sker indtil i < unitAvailableY
                  */
-                unitPosX = 0;
-                walls.Add(new Wall(unitPosX,unitPosY));
+                
+                walls.Add(new Wall(0,unitPosY));
                 prevUnitPosY = unitPosY;
-                unitPosY = +unit;
+                unitPosY = unitPosY+unit;
+                Console.WriteLine("Wall Placed at: X" + unitPosX + " Y:" + unitPosY);
             }
         }
 
