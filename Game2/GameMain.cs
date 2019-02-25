@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Game2.Structures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -20,7 +21,7 @@ namespace Game2
             graphics = new GraphicsDeviceManager(this);
             GameHolder.Game = this;
             Content.RootDirectory = "Content";
-            allObjects.Add(new Player(100,0));
+            allObjects.Add(new Player.Player(100,0));
             allObjects.Add(new Room(800,480));
             allObjects.Add(new HealthBoost(60,60,60));
             
