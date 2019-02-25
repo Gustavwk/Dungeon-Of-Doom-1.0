@@ -17,10 +17,12 @@ namespace Game2
         private int posY;
         private int MoveSpeed;
         private int WIDTH, HEIGHT;
+        private int health;
 
 
-        public Player( int posX, int posY)
+        public Player(int posX, int posY)
         {
+            health = 100;
             HEIGHT = 32;
             WIDTH = 32;
             MoveSpeed = 2;
@@ -33,8 +35,7 @@ namespace Game2
             playerPicture = GameHolder.Game.Content.Load<Texture2D>("player/bloody");
         }
 
-
-        public override void Update(GameTime gameTime)
+        public void movement()
         {
             KeyboardState key = Keyboard.GetState();
 
@@ -49,6 +50,11 @@ namespace Game2
 
             if (key.IsKeyDown(Keys.W))
                 this.posY = this.posY - this.MoveSpeed;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            movement();
         }
 
 
