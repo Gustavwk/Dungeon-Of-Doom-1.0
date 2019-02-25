@@ -12,7 +12,7 @@ namespace Game2
     {
         public virtual void Update(GameTime gameTime)
         {
-          // skal overskrives for de enkelte objekter .
+            // skal overskrives for de enkelte objekter .
         }
 
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -24,5 +24,7 @@ namespace Game2
         {
             //skal overskrives for de enkelte objekter
         }
+
+
     }
 }

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Game2.Structures;
 
-namespace Game2
+namespace Game2.Player
 {
     class Player : GameObject
     {
@@ -39,6 +40,7 @@ namespace Game2
         {
             KeyboardState key = Keyboard.GetState();
 
+            
             if (key.IsKeyDown(Keys.D))
                 this.posX = this.posX + this.MoveSpeed;
 
@@ -55,7 +57,7 @@ namespace Game2
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(playerPicture ,new Rectangle(this.posX,this.posY, 50, 50), Color.White);
+            spriteBatch.Draw(playerPicture ,new Rectangle(this.posX,this.posY, 32, 32), Color.White);
         }
     }
 }
