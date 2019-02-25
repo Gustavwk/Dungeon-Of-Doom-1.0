@@ -18,6 +18,7 @@ namespace Game2
         private int MoveSpeed;
         private int WIDTH, HEIGHT;
         private int health;
+        private Boolean alive = true;
 
 
         public Player(int posX, int posY)
@@ -33,6 +34,16 @@ namespace Game2
         public override void Load()
         {
             playerPicture = GameHolder.Game.Content.Load<Texture2D>("player/bloody");
+        }
+
+        public Boolean isDead(Boolean alive)
+        {
+            if (health < 100)
+            {
+                alive = false;
+            }
+
+            return alive;
         }
 
         public void movement()
@@ -55,6 +66,7 @@ namespace Game2
         public override void Update(GameTime gameTime)
         {
             movement();
+
         }
 
 
