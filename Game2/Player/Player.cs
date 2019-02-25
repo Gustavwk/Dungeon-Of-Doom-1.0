@@ -15,9 +15,8 @@ namespace Game2
         private Texture2D playerPicture;
         private int posX;
         private int posY;
-        private MyPlayer MyPlayer; //Hvad er det? Bliver ikke brugt pt
         private int MoveSpeed;
-        private int WIDTH, HEIGHT; //same
+        private int WIDTH, HEIGHT;
 
 
         public Player( int posX, int posY)
