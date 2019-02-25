@@ -42,14 +42,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GameHolder.cs" />
+    <Compile Include="Items\HealthBoost.cs" />
+    <Compile Include="Items\Items.cs" />
     <Compile Include="MyPlayer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="GameMain.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Room.cs" />
-    <Compile Include="Wall.cs" />
+    <Compile Include="Structures\Room.cs" />
+    <Compile Include="Structures\Wall.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
