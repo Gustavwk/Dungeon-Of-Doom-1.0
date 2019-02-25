@@ -21,6 +21,46 @@ namespace Game2.Player
         private int health;
         private Boolean alive = true;
 
+        private Boolean north = false;
+        private Boolean south = false;
+        private Boolean east = false;
+        private Boolean west = false;
+
+        /*
+         * Nedenstående er setters der afgører hvilken retning spilelren går, de bliver brugt i movement.
+         */
+
+        public void setDirectionNorth()
+        {
+            this.north = true;
+            this.east = false;
+            this.west = false;
+            this.south = false;
+        }
+        public void setDirectionEast()
+        {
+            this.south = false;
+            this.north = false;
+            this.east = true;
+            this.west = false;
+
+        }
+        public void setDirectionWest()
+        {
+            this.east = false;
+            this.west = true;
+            this.south = false;
+            this.north = true;
+
+        }
+        public void setDirectionSouth()
+        {
+            this.south = true;
+            this.west = false;
+            this.east = false;
+            this.north = false;
+        }
+
 
         public Player(int posX, int posY)
         {
@@ -32,6 +72,7 @@ namespace Game2.Player
             this.posY = posY;
         }
 
+    
         public override void Load()
         {
             playerPicture = GameHolder.Game.Content.Load<Texture2D>("player/bloody");
@@ -39,36 +80,47 @@ namespace Game2.Player
 
         public Boolean isDead(Boolean alive)
         {
-            if (health < 100)
+            if (health >= 0)
             {
-                alive = false;
+                this.alive = false;
             }
 
-            return alive;
+            return this.alive;
         }
 
         public void movement()
         {
             KeyboardState key = Keyboard.GetState();
 
-            
+
             if (key.IsKeyDown(Keys.D))
+            {
+                setDirectionEast();
                 this.posX = this.posX + this.MoveSpeed;
+            }
 
             if (key.IsKeyDown(Keys.A))
+            {
+                setDirectionWest();
                 this.posX = this.posX - this.MoveSpeed;
+            }
 
             if (key.IsKeyDown(Keys.S))
+            {
+                setDirectionSouth();
                 this.posY = this.posY + this.MoveSpeed;
+            }
 
             if (key.IsKeyDown(Keys.W))
+            {
+                setDirectionNorth();
                 this.posY = this.posY - this.MoveSpeed;
+            }
         }
 
         public override void Update(GameTime gameTime)
         {
             movement();
-
         }
 
 

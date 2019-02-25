@@ -45,8 +45,7 @@ namespace Game2
          * posX, posY og en defaultSprite. Når disse er i playerclassen kan man skrive alt hvad i har skrevet,
          * bare i denne her class. Dette betyder jo så at vi kan hive isTouching ned fra gameObjects istedet for at
          * den er specificeret til wall. jeg har ikke slettet noget af det i har skrevet i wall, hvis nu jeg skulle have
-         * misforstået noget. Den siger ligenu at der er en syntax fejl ved #region, men jeg kender ikke lige
-         * til syntaxen omkring det så det er beyond me at regne ud hvad den gør! 
+         * misforstået noget.
          */
 
         public Rectangle Rectangle
