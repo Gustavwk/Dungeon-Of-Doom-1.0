@@ -16,13 +16,15 @@ namespace Game2.Player
         private Texture2D playerPicture;
         private int posX;
         private int posY;
-        private MyPlayer MyPlayer; //Hvad er det? Bliver ikke brugt pt
         private int MoveSpeed;
-        private int WIDTH, HEIGHT; //same
+        private int WIDTH, HEIGHT;
+        private int health;
+        private Boolean alive = true;
 
 
-        public Player( int posX, int posY)
+        public Player(int posX, int posY)
         {
+            health = 100;
             HEIGHT = 32;
             WIDTH = 32;
             MoveSpeed = 2;
@@ -35,8 +37,17 @@ namespace Game2.Player
             playerPicture = GameHolder.Game.Content.Load<Texture2D>("player/bloody");
         }
 
+        public Boolean isDead(Boolean alive)
+        {
+            if (health < 100)
+            {
+                alive = false;
+            }
 
-        public override void Update(GameTime gameTime)
+            return alive;
+        }
+
+        public void movement()
         {
             KeyboardState key = Keyboard.GetState();
 
@@ -52,6 +63,12 @@ namespace Game2.Player
 
             if (key.IsKeyDown(Keys.W))
                 this.posY = this.posY - this.MoveSpeed;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            movement();
+
         }
 
 
