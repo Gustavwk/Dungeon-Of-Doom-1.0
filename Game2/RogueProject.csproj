@@ -44,8 +44,8 @@
     <Compile Include="GameHolder.cs" />
     <Compile Include="Items\HealthBoost.cs" />
     <Compile Include="Items\Items.cs" />
-    <Compile Include="MyPlayer.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Player\MyPlayer.cs" />
+    <Compile Include="Player\Player.cs" />
     <Compile Include="GameMain.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Program.cs" />

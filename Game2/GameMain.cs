@@ -22,6 +22,7 @@ namespace Game2
             Content.RootDirectory = "Content";
             allObjects.Add(new Player(100,0));
             allObjects.Add(new Room(800,480));
+            allObjects.Add(new HealthBoost(60,60,60));
             
         }
 
