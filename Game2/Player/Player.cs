@@ -39,9 +39,11 @@ namespace Game2.Player
         public void setDirectionNorth()
         {
             this.north = true;
-            this.east = false;
-            this.west = false;
-            this.south = false;
+            if (north)
+            {
+                this.posY = this.posY - this.MoveSpeed;
+            }
+
         }
         public void setDirectionEast()
         {
@@ -49,6 +51,7 @@ namespace Game2.Player
             this.north = false;
             this.east = true;
             this.west = false;
+            this.posX = this.posX + this.MoveSpeed;
 
         }
         public void setDirectionWest()
@@ -57,6 +60,7 @@ namespace Game2.Player
             this.west = true;
             this.south = false;
             this.north = true;
+            this.posX = this.posX - this.MoveSpeed;
 
         }
         public void setDirectionSouth()
@@ -65,6 +69,7 @@ namespace Game2.Player
             this.west = false;
             this.east = false;
             this.north = false;
+            this.posY = this.posY + this.MoveSpeed;
         }
 
 
@@ -79,10 +84,31 @@ namespace Game2.Player
            
         }
 
-        public override void intersects(GameObject gameObject)
+        public override void intersectsWithWall(GameObject player, GameObject wall)
         {
             Debug.WriteLine("Player Intersecs");
-            base.intersects(gameObject);
+
+            if (player.hitbox.Left == wall.hitbox.Right)
+            {
+
+            }
+            else if (player.hitbox.Top == wall.hitbox.Bottom)
+            {
+
+                setDirectionNorth();
+
+            }
+            else if  (player.hitbox.Right == wall.hitbox.Left)
+            {
+
+            }
+            else if (player.hitbox.Bottom == wall.hitbox.Top)
+            {
+              
+            }
+
+            base.intersectsWithWall(player, wall);
+
         }
 
         public override void Load()
@@ -108,25 +134,25 @@ namespace Game2.Player
             if (key.IsKeyDown(Keys.D))
             {
                 setDirectionEast();
-                this.posX = this.posX + this.MoveSpeed;
+               
             }
 
             if (key.IsKeyDown(Keys.A))
             {
                 setDirectionWest();
-                this.posX = this.posX - this.MoveSpeed;
+                
             }
 
             if (key.IsKeyDown(Keys.S))
             {
                 setDirectionSouth();
-                this.posY = this.posY + this.MoveSpeed;
+              
             }
 
             if (key.IsKeyDown(Keys.W))
             {
                 setDirectionNorth();
-                this.posY = this.posY - this.MoveSpeed;
+               
                 
             }
         }
@@ -146,10 +172,12 @@ namespace Game2.Player
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            
+            //Nedenstående tegner en hitbox
+            /*
             Texture2D texture = new Texture2D(spriteBatch.GraphicsDevice,1,1);
             texture.SetData(new Color[]{Color.Aqua});
             spriteBatch.Draw(texture, hitbox, Color.White);
+            */
             spriteBatch.Draw(playerPicture, hitbox, Color.White);
         }
 

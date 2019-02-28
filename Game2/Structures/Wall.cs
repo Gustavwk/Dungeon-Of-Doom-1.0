@@ -51,61 +51,16 @@ namespace Game2.Structures
         {
             
             spriteBatch.Draw(defaultWall,hitbox, Color.White);
+            //Nedenstående tegner en hitbox
+            /*
             Texture2D texture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
-            texture.SetData(new Color[] { Color.Aqua });
-            spriteBatch.Draw(texture, hitbox, Color.White);
-        }
-
-
-        #region Collision 
-        protected bool isTouchingLeft ( Wall Wall)
-        {
-            return this.Rectangle.Right + this.posX > Wall.Rectangle.Left &&
-                this.Rectangle.Left < Wall.Rectangle.Left &&
-                this.Rectangle.Bottom > Wall.Rectangle.Top &&
-                this.Rectangle.Top < Wall.Rectangle.Bottom;
+             texture.SetData(new Color[] { Color.Aqua });
+              spriteBatch.Draw(texture, hitbox, Color.White);
+                */
+}
 
 
 
 
-        }
-        protected bool isTouchingRight(Wall Wall)
-        {
-            return this.Rectangle.Left + this.posX > Wall.Rectangle.Right &&
-                this.Rectangle.Right < Wall.Rectangle.Right &&
-                this.Rectangle.Bottom > Wall.Rectangle.Top &&
-                this.Rectangle.Top < Wall.Rectangle.Bottom;
-
-
-
-
-        }
-        protected bool isTouchingTop(Wall Wall)
-        {
-            return this.Rectangle.Bottom + this.posX > Wall.Rectangle.Top &&
-                this.Rectangle.Top < Wall.Rectangle.Top &&
-                this.Rectangle.Right > Wall.Rectangle.Left &&
-                this.Rectangle.Left < Wall.Rectangle.Right;
-
-
-
-
-        }
-        protected bool isTouchingBottom(Wall Wall)
-        {
-            return this.Rectangle.Top + this.posX > Wall.Rectangle.Bottom &&
-                this.Rectangle.Bottom < Wall.Rectangle.Bottom &&
-                this.Rectangle.Right > Wall.Rectangle.Left &&
-                this.Rectangle.Left < Wall.Rectangle.Right;
-
-
-
-
-        }
-
-
-
-        #endregion
-
-    }
+}
 }

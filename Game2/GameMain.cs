@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Reflection;
 using Game2.Structures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -96,8 +98,9 @@ namespace Game2
                     {
                         if (player.hitbox.Intersects(w.hitbox))
                         {
-                            player.intersects(w);
+                            player.intersectsWithWall(player,w);
                         }
+                       
                     }
                   
                 }
@@ -105,7 +108,7 @@ namespace Game2
                     {
                         if (player.hitbox.Intersects(gameObject.hitbox))
                         {
-                            player.intersects(gameObject);
+                            player.intersectsWithWall(gameObject, gameObject);
                         }
                     }
                 
