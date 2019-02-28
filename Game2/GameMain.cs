@@ -14,16 +14,21 @@ namespace Game2
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private List<GameObject> allObjects = new List<GameObject>();
-        
+        Player.Player player;
+
         public GameMain()
         {
             
             graphics = new GraphicsDeviceManager(this);
             GameHolder.Game = this;
             Content.RootDirectory = "Content";
-            allObjects.Add(new Player.Player(100,0));
+            
+            player = new Player.Player(100,100);
+            allObjects.Add(player);
+            
             allObjects.Add(new Room(800,480));
             allObjects.Add(new HealthBoost(60,60,60));
+
             
         }
 
@@ -84,6 +89,29 @@ namespace Game2
             foreach (GameObject  gameObject in allObjects)
             {
                 gameObject.Update(gameTime);
+                if (gameObject is Room)
+                {
+                    Room room = (Room) gameObject;              //Tester alle walls i rummet.
+                    foreach (Wall w  in room.walls)
+                    {
+                        if (player.hitbox.Intersects(w.hitbox))
+                        {
+                            player.intersects(w);
+                        }
+                    }
+                  
+                }
+                else                                                                //Dette gælder for enkelte elementer
+                    {
+                        if (player.hitbox.Intersects(gameObject.hitbox))
+                        {
+                            player.intersects(gameObject);
+                        }
+                    }
+                
+
+                
+
             }
 
             base.Update(gameTime);

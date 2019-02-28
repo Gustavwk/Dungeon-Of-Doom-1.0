@@ -22,7 +22,9 @@ namespace Game2.Structures
         private int prevUnitPosY;                                //Holder styr på hvor den sidste wall blev sat på y-aksen  - Denne bliver ikke brugt pt.
         private int resX;                                             //Resolution x-akse
         private int resY;                                             //Resolution y-akse
-        List<Wall> walls = new List<Wall>();
+        
+       
+        public List<Wall> walls = new List<Wall>();
 
         public Room(int borderX, int borderY)
         {
@@ -61,6 +63,7 @@ namespace Game2.Structures
                  */
               
                 walls.Add(new Wall(unitPosX,0));
+             
                 //Console.WriteLine("Wall(Outer) Placed at: X" + unitPosX + " Y:" + unitPosY);
 
                 walls.Add(new Wall(unitPosX,resY-unit));

@@ -15,6 +15,7 @@ namespace Game2.Structures
         private Texture2D defaultWall;
         private int posX;
         private int posY;
+        public Rectangle hitbox;
         
              public Rectangle Rectangle
         {
@@ -29,6 +30,7 @@ namespace Game2.Structures
       
             this.posX = posX;
             this.posY = posY; 
+            this.hitbox = new Rectangle(this.posX,this.posY, 32,32);
 
         }
 
@@ -40,13 +42,18 @@ namespace Game2.Structures
 
         public override void Update(GameTime gameTime)
         {
+           
             base.Update(gameTime);
         }
 
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(defaultWall,new Rectangle(this.posX,this.posY, 32, 32), Color.White);
+            
+            spriteBatch.Draw(defaultWall,hitbox, Color.White);
+            Texture2D texture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+            texture.SetData(new Color[] { Color.Aqua });
+            spriteBatch.Draw(texture, hitbox, Color.White);
         }
 
 

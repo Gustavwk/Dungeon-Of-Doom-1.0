@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 using Game2.Structures;
@@ -14,13 +15,19 @@ namespace Game2
         /*
          * nye variabler for alle gameobjects
          */
-        private  Texture2D defaultSprite;
+        private Texture2D defaultSprite;
         private int posX;
         private int posY;
+        public Rectangle hitbox;
 
         public GameObject()
         {
 
+        }
+
+        public virtual void intersects(GameObject gameObject)
+        {
+            bool ost = true;
         }
 
         public virtual void Update(GameTime gameTime)
@@ -52,56 +59,63 @@ namespace Game2
         {
             get
             {
-                return new Rectangle(posX, posY, defaultSprite.Width, defaultSprite.Height);
+                return new Rectangle(this.posX, this.posY, defaultSprite.Width, defaultSprite.Height); 
+
             }
         }
-        
-        #region Collision 
-        protected bool isTouchingLeft(GameObject defaultGameObject)
-        {
-            return this.Rectangle.Right + this.posX > defaultGameObject.Rectangle.Left &&
-                   this.Rectangle.Left < defaultGameObject.Rectangle.Left &&
-                   this.Rectangle.Bottom > defaultGameObject.Rectangle.Top &&
-                   this.Rectangle.Top < defaultGameObject.Rectangle.Bottom;
 
+       // #region Collision 
 
-
-
-        }
-        protected bool isTouchingRight(GameObject defaultGameObject)
-        {
-            return this.Rectangle.Left + this.posX > defaultGameObject.Rectangle.Right &&
-                   this.Rectangle.Right < defaultGameObject.Rectangle.Right &&
-                   this.Rectangle.Bottom > defaultGameObject.Rectangle.Top &&
-                   this.Rectangle.Top < defaultGameObject.Rectangle.Bottom;
-
-
-
-
-        }
-        protected bool isTouchingTop(GameObject defaultGameObject)
-        {
-            return this.Rectangle.Bottom + this.posX > defaultGameObject.Rectangle.Top &&
-                   this.Rectangle.Top < defaultGameObject.Rectangle.Top &&
-                   this.Rectangle.Right > defaultGameObject.Rectangle.Left &&
-                   this.Rectangle.Left < defaultGameObject.Rectangle.Right;
-
-
-
-
-        }
-        protected bool isTouchingBottom(GameObject defaultGameObject)
-        {
-            return this.Rectangle.Top + this.posX > defaultGameObject.Rectangle.Bottom &&
-                   this.Rectangle.Bottom < defaultGameObject.Rectangle.Bottom &&
-                   this.Rectangle.Right > defaultGameObject.Rectangle.Left &&
-                   this.Rectangle.Left < defaultGameObject.Rectangle.Right;
-
-
-
-
-        }
-        #endregion
+        /* protected bool isTouchingLeft(GameObject defaultGameObject, GameObject defaultGameObjectTwo)
+         {
+             return 
+                     defaultGameObjectTwo.Rectangle.Right + this.posX > defaultGameObject.Rectangle.Left &&
+                     defaultGameObjectTwo.Rectangle.Left < defaultGameObject.Rectangle.Left &&
+                     defaultGameObjectTwo.Rectangle.Bottom > defaultGameObject.Rectangle.Top &&
+                     defaultGameObjectTwo.Rectangle.Top < defaultGameObject.Rectangle.Bottom;
+             /*
+              * Returnerer: 
+              
+ 
+ 
+ 
+         }
+         protected bool isTouchingRight(GameObject defaultGameObject)
+         {
+             return this.Rectangle.Left + this.posX > defaultGameObject.Rectangle.Right &&
+                    this.Rectangle.Right < defaultGameObject.Rectangle.Right &&
+                    this.Rectangle.Bottom > defaultGameObject.Rectangle.Top &&
+                    this.Rectangle.Top < defaultGameObject.Rectangle.Bottom;
+ 
+ 
+ 
+ 
+         }
+         protected bool isTouchingTop(GameObject defaultGameObject)
+         {
+             return this.Rectangle.Bottom + this.posX > defaultGameObject.Rectangle.Top &&
+                    this.Rectangle.Top < defaultGameObject.Rectangle.Top &&
+                    this.Rectangle.Right > defaultGameObject.Rectangle.Left &&
+                    this.Rectangle.Left < defaultGameObject.Rectangle.Right;
+ 
+ 
+ 
+ 
+         }
+         protected bool isTouchingBottom(GameObject defaultGameObject)
+         {
+             return this.Rectangle.Top + this.posX > defaultGameObject.Rectangle.Bottom &&
+                    this.Rectangle.Bottom < defaultGameObject.Rectangle.Bottom &&
+                    this.Rectangle.Right > defaultGameObject.Rectangle.Left &&
+                    this.Rectangle.Left < defaultGameObject.Rectangle.Right;
+ 
+ 
+ 
+ 
+         }
+         #endregion
+     
+     */
     }
 }
 
