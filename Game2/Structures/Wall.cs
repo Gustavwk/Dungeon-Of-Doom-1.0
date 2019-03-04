@@ -16,14 +16,11 @@ namespace Game2.Structures
         private int posX;
         private int posY;
         public Rectangle hitbox;
+        /*public int wall_Left;
+        public int wall_Right;
+        public int wall_Top;
+        public int wall_Bottom;*/
         
-             public Rectangle Rectangle
-        {
-            get
-            {
-                return new Rectangle( posX, posY, defaultWall.Width, defaultWall.Height);
-            }
-        }
 
         public Wall ( int posX, int posY)
         {
@@ -31,6 +28,11 @@ namespace Game2.Structures
             this.posX = posX;
             this.posY = posY; 
             this.hitbox = new Rectangle(this.posX,this.posY, 32,32);
+            /*this.wall_Left = this.hitbox.Left;
+            this.wall_Right = this.hitbox.Right;
+            this.wall_Bottom = this.hitbox.Bottom;
+            this.wall_Top = this.hitbox.Top;*/
+
 
         }
 

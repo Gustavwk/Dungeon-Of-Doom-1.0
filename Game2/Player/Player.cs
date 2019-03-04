@@ -26,6 +26,9 @@ namespace Game2.Player
         private int health;
         public Rectangle  hitbox;
         private Boolean alive = true;
+        private int prevPositionX;
+        private int prevPositionY;
+
 
         private Boolean north = false;
         private Boolean south = false;
@@ -39,10 +42,14 @@ namespace Game2.Player
         public void setDirectionNorth()
         {
             this.north = true;
-            if (north)
-            {
-                this.posY = this.posY - this.MoveSpeed;
-            }
+            this.south = false;
+            this.east = false;
+            this.west = false;
+            this.prevPositionX = this.posX;
+            this.prevPositionY = this.posY;
+
+            this.posY = this.posY - this.MoveSpeed;
+            
 
         }
         public void setDirectionEast()
@@ -51,6 +58,8 @@ namespace Game2.Player
             this.north = false;
             this.east = true;
             this.west = false;
+            this.prevPositionX = this.posX;
+            this.prevPositionY = this.posY;
             this.posX = this.posX + this.MoveSpeed;
 
         }
@@ -60,6 +69,8 @@ namespace Game2.Player
             this.west = true;
             this.south = false;
             this.north = true;
+            this.prevPositionX = this.posX;
+            this.prevPositionY = this.posY;
             this.posX = this.posX - this.MoveSpeed;
 
         }
@@ -69,7 +80,10 @@ namespace Game2.Player
             this.west = false;
             this.east = false;
             this.north = false;
+            this.prevPositionX = this.posX;
+            this.prevPositionY = this.posY;
             this.posY = this.posY + this.MoveSpeed;
+           
         }
 
 
@@ -86,27 +100,38 @@ namespace Game2.Player
 
         public override void intersectsWithWall(GameObject player, GameObject wall)
         {
-            Debug.WriteLine("Player Intersecs");
 
-            if (player.hitbox.Left == wall.hitbox.Right)
+            this.posY = prevPositionY;
+            this.posX = prevPositionX;
+            Debug.WriteLine("Player Intersects");
+            Debug.WriteLine("X: " + this.posX);
+            Debug.WriteLine("Y: " + this.posY);
+
+
+
+            if (player.hitbox.Left <= wall.hitbox.Right)
             {
 
+               
+
+                //this.posX = posX + 2;
             }
-            else if (player.hitbox.Top == wall.hitbox.Bottom)
+          if (player.hitbox.Top > wall.hitbox.Bottom && player.hitbox.Top < wall.hitbox.Top)
             {
-
-                setDirectionNorth();
-
+                //Debug.WriteLine("NORTH");
+                //this.posY = posY + 2;
             }
-            else if  (player.hitbox.Right == wall.hitbox.Left)
+            if  (player.hitbox.Right > wall.hitbox.Left && player.hitbox.Right < wall.hitbox.Right)
             {
-
+                //Debug.WriteLine("EAST");
+               // this.posX = posX -2;
             }
-            else if (player.hitbox.Bottom == wall.hitbox.Top)
+            if (player.hitbox.Bottom > wall.hitbox.Top && player.hitbox.Bottom < wall.hitbox.Bottom)
             {
-              
+                // Debug.WriteLine("SOUTH");
+                //this.posY = posY - 2;
             }
-
+            
             base.intersectsWithWall(player, wall);
 
         }
@@ -129,7 +154,11 @@ namespace Game2.Player
         public void movement()
         {
             KeyboardState key = Keyboard.GetState();
-
+            /*
+             * "else if" istedet for "if" det gør det meget nemmere at bruge prevPosition
+             * på vores player og gør derved collision nemmere - det føles
+             * tilgengæld fucking mærkeligt at bevæge sig. 
+             */
 
             if (key.IsKeyDown(Keys.D))
             {
@@ -137,19 +166,19 @@ namespace Game2.Player
                
             }
 
-            if (key.IsKeyDown(Keys.A))
+           else if (key.IsKeyDown(Keys.A))
             {
                 setDirectionWest();
                 
             }
 
-            if (key.IsKeyDown(Keys.S))
+           else if (key.IsKeyDown(Keys.S))
             {
                 setDirectionSouth();
               
             }
 
-            if (key.IsKeyDown(Keys.W))
+           else if (key.IsKeyDown(Keys.W))
             {
                 setDirectionNorth();
                
@@ -173,11 +202,11 @@ namespace Game2.Player
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             //Nedenstående tegner en hitbox
-            /*
+            
             Texture2D texture = new Texture2D(spriteBatch.GraphicsDevice,1,1);
             texture.SetData(new Color[]{Color.Aqua});
             spriteBatch.Draw(texture, hitbox, Color.White);
-            */
+            
             spriteBatch.Draw(playerPicture, hitbox, Color.White);
         }
 

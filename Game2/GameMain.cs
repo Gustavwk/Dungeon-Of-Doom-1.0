@@ -30,6 +30,7 @@ namespace Game2
             
             allObjects.Add(new Room(800,480));
             allObjects.Add(new HealthBoost(60,60,60));
+            
 
             
         }
@@ -94,11 +95,11 @@ namespace Game2
                 if (gameObject is Room)
                 {
                     Room room = (Room) gameObject;              //Tester alle walls i rummet.
-                    foreach (Wall w  in room.walls)
+                    foreach (Wall wall  in room.walls)
                     {
-                        if (player.hitbox.Intersects(w.hitbox))
+                        if (player.hitbox.Intersects(wall.hitbox))
                         {
-                            player.intersectsWithWall(player,w);
+                            player.intersectsWithWall(player,wall);
                         }
                        
                     }

@@ -27,7 +27,7 @@ namespace Game2
 
         public virtual void intersects(GameObject gameObjectOne, GameObject gameObjectTwo)
         {
-            bool ost = true;
+            
         }
 
         public virtual void Update(GameTime gameTime)
