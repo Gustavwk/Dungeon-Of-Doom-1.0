@@ -30,61 +30,18 @@ namespace Game2.Player
         private int prevPositionY;
 
 
-        private Boolean north = false;
-        private Boolean south = false;
-        private Boolean east = false;
-        private Boolean west = false;
+        protected Boolean north = false;
+        protected Boolean south = false;
+        protected Boolean east = false;
+        protected Boolean west = false;
        
         /*
          * Nedenstående er setters der afgører hvilken retning spilelren går, de bliver brugt i movement.
          */
 
-        public void setDirectionNorth()
-        {
-            this.north = true;
-            this.south = false;
-            this.east = false;
-            this.west = false;
-            this.prevPositionX = this.posX;
-            this.prevPositionY = this.posY;
-
-            this.posY = this.posY - this.MoveSpeed;
-            
-
-        }
-        public void setDirectionEast()
-        {
-            this.south = false;
-            this.north = false;
-            this.east = true;
-            this.west = false;
-            this.prevPositionX = this.posX;
-            this.prevPositionY = this.posY;
-            this.posX = this.posX + this.MoveSpeed;
-
-        }
-        public void setDirectionWest()
-        {
-            this.east = false;
-            this.west = true;
-            this.south = false;
-            this.north = true;
-            this.prevPositionX = this.posX;
-            this.prevPositionY = this.posY;
-            this.posX = this.posX - this.MoveSpeed;
-
-        }
-        public void setDirectionSouth()
-        {
-            this.south = true;
-            this.west = false;
-            this.east = false;
-            this.north = false;
-            this.prevPositionX = this.posX;
-            this.prevPositionY = this.posY;
-            this.posY = this.posY + this.MoveSpeed;
-           
-        }
+        
+      
+      
 
 
         public Player(int posX, int posY)
@@ -162,27 +119,38 @@ namespace Game2.Player
 
             if (key.IsKeyDown(Keys.D))
             {
-                setDirectionEast();
-               
+             
+                this.prevPositionX = this.posX;
+                this.posX = this.posX + this.MoveSpeed;
+
             }
 
-           else if (key.IsKeyDown(Keys.A))
+            if (key.IsKeyDown(Keys.A))
             {
-                setDirectionWest();
                 
+                this.prevPositionX = this.posX;
+                this.posX = this.posX - this.MoveSpeed;
+
+
             }
 
-           else if (key.IsKeyDown(Keys.S))
+            if (key.IsKeyDown(Keys.S))
             {
-                setDirectionSouth();
-              
-            }
-
-           else if (key.IsKeyDown(Keys.W))
-            {
-                setDirectionNorth();
-               
                 
+               
+                this.prevPositionY = this.posY;
+                this.posY = this.posY + this.MoveSpeed;
+
+            }
+
+            if (key.IsKeyDown(Keys.W))
+            {
+                
+                
+                this.prevPositionY = this.posY;
+                this.posY = this.posY - this.MoveSpeed;
+
+
             }
         }
 

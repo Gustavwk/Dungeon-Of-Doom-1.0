@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Game2.Items
+namespace Game2
 {
     class Projectiles : GameObject
     {
         protected int posX;
         protected int posY;
+        protected Texture2D defaultSprite;
 
 
         public virtual void intersects(GameObject gameObjectOne, GameObject gameObjectTwo)
@@ -21,17 +22,17 @@ namespace Game2.Items
 
         public virtual void Update(GameTime gameTime)
         {
-            // skal overskrives for de enkelte objekter .
+           
         }
 
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            // skal også overskrives fra de enkelt objekter.
+         
         }
 
         public virtual void Load()
         {
-            //skal overskrives for de enkelte objekter
+            defaultSprite = GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/1_HeroShotgunBulletFrames (1)");
         }
 
 
@@ -50,6 +51,12 @@ namespace Game2.Items
         {
 
         }
+        public void moveProjectiles(Player.Player player)
+        {
+          
+        }
     }
+
+
 }
-}
+
