@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Game2.Items">
+    <Position X="11.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Items\Items.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.Projectiles">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAACAAAAAgQAAAAAAAAABAAgCAAAAAAAwAAAAAA=</HashCode>
+      <FileName>Items\Projectiles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.Player.Player">
+    <Position X="4.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAgGQCAAAEAhAAAAAQAAgABBQAAAAAAAAAxABAgAg=</HashCode>
+      <FileName>Player\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.GameObject">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAQCAAAAAgQAAAAAAAAAAAAgCAAAAAAAwAAAAAA=</HashCode>
+      <FileName>GameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.HealthBoost">
+    <Position X="11.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAgAAAAAAAAgAAACAAAAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
+      <FileName>Items\HealthBoost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.Structures.Room">
+    <Position X="7.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAgAAAAAAgAgaAAAAAIAAAAAAAgAAAAIAAAAAAAEA=</HashCode>
+      <FileName>Structures\Room.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="walls" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Game2.Structures.Wall">
+    <Position X="9.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAQAAEAAAgAAAAAAAAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
+      <FileName>Structures\Wall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.GameMain">
+    <Position X="2.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEEAAAAAAAwAAAAAAAAAAAAgAAAgBAAAAAAAAAAQ=</HashCode>
+      <FileName>GameMain.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="allObjects" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
