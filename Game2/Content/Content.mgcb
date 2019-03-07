@@ -37,6 +37,18 @@
 /processorParam:TextureFormat=Color
 /build:Player/bloody.png
 
+#begin Projectiles/DefaultProjectiles/1_HeroShotgunBulletFrames (1).gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Projectiles/DefaultProjectiles/1_HeroShotgunBulletFrames (1).gif
+
 #begin wall/brick_gray_0.png
 /importer:TextureImporter
 /processor:TextureProcessor
