@@ -63,34 +63,8 @@ namespace Game2.Player
             Debug.WriteLine("Player Intersects");
             Debug.WriteLine("X: " + this.posX);
             Debug.WriteLine("Y: " + this.posY);
-
-
-
-            if (player.hitbox.Left <= wall.hitbox.Right)
-            {
-
-               
-
-                //this.posX = posX + 2;
-            }
-          if (player.hitbox.Top > wall.hitbox.Bottom && player.hitbox.Top < wall.hitbox.Top)
-            {
-                //Debug.WriteLine("NORTH");
-                //this.posY = posY + 2;
-            }
-            if  (player.hitbox.Right > wall.hitbox.Left && player.hitbox.Right < wall.hitbox.Right)
-            {
-                //Debug.WriteLine("EAST");
-               // this.posX = posX -2;
-            }
-            if (player.hitbox.Bottom > wall.hitbox.Top && player.hitbox.Bottom < wall.hitbox.Bottom)
-            {
-                // Debug.WriteLine("SOUTH");
-                //this.posY = posY - 2;
-            }
             
             base.intersectsWithWall(player, wall);
-
         }
 
         public override void Load()
@@ -111,46 +85,28 @@ namespace Game2.Player
         public void movement()
         {
             KeyboardState key = Keyboard.GetState();
-            /*
-             * "else if" istedet for "if" det gør det meget nemmere at bruge prevPosition
-             * på vores player og gør derved collision nemmere - det føles
-             * tilgengæld fucking mærkeligt at bevæge sig. 
-             */
-
             if (key.IsKeyDown(Keys.D))
             {
-             
                 this.prevPositionX = this.posX;
                 this.posX = this.posX + this.MoveSpeed;
-
             }
 
             if (key.IsKeyDown(Keys.A))
             {
-                
                 this.prevPositionX = this.posX;
                 this.posX = this.posX - this.MoveSpeed;
-
-
             }
 
             if (key.IsKeyDown(Keys.S))
-            {
-                
-               
+            {      
                 this.prevPositionY = this.posY;
                 this.posY = this.posY + this.MoveSpeed;
-
             }
 
             if (key.IsKeyDown(Keys.W))
             {
-                
-                
                 this.prevPositionY = this.posY;
                 this.posY = this.posY - this.MoveSpeed;
-
-
             }
         }
 
