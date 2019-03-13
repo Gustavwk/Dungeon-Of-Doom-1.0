@@ -53,12 +53,7 @@ namespace Game2.Structures
         {
             
             spriteBatch.Draw(defaultWall,hitbox, Color.White);
-            //Nedenstående tegner en hitbox
-            /*
-            Texture2D texture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
-             texture.SetData(new Color[] { Color.Aqua });
-              spriteBatch.Draw(texture, hitbox, Color.White);
-                */
+            
 }
 
 

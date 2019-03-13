@@ -61,6 +61,12 @@ namespace Game2
         {
            
         }
+
+        public virtual void intersectsWithDoor(GameObject player, GameObject door)
+        {
+
+        }
+
     }
 }
 

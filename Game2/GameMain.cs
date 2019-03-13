@@ -24,12 +24,14 @@ namespace Game2
             graphics = new GraphicsDeviceManager(this);
             GameHolder.Game = this;
             Content.RootDirectory = "Content";
-            
+
+            Door door = new Door(800/2,480/2);
             player = new Player.Player(100,100);
             allObjects.Add(player);
             
             allObjects.Add(new Room(800,480));
             allObjects.Add(new HealthBoost(60,60,60));
+            allObjects.Add(door);
             
 
             
@@ -109,6 +111,7 @@ namespace Game2
                     {
                         if (player.hitbox.Intersects(gameObject.hitbox))
                         {
+                            player.intersectsWithDoor(gameObject,gameObject);
                             player.intersectsWithWall(gameObject, gameObject);
                         }
                     }

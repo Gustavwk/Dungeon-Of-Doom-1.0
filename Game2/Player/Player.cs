@@ -35,14 +35,6 @@ namespace Game2.Player
         protected Boolean east = false;
         protected Boolean west = false;
        
-        /*
-         * Nedenstående er setters der afgører hvilken retning spilelren går, de bliver brugt i movement.
-         */
-
-        
-      
-      
-
 
         public Player(int posX, int posY)
         {
@@ -52,7 +44,9 @@ namespace Game2.Player
             MoveSpeed = 2;
             this.posX = posX;
             this.posY = posY;
-           
+            this.prevPositionX = posX;
+            this.prevPositionY = posY;
+
         }
 
         public override void intersectsWithWall(GameObject player, GameObject wall)
@@ -65,6 +59,16 @@ namespace Game2.Player
             Debug.WriteLine("Y: " + this.posY);
             
             base.intersectsWithWall(player, wall);
+        }
+
+        public override void intersectsWithDoor(GameObject player, GameObject door)
+        {
+
+            this.posY = 500;
+            this.posX = 200;
+            
+            
+            base.intersectsWithDoor(player, door);
         }
 
         public override void Load()
