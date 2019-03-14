@@ -11,29 +11,16 @@ namespace Game2.Structures
     class Wall : GameObject
     {
         
-        
         private Texture2D defaultWall;
         private int posX;
         private int posY;
         public Rectangle hitbox;
-        /*public int wall_Left;
-        public int wall_Right;
-        public int wall_Top;
-        public int wall_Bottom;*/
-        
 
         public Wall ( int posX, int posY)
         {
-      
             this.posX = posX;
             this.posY = posY; 
             this.hitbox = new Rectangle(this.posX,this.posY, 32,32);
-            /*this.wall_Left = this.hitbox.Left;
-            this.wall_Right = this.hitbox.Right;
-            this.wall_Bottom = this.hitbox.Bottom;
-            this.wall_Top = this.hitbox.Top;*/
-
-
         }
 
         public override void Load()

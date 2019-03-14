@@ -12,27 +12,25 @@ namespace Game2.Structures
     class Room : GameObject
     {
                                                                                  //800 x 480 pixels er vores nuværende x og y - dette kan sikkert gøres mere scalable
-       
         private int unit = 32;                                       //Den fælles sidelænge på det wall-billede vi bruger!
         private int unitsAvailableX;                              //Længden af skærmen - bliver delt i 32 i Room();
         private int unitsAvailableY;                              //Højden af skærmen - bliver delt i 32 i Room();
         private int unitPosX;                                        //Holder styr på hvor den næste wall sættes på x-aksen
-        private int  unitPosY;                                       //Holder styr på hvor den næste wall sættes på y-aksen
+        private int unitPosY;                                       //Holder styr på hvor den næste wall sættes på y-aksen
         private int prevUnitPosX;                                //Holder styr på hvor den sidste wall blev sat på x-aksen  - Denne bliver ikke brugt pt.
         private int prevUnitPosY;                                //Holder styr på hvor den sidste wall blev sat på y-aksen  - Denne bliver ikke brugt pt.
-        private int resX;                                             //Resolution x-akse
-        private int resY;                                             //Resolution y-akse
+        private int width;                                             //Resolution x-akse
+        private int height;                                            //Resolution y-akse
         
        
         public List<Wall> walls = new List<Wall>();
 
-        public Room(int borderX, int borderY)
+        public Room(int width, int height)
         {
-            this.resX = borderX;
-            this.resY = borderY;
-            this.unitsAvailableX = borderX / this.unit;
-            this.unitsAvailableY = borderY / this.unit;
-           
+            this.width = width;
+            this.height = height;
+            this.unitsAvailableX = width / this.unit;
+            this.unitsAvailableY = height / this.unit;
             porpulateRoom();
         }
 
@@ -49,25 +47,23 @@ namespace Game2.Structures
             
             for (int i = 0; i < unitsAvailableX; i++) 
             {
+                #region MyRegion
                 /*
-                 * Første wall bliver lavet på unitPosX(0), unitPosY(0).
-                 * prevUnitPosX bliver til unitPosX
-                 * unitPosX bliver tilagt en unit(32)
-                 * Næste Wall bliver lavet på unitPosX(32), unitPosY(0)
-                 * ....
-                 * Dette sker indtil i < unitAvailableX
-                 *
-                 * Når mans sætter et object til at "spawne" uden for et gyldigt x eller y, sætter den x / y til 0.
-                 * Den anden wall der bliver sat i  dette loop bliver sat på det samme X-koordinat, men med et Y-koordinat
-                 * der er skærmens højre - unit (32 - Dette gør at billedet går lige til kanten).
-                 */
-              
-                walls.Add(new Wall(unitPosX,0));
-             
-                //Console.WriteLine("Wall(Outer) Placed at: X" + unitPosX + " Y:" + unitPosY);
+                * Første wall bliver lavet på unitPosX(0), unitPosY(0).
+                * prevUnitPosX bliver til unitPosX
+                * unitPosX bliver tilagt en unit(32)
+                * Næste Wall bliver lavet på unitPosX(32), unitPosY(0)
+                * ....
+                * Dette sker indtil i < unitAvailableX
+                *
+                * Når mans sætter et object til at "spawne" uden for et gyldigt x eller y, sætter den x / y til 0.
+                * Den anden wall der bliver sat i  dette loop bliver sat på det samme X-koordinat, men med et Y-koordinat
+                * der er skærmens højre - unit (32 - Dette gør at billedet går lige til kanten).
+                */
+                #endregion
 
-                walls.Add(new Wall(unitPosX,resY-unit));
-                //Console.WriteLine("Wall(Inner) Placed at: X" + unitPosX + " Y:" + unitPosY);
+                walls.Add(new Wall(unitPosX,0));
+                walls.Add(new Wall(unitPosX,height-unit));
 
                 prevUnitPosX = unitPosX;       
                 unitPosX = unitPosX+unit;
@@ -77,24 +73,10 @@ namespace Game2.Structures
 
             for (int i = 0; i < unitsAvailableY; i++)
             {
-                /*
-                  * Første wall bliver lavet på unitPosX(0), unitPosY(0).
-                 * prevUnitPosX bliver til unitPosY
-                 * unitPosX bliver tilagt en unit(32)
-                 * Næste Wall bliver lavet på unitPosX(0), unitPosY(32)
-                 * ....
-                 * Dette sker indtil i < unitAvailableY
-                 *
-                 * Når mans sætter et object til at "spawne" uden for et gyldigt x eller y, sætter den x / y til 0.
-                 * Den anden wall der bliver sat i i dette loop bliver sat på det samme Y-koordinat, men med et X-koordinat
-                 * der er skærmens højre - unit (32 - Dette gør at billedet går lige til kanten).
-                 */
+               
 
                 walls.Add(new Wall(0,unitPosY));
-                //Console.WriteLine("Wall(Outer) Placed at: X" + unitPosX + " Y:" + unitPosY);
-
-                walls.Add(new Wall(resX-unit, unitPosY));
-                //Console.WriteLine("Wall(Inner) Placed at: X" + unitPosX + " Y:" + unitPosY);
+                walls.Add(new Wall(width-unit, unitPosY));
 
                 prevUnitPosY = unitPosY;
                 unitPosY = unitPosY+unit;

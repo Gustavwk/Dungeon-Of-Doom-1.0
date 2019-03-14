@@ -25,10 +25,7 @@ namespace Game2
 
         }
 
-        public virtual void intersects(GameObject gameObjectOne, GameObject gameObjectTwo)
-        {
-            
-        }
+      
 
         public virtual void Update(GameTime gameTime)
         {
@@ -57,12 +54,8 @@ namespace Game2
 
         public void drawHitbox() { }
 
-        public virtual void intersectsWithWall(GameObject player, GameObject wall)
-        {
-           
-        }
 
-        public virtual void intersectsWithDoor(GameObject player, GameObject door)
+        public virtual void intersects(GameObject other)
         {
 
         }

@@ -33,6 +33,14 @@ namespace Game2.Structures
             base.Update(gameTime);
         }
 
+        public override void intersects(GameObject other)
+        {
+            if (other is Player.Player)
+            {
+                //Load new level
+            }
+        }
+
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {

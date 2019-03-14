@@ -15,27 +15,23 @@ namespace Game2.Player
 {
     class Player : GameObject
     {
-        
-
 
         private Texture2D playerPicture;
         private int posX;
         private int posY;
         private int MoveSpeed;
         private int WIDTH, HEIGHT;
-        private int health;
+        public int health;
         public Rectangle  hitbox;
         private Boolean alive = true;
         private int prevPositionX;
         private int prevPositionY;
-
 
         protected Boolean north = false;
         protected Boolean south = false;
         protected Boolean east = false;
         protected Boolean west = false;
        
-
         public Player(int posX, int posY)
         {
             health = 100;
@@ -49,7 +45,7 @@ namespace Game2.Player
 
         }
 
-        public override void intersectsWithWall(GameObject player, GameObject wall)
+        public override void intersects(GameObject other)
         {
 
             this.posY = prevPositionY;
@@ -58,17 +54,6 @@ namespace Game2.Player
             Debug.WriteLine("X: " + this.posX);
             Debug.WriteLine("Y: " + this.posY);
             
-            base.intersectsWithWall(player, wall);
-        }
-
-        public override void intersectsWithDoor(GameObject player, GameObject door)
-        {
-
-            this.posY = 500;
-            this.posX = 200;
-            
-            
-            base.intersectsWithDoor(player, door);
         }
 
         public override void Load()

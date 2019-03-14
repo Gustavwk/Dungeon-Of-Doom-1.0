@@ -34,6 +34,15 @@ namespace Game2
             healthBooster = GameHolder.Game.Content.Load<Texture2D>("items/ruby_old");
         }
 
+        public override void intersects(GameObject other)
+        {
+            if (other is Player.Player)
+            {
+                Player.Player p = (Player.Player) other;
+                p.health = p.health + hpPlus;
+            }
+        }
+
         public override void Update(GameTime gameTime)
         {
 

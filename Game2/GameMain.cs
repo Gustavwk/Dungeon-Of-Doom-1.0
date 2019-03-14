@@ -101,7 +101,7 @@ namespace Game2
                     {
                         if (player.hitbox.Intersects(wall.hitbox))
                         {
-                            player.intersectsWithWall(player,wall);
+                            player.intersects(wall);
                         }
                        
                     }
@@ -111,8 +111,10 @@ namespace Game2
                     {
                         if (player.hitbox.Intersects(gameObject.hitbox))
                         {
-                            player.intersectsWithDoor(gameObject,gameObject);
-                            player.intersectsWithWall(gameObject, gameObject);
+
+                            player.intersects(gameObject);
+                           
+                            gameObject.intersects(player);
                         }
                     }
                 
