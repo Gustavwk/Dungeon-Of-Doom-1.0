@@ -96,7 +96,7 @@ namespace Game2
                 gameObject.Update(gameTime);
                 if (gameObject is Room)
                 {
-                    Room room = (Room) gameObject;              //Tester alle walls i rummet.
+                    Room room = (Room) gameObject;              
                     foreach (Wall wall  in room.walls)
                     {
                         if (player.hitbox.Intersects(wall.hitbox))
@@ -107,14 +107,14 @@ namespace Game2
                     }
                   
                 }
-                else                                                                //Dette gælder for enkelte elementer
+                else                                                                
                     {
                         if (player.hitbox.Intersects(gameObject.hitbox))
                         {
-
                             player.intersects(gameObject);
-                           
+
                             gameObject.intersects(player);
+                            
                         }
                     }
                 

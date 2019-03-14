@@ -17,8 +17,8 @@ namespace Game2.Player
     {
 
         private Texture2D playerPicture;
-        private int posX;
-        private int posY;
+        private int X;
+        private int Y;
         private int MoveSpeed;
         private int WIDTH, HEIGHT;
         public int health;
@@ -32,28 +32,37 @@ namespace Game2.Player
         protected Boolean east = false;
         protected Boolean west = false;
        
-        public Player(int posX, int posY)
+        public Player(int x, int y)
         {
             health = 100;
             HEIGHT = 32;
             WIDTH = 32;
             MoveSpeed = 2;
-            this.posX = posX;
-            this.posY = posY;
-            this.prevPositionX = posX;
-            this.prevPositionY = posY;
+            this.X = x;
+            this.Y = y;
+            this.prevPositionX = x;
+            this.prevPositionY = y;
 
         }
 
         public override void intersects(GameObject other)
         {
 
-            this.posY = prevPositionY;
-            this.posX = prevPositionX;
+            this.Y = prevPositionY;
+            this.X = prevPositionX;
             Debug.WriteLine("Player Intersects");
-            Debug.WriteLine("X: " + this.posX);
-            Debug.WriteLine("Y: " + this.posY);
+            Debug.WriteLine("X: " + this.X);
+            Debug.WriteLine("Y: " + this.Y);
             
+        }
+
+        public void setX(int x)
+        {
+            this.X = x;
+        }
+        public void setY(int y)
+        {
+            this.Y = y;
         }
 
         public override void Load()
@@ -76,33 +85,33 @@ namespace Game2.Player
             KeyboardState key = Keyboard.GetState();
             if (key.IsKeyDown(Keys.D))
             {
-                this.prevPositionX = this.posX;
-                this.posX = this.posX + this.MoveSpeed;
+                this.prevPositionX = this.X;
+                this.X = this.X + this.MoveSpeed;
             }
 
             if (key.IsKeyDown(Keys.A))
             {
-                this.prevPositionX = this.posX;
-                this.posX = this.posX - this.MoveSpeed;
+                this.prevPositionX = this.X;
+                this.X = this.X - this.MoveSpeed;
             }
 
             if (key.IsKeyDown(Keys.S))
             {      
-                this.prevPositionY = this.posY;
-                this.posY = this.posY + this.MoveSpeed;
+                this.prevPositionY = this.Y;
+                this.Y = this.Y + this.MoveSpeed;
             }
 
             if (key.IsKeyDown(Keys.W))
             {
-                this.prevPositionY = this.posY;
-                this.posY = this.posY - this.MoveSpeed;
+                this.prevPositionY = this.Y;
+                this.Y = this.Y - this.MoveSpeed;
             }
         }
 
         public override void Update(GameTime gameTime)
         {
             movement();
-            this.hitbox = new Rectangle(this.posX, this.posY, WIDTH, HEIGHT);
+            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
            
 
 

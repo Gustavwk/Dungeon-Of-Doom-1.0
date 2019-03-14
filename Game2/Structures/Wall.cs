@@ -12,15 +12,15 @@ namespace Game2.Structures
     {
         
         private Texture2D defaultWall;
-        private int posX;
-        private int posY;
+        private int X;
+        private int Y;
         public Rectangle hitbox;
 
-        public Wall ( int posX, int posY)
+        public Wall ( int x, int y)
         {
-            this.posX = posX;
-            this.posY = posY; 
-            this.hitbox = new Rectangle(this.posX,this.posY, 32,32);
+            this.X = x;
+            this.Y = y; 
+            this.hitbox = new Rectangle(this.X,this.Y, 32,32);
         }
 
         public override void Load()

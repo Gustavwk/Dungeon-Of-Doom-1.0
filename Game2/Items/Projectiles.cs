@@ -10,8 +10,8 @@ namespace Game2
 {
     class Projectiles : GameObject
     {
-        protected int posX;
-        protected int posY;
+        protected int X;
+        protected int Y;
         protected Texture2D defaultSprite;
 
 
@@ -40,7 +40,7 @@ namespace Game2
         {
             get
             {
-                return new Rectangle(this.posX, this.posY, defaultSprite.Width, defaultSprite.Height);
+                return new Rectangle(this.X, this.Y, defaultSprite.Width, defaultSprite.Height);
 
             }
         }

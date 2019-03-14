@@ -11,15 +11,15 @@ namespace Game2.Structures
     class Door : GameObject
     {
         private Texture2D defaultDoor;
-        private int posX;
-        private int posY;
+        private int X;
+        private int Y;
         public Rectangle hitbox;
 
-        public Door(int posX, int posY)
+        public Door(int x, int y)
         {
-            this.posX = posX;
-            this.posY = posY;
-            this.hitbox = new Rectangle(this.posX, this.posY, 32, 32);
+            this.X = x;
+            this.Y = y;
+            this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
         }
         public override void Load()
         {
@@ -37,6 +37,9 @@ namespace Game2.Structures
         {
             if (other is Player.Player)
             {
+                Player.Player p = (Player.Player)other;
+                p.setX(200);
+                p.setY(200);
                 //Load new level
             }
         }

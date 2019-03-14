@@ -13,20 +13,20 @@ namespace Game2
     {
 
         private Texture2D healthBooster;
-        private int posX;
-        private int posY;
+        private int X;
+        private int Y;
         private int hpPlus;
 
-        public HealthBoost(int hpPlus, int posX, int posY)
+        public HealthBoost(int hpPlus, int x, int y)
         {
             this.hpPlus = hpPlus;
-            this.posX = posX;
-            this.posY = posY;
+            this.X = x;
+            this.Y = y;
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(healthBooster, new Rectangle(this.posX, this.posY, 32, 32), Color.White);
+            spriteBatch.Draw(healthBooster, new Rectangle(this.X, this.Y, 32, 32), Color.White);
         }
 
         public override void Load()
