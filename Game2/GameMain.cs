@@ -89,10 +89,16 @@ namespace Game2
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
             // TODO: Add your update logic here
+
             foreach (GameObject  gameObject in allObjects)
             {
+                if (player.hitbox.Intersects(gameObject.hitbox))
+                {
+                    Debug.Write("NU SKER DET");
+                    player.intersects(gameObject);
+                    gameObject.intersects(player);
+                }
                 gameObject.Update(gameTime);
                 if (gameObject is Room)
                 {
@@ -102,21 +108,14 @@ namespace Game2
                         if (player.hitbox.Intersects(wall.hitbox))
                         {
                             player.intersects(wall);
+                            
                         }
                        
                     }
                   
                 }
-                else                                                                
-                    {
-                        if (player.hitbox.Intersects(gameObject.hitbox))
-                        {
-                            player.intersects(gameObject);
-
-                            gameObject.intersects(player);
-                            
-                        }
-                    }
+               
+                    
                 
 
                 
