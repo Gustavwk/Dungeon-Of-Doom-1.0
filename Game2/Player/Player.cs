@@ -35,6 +35,7 @@ namespace Game2.Player
             this.Y = y;
             this.prevPositionX = x;
             this.prevPositionY = y;
+            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
 
         }
 

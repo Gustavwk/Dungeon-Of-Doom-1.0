@@ -17,6 +17,8 @@ namespace Game2
         SpriteBatch spriteBatch;
         private List<GameObject> allObjects = new List<GameObject>();
         Player.Player player;
+        private Door door;
+        
 
         public GameMain()
         {
@@ -25,7 +27,7 @@ namespace Game2
             GameHolder.Game = this;
             Content.RootDirectory = "Content";
 
-            Door door = new Door(800/2,480/2);
+            door = new Door(800/2,480/2);
             player = new Player.Player(100,100);
             allObjects.Add(player);
             
@@ -93,6 +95,13 @@ namespace Game2
 
             foreach (GameObject  gameObject in allObjects)
             {
+               /* if (player.hitbox.Intersects(door.hitbox));
+                {
+                    //Hvis man skriver denne linje intersecter door og player altid hele tiden!  
+                    //Det nedenstående If-statement bliver aldrig nogensinde invoked, men det her gør. 
+                    Debug.Write("NU SKER DET");
+                }*/
+
                 if (player.hitbox.Intersects(gameObject.hitbox))
                 {
                     Debug.Write("NU SKER DET");
@@ -100,6 +109,7 @@ namespace Game2
                     gameObject.intersects(player);
                 }
                 gameObject.Update(gameTime);
+
                 if (gameObject is Room)
                 {
                     Room room = (Room) gameObject;              
