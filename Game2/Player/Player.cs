@@ -11,12 +11,10 @@ namespace Game2.Player
 
         private Texture2D playerPicture;
         private Texture2D projectileTexture; // the projectile texture
-       
-        private int X;
-        private int Y;
-        private int MoveSpeed;
-        private int WIDTH, HEIGHT;
-        public int health;
+        private int movementspeed = 2;
+        private int WIDTH = 32;
+        private int HEIGHT = 32;
+        public int health = 100;
         public Rectangle  hitbox;
         private Boolean alive = true;
         private int prevPositionX;
@@ -31,18 +29,11 @@ namespace Game2.Player
        
         public Player(int x, int y)
         {
-            health = 100;
-            HEIGHT = 32;
-            WIDTH = 32;
-            MoveSpeed = 2;
             this.X = x;
             this.Y = y;
             this.prevPositionX = x;
             this.prevPositionY = y;
-            
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
-            
-
         }
 
         public override void intersects(GameObject other)
@@ -88,25 +79,25 @@ namespace Game2.Player
             if (key.IsKeyDown(Keys.D))
             {
                 this.prevPositionX = this.X;
-                this.X = this.X + this.MoveSpeed;
+                this.X = this.X + this.movementspeed;
             }
 
             if (key.IsKeyDown(Keys.A))
             {
                 this.prevPositionX = this.X;
-                this.X = this.X - this.MoveSpeed;
+                this.X = this.X - this.movementspeed;
             }
 
             if (key.IsKeyDown(Keys.S))
             {      
                 this.prevPositionY = this.Y;
-                this.Y = this.Y + this.MoveSpeed;
+                this.Y = this.Y + this.movementspeed;
             }
 
             if (key.IsKeyDown(Keys.W))
             {
                 this.prevPositionY = this.Y;
-                this.Y = this.Y - this.MoveSpeed;
+                this.Y = this.Y - this.movementspeed;
             }
         }
         public void shooting()
@@ -117,25 +108,25 @@ namespace Game2.Player
             {
                 
                 Projectiles projectiles = new Projectiles(projectileTexture);
-                projectiles.Y = Y --;
+                //projectiles.Y = Y --;
             }
 
             if (key.IsKeyDown(Keys.Left))
             {
                
-                this.X = this.X - this.MoveSpeed;
+                this.X = this.X - this.movementspeed;
             }
 
             if (key.IsKeyDown(Keys.Down))
             {
                 
-                this.Y = this.Y + this.MoveSpeed;
+                this.Y = this.Y + this.movementspeed;
             }
 
             if (key.IsKeyDown(Keys.Right))
             {
                 
-                this.X = this.X + this.MoveSpeed;
+                this.X = this.X + this.movementspeed;
             }
 
         }

@@ -12,13 +12,10 @@ namespace Game2
 {
     class GameObject
     {
-        /*
-         * nye variabler for alle gameobjects
-         */
         private Texture2D defaultSprite;
-        private int posX;
-        private int posY;
         public Rectangle hitbox;
+        protected int X;
+        protected int Y;
 
         public GameObject()
         {
@@ -29,17 +26,17 @@ namespace Game2
 
         public virtual void Update(GameTime gameTime)
         {
-            // skal overskrives for de enkelte objekter .
+           
         }
 
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            // skal også overskrives fra de enkelt objekter.
+            
         }
 
         public virtual void Load()
         {
-            //skal overskrives for de enkelte objekter
+           
         }
 
 
@@ -47,7 +44,7 @@ namespace Game2
         {
             get
             {
-                return new Rectangle(this.posX, this.posY, defaultSprite.Width, defaultSprite.Height); 
+                return new Rectangle(this.X, this.Y, defaultSprite.Width, defaultSprite.Height); 
 
             }
         }

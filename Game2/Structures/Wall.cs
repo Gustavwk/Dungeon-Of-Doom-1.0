@@ -12,9 +12,7 @@ namespace Game2.Structures
     {
         
         private Texture2D defaultWall;
-        private int X;
-        private int Y;
-        public Rectangle hitbox;
+     
 
         public Wall ( int x, int y)
         {

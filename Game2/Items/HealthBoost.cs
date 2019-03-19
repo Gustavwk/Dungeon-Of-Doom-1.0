@@ -14,10 +14,8 @@ namespace Game2
     {
 
         private Texture2D healthBooster;
-        private int X;
-        private int Y;
         private int hpPlus;
-        public Rectangle hitbox;
+      
 
         public HealthBoost(int hpPlus, int x, int y)
         {

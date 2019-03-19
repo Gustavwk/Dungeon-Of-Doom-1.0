@@ -11,9 +11,7 @@ namespace Game2.Structures
     class Door : GameObject
     {
         private Texture2D defaultDoor;
-        private int X;
-        private int Y;
-        public Rectangle hitbox;
+
 
         public Door(int x, int y)
         {

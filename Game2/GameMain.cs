@@ -95,12 +95,7 @@ namespace Game2
 
             foreach (GameObject  gameObject in allObjects)
             {
-               /* if (player.hitbox.Intersects(door.hitbox));
-                {
-                    //Hvis man skriver denne linje intersecter door og player altid hele tiden!  
-                    //Det nedenstående If-statement bliver aldrig nogensinde invoked, men det her gør. 
-                    Debug.Write("NU SKER DET");
-                }*/
+               
 
                 if (player.hitbox.Intersects(gameObject.hitbox))
                 {

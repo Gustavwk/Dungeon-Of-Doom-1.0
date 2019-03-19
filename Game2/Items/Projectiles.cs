@@ -11,15 +11,13 @@ namespace Game2
 {
     class Projectiles : GameObject
     {
-        public int X;
-        public int Y;
-        public float projectileDelay; // delay variable for the projectiles
+ 
+        public float projectileDelay = 20; // delay variable for the projectiles
         protected Texture2D defaultSprite;
-        public Rectangle hitbox;
         bool visible; // is the projectile visible
-        int shootSpeed; //the speed the projectile moves
-        int HEIGHT;
-        int WIDTH;
+        int shootSpeed = 3; //the speed the projectile moves
+        int HEIGHT = 32;
+        int WIDTH = 32;
         private Texture2D projectileTexture;
 
         public Projectiles(int x, int y, Texture2D projectileTexture) {
@@ -27,10 +25,6 @@ namespace Game2
             
             this.X = x;
             this.Y = y;
-            projectileDelay = 20; // set projectile delay to 20
-            shootSpeed = 3;
-            HEIGHT = 32;
-            WIDTH = 32;
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
 
             //visible = false; 
