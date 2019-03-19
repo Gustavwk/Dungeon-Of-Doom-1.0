@@ -33,15 +33,16 @@ namespace Game2.Structures
             base.Update(gameTime);
         }
 
-        public override void intersects(GameObject other)
+        public override void intersects(GameObject Door)
         {
-            if (other is Player.Player)
+            if (Door is Player.Player)
             {
-                Player.Player p = (Player.Player)other;
+                Player.Player p = (Player.Player)Door;
                 p.setX(200);
                 p.setY(200);
                 //Load new level
             }
+            
         }
 
 

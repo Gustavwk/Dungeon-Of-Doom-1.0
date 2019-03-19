@@ -10,6 +10,8 @@ namespace Game2.Player
     {
 
         private Texture2D playerPicture;
+        private Texture2D projectileTexture; // the projectile texture
+       
         private int X;
         private int Y;
         private int MoveSpeed;
@@ -19,11 +21,13 @@ namespace Game2.Player
         private Boolean alive = true;
         private int prevPositionX;
         private int prevPositionY;
+       
 
         protected Boolean north = false;
         protected Boolean south = false;
         protected Boolean east = false;
         protected Boolean west = false;
+        //public List<Projectile> projectileList; // not sure yet
        
         public Player(int x, int y)
         {
@@ -35,7 +39,9 @@ namespace Game2.Player
             this.Y = y;
             this.prevPositionX = x;
             this.prevPositionY = y;
+            
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
+            
 
         }
 
@@ -62,6 +68,8 @@ namespace Game2.Player
         public override void Load()
         {
             playerPicture = GameHolder.Game.Content.Load<Texture2D>("player/bloody");
+            
+           projectileTexture = GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/1_HeroShotgunBulletFrames (1)");
         }
 
         public Boolean isDead(Boolean alive)
@@ -101,15 +109,44 @@ namespace Game2.Player
                 this.Y = this.Y - this.MoveSpeed;
             }
         }
+        public void shooting()
+         {
+            
+            KeyboardState key = Keyboard.GetState();
+            if (key.IsKeyDown(Keys.Up))
+            {
+                
+                Projectiles projectiles = new Projectiles(projectileTexture);
+                projectiles.Y = Y --;
+            }
+
+            if (key.IsKeyDown(Keys.Left))
+            {
+               
+                this.X = this.X - this.MoveSpeed;
+            }
+
+            if (key.IsKeyDown(Keys.Down))
+            {
+                
+                this.Y = this.Y + this.MoveSpeed;
+            }
+
+            if (key.IsKeyDown(Keys.Right))
+            {
+                
+                this.X = this.X + this.MoveSpeed;
+            }
+
+        }
+       
 
         public override void Update(GameTime gameTime)
         {
             movement();
+            shooting();
+
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
-           
-
-
-           
            
          
         }
@@ -124,7 +161,14 @@ namespace Game2.Player
             spriteBatch.Draw(texture, hitbox, Color.White);
             
             spriteBatch.Draw(playerPicture, hitbox, Color.White);
-        }
 
+            if (Keyboard.GetState().IsKeyDown(Keys.Up)) { 
+            Texture2D texture2 = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+            texture2.SetData(new Color[] { Color.Aqua });
+            spriteBatch.Draw(texture2, hitbox, Color.White);
+
+            spriteBatch.Draw(projectileTexture, hitbox, Color.White);
+            }
+        }
     }
 }
