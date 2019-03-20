@@ -17,7 +17,7 @@ namespace Game2
         SpriteBatch spriteBatch;
         private List<GameObject> allObjects = new List<GameObject>();
         Player.Player player;
-        private Door door;
+        
         
 
         public GameMain()
@@ -27,13 +27,12 @@ namespace Game2
             GameHolder.Game = this;
             Content.RootDirectory = "Content";
 
-            door = new Door(800/2,480/2);
+            
             player = new Player.Player(100,100);
             allObjects.Add(player);
-            
             allObjects.Add(new Room(800,480));
-            allObjects.Add(new HealthBoost(60,60,60));
-            allObjects.Add(door);
+            allObjects.Add(new HealthBoost(60, 60, 60));
+            allObjects.Add(new Door(800 / 2, 480 / 2));
             
 
             
@@ -99,9 +98,10 @@ namespace Game2
 
                 if (player.hitbox.Intersects(gameObject.hitbox))
                 {
-                    Debug.Write("NU SKER DET");
+                    
                     player.intersects(gameObject);
                     gameObject.intersects(player);
+                    
                 }
                 gameObject.Update(gameTime);
 
