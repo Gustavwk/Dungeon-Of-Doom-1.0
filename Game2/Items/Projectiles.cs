@@ -19,6 +19,7 @@ namespace Game2
         int HEIGHT = 32;
         int WIDTH = 32;
         private Texture2D projectileTexture;
+        // should a list of our projectiles be here, or in our GameObjects super class??? 
 
         public Projectiles(int x, int y, Texture2D projectileTexture) {
 
@@ -30,24 +31,21 @@ namespace Game2
             //visible = false; 
             
         }
-         // constructor
 
-        public Projectiles(Texture2D projectileTexture) 
-        {
-            this.projectileTexture = projectileTexture;
-        }
-
+        // method for future collision for our projectiles
         public virtual void intersects(GameObject gameObjectOne, GameObject gameObjectTwo)
         {
 
         }
 
+        //what should be updated
         public virtual void Update(GameTime gameTime)
         {
             moveProjectiles();
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
         }
 
+        // what should be drawed
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             spriteBatch.Draw(defaultSprite, hitbox, Color.White);
@@ -55,12 +53,13 @@ namespace Game2
          
         }
 
+        //loading our projectile image
         public virtual void Load()
         {
             defaultSprite = GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/1_HeroShotgunBulletFrames (1)");
         }
 
-
+        // creating a new rectangle for our projectile hitbox 
         public Rectangle Rectangle
         {
             get
@@ -70,6 +69,8 @@ namespace Game2
             }
         }
 
+        // draws the hitbox of the projectile
+
         public void drawHitbox(SpriteBatch spriteBatch, GameTime gameTime)
         {
             Texture2D texture = new Texture2D(defaultSprite.GraphicsDevice, 1, 1);
@@ -78,16 +79,21 @@ namespace Game2
             spriteBatch.Draw(projectileTexture,hitbox, Color.White);
         }
 
+        //intersecting with a wall method, dont know if this should be here
         public virtual void intersectsWithWall(GameObject player, GameObject wall)
         {
 
         }
+
+        // im sure the move Projectiles method should be in the player class
 
         public void moveProjectiles()
         {
 
             
                 KeyboardState key = Keyboard.GetState();
+
+            // we need a position for our projectile, so that we can move our projectile in a direction, if our delay method allows it.
             /*if (projectileDelay >= 0)
             {
                 projectileDelay--;
@@ -102,7 +108,7 @@ namespace Game2
             
             // could / should make this method a "SWICH"
         
-            if (key.IsKeyDown(Keys.Up))
+           /* if (key.IsKeyDown(Keys.Up))
             {
 
                Projectiles projectiles = new Projectiles(projectileTexture);
@@ -125,7 +131,7 @@ namespace Game2
             {
 
                this.X = this.X + this.shootSpeed;
-            }
+            }*/
 
     
 
