@@ -106,7 +106,7 @@ namespace Game2.Player
             KeyboardState key = Keyboard.GetState();
             if (key.IsKeyDown(Keys.Up))
             {
-                
+                Projectiles projectiles = new Projectiles(this.X, this.Y,projectileTexture,key);
                 //Projectiles projectiles = new Projectiles(projectileTexture);
                 //projectiles.Y = Y --;
             }
@@ -153,13 +153,13 @@ namespace Game2.Player
             
             spriteBatch.Draw(playerPicture, hitbox, Color.White);
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Up)) { 
+            /*if (Keyboard.GetState().IsKeyDown(Keys.Up)) { 
             Texture2D texture2 = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
             texture2.SetData(new Color[] { Color.Aqua });
             spriteBatch.Draw(texture2, hitbox, Color.White);
 
             spriteBatch.Draw(projectileTexture, hitbox, Color.White);
-            }
+            }*/
         }
     }
 }

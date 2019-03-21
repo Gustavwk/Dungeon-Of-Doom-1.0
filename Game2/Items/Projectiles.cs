@@ -21,9 +21,12 @@ namespace Game2
         private Texture2D projectileTexture;
         // should a list of our projectiles be here, or in our GameObjects super class??? 
 
-        public Projectiles(int x, int y, Texture2D projectileTexture) {
+        public Projectiles(int x, int y, Texture2D projectileTexture, KeyboardState key ) {
+            if (key.IsKeyDown(Keys.Up))
+            {
+                this.Y--;
+            }
 
-            
             this.X = x;
             this.Y = y;
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
@@ -41,7 +44,6 @@ namespace Game2
         //what should be updated
         public virtual void Update(GameTime gameTime)
         {
-            moveProjectiles();
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
         }
 
@@ -87,56 +89,7 @@ namespace Game2
 
         // im sure the move Projectiles method should be in the player class
 
-        public void moveProjectiles()
-        {
-
-            
-                KeyboardState key = Keyboard.GetState();
-
-            // we need a position for our projectile, so that we can move our projectile in a direction, if our delay method allows it.
-            /*if (projectileDelay >= 0)
-            {
-                projectileDelay--;
-            }
-
-            if (projectileDelay <= 0)
-            {
-                Projectiles projectiles = new Projectiles(projectileTexture);
-
-            }
-            */
-            
-            // could / should make this method a "SWICH"
-        
-           /* if (key.IsKeyDown(Keys.Up))
-            {
-
-               Projectiles projectiles = new Projectiles(projectileTexture);
-               this.Y = Y --;
-            }
-
-            if (key.IsKeyDown(Keys.Left))
-            {
-
-               this.X = this.X - this.shootSpeed;
-            }
-
-            if (key.IsKeyDown(Keys.Down))
-            {
-
-               this.Y = this.Y + this.shootSpeed;
-            }
-
-            if (key.IsKeyDown(Keys.Right))
-            {
-
-               this.X = this.X + this.shootSpeed;
-            }*/
-
-    
-
-
-        }
+       
 
 
     }
