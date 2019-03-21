@@ -10,19 +10,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2
 {
-    class GameObject
+    abstract class GameObject
     {
         private Texture2D defaultSprite;
         public Rectangle hitbox;
         protected int X;
         protected int Y;
 
-        public GameObject()
-        {
-
-        }
-
-      
+        
 
         public virtual void Update(GameTime gameTime)
         {

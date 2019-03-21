@@ -9,12 +9,10 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Game2
 {
-    class Items : GameObject
+    abstract class Items : GameObject
     {
       
-        public Items()
-        {
-        }
+        
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {

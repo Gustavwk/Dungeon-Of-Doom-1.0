@@ -48,27 +48,31 @@ namespace Game2.Structures
             
             for (int i = 0; i < unitsAvailableX; i++) 
             {
-                #region MyRegion
-                /*
-                * Første wall bliver lavet på unitPosX(0), unitPosY(0).
-                * prevUnitPosX bliver til unitPosX
-                * unitPosX bliver tilagt en unit(32)
-                * Næste Wall bliver lavet på unitPosX(32), unitPosY(0)
-                * ....
-                * Dette sker indtil i < unitAvailableX
-                *
-                * Når mans sætter et object til at "spawne" uden for et gyldigt x eller y, sætter den x / y til 0.
-                * Den anden wall der bliver sat i  dette loop bliver sat på det samme X-koordinat, men med et Y-koordinat
-                * der er skærmens højre - unit (32 - Dette gør at billedet går lige til kanten).
-                */
-                #endregion
+                if (i != 2) //hvorfor fuck virker det her ikke ? 
+                {
+                    #region MyRegion
 
-                walls.Add(new Wall(unitPosX,0));
-                walls.Add(new Wall(unitPosX,height-unit));
+                    /*
+                    * Første wall bliver lavet på unitPosX(0), unitPosY(0).
+                    * prevUnitPosX bliver til unitPosX
+                    * unitPosX bliver tilagt en unit(32)
+                    * Næste Wall bliver lavet på unitPosX(32), unitPosY(0)
+                    * ....
+                    * Dette sker indtil i < unitAvailableX
+                    *
+                    * Når mans sætter et object til at "spawne" uden for et gyldigt x eller y, sætter den x / y til 0.
+                    * Den anden wall der bliver sat i  dette loop bliver sat på det samme X-koordinat, men med et Y-koordinat
+                    * der er skærmens højre - unit (32 - Dette gør at billedet går lige til kanten).
+                    */
 
-                prevUnitPosX = unitPosX;       
-                unitPosX = unitPosX+unit;
-                
+                    #endregion
+
+                    walls.Add(new Wall(unitPosX, 0));
+                    walls.Add(new Wall(unitPosX, height - unit));
+
+                    prevUnitPosX = unitPosX;
+                    unitPosX = unitPosX + unit;
+                }
             }
           
 
