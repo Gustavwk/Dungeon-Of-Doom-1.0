@@ -11,6 +11,7 @@ namespace Game2.Structures
     class Door : GameObject
     {
         private Texture2D defaultDoor;
+        private int level;
 
 
         public Door(int x, int y)
@@ -29,6 +30,20 @@ namespace Game2.Structures
         {
 
             base.Update(gameTime);
+        }
+
+        public int levelUp(List<GameObject> allObjects)
+        {
+            int x;
+            int y;
+            Random random = new Random();
+            x = random.Next(0, 400);
+            y = random.Next(0, 400);
+            
+            HealthBoost ranHealthBoost = new HealthBoost(60,x,y);
+            allObjects.Add(ranHealthBoost);
+            
+            return level++;
         }
 
         public override void intersects(GameObject Door)

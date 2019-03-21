@@ -33,7 +33,7 @@ namespace Game2
 
             if (taken)
             {
-                spriteBatch.Draw(healthBooster, new Rectangle(this.X, this.Y, 0, 0), Color.White);
+              //spriteBatch.Draw(healthBooster, new Rectangle(this.X, this.Y, 0, 0), Color.White);
             }
             else
             {

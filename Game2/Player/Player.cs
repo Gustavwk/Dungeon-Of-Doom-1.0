@@ -107,7 +107,7 @@ namespace Game2.Player
             if (key.IsKeyDown(Keys.Up))
             {
                 
-                Projectiles projectiles = new Projectiles(projectileTexture);
+                //Projectiles projectiles = new Projectiles(projectileTexture);
                 //projectiles.Y = Y --;
             }
 

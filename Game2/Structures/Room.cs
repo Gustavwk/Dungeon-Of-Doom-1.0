@@ -31,7 +31,7 @@ namespace Game2.Structures
             this.height = height;
             this.unitsAvailableX = width / this.unit;
             this.unitsAvailableY = height / this.unit;
-            porpulateRoom();
+            populateRoom();
         }
 
         public override void Load()
@@ -42,8 +42,9 @@ namespace Game2.Structures
             }
         }
 
-        public void porpulateRoom()
+        public void populateRoom()
         {
+            
             
             for (int i = 0; i < unitsAvailableX; i++) 
             {
