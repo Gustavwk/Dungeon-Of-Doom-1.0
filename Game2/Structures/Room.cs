@@ -44,10 +44,10 @@ namespace Game2.Structures
 
         public void populateRoom()
         {
-            
-            
+
             for (int i = 0; i < unitsAvailableX; i++) 
             {
+
                 if (i != 2) //hvorfor fuck virker det her ikke ? 
                 {
                     #region MyRegion
@@ -69,16 +69,17 @@ namespace Game2.Structures
 
                     walls.Add(new Wall(unitPosX, 0));
                     walls.Add(new Wall(unitPosX, height - unit));
-
-                    prevUnitPosX = unitPosX;
-                    unitPosX = unitPosX + unit;
+                    
                 }
+
+                // det virker nu!!
+                prevUnitPosX = unitPosX;
+                unitPosX = unitPosX + unit;
             }
           
 
             for (int i = 0; i < unitsAvailableY; i++)
             {
-               
 
                 walls.Add(new Wall(0,unitPosY));
                 walls.Add(new Wall(width-unit, unitPosY));
