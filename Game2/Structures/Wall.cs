@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2.Structures
 {
-    class Wall : GameObject
+    class Wall : Structures
     {
         
         private Texture2D defaultWall;

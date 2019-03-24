@@ -14,7 +14,8 @@ namespace Game2
     class HealthBoost : Items
     {
 
-        private Texture2D healthBooster;
+        private Texture2D filledHpPotion;
+        private Texture2D emptyHpPotion;
         private int hpPlus;
         private bool taken = false;
         
@@ -33,11 +34,11 @@ namespace Game2
 
             if (taken)
             {
-              //spriteBatch.Draw(healthBooster, new Rectangle(this.X, this.Y, 0, 0), Color.White);
+              spriteBatch.Draw(emptyHpPotion, new Rectangle(this.X, this.Y, 32, 32), Color.White);
             }
             else
             {
-                spriteBatch.Draw(healthBooster, new Rectangle(this.X, this.Y, 32, 32), Color.White);
+                spriteBatch.Draw(filledHpPotion, new Rectangle(this.X, this.Y, 32, 32), Color.White);
             }
 
             
@@ -50,7 +51,8 @@ namespace Game2
 
         public override void Load()
         {
-            healthBooster = GameHolder.Game.Content.Load<Texture2D>("items/ruby_old");
+            filledHpPotion = GameHolder.Game.Content.Load<Texture2D>("items/ruby_old");
+            emptyHpPotion = GameHolder.Game.Content.Load<Texture2D>("items/white_old");
         }
 
         public override void intersects(GameObject other)

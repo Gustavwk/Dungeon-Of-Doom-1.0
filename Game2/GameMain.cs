@@ -17,6 +17,8 @@ namespace Game2
         SpriteBatch spriteBatch;
         private List<GameObject> allObjects = new List<GameObject>();
         Player.Player player;
+        Room room = new Room(800, 480);
+       
         
         
 
@@ -30,12 +32,18 @@ namespace Game2
             
             player = new Player.Player(100,100);
             allObjects.Add(player);
-            allObjects.Add(new Room(800,480));
+            allObjects.Add(room);
             allObjects.Add(new HealthBoost(60, 60, 60));
-            allObjects.Add(new Door(800 / 2, 480 / 2));
-            
+            Door doorNorth = new Door(384, 0);
+            Door doorSouth = new Door(384, 480 - 32);
+            allObjects.Add(doorNorth);
+            allObjects.Add(doorSouth); //hardcoded doors
+            doorSouth.setRoom(room);
+            doorNorth.setRoom(room);
 
-            
+
+
+
         }
 
      
@@ -99,6 +107,7 @@ namespace Game2
                 if (player.hitbox.Intersects(gameObject.hitbox))
                 {
                     
+
                     player.intersects(gameObject);
                     gameObject.intersects(player);
                     
@@ -108,11 +117,12 @@ namespace Game2
                 if (gameObject is Room)
                 {
                     Room room = (Room) gameObject;              
-                    foreach (Wall wall  in room.walls)
+                    foreach (GameObject roomItem  in room.roomList)
                     {
-                        if (player.hitbox.Intersects(wall.hitbox))
+                        if (player.hitbox.Intersects(roomItem.hitbox))
                         {
-                            player.intersects(wall);
+                            player.intersects(roomItem);
+                            roomItem.intersects(player);
                             
                         }
                        

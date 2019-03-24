@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2.Structures 
 {
-    class Door : GameObject
+    class Door : Structures
     {
         private Texture2D defaultDoor;
         private int level;
@@ -19,6 +19,7 @@ namespace Game2.Structures
             this.X = x;
             this.Y = y;
             this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
+          
         }
         public override void Load()
         {
@@ -31,6 +32,16 @@ namespace Game2.Structures
 
             base.Update(gameTime);
         }
+
+        public bool removeRoom(List<GameObject> items)
+        {
+            foreach (GameObject item in items)
+            {
+                items.Remove(item);
+            }
+            return true;
+        }
+
 
         public int levelUp(List<GameObject> allObjects)
         {
@@ -51,8 +62,18 @@ namespace Game2.Structures
             if (Door is Player.Player)
             {
                 Player.Player p = (Player.Player)Door;
-                p.setX(200);
-                p.setY(200);
+                if (this.Y < unit)
+                {
+                    p.setX(this.X);
+                    p.setY(480 - unit*2);
+                }
+                else
+                {
+                    p.setX(this.X);
+                    p.setY(0 + unit);
+                }
+                //removeRoom(room.roomList);
+
                 //Load new level
             }
             

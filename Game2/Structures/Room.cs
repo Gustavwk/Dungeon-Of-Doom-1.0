@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +25,9 @@ namespace Game2.Structures
         private int height;                                            //Resolution y-akse
         
        
-        public List<Wall> walls = new List<Wall>();
+        public List<GameObject> roomList = new List<GameObject>();
+        
+
 
         public Room(int width, int height)
         {
@@ -32,23 +36,40 @@ namespace Game2.Structures
             this.unitsAvailableX = width / this.unit;
             this.unitsAvailableY = height / this.unit;
             populateRoom();
+            layFloor();
         }
 
         public override void Load()
         {
-            foreach (var Wall in walls)
+            
+            foreach (var Wall in roomList)
             {
                 Wall.Load();                                            //Loader alle billederne den skal bruge!
             }
         }
 
+        public void layFloor()
+        {
+            unitPosX = 0; //reset af unitPos
+            unitPosY = 0;
+
+            roomList.Add(new Tiles(32,32));
+            
+        }
+
         public void populateRoom()
         {
+            
+           
+
+            Random random = new Random();
+            
+          
 
             for (int i = 0; i < unitsAvailableX; i++) 
             {
 
-                if (i != 2) //hvorfor fuck virker det her ikke ? 
+                if (i != unitsAvailableX / 2) 
                 {
                     #region MyRegion
 
@@ -67,10 +88,12 @@ namespace Game2.Structures
 
                     #endregion
 
-                    walls.Add(new Wall(unitPosX, 0));
-                    walls.Add(new Wall(unitPosX, height - unit));
+                    roomList.Add(new Wall(unitPosX, 0));
+                    roomList.Add(new Wall(unitPosX, height - unit));
                     
                 }
+                
+
 
                 // det virker nu!!
                 prevUnitPosX = unitPosX;
@@ -81,8 +104,8 @@ namespace Game2.Structures
             for (int i = 0; i < unitsAvailableY; i++)
             {
 
-                walls.Add(new Wall(0,unitPosY));
-                walls.Add(new Wall(width-unit, unitPosY));
+                roomList.Add(new Wall(0,unitPosY));
+                roomList.Add(new Wall(width-unit, unitPosY));
 
                 prevUnitPosY = unitPosY;
                 unitPosY = unitPosY+unit;
@@ -92,9 +115,9 @@ namespace Game2.Structures
         
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            foreach (Wall wall in walls)
+            foreach (GameObject roomItems in roomList)
             {
-                wall.Draw(spriteBatch, gameTime);
+                roomItems.Draw(spriteBatch, gameTime);
             }
 
         }

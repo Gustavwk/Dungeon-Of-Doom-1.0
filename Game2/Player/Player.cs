@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Diagnostics;
+using Game2.Structures;
 
 namespace Game2.Player
 {
@@ -38,13 +39,19 @@ namespace Game2.Player
 
         public override void intersects(GameObject other)
         {
+            if (other is Tiles)
+            {
+            }
+            else
+            {
 
-            this.Y = prevPositionY;
-            this.X = prevPositionX;
-            Debug.WriteLine("Player Intersects");
-            Debug.WriteLine("X: " + this.X);
-            Debug.WriteLine("Y: " + this.Y);
-            
+                this.Y = prevPositionY;
+                this.X = prevPositionX;
+                Debug.WriteLine("Player Intersects");
+                Debug.WriteLine("X: " + this.X);
+                Debug.WriteLine("Y: " + this.Y);
+            }
+
         }
 
         public void setX(int x)
