@@ -92,6 +92,11 @@ namespace Game2.Structures
                     roomList.Add(new Wall(unitPosX, height - unit));
                     
                 }
+                else //Ny addition til Room, er ikke sikker på om det messer andre ting op?
+                {
+                    roomList.Add(new Door(unitPosX, 0));
+                    roomList.Add(new Door(unitPosX, height - unit));
+                }
                 
 
 

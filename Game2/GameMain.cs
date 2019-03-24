@@ -34,12 +34,12 @@ namespace Game2
             allObjects.Add(room);
             allObjects.Add(new HealthBoost(60, 60, 60));
             allObjects.Add(player);
-            Door doorNorth = new Door(384, 0);
+            /*Door doorNorth = new Door(384, 0);
             Door doorSouth = new Door(384, 480 - 32);
             allObjects.Add(doorNorth);
             allObjects.Add(doorSouth); //hardcoded doors
             doorSouth.setRoom(room);
-            doorNorth.setRoom(room);
+            doorNorth.setRoom(room);*/
 
 
 
