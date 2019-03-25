@@ -18,12 +18,13 @@ namespace Game2.Structures
 
         private int loopCount = 1;
 
-        public Tiles(int X, int Y)
+        public Tiles(int X, int Y, int loopCount)
         {
             this.X = X;
             this.Y = Y;
             this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
-            
+            this.loopCount = loopCount;
+
 
         }
 
@@ -34,7 +35,7 @@ namespace Game2.Structures
             tilesPicThree = GameHolder.Game.Content.Load<Texture2D>("tiles/sandstone_floor_8");
             tilesPicFour = GameHolder.Game.Content.Load<Texture2D>("tiles/sandstone_floor_9");
 
-            //defaultWall = GameHolder.Game.Content.Load<Texture2D>("wall/brick_gray_0");
+           
         }
 
         public override void intersects(GameObject other)

@@ -13,16 +13,16 @@ namespace Game2.Structures
    
     class Room : GameObject
     {
-                                                                                 //800 x 480 pixels er vores nuværende x og y - dette kan sikkert gøres mere scalable
-        private int unit = 32;                                       //Den fælles sidelænge på det wall-billede vi bruger!
+                                                                  //800 x 480 pixels er vores nuværende x og y - dette kan sikkert gøres mere scalable
+        private int unit = 32;                                    //Den fælles sidelænge på det wall-billede vi bruger!
         private int unitsAvailableX;                              //Længden af skærmen - bliver delt i 32 i Room();
         private int unitsAvailableY;                              //Højden af skærmen - bliver delt i 32 i Room();
-        private int unitPosX;                                        //Holder styr på hvor den næste wall sættes på x-aksen
-        private int unitPosY;                                       //Holder styr på hvor den næste wall sættes på y-aksen
-        private int prevUnitPosX;                                //Holder styr på hvor den sidste wall blev sat på x-aksen  - Denne bliver ikke brugt pt.
-        private int prevUnitPosY;                                //Holder styr på hvor den sidste wall blev sat på y-aksen  - Denne bliver ikke brugt pt.
-        private int width;                                             //Resolution x-akse
-        private int height;                                            //Resolution y-akse
+        private int unitPosX;                                     //Holder styr på hvor den næste wall sættes på x-aksen
+        private int unitPosY;                                     //Holder styr på hvor den næste wall sættes på y-aksen
+        private int prevUnitPosX;                                 //Holder styr på hvor den sidste wall blev sat på x-aksen  - Denne bliver ikke brugt pt.
+        private int prevUnitPosY;                                 //Holder styr på hvor den sidste wall blev sat på y-aksen  - Denne bliver ikke brugt pt.
+        private int width;                                        //Resolution x-akse
+        private int height;                                       //Resolution y-akse
         
        
         public List<GameObject> roomList = new List<GameObject>();
@@ -53,7 +53,8 @@ namespace Game2.Structures
             unitPosX = 0; //reset af unitPos
             unitPosY = 0;
 
-            roomList.Add(new Tiles(32,32));
+            roomList.Add(new Tiles(32,32,4));
+           
             
         }
 
