@@ -45,6 +45,7 @@ namespace Game2
         public virtual void Update(GameTime gameTime)
         {
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
+            moveProjectiles();
         }
 
         // what should be drawed
@@ -89,8 +90,96 @@ namespace Game2
 
         // im sure the move Projectiles method should be in the player class
 
-       
 
+        public void moveProjectiles()
+        {
+
+
+            KeyboardState key = Keyboard.GetState();
+
+            // we need a position for our projectile, so that we can move our projectile in a direction, if our delay method allows it.
+            /*if (projectileDelay >= 0)
+            {
+                projectileDelay--;
+            }
+
+            if (projectileDelay <= 0)
+            {
+                Projectiles projectiles = new Projectiles(projectileTexture);
+
+            }
+            */
+
+            // could / should make this method a "SWICH"
+
+            if (key.IsKeyDown(Keys.Up))
+            {
+
+                shootUp();
+
+            }
+
+            if (key.IsKeyDown(Keys.Left))
+            {
+
+                shootLeft();
+            }
+
+            if (key.IsKeyDown(Keys.Down))
+            {
+                shootDown();
+
+            }
+
+            if (key.IsKeyDown(Keys.Right))
+            {
+
+                shootRight();
+            }
+
+
+
+
+        }
+
+        public bool shootUp()
+        {
+
+            // Projectiles projectiles = new Projectiles(defaultSprite);
+
+            Y--;
+
+
+            return true;
+        }
+        public bool shootDown()
+        {
+
+
+
+            Y++;
+
+
+            return true;
+        }
+        public bool shootLeft()
+        {
+
+
+
+            X--;
+
+
+            return true;
+        }
+        public bool shootRight()
+        {
+
+            X++;
+
+
+            return true;
+        }
 
     }
 
