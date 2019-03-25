@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,18 +14,51 @@ namespace Game2
     {
  
         public float projectileDelay = 20; // delay variable for the projectiles
-        protected Texture2D defaultSprite;
+        protected Texture2D projectileTextureLeft;
+        protected Texture2D projectileTextureUp;
+        protected Texture2D projectileTextureRight;
+        protected Texture2D projectileTextureDown;
+        private bool directionUp;
+        private bool directionDown;
+        private bool directionLeft;
+        private bool directionRight;
+
+
         bool visible; // is the projectile visible
         int shootSpeed = 3; //the speed the projectile moves
         int HEIGHT = 32;
         int WIDTH = 32;
-        private Texture2D projectileTexture;
+        
         // should a list of our projectiles be here, or in our GameObjects super class??? 
 
-        public Projectiles(int x, int y, Texture2D projectileTexture, KeyboardState key ) {
+        public Projectiles(int x, int y, KeyboardState key ) {
             if (key.IsKeyDown(Keys.Up))
             {
-                this.Y--;
+                directionUp = true;
+                directionDown = false;
+                directionLeft = false;
+                directionRight = false;     
+
+            } else if (key.IsKeyDown(Keys.Down))
+            {
+                directionUp = false;
+                directionDown = true;
+                directionLeft = false;
+                directionRight = false;
+            }
+            else if (key.IsKeyDown(Keys.Left))
+            {
+                directionUp = false;
+                directionDown = false;
+                directionLeft = true;
+                directionRight = false;
+            }
+            else if (key.IsKeyDown(Keys.Right))
+            {
+                directionUp = false;
+                directionDown = false;
+                directionLeft = false;
+                directionRight = true;
             }
 
             this.X = x;
@@ -44,22 +78,59 @@ namespace Game2
         //what should be updated
         public virtual void Update(GameTime gameTime)
         {
+            if (directionUp)
+            {
+                shootUp();
+
+            } else if (directionDown)
+            {
+                shootDown();
+            }
+            else if(directionLeft)
+            {
+                shootLeft();
+            }
+            else if (directionRight)
+            {
+                shootRight();
+            }
+
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
-            moveProjectiles();
+          
         }
 
         // what should be drawed
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(defaultSprite, hitbox, Color.White);
-            drawHitbox();
+           
+            if (directionUp)
+            {
+                spriteBatch.Draw(projectileTextureUp, hitbox, Color.White);
+                
+            }
+            else if (directionDown)
+            {
+                spriteBatch.Draw(projectileTextureDown, hitbox, Color.White);
+            }
+            else if (directionLeft)
+            {
+                spriteBatch.Draw(projectileTextureLeft, hitbox, Color.White);
+            }
+            else if (directionRight)
+            {
+                spriteBatch.Draw(projectileTextureRight, hitbox, Color.White);
+            }
+            
          
         }
 
         //loading our projectile image
         public virtual void Load()
         {
-            defaultSprite = GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/1_HeroShotgunBulletFrames (1)");
+            projectileTextureLeft = GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_6");
+            projectileTextureRight = GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_2");
+            projectileTextureUp = GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_0");
+            projectileTextureDown = GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_4");
         }
 
         // creating a new rectangle for our projectile hitbox 
@@ -67,7 +138,7 @@ namespace Game2
         {
             get
             {
-                return new Rectangle(this.X, this.Y, defaultSprite.Width, defaultSprite.Height);
+                return new Rectangle(this.X, this.Y, projectileTextureLeft.Width, projectileTextureLeft.Height);
 
             }
         }
@@ -76,10 +147,11 @@ namespace Game2
 
         public void drawHitbox(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            Texture2D texture = new Texture2D(defaultSprite.GraphicsDevice, 1, 1);
+            Texture2D texture = new Texture2D(projectileTextureLeft.GraphicsDevice, 1, 1);
             texture.SetData(new Color[] { Color.Aqua });
             spriteBatch.Draw(texture, hitbox, Color.White);
-            spriteBatch.Draw(projectileTexture,hitbox, Color.White);
+
+            spriteBatch.Draw(projectileTextureLeft,hitbox, Color.White);
         }
 
         //intersecting with a wall method, dont know if this should be here
@@ -91,63 +163,14 @@ namespace Game2
         // im sure the move Projectiles method should be in the player class
 
 
-        public void moveProjectiles()
-        {
-
-
-            KeyboardState key = Keyboard.GetState();
-
-            // we need a position for our projectile, so that we can move our projectile in a direction, if our delay method allows it.
-            /*if (projectileDelay >= 0)
-            {
-                projectileDelay--;
-            }
-
-            if (projectileDelay <= 0)
-            {
-                Projectiles projectiles = new Projectiles(projectileTexture);
-
-            }
-            */
-
-            // could / should make this method a "SWICH"
-
-            if (key.IsKeyDown(Keys.Up))
-            {
-
-                shootUp();
-
-            }
-
-            if (key.IsKeyDown(Keys.Left))
-            {
-
-                shootLeft();
-            }
-
-            if (key.IsKeyDown(Keys.Down))
-            {
-                shootDown();
-
-            }
-
-            if (key.IsKeyDown(Keys.Right))
-            {
-
-                shootRight();
-            }
-
-
-
-
-        }
+      
 
         public bool shootUp()
         {
 
-            // Projectiles projectiles = new Projectiles(defaultSprite);
 
-            Y--;
+            this.Y = this.Y - shootSpeed;
+            
 
 
             return true;
@@ -156,8 +179,8 @@ namespace Game2
         {
 
 
+            this.Y = this.Y + shootSpeed;
 
-            Y++;
 
 
             return true;
@@ -166,8 +189,7 @@ namespace Game2
         {
 
 
-
-            X--;
+            this.X = this.X - shootSpeed;
 
 
             return true;
@@ -175,7 +197,7 @@ namespace Game2
         public bool shootRight()
         {
 
-            X++;
+            this.X = this.X + shootSpeed;
 
 
             return true;

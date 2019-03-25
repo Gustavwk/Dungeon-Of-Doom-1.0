@@ -2,7 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading;
 using Game2.Structures;
 
 namespace Game2.Player
@@ -20,7 +22,8 @@ namespace Game2.Player
         private Boolean alive = true;
         private int prevPositionX;
         private int prevPositionY;
-       
+        public List<GameObject> projectiles = new List<GameObject>();
+
 
         protected Boolean north = false;
         protected Boolean south = false;
@@ -35,6 +38,8 @@ namespace Game2.Player
             this.prevPositionX = x;
             this.prevPositionY = y;
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
+           
+
         }
 
         public override void intersects(GameObject other)
@@ -67,7 +72,7 @@ namespace Game2.Player
         {
             playerPicture = GameHolder.Game.Content.Load<Texture2D>("player/bloody");
             
-           projectileTexture = GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/1_HeroShotgunBulletFrames (1)");
+           
         }
 
         public Boolean isDead(Boolean alive)
@@ -113,27 +118,31 @@ namespace Game2.Player
             KeyboardState key = Keyboard.GetState();
             if (key.IsKeyDown(Keys.Up))
             {
-                Projectiles projectiles = new Projectiles(this.X, this.Y,projectileTexture,key);
-                //Projectiles projectiles = new Projectiles(projectileTexture);
-                //projectiles.Y = Y --;
+                projectiles.Add(new Projectiles(this.X, this.Y,  key));
+                Debug.WriteLine("SHOOT UP");
+                
+
             }
 
             if (key.IsKeyDown(Keys.Left))
             {
-               
-                this.X = this.X - this.movementspeed;
+
+                projectiles.Add(new Projectiles(this.X, this.Y, key));
+                Debug.WriteLine("SHOOT LEFT");
             }
 
             if (key.IsKeyDown(Keys.Down))
             {
-                
-                this.Y = this.Y + this.movementspeed;
+
+                projectiles.Add(new Projectiles(this.X, this.Y,  key));
+                Debug.WriteLine("SHOOT DOWN");
             }
 
             if (key.IsKeyDown(Keys.Right))
             {
-                
-                this.X = this.X + this.movementspeed;
+
+                projectiles.Add(new Projectiles(this.X, this.Y,  key));
+                Debug.WriteLine("SHOOT RIGHT");
             }
 
         }
@@ -143,6 +152,8 @@ namespace Game2.Player
         {
             movement();
             shooting();
+            
+            
 
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
            
@@ -152,7 +163,10 @@ namespace Game2.Player
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            //Nedenstående tegner en hitbox
+            foreach (GameObject projectile in projectiles)
+            {
+                projectile.Draw(spriteBatch, gameTime);
+            }
             
             Texture2D texture = new Texture2D(spriteBatch.GraphicsDevice,1,1);
             texture.SetData(new Color[]{Color.Aqua});
@@ -160,13 +174,7 @@ namespace Game2.Player
             
             spriteBatch.Draw(playerPicture, hitbox, Color.White);
 
-            /*if (Keyboard.GetState().IsKeyDown(Keys.Up)) { 
-            Texture2D texture2 = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
-            texture2.SetData(new Color[] { Color.Aqua });
-            spriteBatch.Draw(texture2, hitbox, Color.White);
-
-            spriteBatch.Draw(projectileTexture, hitbox, Color.White);
-            }*/
+           
         }
     }
 }
