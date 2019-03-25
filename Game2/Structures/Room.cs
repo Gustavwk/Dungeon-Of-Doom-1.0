@@ -64,14 +64,16 @@ namespace Game2.Structures
            
 
             Random random = new Random();
-            
-          
 
-            for (int i = 0; i < unitsAvailableX; i++) 
+            int wallSpace = random.Next(1,23);
+            int doorDifference = random.Next(1, 23);
+            Debug.WriteLine("Wallspace" + wallSpace);
+
+            for (int i = 0; i < unitsAvailableX; i++)
             {
+                
 
-                if (i != unitsAvailableX / 2) 
-                {
+                
                     #region MyRegion
 
                     /*
@@ -92,13 +94,18 @@ namespace Game2.Structures
                     roomList.Add(new Wall(unitPosX, 0));
                     roomList.Add(new Wall(unitPosX, height - unit));
                     
-                }
-                else //Ny addition til Room, er ikke sikker på om det messer andre ting op?
+                
+                if (i == wallSpace) //Ny addition til Room, er ikke sikker på om det messer andre ting op?
                 {
                     roomList.Add(new Door(unitPosX, 0));
+                    
+                }
+
+                if (i == doorDifference)
+                {
                     roomList.Add(new Door(unitPosX, height - unit));
                 }
-                
+
 
 
                 // det virker nu!!
