@@ -7,17 +7,17 @@
       <FileName>Items\Items.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Game2.Projectiles" Collapsed="true">
+  <Class Name="Game2.Projectile" Collapsed="true">
     <Position X="13.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAgAACAAIAAgQEAAAAAAAAAAQgCAAAAAAAiABAAAE=</HashCode>
-      <FileName>Items\Projectiles.cs</FileName>
+      <HashCode>gEYAgQACAAJAAgABAABAAAAAAAQgCEAAEAAAiEBAAAE=</HashCode>
+      <FileName>Items\Projectile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Player.Player" Collapsed="true">
     <Position X="8.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAUAgGQAAAAEAgAEAAAeAAgABBQAAAAIAAAAhABAgAg=</HashCode>
+      <HashCode>AAUAgGQAAAAEAgAEAAAeAAgABBQAAAgIAABAhABAgAg=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -38,7 +38,7 @@
   <Class Name="Game2.Structures.Room" Collapsed="true">
     <Position X="11.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAgAAAAAAgAgSARAAAIAAAACAAAAAAAAAAAAACAEA=</HashCode>
+      <HashCode>QAAAgAAAAAAgAgSARAAAIAAAACAAAAgAAAQAAAACAEA=</HashCode>
       <FileName>Structures\Room.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -73,7 +73,7 @@
       <FileName>Structures\Structures.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Game2.Structures.Tiles">
+  <Class Name="Game2.Structures.Tiles" Collapsed="true">
     <Position X="6.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAAAgAAAAJCAAIAAAAAAAAAAAABgAAAAAA=</HashCode>

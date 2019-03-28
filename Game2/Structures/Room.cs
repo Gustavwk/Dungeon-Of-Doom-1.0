@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game2.gameLogic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -23,8 +24,9 @@ namespace Game2.Structures
         private int prevUnitPosY;                                 //Holder styr på hvor den sidste wall blev sat på y-aksen  - Denne bliver ikke brugt pt.
         private int width;                                        //Resolution x-akse
         private int height;                                       //Resolution y-akse
-        
-       
+        private Random random = new Random();
+        public Mediator mediator { get; set; }
+
         public List<GameObject> roomList = new List<GameObject>();
         
 
@@ -35,8 +37,9 @@ namespace Game2.Structures
             this.height = height;
             this.unitsAvailableX = width / this.unit;
             this.unitsAvailableY = height / this.unit;
-            populateRoom();
             layFloor();
+            populateRoom();
+            
         }
 
         public override void Load()
@@ -53,7 +56,14 @@ namespace Game2.Structures
             unitPosX = 0; //reset af unitPos
             unitPosY = 0;
 
-            roomList.Add(new Tiles(32,32,4));
+            for (int i = 0; i < width; i+=unit)
+            {
+                for (int j = 0; j < height; j+=unit)
+                {
+                    roomList.Add(new Tiles(i, j, random.Next(3)+1));
+                }
+            }
+            
            
             
         }

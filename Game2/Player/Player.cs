@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
+using Game2.gameLogic;
 using Game2.Structures;
 
 namespace Game2.Player
@@ -23,7 +24,7 @@ namespace Game2.Player
         private int prevPositionX;
         private int prevPositionY;
         public List<GameObject> projectiles = new List<GameObject>();
-
+        public Mediator mediator { get; set; }
 
         protected Boolean north = false;
         protected Boolean south = false;
@@ -118,7 +119,7 @@ namespace Game2.Player
             KeyboardState key = Keyboard.GetState();
             if (key.IsKeyDown(Keys.Up))
             {
-                projectiles.Add(new Projectiles(this.X, this.Y,  key));
+                mediator.AllObjects.Add(new Projectile(this.X, this.Y,  key));
                 Debug.WriteLine("SHOOT UP");
                 
 
@@ -127,21 +128,21 @@ namespace Game2.Player
             if (key.IsKeyDown(Keys.Left))
             {
 
-                projectiles.Add(new Projectiles(this.X, this.Y, key));
+                projectiles.Add(new Projectile(this.X, this.Y, key));
                 Debug.WriteLine("SHOOT LEFT");
             }
 
             if (key.IsKeyDown(Keys.Down))
             {
 
-                projectiles.Add(new Projectiles(this.X, this.Y,  key));
+                projectiles.Add(new Projectile(this.X, this.Y,  key));
                 Debug.WriteLine("SHOOT DOWN");
             }
 
             if (key.IsKeyDown(Keys.Right))
             {
 
-                projectiles.Add(new Projectiles(this.X, this.Y,  key));
+                projectiles.Add(new Projectile(this.X, this.Y,  key));
                 Debug.WriteLine("SHOOT RIGHT");
             }
 
@@ -151,7 +152,10 @@ namespace Game2.Player
         public override void Update(GameTime gameTime)
         {
             movement();
-            shooting();
+            if (Keyboard.GetState().IsKeyDown(Keys.Space))
+            {
+                shooting();
+            }
             
             
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
+using Game2.gameLogic;
 using Game2.Structures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -18,9 +19,8 @@ namespace Game2
         private List<GameObject> allObjects = new List<GameObject>();
         Player.Player player;
         Room room = new Room(800, 480);
-       
-        
-        
+        Mediator mediator;
+
 
         public GameMain()
         {
@@ -34,11 +34,11 @@ namespace Game2
             allObjects.Add(room);
             allObjects.Add(new HealthBoost(60, 60, 60));
             allObjects.Add(player);
-            
+            mediator = new Mediator(allObjects, player, room);
 
-
-
-
+            //give all mediator
+            player.mediator = mediator;
+            room.mediator = mediator;
         }
 
      
@@ -95,41 +95,29 @@ namespace Game2
                 Exit();
             // TODO: Add your update logic here
 
-            foreach (GameObject  gameObject in allObjects)
+            for (var index = 0; index < allObjects.Count; index++)
             {
-               
-
+                GameObject gameObject = allObjects[index];
                 if (player.hitbox.Intersects(gameObject.hitbox))
                 {
-                    
-
                     player.intersects(gameObject);
                     gameObject.intersects(player);
-                    
                 }
+
                 gameObject.Update(gameTime);
 
                 if (gameObject is Room)
                 {
-                    Room room = (Room) gameObject;              
-                    foreach (GameObject roomItem  in room.roomList)
+                    Room room = (Room) gameObject;
+                    foreach (GameObject roomItem in room.roomList)
                     {
                         if (player.hitbox.Intersects(roomItem.hitbox))
                         {
                             player.intersects(roomItem);
                             roomItem.intersects(player);
-                            
                         }
-                       
                     }
-                  
                 }
-               
-                    
-                
-
-                
-
             }
 
             base.Update(gameTime);

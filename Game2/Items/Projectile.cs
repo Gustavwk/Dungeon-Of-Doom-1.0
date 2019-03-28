@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Game2
 {
-    class Projectiles : GameObject
+    class Projectile : GameObject
     {
  
         public float projectileDelay = 20; // delay variable for the projectiles
@@ -31,7 +31,7 @@ namespace Game2
         
         // should a list of our projectiles be here, or in our GameObjects super class??? 
 
-        public Projectiles(int x, int y, KeyboardState key ) {
+        public Projectile(int x, int y, KeyboardState key ) {
             if (key.IsKeyDown(Keys.Up))
             {
                 directionUp = true;
@@ -127,10 +127,10 @@ namespace Game2
         //loading our projectile image
         public virtual void Load()
         {
-            projectileTextureLeft = GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_6");
-            projectileTextureRight = GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_2");
-            projectileTextureUp = GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_0");
-            projectileTextureDown = GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_4");
+            projectileTextureLeft = GameHolder.Game.Content.Load<Texture2D>("Projectile/DefaultProjectiles/poison_arrow_6");
+            projectileTextureRight = GameHolder.Game.Content.Load<Texture2D>("Projectile/DefaultProjectiles/poison_arrow_2");
+            projectileTextureUp = GameHolder.Game.Content.Load<Texture2D>("Projectile/DefaultProjectiles/poison_arrow_0");
+            projectileTextureDown = GameHolder.Game.Content.Load<Texture2D>("Projectile/DefaultProjectiles/poison_arrow_4");
         }
 
         // creating a new rectangle for our projectile hitbox 
@@ -160,7 +160,7 @@ namespace Game2
 
         }
 
-        // im sure the move Projectiles method should be in the player class
+        // im sure the move Projectile method should be in the player class
 
 
       

@@ -42,9 +42,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GameHolder.cs" />
+    <Compile Include="gameLogic\Mediator.cs" />
     <Compile Include="Items\HealthBoost.cs" />
     <Compile Include="Items\Items.cs" />
-    <Compile Include="Items\Projectiles.cs" />
+    <Compile Include="Items\Projectile.cs" />
     <Compile Include="Player\Player.cs" />
     <Compile Include="GameMain.cs" />
     <Compile Include="GameObject.cs" />
