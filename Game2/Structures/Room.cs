@@ -25,7 +25,7 @@ namespace Game2.Structures
         private int width;                                        //Resolution x-akse
         private int height;                                       //Resolution y-akse
         private Random random = new Random();
-        public Mediator mediator { get; set; }
+       
 
         public List<GameObject> roomList = new List<GameObject>();
         
@@ -114,6 +114,9 @@ namespace Game2.Structures
                 if (i == doorDifference)
                 {
                     roomList.Add(new Door(unitPosX, height - unit));
+                    GameObject lastDoor = roomList[roomList.Count - 1];
+            
+                    
                 }
 
 

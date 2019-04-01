@@ -32,7 +32,7 @@ namespace Game2.Structures
 
         public void setRoom(Room room)
         {
-            this.room = room;
+            //this.room = room;
         }
 
     }
