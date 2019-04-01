@@ -10,7 +10,7 @@ using Game2.Structures;
 
 namespace Game2.Player
 {
-    class Player : GameObject
+    class Player : GameObject, IMediator
     {
 
         private Texture2D playerPicture;
@@ -24,13 +24,11 @@ namespace Game2.Player
         private int prevPositionX;
         private int prevPositionY;
         public List<GameObject> projectiles = new List<GameObject>();
-        public Mediator mediator { get; set; }
-
         protected Boolean north = false;
         protected Boolean south = false;
         protected Boolean east = false;
         protected Boolean west = false;
-        //public List<Projectile> projectileList; // not sure yet
+       
        
         public Player(int x, int y)
         {

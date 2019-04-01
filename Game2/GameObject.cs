@@ -17,6 +17,7 @@ namespace Game2
         public Rectangle hitbox;
         protected int X;
         protected int Y;
+        
 
         
 

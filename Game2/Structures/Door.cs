@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,7 @@ namespace Game2.Structures
             
             HealthBoost ranHealthBoost = new HealthBoost(60,x,y);
             allObjects.Add(ranHealthBoost);
+            Debug.WriteLine("HB added");
             
             return level++;
         }
@@ -66,6 +68,7 @@ namespace Game2.Structures
                 {
                     p.setX(this.X);
                     p.setY(480 - unit*2);
+                    //levelUp(mediator.AllObjects);
                 }
                 else
                 {
