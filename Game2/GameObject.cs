@@ -4,13 +4,14 @@ using System.Linq;
 using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
+using Game2.gameLogic;
 using Game2.Structures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2
 {
-    abstract class GameObject
+    abstract class GameObject : IMediator
     {
         private Texture2D defaultSprite;
         public Rectangle hitbox;
@@ -52,6 +53,7 @@ namespace Game2
 
         }
 
+        public Mediator mediator { get; set; }
     }
 }
 
