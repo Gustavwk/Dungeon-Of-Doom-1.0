@@ -17,9 +17,10 @@ namespace Game2
         public Rectangle hitbox;
         protected int X;
         protected int Y;
-        
+        public Mediator mediator { get; set; }
 
-        
+
+
 
         public virtual void Update(GameTime gameTime)
         {
@@ -54,7 +55,7 @@ namespace Game2
 
         }
 
-        public Mediator mediator { get; set; }
+        
     }
 }
 
