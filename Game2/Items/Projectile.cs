@@ -160,10 +160,20 @@ namespace Game2
 
         }
 
-        // im sure the move Projectile method should be in the player class
+        
+
+            // denne metode kloner projectiler, da sprites er en refereance, derfor skal vi klone før vi bruger objektet, eller kan vi ikke skyde.
+            // jeg kan bare ikke lige gennemskue hvordan vi skal implementerer denne metode så vi kan bruge den i vores program.
+            // I need help :-)
+
+        /*public bool addProjectile()
+        {
+            var projectile = projectile.clone;
+            return true;
+        }*/
 
 
-      
+
 
         public bool shootUp()
         {
@@ -202,9 +212,10 @@ namespace Game2
 
             return true;
         }
+       
 
     }
-
+    
 
 }
 

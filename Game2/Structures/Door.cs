@@ -37,7 +37,7 @@ namespace Game2.Structures
         {
             foreach (GameObject item in items)
             {
-                items.Remove(item);
+                items.Remove(item);wd
             }
             return true;
         }

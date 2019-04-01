@@ -10,7 +10,7 @@ using Game2.Structures;
 
 namespace Game2.Player
 {
-    class Player : GameObject
+    class Player : GameObject 
     {
 
         private Texture2D playerPicture;
@@ -128,7 +128,8 @@ namespace Game2.Player
             if (key.IsKeyDown(Keys.Left))
             {
 
-                projectiles.Add(new Projectile(this.X, this.Y, key));
+                
+                //projectiles.Add(new Projectile(this.X, this.Y, key));
                 Debug.WriteLine("SHOOT LEFT");
             }
 

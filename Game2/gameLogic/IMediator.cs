@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game2.gameLogic
 {
-    interface IMediator
+    interface IMediator : ICloneable // IMediiator implementerer nu iClonable, så vi kan klone objecter senere.
     {
         Mediator mediator { get; set; }
     }
