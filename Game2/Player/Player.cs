@@ -129,7 +129,7 @@ namespace Game2.Player
             {
 
                 
-                //projectiles.Add(new Projectile(this.X, this.Y, key));
+                projectiles.Add(new Projectile(this.X, this.Y, key));
                 Debug.WriteLine("SHOOT LEFT");
             }
 
