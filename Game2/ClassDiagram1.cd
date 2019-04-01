@@ -1,56 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Game2.Items" Collapsed="true">
-    <Position X="15.5" Y="3.5" Width="1.5" />
+    <Position X="13.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Items\Items.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Projectile" Collapsed="true">
-    <Position X="13.25" Y="3.5" Width="1.5" />
+    <Position X="11.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gEYAgQACAAJAAgABAABAAAAAAAQgCEAAEAAAiEBAAAE=</HashCode>
       <FileName>Items\Projectile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Player.Player" Collapsed="true">
-    <Position X="8.75" Y="3.5" Width="1.5" />
+    <Position X="7" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAUAgGQAAAAEAgAEAAAeAAgABBQAAAgIAABAhABAgAg=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.GameObject" Collapsed="true">
-    <Position X="10.5" Y="1" Width="1.5" />
+    <Position X="9" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAQAAAAAAgQAAAAAAAAAAAAgCAAAAAAAgAAAYAA=</HashCode>
       <FileName>GameObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.HealthBoost" Collapsed="true">
-    <Position X="15.5" Y="5.5" Width="1.5" />
+    <Position X="13.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgQAgAAAAAQAAgAAAAQAAAAAAAAAAAAAAAAAhAAAAAA=</HashCode>
       <FileName>Items\HealthBoost.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Structures.Room" Collapsed="true">
-    <Position X="11.25" Y="3.5" Width="1.5" />
+    <Position X="8" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAgAAAAAAgAgSARAAAIAAAACAAAAgAAAQAAAACAEA=</HashCode>
       <FileName>Structures\Room.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.Structures.Wall" Collapsed="true">
-    <Position X="3.25" Y="4.75" Width="1.5" />
+    <Position X="7.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAEAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Structures\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.GameMain" Collapsed="true">
-    <Position X="6.5" Y="1" Width="1.5" />
+    <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAEEAAAAAAAwAAAAAAAAAQAAgAAAgBAAAAAAAAAAQ=</HashCode>
       <FileName>GameMain.cs</FileName>
@@ -60,25 +61,39 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Game2.Structures.Door" Collapsed="true">
-    <Position X="5" Y="4.75" Width="1.5" />
+    <Position X="9.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAAAgAAAABAEAAAAAEAAQAAAAAAgAAAAAA=</HashCode>
       <FileName>Structures\Door.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Structures.Structures" Collapsed="true">
-    <Position X="5" Y="3" Width="1.5" />
+    <Position X="9.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAEAAgAgQAQAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Structures\Structures.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Structures.Tiles" Collapsed="true">
-    <Position X="6.75" Y="4.75" Width="1.5" />
+    <Position X="11.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAAAgAAAAJCAAIAAAAAAAAAAAABgAAAAAA=</HashCode>
       <FileName>Structures\Tiles.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.gameLogic.Mediator">
+    <Position X="2.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAgAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>gameLogic\Mediator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Room1" />
+      <Property Name="Player1" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="AllObjects" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
