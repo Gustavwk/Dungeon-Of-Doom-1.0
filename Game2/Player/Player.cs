@@ -89,6 +89,15 @@ namespace Game2.Player
         public void movement()
         {
             KeyboardState key = Keyboard.GetState();
+            if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.S))
+            {
+                this.X = this.X - movementspeed;
+            }
+            else if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.W))
+            {
+                this.X = this.X - movementspeed;
+            }
+
             if (key.IsKeyDown(Keys.D))
             {
                 this.prevPositionX = this.X;
@@ -112,6 +121,7 @@ namespace Game2.Player
                 this.prevPositionY = this.Y;
                 this.Y = this.Y - this.movementspeed;
             }
+            
         }
         public void shooting()
          {
