@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Game2.Structures
 {
    
-    class Room : GameObject, IMediator
+    class Room : GameObject
     {
                                                                   //800 x 480 pixels er vores nuværende x og y - dette kan sikkert gøres mere scalable
         private int unit = 32;                                    //Den fælles sidelænge på det wall-billede vi bruger!
@@ -27,45 +27,46 @@ namespace Game2.Structures
         private Random random = new Random();
        
 
-        public List<GameObject> roomList = new List<GameObject>();
+        
         
 
 
         public Room(int width, int height)
         {
+           
             this.width = width;
             this.height = height;
             this.unitsAvailableX = width / this.unit;
             this.unitsAvailableY = height / this.unit;
+            
+        }
+
+        public void addToAllObjects()
+        {
+
             layFloor();
             populateRoom();
-            
         }
 
         public override void Load()
         {
             
-            foreach (var Wall in roomList)
-            {
-                Wall.Load();                                            //Loader alle billederne den skal bruge!
-            }
+            
         }
 
         public void layFloor()
         {
-            unitPosX = 0; //reset af unitPos
+            unitPosX = 0; 
             unitPosY = 0;
 
             for (int i = 0; i < width; i+=unit)
             {
                 for (int j = 0; j < height; j+=unit)
                 {
-                    roomList.Add(new Tiles(i, j, random.Next(3)+1));
+                    mediator.AllObjects.Add(new Tiles(i, j, random.Next(3)+1));
                 }
             }
-            
-           
-            
+ 
         }
 
         public void populateRoom()
@@ -101,37 +102,33 @@ namespace Game2.Structures
 
                     #endregion
 
-                    roomList.Add(new Wall(unitPosX, 0));
-                    roomList.Add(new Wall(unitPosX, height - unit));
+                    mediator.AllObjects.Add(new Wall(unitPosX, 0));
+                    mediator.AllObjects.Add(new Wall(unitPosX, height - unit));
                     
                 
-                if (i == wallSpace) //Ny addition til Room, er ikke sikker på om det messer andre ting op?
+                if (i == wallSpace) 
                 {
-                    roomList.Add(new Door(unitPosX, 0));
+                    mediator.AllObjects.Add(new Door(unitPosX, 0));
                     
                 }
 
                 if (i == doorDifference)
                 {
-                    roomList.Add(new Door(unitPosX, height - unit));
-                    GameObject lastDoor = roomList[roomList.Count - 1];
+                    mediator.AllObjects.Add(new Door(unitPosX, height - unit));
+                    GameObject lastDoor = mediator.AllObjects[mediator.AllObjects.Count - 1];
             
                     
                 }
 
-
-
-                // det virker nu!!
                 prevUnitPosX = unitPosX;
                 unitPosX = unitPosX + unit;
             }
           
-
             for (int i = 0; i < unitsAvailableY; i++)
             {
 
-                roomList.Add(new Wall(0,unitPosY));
-                roomList.Add(new Wall(width-unit, unitPosY));
+                mediator.AllObjects.Add(new Wall(0,unitPosY));
+                mediator.AllObjects.Add(new Wall(width-unit, unitPosY));
 
                 prevUnitPosY = unitPosY;
                 unitPosY = unitPosY+unit;
@@ -139,13 +136,6 @@ namespace Game2.Structures
             }
         }
         
-        public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
-        {
-            foreach (GameObject roomItems in roomList)
-            {
-                roomItems.Draw(spriteBatch, gameTime);
-            }
-
-        }
+        
     }
 }

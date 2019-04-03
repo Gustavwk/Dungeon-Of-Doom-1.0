@@ -61,6 +61,7 @@ namespace Game2.Structures
 
         public override void intersects(GameObject Door)
         {
+            
             if (Door is Player.Player)
             {
                 Player.Player p = (Player.Player)Door;
@@ -69,6 +70,7 @@ namespace Game2.Structures
                     p.setX(this.X);
                     p.setY(480 - unit*2);
                     //levelUp(mediator.AllObjects);
+                    
                 }
                 else
                 {

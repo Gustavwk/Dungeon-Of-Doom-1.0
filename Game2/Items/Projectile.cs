@@ -13,15 +13,12 @@ namespace Game2
     class Projectile : GameObject
     {
  
-        public float projectileDelay = 20; // delay variable for the projectiles
+       
         protected Texture2D projectileTextureLeft;
         protected Texture2D projectileTextureUp;
         protected Texture2D projectileTextureRight;
         protected Texture2D projectileTextureDown;
-        private bool directionUp;
-        private bool directionDown;
-        private bool directionLeft;
-        private bool directionRight;
+        
 
 
         bool visible; // is the projectile visible
@@ -32,38 +29,14 @@ namespace Game2
         // should a list of our projectiles be here, or in our GameObjects super class??? 
 
         public Projectile(int x, int y, KeyboardState key ) {
-            if (key.IsKeyDown(Keys.Up))
-            {
-                directionUp = true;
-                directionDown = false;
-                directionLeft = false;
-                directionRight = false;     
-
-            } else if (key.IsKeyDown(Keys.Down))
-            {
-                directionUp = false;
-                directionDown = true;
-                directionLeft = false;
-                directionRight = false;
-            }
-            else if (key.IsKeyDown(Keys.Left))
-            {
-                directionUp = false;
-                directionDown = false;
-                directionLeft = true;
-                directionRight = false;
-            }
-            else if (key.IsKeyDown(Keys.Right))
-            {
-                directionUp = false;
-                directionDown = false;
-                directionLeft = false;
-                directionRight = true;
-            }
 
             this.X = x;
             this.Y = y;
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
+
+           
+
+            
 
             //visible = false; 
             
@@ -78,48 +51,15 @@ namespace Game2
         //what should be updated
         public virtual void Update(GameTime gameTime)
         {
-            if (directionUp)
-            {
-                shootUp();
-
-            } else if (directionDown)
-            {
-                shootDown();
-            }
-            else if(directionLeft)
-            {
-                shootLeft();
-            }
-            else if (directionRight)
-            {
-                shootRight();
-            }
-
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
-          
+
         }
 
         // what should be drawed
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
            
-            if (directionUp)
-            {
-                spriteBatch.Draw(projectileTextureUp, hitbox, Color.White);
-                
-            }
-            else if (directionDown)
-            {
-                spriteBatch.Draw(projectileTextureDown, hitbox, Color.White);
-            }
-            else if (directionLeft)
-            {
-                spriteBatch.Draw(projectileTextureLeft, hitbox, Color.White);
-            }
-            else if (directionRight)
-            {
-                spriteBatch.Draw(projectileTextureRight, hitbox, Color.White);
-            }
+            
             
          
         }
@@ -175,43 +115,7 @@ namespace Game2
 
 
 
-        public bool shootUp()
-        {
-
-
-            this.Y = this.Y - shootSpeed;
-            
-
-
-            return true;
-        }
-        public bool shootDown()
-        {
-
-
-            this.Y = this.Y + shootSpeed;
-
-
-
-            return true;
-        }
-        public bool shootLeft()
-        {
-
-
-            this.X = this.X - shootSpeed;
-
-
-            return true;
-        }
-        public bool shootRight()
-        {
-
-            this.X = this.X + shootSpeed;
-
-
-            return true;
-        }
+       
        
 
     }

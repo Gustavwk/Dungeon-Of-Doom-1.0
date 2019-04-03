@@ -10,14 +10,14 @@ namespace Game2.gameLogic
     class Mediator
     {
         public List<GameObject> AllObjects { get; }
-        public Player.Player Player1 { get; }
-        public Room Room1 { get; }
+        public GameObject player { get; }
+        public GameObject room { get; }
 
         public Mediator(List<GameObject> allObjects, Player.Player player, Room room)
         {
             this.AllObjects = allObjects;
-            this.Player1 = player;
-            this.Room1 = room;
+            this.player = player;
+            this.room = room;
         }
     }
 }
