@@ -51,8 +51,8 @@ namespace Game2
         //what should be updated
         public virtual void Update(GameTime gameTime)
         {
-           
-          
+            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
+
         }
 
         // what should be drawed

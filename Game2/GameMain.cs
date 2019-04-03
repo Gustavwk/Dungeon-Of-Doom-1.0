@@ -17,8 +17,9 @@ namespace Game2
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private List<GameObject> allObjects = new List<GameObject>();
-        Player.Player player;
+        Player.Player player = new Player.Player(100,100);
         Room room = new Room(800, 480);
+
         Mediator mediator;
 
 
@@ -28,17 +29,17 @@ namespace Game2
             graphics = new GraphicsDeviceManager(this);
             GameHolder.Game = this;
             Content.RootDirectory = "Content";
-
-            
-            player = new Player.Player(100,100);
-            allObjects.Add(room);
+            mediator = new Mediator(allObjects, player, room);
+            room.mediator = mediator;
+            room.addToAllObjects();
             allObjects.Add(new HealthBoost(60, 60, 60));
             allObjects.Add(player);
-            mediator = new Mediator(allObjects, player, room);
+            player.mediator = mediator;
+
 
             //give all mediator
-            player.mediator = mediator;
-            room.mediator = mediator;
+
+
         }
 
      
@@ -105,19 +106,7 @@ namespace Game2
                 }
 
                 gameObject.Update(gameTime);
-
-                if (gameObject is Room)
-                {
-                    Room room = (Room) gameObject;
-                    foreach (GameObject roomItem in room.roomList)
-                    {
-                        if (player.hitbox.Intersects(roomItem.hitbox))
-                        {
-                            player.intersects(roomItem);
-                            roomItem.intersects(player);
-                        }
-                    }
-                }
+            
             }
 
             base.Update(gameTime);

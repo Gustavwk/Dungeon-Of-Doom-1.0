@@ -10,14 +10,14 @@
   <Class Name="Game2.Projectile" Collapsed="true">
     <Position X="11.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gEYAgQACAAJAAgABAABAAAAAAAQgCEAAEAAAiEBAAAE=</HashCode>
+      <HashCode>gAQAgQACAAIAAgAAAABAAAAAAAQgCEAAAAAAiABAAAA=</HashCode>
       <FileName>Items\Projectile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Player.Player" Collapsed="true">
     <Position X="7" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAUAgGQAAAAEAgAEAAAeAAgABBQAAAgIAABAhABAgAg=</HashCode>
+      <HashCode>AAQAgGQAAAAEAgAAAAAGAAgABBQAAAAIAAAAgABAAAg=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -40,7 +40,7 @@
   <Class Name="Game2.Structures.Room" Collapsed="true">
     <Position X="8" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAgAAAAAAgAgSARAAAIAAAACAAAAAAAAQAAAACAEA=</HashCode>
+      <HashCode>QAAAgAAAAAAgAgSARAAAKAAAAAAAAAAAAAQAAAACAEA=</HashCode>
       <FileName>Structures\Room.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -85,22 +85,22 @@
   </Class>
   <Class Name="Game2.gameLogic.Mediator">
     <Position X="2.75" Y="1.75" Width="1.5" />
-    <AssociationLine Name="Player1" Type="Game2.Player.Player" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="player" Type="Game2.Player.Player" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="3.375" Y="2.853" />
+        <Point X="3.375" Y="2.863" />
         <Point X="3.375" Y="3.625" />
-        <Point X="3.76" Y="3.625" Type="JumpStart" />
-        <Point X="3.927" Y="3.625" Type="JumpEnd" />
+        <Point X="3.729" Y="3.625" Type="JumpStart" />
+        <Point X="3.896" Y="3.625" Type="JumpEnd" />
         <Point X="7" Y="3.625" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAAAgAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAAAAAAAAAAAACAAAAAAAAAABAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Mediator.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
+      <Property Name="player" />
       <Property Name="Room1" />
-      <Property Name="Player1" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="AllObjects" />

@@ -16,7 +16,6 @@ namespace Game2.Player
     {
 
         private Texture2D playerPicture;
-        private Texture2D projectileTexture; // the projectile texture
         private int movementspeed = 2;
         private int WIDTH = 32;
         private int HEIGHT = 32;
@@ -25,11 +24,8 @@ namespace Game2.Player
         private Boolean alive = true;
         private int prevPositionX;
         private int prevPositionY;
-        public List<GameObject> projectiles = new List<GameObject>();
-        protected Boolean north = false;
-        protected Boolean south = false;
-        protected Boolean east = false;
-        protected Boolean west = false;
+        
+      
        
        
         public Player(int x, int y)
@@ -50,10 +46,13 @@ namespace Game2.Player
             }
             else
             {
-
+                /*
+                Random random = new Random();
+                mediator.AllObjects.Add(new HealthBoost(random.Next(100), random.Next(100), 100));
+                */ // Burde man ikke kunne tilføje løbende til programmet sådan her ??????
                 this.Y = prevPositionY;
                 this.X = prevPositionX;
-                Debug.WriteLine("Player Intersects");
+                Debug.WriteLine("Player Intersects with " + other);
                 Debug.WriteLine("X: " + this.X);
                 Debug.WriteLine("Y: " + this.Y);
             }
@@ -113,48 +112,12 @@ namespace Game2.Player
                 this.Y = this.Y - this.movementspeed;
             }
         }
-        public void shooting()
-         {
-            
-            KeyboardState key = Keyboard.GetState();
-            if (key.IsKeyDown(Keys.Up))
-            {
-                mediator.AllObjects.Add(new Projectile(this.X, this.Y,  key));
-                Debug.WriteLine("SHOOT UP");               
-            }
-
-            if (key.IsKeyDown(Keys.Left))
-            {
-                mediator.AllObjects.Add(new Projectile(this.X, this.Y, key));
-                Debug.WriteLine("SHOOT LEFT");
-            }
-
-            if (key.IsKeyDown(Keys.Down))
-            {
-
-                mediator.AllObjects.Add(new Projectile(this.X, this.Y,  key));
-                Debug.WriteLine("SHOOT DOWN");
-            }
-
-            if (key.IsKeyDown(Keys.Right))
-            {
-                mediator.AllObjects.Add(new Projectile(this.X, this.Y,  key));
-                Debug.WriteLine("SHOOT RIGHT");
-            }
-
-        }
+        
        
 
         public override void Update(GameTime gameTime)
         {
             movement();
-            if (Keyboard.GetState().IsKeyDown(Keys.Space))
-            {
-                shooting();
-            }
-            
-            
-
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
            
          
