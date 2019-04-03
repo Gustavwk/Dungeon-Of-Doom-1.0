@@ -141,6 +141,7 @@ namespace Game2
                
             }
             spriteBatch.End();
+
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

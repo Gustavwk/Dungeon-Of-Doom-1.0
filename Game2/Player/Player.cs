@@ -120,30 +120,25 @@ namespace Game2.Player
             if (key.IsKeyDown(Keys.Up))
             {
                 mediator.AllObjects.Add(new Projectile(this.X, this.Y,  key));
-                Debug.WriteLine("SHOOT UP");
-                
-
+                Debug.WriteLine("SHOOT UP");               
             }
 
             if (key.IsKeyDown(Keys.Left))
             {
-
-                
-                projectiles.Add(new Projectile(this.X, this.Y, key));
+                mediator.AllObjects.Add(new Projectile(this.X, this.Y, key));
                 Debug.WriteLine("SHOOT LEFT");
             }
 
             if (key.IsKeyDown(Keys.Down))
             {
 
-                projectiles.Add(new Projectile(this.X, this.Y,  key));
+                mediator.AllObjects.Add(new Projectile(this.X, this.Y,  key));
                 Debug.WriteLine("SHOOT DOWN");
             }
 
             if (key.IsKeyDown(Keys.Right))
             {
-
-                projectiles.Add(new Projectile(this.X, this.Y,  key));
+                mediator.AllObjects.Add(new Projectile(this.X, this.Y,  key));
                 Debug.WriteLine("SHOOT RIGHT");
             }
 
@@ -168,10 +163,7 @@ namespace Game2.Player
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            foreach (GameObject projectile in projectiles)
-            {
-                projectile.Draw(spriteBatch, gameTime);
-            }
+            
             
             Texture2D texture = new Texture2D(spriteBatch.GraphicsDevice,1,1);
             texture.SetData(new Color[]{Color.Aqua});
