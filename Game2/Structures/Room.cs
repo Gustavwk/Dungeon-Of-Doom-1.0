@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Game2.Structures
 {
    
-    class Room : GameObject, IMediator
+    class Room : GameObject
     {
                                                                   //800 x 480 pixels er vores nuværende x og y - dette kan sikkert gøres mere scalable
         private int unit = 32;                                    //Den fælles sidelænge på det wall-billede vi bruger!

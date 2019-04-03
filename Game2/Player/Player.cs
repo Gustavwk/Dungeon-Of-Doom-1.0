@@ -11,7 +11,7 @@ using Game2.Structures;
 namespace Game2.Player
 {
 
-    class Player : GameObject, IMediator
+    class Player : GameObject
 
     {
 
@@ -50,6 +50,7 @@ namespace Game2.Player
                 Random random = new Random();
                 mediator.AllObjects.Add(new HealthBoost(random.Next(100), random.Next(100), 100));
                 */ // Burde man ikke kunne tilføje løbende til programmet sådan her ??????
+
                 this.Y = prevPositionY;
                 this.X = prevPositionX;
                 Debug.WriteLine("Player Intersects with " + other);
