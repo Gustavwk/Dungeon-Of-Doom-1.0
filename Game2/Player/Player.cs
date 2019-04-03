@@ -53,6 +53,7 @@ namespace Game2.Player
 
                 this.Y = prevPositionY;
                 this.X = prevPositionX;
+               
                 Debug.WriteLine("Player Intersects with " + other);
                 Debug.WriteLine("X: " + this.X);
                 Debug.WriteLine("Y: " + this.Y);
@@ -119,6 +120,10 @@ namespace Game2.Player
         public override void Update(GameTime gameTime)
         {
             movement();
+            
+                
+            
+
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
            
          
