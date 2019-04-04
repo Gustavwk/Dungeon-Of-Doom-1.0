@@ -36,13 +36,6 @@
       <FileName>Items\HealthBoost.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Game2.Structures.Room" Collapsed="true">
-    <Position X="8" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QAAAgAAAAAAgAASARAAAIAAAAAAAAAAAAASAAAACAEA=</HashCode>
-      <FileName>Structures\Room.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Game2.Structures.Wall" Collapsed="true">
     <Position X="7.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
@@ -58,7 +51,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAQAEEAAAAAAAwAAAAAAAAAQAAgAAAgBAAAAAAAAAAQ=</HashCode>
+      <HashCode>AAQAEEAAQAAAAwAAAAAAAAAQAAgAAAgBAAAAAAAAAAQ=</HashCode>
       <FileName>GameMain.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -89,7 +82,7 @@
   <Class Name="Game2.gameLogic.Mediator">
     <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAACAAQAAAAAAABAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAQAAAAAgABAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Mediator.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

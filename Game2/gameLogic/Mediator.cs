@@ -10,12 +10,15 @@ namespace Game2.gameLogic
     class Mediator
     {
         public List<GameObject> AllObjects { get; }
+        public List<GameObject> itemToBeAdded { get; }
+
         public GameObject player { get; }
         public GameObject room { get; }
 
-        public Mediator(List<GameObject> allObjects, Player.Player player, Room room)
+        public Mediator(List<GameObject> allObjects, List<GameObject> itemToBeAdded, Player.Player player, Room room)
         {
             this.AllObjects = allObjects;
+            this.itemToBeAdded = itemToBeAdded;
             this.player = player;
             this.room = room;
         }

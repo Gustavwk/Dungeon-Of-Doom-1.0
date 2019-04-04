@@ -27,6 +27,7 @@ namespace Game2
             this.X = x;
             this.Y = y;
             this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
+            
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)

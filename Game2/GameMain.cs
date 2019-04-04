@@ -14,27 +14,32 @@ namespace Game2
     /// </summary>
     public class GameMain : Game
     {
+        private Room room;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private List<GameObject> allObjects = new List<GameObject>();
+        private List<GameObject> itesmToBeAdded = new List<GameObject>();
         Player.Player player = new Player.Player(100,100);
-        Room room = new Room(800, 480);
-
         Mediator mediator;
+        
+
+       
 
 
         public GameMain()
         {
             
             graphics = new GraphicsDeviceManager(this);
+            room = new Room(800, 480, mediator);
             GameHolder.Game = this;
             Content.RootDirectory = "Content";
-            mediator = new Mediator(allObjects, player, room);
+            mediator = new Mediator(allObjects, itesmToBeAdded, player, room);
             room.mediator = mediator;
             room.addToAllObjects();
             allObjects.Add(new HealthBoost(60, 60, 60));
             allObjects.Add(player);
             player.mediator = mediator;
+           
 
 
             //give all mediator
@@ -70,6 +75,7 @@ namespace Game2
             {
                 gameObject.Load();
             }
+
 
             // Create a new SpriteBatch, which can be used to draw textures
             // TODO: use this.Content to load your game content here
@@ -108,6 +114,8 @@ namespace Game2
                 gameObject.Update(gameTime);
             
             }
+
+            allObjects.AddRange(itesmToBeAdded);
 
             base.Update(gameTime);
         }

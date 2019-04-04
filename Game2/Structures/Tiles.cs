@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game2.gameLogic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -18,10 +19,8 @@ namespace Game2.Structures
 
         private int loopCount = 1;
 
-        public Tiles(int X, int Y, int loopCount)
+        public Tiles(int X, int Y, int loopCount, Mediator mediator) : base(mediator,X,Y)
         {
-            this.X = X;
-            this.Y = Y;
             this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
             this.loopCount = loopCount;
 

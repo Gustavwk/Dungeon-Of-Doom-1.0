@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game2.gameLogic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -12,9 +13,13 @@ namespace Game2.Structures
     {
         protected Room room;
         protected int unit = 32;
-        protected int width;                                             //Resolution x-akse
-        protected int height;
+        protected int x;                                             //Resolution x-akse
+        protected int y;
 
+        public Structures()
+        {
+            
+        }
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
 
@@ -35,6 +40,9 @@ namespace Game2.Structures
             //this.room = room;
         }
 
+        protected Structures(Mediator mediator, int x, int y) : base(mediator,x,y)
+        {
+        }
     }
 }
 

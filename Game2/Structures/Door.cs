@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game2.gameLogic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -15,12 +16,13 @@ namespace Game2.Structures
         private int level;
 
 
-        public Door(int x, int y)
+        public Door(int x, int y, Mediator mediator) : base(mediator,x,y)
         {
-            this.X = x;
-            this.Y = y;
+            
             this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
-          
+
+           
+
         }
         public override void Load()
         {
@@ -44,7 +46,7 @@ namespace Game2.Structures
         }
 
 
-        public int levelUp(List<GameObject> allObjects)
+        public int levelUp(List<GameObject> itemToBeAdded)
         {
             int x;
             int y;
@@ -53,7 +55,8 @@ namespace Game2.Structures
             y = random.Next(0, 400);
             
             HealthBoost ranHealthBoost = new HealthBoost(60,x,y);
-            allObjects.Add(ranHealthBoost);
+            ranHealthBoost.Load();
+            itemToBeAdded.Add(ranHealthBoost);
             Debug.WriteLine("HB added");
             
             return level++;
@@ -69,7 +72,7 @@ namespace Game2.Structures
                 {
                     p.setX(this.X);
                     p.setY(480 - unit*2);
-                    //levelUp(mediator.AllObjects);
+                    levelUp(mediator.itemToBeAdded);
                     
                 }
                 else

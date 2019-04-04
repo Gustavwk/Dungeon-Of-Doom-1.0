@@ -19,8 +19,16 @@ namespace Game2
         protected int Y;
         public Mediator mediator { get; set; }
 
-
-
+        public GameObject()
+        {
+            
+        }
+        public GameObject(Mediator mediator, int x, int y)
+        {
+            this.mediator = mediator;
+            this.X = x;
+            this.Y = y;
+        }
 
         public virtual void Update(GameTime gameTime)
         {
