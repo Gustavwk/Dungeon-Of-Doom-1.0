@@ -16,7 +16,7 @@ namespace Game2.Structures
         protected int x;                                             //Resolution x-akse
         protected int y;
 
-        public Structures()
+        protected Structures()
         {
             
         }

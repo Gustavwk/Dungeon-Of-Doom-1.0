@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game2.gameLogic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -23,22 +24,16 @@ namespace Game2
 
         bool visible; // is the projectile visible
         int shootSpeed = 3; //the speed the projectile moves
-        int HEIGHT = 32;
-        int WIDTH = 32;
+
+        const int HEIGHT = 32;
+        const int WIDTH = 32;
         
         // should a list of our projectiles be here, or in our GameObjects super class??? 
 
-        public Projectile(int x, int y, KeyboardState key ) {
+        public Projectile(int x, int y, KeyboardState key, Mediator mediator)  : base (mediator,x,y)
+        {
 
-            this.X = x;
-            this.Y = y;
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
-
-           
-
-            
-
-            //visible = false; 
             
         }
 

@@ -28,7 +28,7 @@ namespace Game2.Player
       
        
        
-        public Player(int x, int y)
+        public Player(int x, int y) //layer bliver nød til at have sin egen constructor. pga rækkefølgen mediatoren bliver kaldt!
         {
             this.X = x;
             this.Y = y;

@@ -22,8 +22,7 @@ namespace Game2.Structures
         private int unitPosY;                                     //Holder styr på hvor den næste wall sættes på y-aksen
         private int prevUnitPosX;                                 //Holder styr på hvor den sidste wall blev sat på x-aksen  - Denne bliver ikke brugt pt.
         private int prevUnitPosY;                                 //Holder styr på hvor den sidste wall blev sat på y-aksen  - Denne bliver ikke brugt pt.
-        private int x;                                        //Resolution x-akse
-        private int y;                                       //Resolution y-akse
+                                              //Resolution y-akse
         private Random random = new Random();
        
 
@@ -35,8 +34,7 @@ namespace Game2.Structures
         {
             
 
-            this.x = x;
-            this.y = y;
+            
             this.unitsAvailableX = x / this.unit;
             this.unitsAvailableY = y / this.unit;
            
@@ -61,9 +59,9 @@ namespace Game2.Structures
             unitPosX = 0; 
             unitPosY = 0;
 
-            for (int i = 0; i < x; i+=unit)
+            for (int i = 0; i < this.X; i+=unit)
             {
-                for (int j = 0; j < y; j+=unit)
+                for (int j = 0; j < this.Y; j+=unit)
                 {
                     mediator.AllObjects.Add(new Tiles(i, j, random.Next(3)+1,this.mediator));
                 }
@@ -104,8 +102,8 @@ namespace Game2.Structures
 
                     #endregion
 
-                    mediator.AllObjects.Add(new Wall(unitPosX, 0));
-                    mediator.AllObjects.Add(new Wall(unitPosX, y - unit));
+                    mediator.AllObjects.Add(new Wall(unitPosX, 0,mediator));
+                    mediator.AllObjects.Add(new Wall(unitPosX, this.Y - unit,mediator));
                     
                 
                 if (i == wallSpace) 
@@ -116,7 +114,7 @@ namespace Game2.Structures
 
                 if (i == doorDifference)
                 {
-                    mediator.AllObjects.Add(new Door(unitPosX, y - unit,this.mediator));
+                    mediator.AllObjects.Add(new Door(unitPosX, this.Y - unit,this.mediator));
                     GameObject lastDoor = mediator.AllObjects[mediator.AllObjects.Count - 1];
             
                     
@@ -129,8 +127,8 @@ namespace Game2.Structures
             for (int i = 0; i < unitsAvailableY; i++)
             {
 
-                mediator.AllObjects.Add(new Wall(0,unitPosY));
-                mediator.AllObjects.Add(new Wall(x-unit, unitPosY));
+                mediator.AllObjects.Add(new Wall(0,unitPosY,mediator));
+                mediator.AllObjects.Add(new Wall(this.X-unit, unitPosY,mediator));
 
                 prevUnitPosY = unitPosY;
                 unitPosY = unitPosY+unit;
