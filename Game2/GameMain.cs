@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Game2
 {
-    /// <summary>
+    /// <summary>C:\Users\gusta\source\repos\monogameExample\Game2\gameLogic\Mediator.cs
     /// This is the main type for your game.
     /// </summary>
     public class GameMain : Game
@@ -39,7 +39,7 @@ namespace Game2
             allObjects.Add(new HealthBoost(60, 60, 60, mediator));
             allObjects.Add(player);
             player.mediator = mediator;
-           allObjects.Add(new Projectile(120,120,mediator,player));
+           allObjects.Add(new Projectile(120,120,"string",mediator,player ));
            
 
 

@@ -18,7 +18,9 @@ namespace Game2
         protected Texture2D projectileTextureRight;
         protected Texture2D projectileTextureDown;
         private Player.Player player;
+        private Direction direction;
 
+       
 
         bool visible; // is the projectile visible
         int shootSpeed = 3; //the speed the projectile moves
@@ -26,31 +28,64 @@ namespace Game2
         const int HEIGHT = 32;
         const int WIDTH = 32;
 
-        // should a list of our projectiles be here, or in our GameObjects super class??? 
+       
 
-        public Projectile(int x, int y, Mediator mediator, Player.Player player) : base(mediator, x, y)
+        public Projectile(int x, int y, String direction, Mediator mediator, Player.Player player) : base(mediator, x, y)
         {
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
             this.player = player;
+
+            if (direction == "NORTH")
+            {
+                this.direction = Direction.NORTH;
+            }
+            else if (direction == "SOUTH")
+            {
+                this.direction = Direction.SOUTH;
+            }
+            else if (direction == "WEST")
+            {
+                this.direction = Direction.WEST;
+            }
+            else if (direction == "EAST")
+            {
+                this.direction = Direction.EAST;
+            }
+
         }
 
-        // method for future collision for our projectiles
+        
         public override void intersects(GameObject otherObject)
         {
             Debug.WriteLine("Projectile impacts");
         }
 
-        //what should be updated
+        
         public override void Update(GameTime gameTime)
         {
+            if (direction == Direction.NORTH)
+            {
+                this.Y = Y--;
 
-            
+            } else if (direction == Direction.SOUTH)
+            {
+                this.Y = Y++;
+            }
+            else if (direction == Direction.EAST)
+            {
+                this.X = X++;
+            }
+            else if (direction == Direction.WEST)
+            {
+                this.X = X--;
+            }
+
 
 
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
         }
 
-        // what should be drawed
+        
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             if (this.player.GetDirection() == "NORTH")

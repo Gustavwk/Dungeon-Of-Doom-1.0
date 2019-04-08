@@ -12,7 +12,7 @@ namespace Game2.gameLogic
         public List<GameObject> AllObjects { get; }
         public List<GameObject> itemToBeAdded { get; }
 
-        public GameObject player { get; }
+        public Player.Player player { get; }
         public GameObject room { get; }
 
         public Mediator(List<GameObject> allObjects, List<GameObject> itemToBeAdded, Player.Player player, Room room)

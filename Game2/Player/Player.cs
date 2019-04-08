@@ -27,10 +27,7 @@ namespace Game2.Player
         private int prevPositionY;
         private Direction direction;
 
-        enum Direction
-        {
-            NORTH, SOUTH, EAST, WEST
-        }
+        
 
         public String GetDirection()
         {
@@ -120,7 +117,15 @@ namespace Game2.Player
 
         public void movement()
         {
+       
             KeyboardState key = Keyboard.GetState();
+
+            if (key.IsKeyDown(Keys.Space))
+            {
+                //mediator.itemToBeAdded.Add(new Projectile(this.X,this.Y, GetDirection(),mediator,mediator.player));
+            }
+
+
             if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.S))
             {
                 this.direction = Direction.WEST;
