@@ -100,7 +100,7 @@ namespace Game2.Player
 
         public override void Load()
         {
-            playerPicture = GameHolder.Game.Content.Load<Texture2D>("player/bloody");
+            playerPicture = Mediator.Game.Content.Load<Texture2D>("player/bloody");
             
            
         }

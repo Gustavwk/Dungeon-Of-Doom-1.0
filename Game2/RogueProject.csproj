@@ -41,7 +41,6 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="GameHolder.cs" />
     <Compile Include="gameLogic\Direction.cs" />
     <Compile Include="gameLogic\IMediator.cs" />
     <Compile Include="gameLogic\Mediator.cs" />

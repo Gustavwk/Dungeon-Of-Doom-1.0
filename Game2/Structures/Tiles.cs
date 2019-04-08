@@ -29,10 +29,10 @@ namespace Game2.Structures
 
         public override void Load()
         {
-            tilesPicOne = GameHolder.Game.Content.Load<Texture2D>("tiles/sandstone_floor_6");
-            tilesPicTwo = GameHolder.Game.Content.Load<Texture2D>("tiles/sandstone_floor_7");
-            tilesPicThree = GameHolder.Game.Content.Load<Texture2D>("tiles/sandstone_floor_8");
-            tilesPicFour = GameHolder.Game.Content.Load<Texture2D>("tiles/sandstone_floor_9");
+            tilesPicOne = Mediator.Game.Content.Load<Texture2D>("tiles/sandstone_floor_6");
+            tilesPicTwo = Mediator.Game.Content.Load<Texture2D>("tiles/sandstone_floor_7");
+            tilesPicThree = Mediator.Game.Content.Load<Texture2D>("tiles/sandstone_floor_8");
+            tilesPicFour = Mediator.Game.Content.Load<Texture2D>("tiles/sandstone_floor_9");
 
            
         }

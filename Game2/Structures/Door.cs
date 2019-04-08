@@ -26,7 +26,7 @@ namespace Game2.Structures
         }
         public override void Load()
         {
-            defaultDoor = GameHolder.Game.Content.Load<Texture2D>("Doors/closed_door");
+            defaultDoor = Mediator.Game.Content.Load<Texture2D>("Doors/closed_door");
         }
 
 

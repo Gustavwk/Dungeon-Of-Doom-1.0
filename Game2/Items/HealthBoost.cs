@@ -51,8 +51,8 @@ namespace Game2
 
         public override void Load()
         {
-            filledHpPotion = GameHolder.Game.Content.Load<Texture2D>("items/ruby_old");
-            emptyHpPotion = GameHolder.Game.Content.Load<Texture2D>("items/white_old");
+            filledHpPotion = Mediator.Game.Content.Load<Texture2D>("items/ruby_old");
+            emptyHpPotion = Mediator.Game.Content.Load<Texture2D>("items/white_old");
         }
 
         public override void intersects(GameObject other)

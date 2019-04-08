@@ -31,7 +31,7 @@ namespace Game2
             
             graphics = new GraphicsDeviceManager(this);
             room = new Room(800, 480, mediator);
-            GameHolder.Game = this;
+            Mediator.Game = this;
             Content.RootDirectory = "Content";
             mediator = new Mediator(allObjects, itesmToBeAdded, player, room);
             room.mediator = mediator;

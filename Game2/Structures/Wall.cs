@@ -23,7 +23,7 @@ namespace Game2.Structures
 
         public override void Load()
         {
-           defaultWall = GameHolder.Game.Content.Load<Texture2D>("wall/brick_gray_0");
+           defaultWall = Mediator.Game.Content.Load<Texture2D>("wall/brick_gray_0");
         }
 
 

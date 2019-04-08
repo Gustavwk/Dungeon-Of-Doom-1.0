@@ -113,13 +113,13 @@ namespace Game2
         public override void Load()
         {
             projectileTextureLeft =
-                GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_6");
+                Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_6");
             projectileTextureRight =
-                GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_2");
+                Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_2");
             projectileTextureUp =
-                GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_0");
+                Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_0");
             projectileTextureDown =
-                GameHolder.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_4");
+                Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_4");
         }
 
         // creating a new rectangle for our projectile hitbox 
