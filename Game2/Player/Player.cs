@@ -117,7 +117,7 @@ namespace Game2.Player
         }
 
         public void movement()
-        {
+        { 
        
             KeyboardState key = Keyboard.GetState();
 
