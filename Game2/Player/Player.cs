@@ -122,7 +122,11 @@ namespace Game2.Player
 
             if (key.IsKeyDown(Keys.Space))
             {
-                //mediator.itemToBeAdded.Add(new Projectile(this.X,this.Y, GetDirection(),mediator,mediator.player));
+                
+                
+                Projectile defaultProjectile = new Projectile(this.X, this.Y, GetDirection(), mediator, mediator.player);
+                defaultProjectile.Load();
+                mediator.itemToBeAdded.Add(defaultProjectile);
             }
 
 
