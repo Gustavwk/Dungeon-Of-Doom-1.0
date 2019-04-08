@@ -25,6 +25,7 @@ namespace Game2.Player
         private Boolean alive = true;
         private int prevPositionX;
         private int prevPositionY;
+        private int cooldown;
         private Direction direction;
 
         
@@ -122,12 +123,18 @@ namespace Game2.Player
 
             if (key.IsKeyDown(Keys.Space))
             {
-                
-                
-                Projectile defaultProjectile = new Projectile(this.X, this.Y, GetDirection(), mediator, mediator.player);
+
+                cooldown++;
+                Debug.WriteLine("Cooldown:" + cooldown);
+                if (cooldown % 25 == 0)
+                {
+                    cooldown = 0;
+                    //https://stackoverflow.com/questions/25613008/how-to-toggle-a-key-press Det her kunne være et fix!
+                    Projectile defaultProjectile = new Projectile(this.X, this.Y, GetDirection(), mediator, mediator.player);
                 defaultProjectile.Load();
                 mediator.itemToBeAdded.Add(defaultProjectile);
             }
+        }
 
 
             if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.S))

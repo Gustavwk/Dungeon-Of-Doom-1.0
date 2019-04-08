@@ -10,14 +10,14 @@
   <Class Name="Game2.Projectile" Collapsed="true">
     <Position X="11.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAQAgQACAAIAAgAAAABAAAAAAAQgCEAAAAAAiABAAAA=</HashCode>
+      <HashCode>gAQAgQACAAIAIgAAAABAAAAAAAQgCEABAAAAiABAAAA=</HashCode>
       <FileName>Items\Projectile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Player.Player" Collapsed="true">
     <Position X="7" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAgGQAAAAEAgAAAAAGAAgABBQAAAAIAAAAgABAAAg=</HashCode>
+      <HashCode>AAQAgGQAAAAMIgAAAAAGAAgABBQAAAAIAAAAgABAAAg=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -68,7 +68,7 @@
   <Class Name="Game2.Structures.Structures" Collapsed="true">
     <Position X="9.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAgAAAEAAgAgQAQAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAgAAAEAAgAgAAAAAAAAAQAAAAAAAAAABgAAAAAAA=</HashCode>
       <FileName>Structures\Structures.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -82,7 +82,7 @@
   <Class Name="Game2.gameLogic.Mediator">
     <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAACAAQAAAAAgABAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAQAAgAAgABAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Mediator.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -103,5 +103,12 @@
       <Property Name="mediator" />
     </ShowAsAssociation>
   </Interface>
+  <Enum Name="Game2.gameLogic.Direction" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAABAAAQAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>gameLogic\Direction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

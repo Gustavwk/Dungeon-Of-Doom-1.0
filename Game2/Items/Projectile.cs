@@ -19,6 +19,7 @@ namespace Game2
         protected Texture2D projectileTextureDown;
         private Player.Player player;
         private Direction direction;
+        
 
        
 
