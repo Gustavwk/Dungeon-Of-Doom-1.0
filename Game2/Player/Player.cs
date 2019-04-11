@@ -25,7 +25,8 @@ namespace Game2.Player
         private Boolean alive = true;
         private int prevPositionX;
         private int prevPositionY;
-        private int cooldown;
+        private int cooldown = 500; //mills between shots
+        private double lastShot = 0;
         private Direction direction;
 
         
@@ -121,20 +122,7 @@ namespace Game2.Player
        
             KeyboardState key = Keyboard.GetState();
 
-            if (key.IsKeyDown(Keys.Space))
-            {
-
-                cooldown++;
-                Debug.WriteLine("Cooldown:" + cooldown);
-                if (cooldown % 25 == 0)
-                {
-                    cooldown = 0;
-                    //https://stackoverflow.com/questions/25613008/how-to-toggle-a-key-press Det her kunne være et fix!
-                    Projectile defaultProjectile = new Projectile(this.X, this.Y, GetDirection(), mediator, mediator.player);
-                defaultProjectile.Load();
-                mediator.itemToBeAdded.Add(defaultProjectile);
-            }
-        }
+          
 
 
             if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.S))
@@ -182,7 +170,9 @@ namespace Game2.Player
 
         public override void Update(GameTime gameTime)
         {
+            lastShot += gameTime.ElapsedGameTime.TotalMilliseconds;
             movement();
+            shooting(gameTime);
             
                 
             
@@ -190,6 +180,33 @@ namespace Game2.Player
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
            
          
+        }
+
+        public void shooting(GameTime gameTime)
+        {
+            
+
+            KeyboardState key = Keyboard.GetState();
+            if (key.IsKeyDown(Keys.Space))
+            {
+
+
+                if ( lastShot > cooldown)
+                {
+                    lastShot = 0;
+                    //https://stackoverflow.com/questions/25613008/how-to-toggle-a-key-press Det her kunne være et fix!
+
+
+                    Projectile defaultProjectile = new Projectile(this.X, this.Y, this.direction, mediator);
+                    defaultProjectile.Load();
+                    mediator.itemToBeAdded.Add(defaultProjectile);
+                    
+
+                }
+
+
+                   
+            }
         }
 
 
