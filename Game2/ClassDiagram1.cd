@@ -1,28 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Game2.Items" Collapsed="true">
-    <Position X="13.5" Y="5.75" Width="1.5" />
+    <Position X="6.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Items\Items.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Projectile" Collapsed="true">
-    <Position X="11.75" Y="3.5" Width="1.5" />
+    <Position X="3" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAQAgQACAAIAIgAAAABAAAAAAAQgCEABAAAAiABAAAA=</HashCode>
+      <HashCode>gAQAgQACAAIAIgAAAABgAAAAAAQgCEAAAAAAiABAAAA=</HashCode>
       <FileName>Items\Projectile.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="direction" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Game2.Player.Player" Collapsed="true">
-    <Position X="7" Y="3.25" Width="1.5" />
+    <Position X="4.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAgGQAAAAMIgAAAAAGAAgABBQAAAAIAAAAgABAAAg=</HashCode>
+      <HashCode>AgQAgGQAAAAMIgAAAAAOAAgABDQAAAAIAAAAgABAAAg=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="direction" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Game2.GameObject" Collapsed="true">
-    <Position X="9" Y="1.75" Width="1.5" />
+    <Position X="8.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAQAAAAAAgQAAAAAAAAAAAAgCAgAAAAAgAAAYAA=</HashCode>
       <FileName>GameObject.cs</FileName>
@@ -30,14 +36,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.HealthBoost" Collapsed="true">
-    <Position X="13.5" Y="7.5" Width="1.5" />
+    <Position X="6.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgQAgAAAAAQAAgAAAAQAAAAAAAAAAAAAAAAAhAAAAAA=</HashCode>
       <FileName>Items\HealthBoost.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Structures.Wall" Collapsed="true">
-    <Position X="7.75" Y="7.5" Width="1.5" />
+    <Position X="12.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAEAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Structures\Wall.cs</FileName>
@@ -47,7 +53,7 @@
     <Position X="6.5" Y="0.5" Width="1.5" />
     <AssociationLine Name="allObjects" Type="Game2.GameObject">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-1.098" Y="0.07" />
+        <Position X="0.07" Y="-1.098" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -59,28 +65,49 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Game2.Structures.Door" Collapsed="true">
-    <Position X="9.5" Y="7.5" Width="1.5" />
+    <Position X="14.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAAAgAAAABAEAAAAAEAAQAAAAAAgAAAAAA=</HashCode>
       <FileName>Structures\Door.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Structures.Structures" Collapsed="true">
-    <Position X="9.5" Y="5.75" Width="1.5" />
+    <Position X="14.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAEAAgAgAAAAAAAAAQAAAAAAAAAABgAAAAAAA=</HashCode>
       <FileName>Structures\Structures.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Structures.Tiles" Collapsed="true">
-    <Position X="11.25" Y="7.5" Width="1.5" />
+    <Position X="16.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAAAgAAAAJCAAIAAAAAAAAAAAABgAAAAAA=</HashCode>
       <FileName>Structures\Tiles.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.gameLogic.Mediator">
-    <Position X="2.75" Y="1.75" Width="1.5" />
+    <Position X="10.75" Y="4" Width="1.5" />
+    <AssociationLine Name="AllObjects" Type="Game2.GameObject" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.75" Y="4.438" />
+        <Point X="8.844" Y="4.438" />
+        <Point X="8.844" Y="2.062" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="player" Type="Game2.Player.Player" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.75" Y="5" />
+        <Point X="5.773" Y="5" />
+        <Point X="5.773" Y="3.441" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="room" Type="Game2.GameObject" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.75" Y="4.688" />
+        <Point X="8.641" Y="4.688" />
+        <Point X="8.641" Y="2.062" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAQAAgAAgABAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Mediator.cs</FileName>
@@ -94,7 +121,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Interface Name="Game2.gameLogic.IMediator">
-    <Position X="0.5" Y="2.75" Width="1.5" />
+    <Position X="10.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\IMediator.cs</FileName>
@@ -104,7 +131,7 @@
     </ShowAsAssociation>
   </Interface>
   <Enum Name="Game2.gameLogic.Direction" Collapsed="true">
-    <Position X="12.25" Y="1.75" Width="1.5" />
+    <Position X="6.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAAAAAABAAAQAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Direction.cs</FileName>
