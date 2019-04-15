@@ -15,7 +15,7 @@ namespace Game2.Player
     class Player : GameObject
 
     {
-
+        // ebbe lave en ændring
         private Texture2D playerPicture;
         private int movementspeed = 2;
         private int WIDTH = 32;
