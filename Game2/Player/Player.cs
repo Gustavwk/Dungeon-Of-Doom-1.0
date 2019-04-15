@@ -48,6 +48,22 @@ namespace Game2.Player
             {
                 return "WEST";
             }
+            else if (this.direction == Direction.SOUTHEAST)
+            {
+                return "SOUTHEAST";
+            }
+            else if (this.direction == Direction.SOUTHWEST)
+            {
+                return "SOUTHWEST";
+            }
+            else if (this.direction == Direction.NORTHEAST)
+            {
+                return "NORTHEAST";
+            }
+            else if (this.direction == Direction.NORTHWEST)
+            {
+                return "NORTHWEST";
+            }
             else
             {
                 return "NONE";
@@ -125,16 +141,47 @@ namespace Game2.Player
           
 
 
-            if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.S))
+           if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.S) || key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.W))
             {
                 this.direction = Direction.WEST;
-                this.X = this.X - movementspeed;
+                this.X = this.X - this.movementspeed;
             }
-            else if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.W))
+
+            /*if (key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.S))
             {
-                this.direction = Direction.WEST;
-                this.X = this.X - movementspeed;
+                this.direction = Direction.SOUTHEAST;
+                this.prevPositionX = this.X;
+                this.prevPositionY = this.Y;
+                this.X = this.X + this.movementspeed;
+                this.Y = this.Y + this.movementspeed;
             }
+
+            if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.S))
+            {
+                this.direction = Direction.SOUTHWEST;
+                this.prevPositionX = this.X;
+                this.prevPositionY = this.Y;
+                this.X = this.X - this.movementspeed;
+                this.Y = this.Y + this.movementspeed;
+            }
+
+            if (key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.W))
+            {
+                this.direction = Direction.NORTHEAST;
+                this.prevPositionX = this.X;
+                this.prevPositionY = this.Y;
+                this.X = this.X + this.movementspeed;
+                this.Y = this.Y - this.movementspeed;
+            }
+
+            if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.W))
+            {
+                this.direction = Direction.NORTHWEST;
+                this.prevPositionX = this.X;
+                this.prevPositionY = this.Y;
+                this.X = this.X - this.movementspeed;
+                this.Y = this.Y - this.movementspeed;
+            }*/
 
             if (key.IsKeyDown(Keys.D))
             {
@@ -163,7 +210,6 @@ namespace Game2.Player
                 this.prevPositionY = this.Y;
                 this.Y = this.Y - this.movementspeed;
             }
-            
         }
         
        
