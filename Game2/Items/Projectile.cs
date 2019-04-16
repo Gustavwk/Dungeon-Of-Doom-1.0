@@ -6,6 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Game2.gameLogic;
+using Game2.Structures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -47,9 +48,9 @@ namespace Game2
         }
 
         
-        public override void intersects(GameObject otherObject)
+        public override void intersects(GameObject other)
         {
-            //Debug.WriteLine("Projectile impacts" + otherObject.ToString());
+           
         }
 
         
@@ -180,9 +181,6 @@ namespace Game2
             spriteBatch.Draw(projectileTextureLeft, hitbox, Color.White);
         }
 
-        //intersecting with a wall method, dont know if this should be here
-        public virtual void intersectsWithWall(GameObject player, GameObject wall)
-        {
-        }
+        
     }
 }

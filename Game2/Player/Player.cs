@@ -93,6 +93,7 @@ namespace Game2.Player
         {
             if (other is Tiles || other is Projectile)
             {
+               //do nothing
             }
             else
             {

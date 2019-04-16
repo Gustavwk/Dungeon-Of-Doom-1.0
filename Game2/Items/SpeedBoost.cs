@@ -63,10 +63,9 @@ namespace Game2
                         mediator.player.playerCooldown = mediator.player.playerCooldown - cooldownReduction;
                         duration--; 
                     }
-                    else
-                    {
-                        mediator.player.playerCooldown = mediator.player.playerCooldown = 500;
-                    }
+                    
+                        
+                  
 
                     Debug.WriteLine("duration: " + duration);
 
