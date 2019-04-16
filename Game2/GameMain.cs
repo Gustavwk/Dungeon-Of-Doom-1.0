@@ -40,8 +40,9 @@ namespace Game2
             allObjects.Add(player);
             player.mediator = mediator;
             allObjects.Add(new SpeedBoost(200,80,mediator));
-          
-           
+            allObjects.Add(new SpeedBoost(300, 80, mediator));
+
+
 
 
             //give all mediator
