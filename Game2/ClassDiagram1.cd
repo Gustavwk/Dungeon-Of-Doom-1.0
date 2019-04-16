@@ -10,7 +10,7 @@
   <Class Name="Game2.Projectile" Collapsed="true">
     <Position X="3" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAQAgQACAAIAIgAAAABgAAAAAAQgCEAAAAAAiABAAAA=</HashCode>
+      <HashCode>gAQAgQACAAIAIwAAAEBgACAAAAQgCECAAAAAiABAAAA=</HashCode>
       <FileName>Items\Projectile.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -20,7 +20,7 @@
   <Class Name="Game2.Player.Player" Collapsed="true">
     <Position X="4.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgQAgGQAAAAMIgAAAAAOAAgABDQAAAAIAAAAgABAAAg=</HashCode>
+      <HashCode>AgQAgGQAAAAMIgAAAAAOAAgABDQAAACIAAAAgABAAAg=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -36,7 +36,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.HealthBoost" Collapsed="true">
-    <Position X="6.5" Y="3.75" Width="1.5" />
+    <Position X="7" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgQAgAAAAAQAAgAAAAQAAAAAAAAAAAAAAAAAhAAAAAA=</HashCode>
       <FileName>Items\HealthBoost.cs</FileName>
@@ -97,7 +97,9 @@
     <AssociationLine Name="player" Type="Game2.Player.Player" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="10.75" Y="5" />
-        <Point X="5.773" Y="5" />
+        <Point X="4.969" Y="5" />
+        <Point X="4.969" Y="3.816" />
+        <Point X="5.773" Y="3.816" />
         <Point X="5.773" Y="3.441" />
       </Path>
     </AssociationLine>
@@ -120,6 +122,13 @@
       <Property Name="AllObjects" />
     </ShowAsCollectionAssociation>
   </Class>
+  <Class Name="Game2.SpeedBoost" Collapsed="true">
+    <Position X="5.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAkAIEAAAAAgAAAAAAAAAAAAAAAAAAAAAApAAAAAA=</HashCode>
+      <FileName>Items\SpeedBoost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="Game2.gameLogic.IMediator">
     <Position X="10.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
@@ -133,7 +142,7 @@
   <Enum Name="Game2.gameLogic.Direction" Collapsed="true">
     <Position X="6.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAAABAAAQAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAgggAAAAABAAAQABABAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Direction.cs</FileName>
     </TypeIdentifier>
   </Enum>

@@ -22,7 +22,7 @@ namespace Game2.Structures
         private int unitPosY;                                     //Holder styr på hvor den næste wall sættes på y-aksen
         private int prevUnitPosX;                                 //Holder styr på hvor den sidste wall blev sat på x-aksen  - Denne bliver ikke brugt pt.
         private int prevUnitPosY;                                 //Holder styr på hvor den sidste wall blev sat på y-aksen  - Denne bliver ikke brugt pt.
-                                              //Resolution y-akse
+                                                                  //Resolution y-akse
         private Random random = new Random();
        
 
@@ -45,7 +45,8 @@ namespace Game2.Structures
         {
 
             layFloor();
-            populateRoom();
+            roomBoarders();
+            simpleMaze();
         }
 
         public override void Load()
@@ -69,7 +70,19 @@ namespace Game2.Structures
  
         }
 
-        public void populateRoom()
+        public void simpleMaze()
+        {
+            for (int i = unit*3; i < X-unit*3; i+=unit)
+            {
+               mediator.AllObjects.Add(new Wall(i,Y - (Y/3 * 2) - unit,mediator));
+               mediator.AllObjects.Add(new Wall(i, Y - Y /3, mediator));
+
+            }
+
+        }
+
+
+        public void roomBoarders()
         {
             
            

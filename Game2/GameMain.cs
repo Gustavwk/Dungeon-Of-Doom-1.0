@@ -19,7 +19,7 @@ namespace Game2
         SpriteBatch spriteBatch;
         private List<GameObject> allObjects = new List<GameObject>();
         private List<GameObject> itesmToBeAdded = new List<GameObject>();
-        Player.Player player = new Player.Player(100,100);
+        Player.Player player = new Player.Player(400,200);
         Mediator mediator;
         
 
