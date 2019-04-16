@@ -223,6 +223,7 @@ namespace Game2.Player
             lastShot += gameTime.ElapsedGameTime.TotalMilliseconds;
             movement();
             shooting(gameTime);
+           
             
                 
             

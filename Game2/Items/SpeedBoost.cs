@@ -14,9 +14,9 @@ namespace Game2
     {
         private Texture2D filledSpeedBoost;
         private Texture2D emptySpeedBoost;
-        private double duration = 500;
+        private double duration = 300;
         private int cooldownReduction = 450;
-        private bool active;
+        private bool active = false;
         private bool taken = false;
         public SpeedBoost(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
@@ -43,38 +43,39 @@ namespace Game2
             {
                 Player.Player p = (Player.Player) other;
               
-                    p.playerCooldown = p.playerCooldown - cooldownReduction;
+                    
                 
 
 
                 //mangler timer - ligenu er denne powerup forevigt!
                 taken = true;
+                active = true;
                 this.hitbox = Rectangle.Empty;
             }
         }
-        public override void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime) //Det virker nu, men jeg tror det kan gøres bedre!
         {
             {
                 if (taken)
                 {
-                    duration--; // det her er måske problemet!
+                    if (active)
+                    {
+                        mediator.player.playerCooldown = mediator.player.playerCooldown - cooldownReduction;
+                        duration--; 
+                    }
+                    else
+                    {
+                        mediator.player.playerCooldown = mediator.player.playerCooldown = 500;
+                    }
 
-                   Debug.WriteLine("duration: " + duration);
+                    Debug.WriteLine("duration: " + duration);
 
-                    if (duration < 0)
+                    if (duration < 1)
 
                     {
                         
                         active = false;
-
-                        //bool taken and done måske ????
-
-                        //Der er lige lidt problemet med det her... 
-                        //Når først værdien er sat tilbage på den her måde kan den ikke 
-                        //Ændres ned igen - dette betyder at man bruge flere speedBoosts
-                        //Det er sikkert nemt nok at fixe
-
-                        mediator.player.playerCooldown = 500;
+                      
 
 
                     }
