@@ -57,7 +57,8 @@ namespace Game2
             {
                 if (taken)
                 {
-                    duration--;
+                    duration--; // det her er måske problemet!
+
                    Debug.WriteLine("duration: " + duration);
 
                     if (duration < 0)
@@ -65,6 +66,8 @@ namespace Game2
                     {
                         
                         active = false;
+
+                        //bool taken and done måske ????
 
                         //Der er lige lidt problemet med det her... 
                         //Når først værdien er sat tilbage på den her måde kan den ikke 
