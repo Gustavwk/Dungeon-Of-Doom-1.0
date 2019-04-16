@@ -14,8 +14,8 @@ namespace Game2
     {
         private Texture2D filledSpeedBoost;
         private Texture2D emptySpeedBoost;
-        private double duration = 300;
-        private int cooldownReduction = 450;
+        private double duration = 250;
+        private int cooldownReduction = 150;
         private bool active = false;
         private bool taken = false;
         public SpeedBoost(int x, int y, Mediator mediator) : base(x, y, mediator)
@@ -60,7 +60,7 @@ namespace Game2
                 {
                     if (active)
                     {
-                        mediator.player.playerCooldown = mediator.player.playerCooldown - cooldownReduction;
+                        mediator.player.playerCooldown = cooldownReduction;
                         duration--; 
                     }
                     
@@ -74,7 +74,8 @@ namespace Game2
                     {
                         
                         active = false;
-                      
+                        mediator.player.playerCooldown = 500;
+                        duration = 300; // Det virker nu - den skal bare sættets over 1 den her
 
 
                     }
