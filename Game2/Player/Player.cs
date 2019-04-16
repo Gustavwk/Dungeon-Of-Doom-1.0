@@ -29,7 +29,11 @@ namespace Game2.Player
         private double lastShot = 0;
         private Direction direction;
 
-        
+        public int playerCooldown
+        {
+            get { return cooldown; }
+            set { cooldown = value; }
+        }
 
         public String GetDirection()
         {

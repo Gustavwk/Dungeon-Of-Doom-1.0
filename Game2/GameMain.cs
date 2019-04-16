@@ -39,6 +39,7 @@ namespace Game2
             allObjects.Add(new HealthBoost(60, 60, 60, mediator));
             allObjects.Add(player);
             player.mediator = mediator;
+            allObjects.Add(new SpeedBoost(200,80,mediator));
           
            
 
@@ -47,7 +48,7 @@ namespace Game2
 
 
         }
-
+        
      
 
         /// <summary>
