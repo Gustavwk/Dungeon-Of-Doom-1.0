@@ -36,14 +36,10 @@ namespace Game2
             mediator = new Mediator(allObjects, itesmToBeAdded, player, room);
             room.mediator = mediator;
             room.addToAllObjects();
-            allObjects.Add(new HealthBoost(60, 60, 60, mediator));
+          
             allObjects.Add(player);
             player.mediator = mediator;
-            allObjects.Add(new AsBoost(200,80,mediator));
             
-            allObjects.Add(new Crossbow(300,180,mediator));
-            allObjects.Add(new LavaTile(300,400,1,mediator));
-            allObjects.Add(new MsBoost(300,250,mediator));
 
 
 
