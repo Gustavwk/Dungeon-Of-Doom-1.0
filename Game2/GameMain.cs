@@ -43,6 +43,7 @@ namespace Game2
             allObjects.Add(new SpeedBoost(300, 80, mediator));
             allObjects.Add(new SpeedBoost(400, 80, mediator));
             allObjects.Add(new Crossbow(300,180,mediator));
+            allObjects.Add(new LavaTile(300,200,1,mediator));
 
 
 
