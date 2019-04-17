@@ -45,7 +45,7 @@
     <Compile Include="gameLogic\IMediator.cs" />
     <Compile Include="gameLogic\Level.cs" />
     <Compile Include="gameLogic\Mediator.cs" />
-    <Compile Include="Items\HealthBoost.cs" />
+    <Compile Include="Items\HpBoost.cs" />
     <Compile Include="Items\Items.cs" />
     <Compile Include="Items\MsBoost.cs" />
     <Compile Include="Items\Projectile.cs" />
