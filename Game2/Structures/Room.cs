@@ -107,7 +107,7 @@ namespace Game2.Structures
             {
                 mediator.AllObjects.Add(new AsBoost(unitCoord(random.Next(unitsAvailableX)), unitCoord(random.Next(unitsAvailableY)),mediator));
                 mediator.AllObjects.Add(new MsBoost(unitCoord(random.Next(unitsAvailableX)), unitCoord(random.Next(unitsAvailableY)), mediator));
-                mediator.AllObjects.Add(new HealthBoost(200/multiplier,unitCoord(random.Next(unitsAvailableX)), unitCoord(random.Next(unitsAvailableY)), mediator));
+                mediator.AllObjects.Add(new HpBoost(200/multiplier,unitCoord(random.Next(unitsAvailableX)), unitCoord(random.Next(unitsAvailableY)), mediator));
             }
 
             
