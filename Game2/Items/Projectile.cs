@@ -23,6 +23,7 @@ namespace Game2
         protected Texture2D projectileTextureNorthWest;
         protected Texture2D projectileTextureSouthEast;
         protected Texture2D projectileTextureSouthWest;
+        private bool shouldDraw = true;
 
         private Direction direction;
         
@@ -47,10 +48,19 @@ namespace Game2
 
         }
 
+
         
         public override void intersects(GameObject other)
         {
-           
+
+            if (other is Wall)
+            {
+                //Hvis projectil rammer en væg så mister den sin hitbox og bliver ikke tegnet mere!
+                shouldDraw = false;
+                hitbox = Rectangle.Empty;
+            }
+
+
         }
 
         
@@ -100,40 +110,43 @@ namespace Game2
             
         }
 
-        
+
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            if (this.direction == Direction.NORTH)
+            if (shouldDraw)
             {
-                spriteBatch.Draw(projectileTextureUp,hitbox,Color.White);
-            }
-            else if (this.direction == Direction.SOUTH)
-            {
-                spriteBatch.Draw(projectileTextureDown, hitbox, Color.White);
-            }
-            else if(this.direction == Direction.EAST)
-            {
-                spriteBatch.Draw(projectileTextureRight, hitbox, Color.White);
-            }
-            else if (this.direction == Direction.WEST)
-            {
-                spriteBatch.Draw(projectileTextureLeft, hitbox, Color.White);
-            }
-            else if (this.direction == Direction.NORTHEAST)
-            {
-                spriteBatch.Draw(projectileTextureNorthEast, hitbox, Color.White);
-            }
-            else if (this.direction == Direction.NORTHWEST)
-            {
-                spriteBatch.Draw(projectileTextureNorthWest, hitbox, Color.White);
-            }
-            else if (this.direction == Direction.SOUTHEAST)
-            {
-                spriteBatch.Draw(projectileTextureSouthEast, hitbox, Color.White);
-            }
-            else if (this.direction == Direction.SOUTHWEST)
-            {
-                spriteBatch.Draw(projectileTextureSouthWest, hitbox, Color.White);
+                if (this.direction == Direction.NORTH)
+                {
+                    spriteBatch.Draw(projectileTextureUp, hitbox, Color.White);
+                }
+                else if (this.direction == Direction.SOUTH)
+                {
+                    spriteBatch.Draw(projectileTextureDown, hitbox, Color.White);
+                }
+                else if (this.direction == Direction.EAST)
+                {
+                    spriteBatch.Draw(projectileTextureRight, hitbox, Color.White);
+                }
+                else if (this.direction == Direction.WEST)
+                {
+                    spriteBatch.Draw(projectileTextureLeft, hitbox, Color.White);
+                }
+                else if (this.direction == Direction.NORTHEAST)
+                {
+                    spriteBatch.Draw(projectileTextureNorthEast, hitbox, Color.White);
+                }
+                else if (this.direction == Direction.NORTHWEST)
+                {
+                    spriteBatch.Draw(projectileTextureNorthWest, hitbox, Color.White);
+                }
+                else if (this.direction == Direction.SOUTHEAST)
+                {
+                    spriteBatch.Draw(projectileTextureSouthEast, hitbox, Color.White);
+                }
+                else if (this.direction == Direction.SOUTHWEST)
+                {
+                    spriteBatch.Draw(projectileTextureSouthWest, hitbox, Color.White);
+                }
             }
         }
 

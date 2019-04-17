@@ -18,6 +18,7 @@ namespace Game2
         private int cooldownReduction = 150;
         private bool active = false;
         private bool taken = false;
+
         public SpeedBoost(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
             this.hitbox = new Rectangle(this.X, this.Y, 32, 32);

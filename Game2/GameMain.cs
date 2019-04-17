@@ -42,6 +42,7 @@ namespace Game2
             allObjects.Add(new SpeedBoost(200,80,mediator));
             allObjects.Add(new SpeedBoost(300, 80, mediator));
             allObjects.Add(new SpeedBoost(400, 80, mediator));
+            allObjects.Add(new Crossbow(300,180,mediator));
 
 
 
@@ -113,7 +114,19 @@ namespace Game2
                 {
                     player.intersects(gameObject);
                     gameObject.intersects(player);
+                    
                 }
+
+                //Game objects kan nu intersecte med andre gameObejcts 
+                foreach (var otherGameObject in allObjects)
+                {
+                    if (gameObject.hitbox.Intersects(otherGameObject.hitbox))
+                    {
+                        gameObject.intersects(otherGameObject);
+                    }
+                }
+
+                
 
                 gameObject.Update(gameTime);
             
