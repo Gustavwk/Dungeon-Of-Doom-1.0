@@ -17,7 +17,7 @@ namespace Game2.Player
     {
         
         private Texture2D playerPicture;
-        private int movementspeed = 2;
+        public int movementspeed = 2;
         private int WIDTH = 32;
         private int HEIGHT = 32;
         public int health = 100;

@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2
 {
-    class SpeedBoost : Items
+    class AsBoost : Items
     {
         private Texture2D filledSpeedBoost;
         private Texture2D emptySpeedBoost;
@@ -19,7 +19,7 @@ namespace Game2
         private bool active = false;
         private bool taken = false;
 
-        public SpeedBoost(int x, int y, Mediator mediator) : base(x, y, mediator)
+        public AsBoost(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
             this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
         }
@@ -48,7 +48,7 @@ namespace Game2
                 
 
 
-                //mangler timer - ligenu er denne powerup forevigt!
+               
                 taken = true;
                 active = true;
                 this.hitbox = Rectangle.Empty;
@@ -64,12 +64,7 @@ namespace Game2
                         mediator.player.playerCooldown = cooldownReduction;
                         duration--; 
                     }
-                    
-                        
-                  
-
-                    Debug.WriteLine("duration: " + duration);
-
+ 
                     if (duration < 1)
 
                     {

@@ -20,7 +20,7 @@ namespace Game2
         private Texture2D spriteFour;
         private int show;
         private double lastStir = 0;
-        private int cooldown = 450;
+        private int cooldown = 600;
 
         
 
@@ -32,12 +32,13 @@ namespace Game2
         {
             if (other is Player.Player)
             {
-                Debug.WriteLine("Stir: " + lastStir );
-                Debug.WriteLine("CD: " + cooldown);
-                if (lastStir > cooldown)
+
+              
+                if (lastStir >= cooldown-100)
                 {
-                    mediator.player.health = mediator.player.health - 10;
-                    Debug.WriteLine(mediator.player.health);
+                    mediator.player.health = mediator.player.health - 1;
+                
+                  
                 }
             }
         }

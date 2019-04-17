@@ -61,6 +61,18 @@
 /processorParam:TextureFormat=Color
 /build:Items/potion_bubbly.png
 
+#begin Items/Potions/yellow_old.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Items/Potions/yellow_old.png
+
 #begin Items/ruby_old.png
 /importer:TextureImporter
 /processor:TextureProcessor

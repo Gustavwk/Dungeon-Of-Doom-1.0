@@ -39,11 +39,11 @@ namespace Game2
             allObjects.Add(new HealthBoost(60, 60, 60, mediator));
             allObjects.Add(player);
             player.mediator = mediator;
-            allObjects.Add(new SpeedBoost(200,80,mediator));
-            allObjects.Add(new SpeedBoost(300, 80, mediator));
-            allObjects.Add(new SpeedBoost(400, 80, mediator));
+            allObjects.Add(new AsBoost(200,80,mediator));
+            
             allObjects.Add(new Crossbow(300,180,mediator));
-            allObjects.Add(new LavaTile(300,200,1,mediator));
+            allObjects.Add(new LavaTile(300,400,1,mediator));
+            allObjects.Add(new MsBoost(300,250,mediator));
 
 
 
