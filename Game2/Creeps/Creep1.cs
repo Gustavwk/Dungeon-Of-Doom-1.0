@@ -11,20 +11,20 @@ using Game2.Structures;
 using Game2.Player;
 namespace Game2.Creep
 {
-    class Creep : Creeps
+    class Creep : GameObject
     {
         private Texture2D creepPicture;
         private int movementspeed = 1;
         private int WIDTH = 32;
         private int HEIGHT = 32;
         public int health = 100;
-        public Rectangle hitbox;
+        private Rectangle hitbox;
         private Boolean alive = true;
         private int prevPositionX;
         private int prevPositionY;
 
-
-   public void setX(int x)
+        
+        public void setX(int x)
         {
             this.X = x;
         }
@@ -33,7 +33,7 @@ namespace Game2.Creep
             this.Y = y;
         }
 
-        public Creep(int x, int y, Mediator mediator) : base(x, y, mediator)
+        public Creep(int x, int y, Mediator mediator) 
         {
             this.X = x;
             this.Y = y;
@@ -61,8 +61,6 @@ namespace Game2.Creep
             }
 
         }
-
-     
 
         public override void Load()
         {

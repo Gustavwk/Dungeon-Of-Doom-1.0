@@ -73,16 +73,6 @@ namespace Game2.Player
                 Debug.WriteLine("Y: " + this.Y);
             }
 
-            if ( other is Creeps)
-            {
-
-                this.Y = prevPositionY;
-                this.X = prevPositionX;
-
-                Debug.WriteLine("Player Intersects with " + other);
-                Debug.WriteLine("X: " + this.X);
-                Debug.WriteLine("Y: " + this.Y);
-            }
 
         }
 
