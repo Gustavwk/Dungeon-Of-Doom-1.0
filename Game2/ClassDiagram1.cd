@@ -16,6 +16,7 @@
     <ShowAsAssociation>
       <Field Name="direction" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.Player.Player" Collapsed="true">
     <Position X="4.75" Y="2.75" Width="1.5" />
@@ -37,7 +38,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.HpBoost" Collapsed="true">
-    <Position X="7" Y="4" Width="1.5" />
+    <Position X="12" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgQAgAAAAAQAAgAAAAQAAAAAAAAAAAAAAAAAhAAAAAA=</HashCode>
       <FileName>Items\HpBoost.cs</FileName>
@@ -98,15 +99,19 @@
     <AssociationLine Name="player" Type="Game2.Player.Player" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="10.75" Y="5" />
-        <Point X="4.969" Y="5" />
-        <Point X="4.969" Y="3.816" />
-        <Point X="5.773" Y="3.816" />
+        <Point X="8.833" Y="5" Type="JumpStart" />
+        <Point X="8.667" Y="5" Type="JumpEnd" />
+        <Point X="7.333" Y="5" Type="JumpStart" />
+        <Point X="7.167" Y="5" Type="JumpEnd" />
+        <Point X="5.773" Y="5" />
         <Point X="5.773" Y="3.441" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="room" Type="Game2.GameObject" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="10.75" Y="4.688" />
+        <Point X="8.833" Y="4.688" Type="JumpStart" />
+        <Point X="8.667" Y="4.688" Type="JumpEnd" />
         <Point X="8.641" Y="4.688" />
         <Point X="8.641" Y="2.062" />
       </Path>
@@ -124,10 +129,18 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Game2.AsBoost" Collapsed="true">
-    <Position X="5.25" Y="4" Width="1.5" />
+    <Position X="8" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAUAkAIEAAAAAgAAAAAAAAQAAAAAAAAAAAAApAAAgAA=</HashCode>
       <FileName>Items\AsBoost.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Game2.MsBoost" Collapsed="true">
+    <Position X="10" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAIAIAAAAgAAAAAAAAQAAAAAAAAgAAAA5AAAgAA=</HashCode>
+      <FileName>Items\MsBoost.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -140,6 +153,27 @@
     <ShowAsAssociation>
       <Property Name="mediator" />
     </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Game2.gameLogic.IProjectile" Collapsed="true">
+    <Position X="18.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>gameLogic\IProjectile.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Game2.gameLogic.IPowerUp" Collapsed="true">
+    <Position X="18.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>gameLogic\IPowerUp.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Game2.gameLogic.IPlayer" Collapsed="true">
+    <Position X="18.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>gameLogic\IPlayer.cs</FileName>
+    </TypeIdentifier>
   </Interface>
   <Enum Name="Game2.gameLogic.Direction" Collapsed="true">
     <Position X="6.5" Y="6.25" Width="1.5" />
