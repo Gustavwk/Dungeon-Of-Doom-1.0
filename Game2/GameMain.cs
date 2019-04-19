@@ -38,6 +38,7 @@ namespace Game2
             room.addToAllObjects();
 
             allObjects.Add(player);
+            allObjects.Add(new Creep.Creep(100,200,mediator));
             player.mediator = mediator;
 
 
@@ -120,6 +121,7 @@ namespace Game2
                     if (gameObject.hitbox.Intersects(otherGameObject.hitbox))
                     {
                         gameObject.intersects(otherGameObject);
+                       
                     }
                 }
 

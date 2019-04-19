@@ -35,9 +35,17 @@ namespace Game2.Player
             set { cooldown = value; }
         }
 
-        
-            
-        
+        public int getX()
+        {
+            return this.X;
+        }
+        public int getY()
+        {
+            return this.Y;
+        }
+
+
+
 
 
 
@@ -58,7 +66,7 @@ namespace Game2.Player
             {
                //do nothing
             }
-            else
+            else if (other is Wall)
             {
                 /*
                 Random random = new Random();

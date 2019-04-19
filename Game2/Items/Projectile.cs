@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Game2.gameLogic;
 using Game2.Structures;
+using Game2.Creep;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace Game2
 {
-    class Projectile : GameObject
+    class Projectile : GameObject, IProjectile
     {
         protected Texture2D projectileTextureLeft;
         protected Texture2D projectileTextureUp;
@@ -24,6 +25,7 @@ namespace Game2
         protected Texture2D projectileTextureSouthEast;
         protected Texture2D projectileTextureSouthWest;
         private bool shouldDraw = true;
+        private int damage = 5;
 
         private Direction direction;
         
@@ -58,6 +60,14 @@ namespace Game2
                 //Hvis projectil rammer en væg så mister den sin hitbox og bliver ikke tegnet mere!
                 shouldDraw = false;
                 hitbox = Rectangle.Empty;
+            }
+
+            if (other is Creep.Creep)
+            {
+                Creep.Creep p = (Creep.Creep) other;
+
+                p.health = p.health - damage;
+                shouldDraw = false;
             }
 
 

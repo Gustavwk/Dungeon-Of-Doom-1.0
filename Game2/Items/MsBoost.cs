@@ -78,7 +78,7 @@ namespace Game2
         {
             if (other is Player.Player)
             {
-                Player.Player p = (Player.Player) other;
+               
 
                 taken = true;
                 active = true;
