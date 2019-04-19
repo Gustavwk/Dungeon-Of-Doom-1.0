@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2
 {
-    abstract class GameObject : IMediator
+    abstract class GameObject : IMediator, IGameObject
     {
         private Texture2D defaultSprite;
         public Rectangle hitbox;

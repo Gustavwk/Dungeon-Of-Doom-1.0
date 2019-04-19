@@ -10,7 +10,7 @@
   <Class Name="Game2.Projectile" Collapsed="true">
     <Position X="3" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAQAgQAAAAIAIwAgAEBgACAAAAQgCEaAAAAAiABAAAA=</HashCode>
+      <HashCode>gAQAgQAAAAIAowAgAEBgACAAAAQgCEaAAAAAiABAAAA=</HashCode>
       <FileName>Items\Projectile.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -21,7 +21,7 @@
   <Class Name="Game2.Player.Player" Collapsed="true">
     <Position X="4.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgQAgGQAAAAEIgAAAAAOAAgABDQAAACIAAAAgABAAAg=</HashCode>
+      <HashCode>AgQAgGQAAAAEIgAAAAAOAAgABDQAAACIAAAAgGBAAAg=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -173,24 +173,31 @@
     </ShowAsAssociation>
   </Interface>
   <Interface Name="Game2.gameLogic.IProjectile" Collapsed="true">
-    <Position X="18.25" Y="2.75" Width="1.5" />
+    <Position X="12.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\IProjectile.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Game2.gameLogic.IPowerUp" Collapsed="true">
-    <Position X="18.25" Y="2" Width="1.5" />
+    <Position X="12.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>gameLogic\IPowerUp.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Game2.gameLogic.IPlayer" Collapsed="true">
-    <Position X="18.25" Y="1.25" Width="1.5" />
+    <Position X="14" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\IPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Game2.gameLogic.IGameObject" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>gameLogic\IGameObject.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Game2.gameLogic.Direction" Collapsed="true">
