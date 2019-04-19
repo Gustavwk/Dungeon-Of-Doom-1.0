@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="gameLogic\Direction.cs" />
     <Compile Include="gameLogic\IMediator.cs" />
+    <Compile Include="gameLogic\IPowerUp.cs" />
     <Compile Include="gameLogic\Level.cs" />
     <Compile Include="gameLogic\Mediator.cs" />
     <Compile Include="Items\HpBoost.cs" />

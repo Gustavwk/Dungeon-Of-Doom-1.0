@@ -10,7 +10,7 @@
   <Class Name="Game2.Projectile" Collapsed="true">
     <Position X="3" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAQAgQACAAIAIwAAAEBgACAAAAQgCECAAAAAiABAAAA=</HashCode>
+      <HashCode>gAQAgQAAAAIAIwAAAEBgACAAAAQgCEKAAAAAiABAAAA=</HashCode>
       <FileName>Items\Projectile.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -35,11 +35,11 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Game2.HealthBoost" Collapsed="true">
+  <Class Name="Game2.HpBoost" Collapsed="true">
     <Position X="7" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgQAgAAAAAQAAgAAAAQAAAAAAAAAAAAAAAAAhAAAAAA=</HashCode>
-      <FileName>Items\HealthBoost.cs</FileName>
+      <FileName>Items\HpBoost.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Structures.Wall" Collapsed="true">
@@ -122,12 +122,13 @@
       <Property Name="AllObjects" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Game2.SpeedBoost" Collapsed="true">
+  <Class Name="Game2.AsBoost" Collapsed="true">
     <Position X="5.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAUAkAIEAAAAAgAAAAAAAAAAAAAAAAAAAAAApAAAAAA=</HashCode>
-      <FileName>Items\SpeedBoost.cs</FileName>
+      <HashCode>AAUAkAIEAAAAAgAAAAAAAAQAAAAAAAAAAAAApAAAgAA=</HashCode>
+      <FileName>Items\AsBoost.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="Game2.gameLogic.IMediator">
     <Position X="10.75" Y="2.75" Width="1.5" />

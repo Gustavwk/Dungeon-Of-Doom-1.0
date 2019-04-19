@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2
 {
-    class MsBoost : Items
+    class MsBoost : Items, IPowerUp
     {
         private Texture2D filledPotion;
         private Texture2D emptyPotion;
@@ -39,7 +39,12 @@ namespace Game2
 
         public override void Update(GameTime gameTime)
         {
+            EffectForDuration();
+        }
 
+
+        public void EffectForDuration()
+        {
             if (taken)
             {
                 if (active)
@@ -51,12 +56,9 @@ namespace Game2
                 if (duration < 1)
 
                 {
-
                     active = false;
                     mediator.player.movementspeed = 2;
-                    duration = 300; // Det virker nu - den skal bare sættets over 1 den her
-
-
+                    duration = 300; 
                 }
             }
         }
@@ -69,16 +71,15 @@ namespace Game2
 
         public override void intersects(GameObject other)
         {
-           
+            PlayerInteraction(other);
+        }
+
+        public void PlayerInteraction(GameObject other)
+        {
             if (other is Player.Player)
             {
-                Player.Player p = (Player.Player)other;
+                Player.Player p = (Player.Player) other;
 
-
-
-
-
-                
                 taken = true;
                 active = true;
                 this.hitbox = Rectangle.Empty;

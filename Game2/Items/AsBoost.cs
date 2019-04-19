@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2
 {
-    class AsBoost : Items
+    class AsBoost : Items, IPowerUp
     {
         private Texture2D filledSpeedBoost;
         private Texture2D emptySpeedBoost;
@@ -40,50 +40,46 @@ namespace Game2
 
         public override void intersects(GameObject other)
         {
+            PlayerInteraction(other);
+        }
+
+        public void PlayerInteraction(GameObject other)
+        {
             if (other is Player.Player)
             {
                 Player.Player p = (Player.Player) other;
-              
-                    
-                
 
-
-               
                 taken = true;
                 active = true;
                 this.hitbox = Rectangle.Empty;
             }
         }
+
         public override void Update(GameTime gameTime) //Det virker nu, men jeg tror det kan gøres bedre!
         {
+            EffectForDuration();
+        }
+
+      public void EffectForDuration()
+        {
+            if (taken)
             {
-                if (taken)
+                if (active)
                 {
-                    if (active)
-                    {
-                        mediator.player.playerCooldown = cooldownReduction;
-                        duration--; 
-                    }
- 
-                    if (duration < 1)
-
-                    {
-                        
-                        active = false;
-                        mediator.player.playerCooldown = 500;
-                        duration = 300; // Det virker nu - den skal bare sættets over 1 den her
-
-
-                    }
-
-
-
-
-                    base.Update(gameTime);
-
+                    mediator.player.playerCooldown = cooldownReduction;
+                    duration--;
                 }
-            }
 
+                if (duration < 1)
+
+                {
+                    active = false;
+                    mediator.player.playerCooldown = 500;
+                    duration = 300; // Det virker nu - den skal bare sættets over 1 den her
+                }
+
+
+            }
         }
 
         public override void Load()
