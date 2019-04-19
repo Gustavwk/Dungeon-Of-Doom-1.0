@@ -20,6 +20,7 @@ namespace Game2
         private List<GameObject> allObjects = new List<GameObject>();
         private List<GameObject> itesmToBeAdded = new List<GameObject>();
         Player.Player player = new Player.Player(100,100);
+        Creep.Creep creep = new Creep.Creep(200, 200);
         Mediator mediator;
         
 
@@ -33,12 +34,15 @@ namespace Game2
             room = new Room(800, 480, mediator);
             Mediator.Game = this;
             Content.RootDirectory = "Content";
-            mediator = new Mediator(allObjects, itesmToBeAdded, player, room);
+            mediator = new Mediator(allObjects, itesmToBeAdded, player, room, creep);
             room.mediator = mediator;
             room.addToAllObjects();
             allObjects.Add(new HealthBoost(60, 60, 60, mediator));
             allObjects.Add(player);
+            allObjects.Add(creep);
             player.mediator = mediator;
+            creep.mediator = mediator;
+
           
            
 

@@ -41,6 +41,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Creeps\Creeps.cs" />
+    <Compile Include="Creeps\Creep1.cs" />
     <Compile Include="gameLogic\Direction.cs" />
     <Compile Include="gameLogic\IMediator.cs" />
     <Compile Include="gameLogic\Mediator.cs" />

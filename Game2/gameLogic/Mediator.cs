@@ -15,13 +15,15 @@ namespace Game2.gameLogic
         public List<GameObject> itemToBeAdded { get; }
 
         public Player.Player player { get; }
+        public Creep.Creep creep { get; }
         public GameObject room { get; }
 
-        public Mediator(List<GameObject> allObjects, List<GameObject> itemToBeAdded, Player.Player player, Room room)
+        public Mediator(List<GameObject> allObjects, List<GameObject> itemToBeAdded, Player.Player player, Room room, Creep.Creep creep)
         {
             this.AllObjects = allObjects;
             this.itemToBeAdded = itemToBeAdded;
             this.player = player;
+            this.creep = creep;
             this.room = room;
         }
     }

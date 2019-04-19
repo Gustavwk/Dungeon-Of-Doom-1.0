@@ -89,6 +89,17 @@ namespace Game2.Player
                 Debug.WriteLine("Y: " + this.Y);
             }
 
+            if ( other is Creeps)
+            {
+
+                this.Y = prevPositionY;
+                this.X = prevPositionX;
+
+                Debug.WriteLine("Player Intersects with " + other);
+                Debug.WriteLine("X: " + this.X);
+                Debug.WriteLine("Y: " + this.Y);
+            }
+
         }
 
         public void setX(int x)
@@ -98,6 +109,10 @@ namespace Game2.Player
         public void setY(int y)
         {
             this.Y = y;
+        }
+        public int getX(int x)
+        {
+
         }
 
         public override void Load()
