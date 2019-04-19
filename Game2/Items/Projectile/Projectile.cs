@@ -24,10 +24,10 @@ namespace Game2
         protected Texture2D projectileTextureNorthWest;
         protected Texture2D projectileTextureSouthEast;
         protected Texture2D projectileTextureSouthWest;
-        private bool shouldDraw = true;
+        protected bool shouldDraw = true;
         private int damage = 5;
 
-        private Direction direction;
+        protected Direction direction;
         
         
 
@@ -36,8 +36,8 @@ namespace Game2
         bool visible; // is the projectile visible
         int shootSpeed = 8; //the speed the projectile moves
 
-        const int HEIGHT = 32;
-        const int WIDTH = 32;
+        protected const int HEIGHT = 32;
+        protected const int WIDTH = 32;
 
        
 
@@ -128,7 +128,7 @@ namespace Game2
             DrawAccordingToDirection(spriteBatch);
         }
 
-        public void DrawAccordingToDirection(SpriteBatch spriteBatch)
+        public virtual void DrawAccordingToDirection(SpriteBatch spriteBatch)
         {
             if (shouldDraw)
             {

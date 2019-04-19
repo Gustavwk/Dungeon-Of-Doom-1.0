@@ -53,7 +53,8 @@
     <Compile Include="Items\HpBoost.cs" />
     <Compile Include="Items\Items.cs" />
     <Compile Include="Items\MsBoost.cs" />
-    <Compile Include="Items\Projectile.cs" />
+    <Compile Include="Items\Projectile\CrossbowProjectile.cs" />
+    <Compile Include="Items\Projectile\Projectile.cs" />
     <Compile Include="Items\Crossbow.cs" />
     <Compile Include="Items\AsBoost.cs" />
     <Compile Include="Player\Player.cs" />

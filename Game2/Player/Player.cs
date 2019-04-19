@@ -27,12 +27,19 @@ namespace Game2.Player
         private int prevPositionY;
         private int cooldown = 500; //mills between shots
         private double lastShot = 0;
+        public Items weapon;
         private Direction direction;
 
         public int playerCooldown
         {
             get { return cooldown; }
             set { cooldown = value; }
+        }
+
+        public Items Weapon
+        {
+            get => weapon;
+            set => weapon = value;
         }
 
         public int getX()

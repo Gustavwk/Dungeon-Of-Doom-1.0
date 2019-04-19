@@ -47,6 +47,7 @@ namespace Game2
         {
             if (other is Player.Player)
             {
+                
                 shoudDraw = false;
                 hitbox = Rectangle.Empty;
             }
