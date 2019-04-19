@@ -94,10 +94,7 @@ namespace Game2.Player
         {
             this.Y = y;
         }
-        public int getX(int x)
-        {
-
-        }
+       
 
         public override void Load()
         {

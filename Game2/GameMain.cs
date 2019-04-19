@@ -33,12 +33,11 @@ namespace Game2
             room = new Room(800, 480, mediator);
             Mediator.Game = this;
             Content.RootDirectory = "Content";
-            mediator = new Mediator(allObjects, itesmToBeAdded, player, room, creep);
+            mediator = new Mediator(allObjects, itesmToBeAdded, player, room);
             room.mediator = mediator;
             room.addToAllObjects();
 
             allObjects.Add(player);
-            allObjects.Add(creep);
             player.mediator = mediator;
 
 
