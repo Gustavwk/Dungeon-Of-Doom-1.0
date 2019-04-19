@@ -12,7 +12,7 @@ using Game2.Structures;
 namespace Game2.Player
 {
 
-    class Player : GameObject
+    class Player : GameObject, IPlayer
 
     {
         
@@ -35,46 +35,9 @@ namespace Game2.Player
             set { cooldown = value; }
         }
 
-        public String GetDirection()
-        {
-            if (this.direction == Direction.NORTH)
-            {
-                return "NORTH";
-            } else if (this.direction == Direction.SOUTH)
-            {
-                return "SOUTH";
-            }
-            else if (this.direction == Direction.EAST)
-            {
-                return "EAST";
-            }
-            else if ( this.direction == Direction.WEST)
-            {
-                return "WEST";
-            }
-            else if (this.direction == Direction.SOUTHEAST)
-            {
-                return "SOUTHEAST";
-            }
-            else if (this.direction == Direction.SOUTHWEST)
-            {
-                return "SOUTHWEST";
-            }
-            else if (this.direction == Direction.NORTHEAST)
-            {
-                return "NORTHEAST";
-            }
-            else if (this.direction == Direction.NORTHWEST)
-            {
-                return "NORTHWEST";
-            }
-            else
-            {
-                return "NONE";
-            }
-
+        
             
-        }
+        
 
 
 

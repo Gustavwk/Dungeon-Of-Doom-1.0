@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Game2
 {
-    class Projectile : GameObject
+    class Projectile : GameObject, IProjectile
     {
         protected Texture2D projectileTextureLeft;
         protected Texture2D projectileTextureUp;
@@ -66,10 +66,17 @@ namespace Game2
         
         public override void Update(GameTime gameTime)
         {
+            MoveProjectile();
+
+
+            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
+        }
+
+        public void MoveProjectile()
+        {
             if (this.direction == Direction.NORTH)
             {
-                Y-=shootSpeed;
-
+                Y -= shootSpeed;
             }
             else if (this.direction == Direction.SOUTH)
             {
@@ -103,15 +110,15 @@ namespace Game2
                 X -= shootSpeed;
                 Y += shootSpeed;
             }
-
-
-
-            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
-            
         }
 
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            DrawAccordingToDirection(spriteBatch);
+        }
+
+        public void DrawAccordingToDirection(SpriteBatch spriteBatch)
         {
             if (shouldDraw)
             {
