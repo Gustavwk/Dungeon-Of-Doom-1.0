@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Game2
 {
-    class Projectile : GameObject, IProjectile
+    class Projectile : GameObject
     {
         protected Texture2D projectileTextureLeft;
         protected Texture2D projectileTextureUp;
