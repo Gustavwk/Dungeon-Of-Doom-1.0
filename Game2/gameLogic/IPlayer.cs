@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 
 namespace Game2.gameLogic
 {
-     public enum Direction
+    interface IPlayer
     {
-    
-        NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST
-    
-}
+        void movement();
+        void shooting(GameTime gameTime);
+    }
 }

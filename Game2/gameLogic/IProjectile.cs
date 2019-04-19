@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game2.gameLogic
 {
-     public enum Direction
+    interface IProjectile
     {
-    
-        NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST
-    
-}
+    }
 }

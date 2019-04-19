@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Game2
 {
-    class HealthBoost : Items
+    class HpBoost : Items
     {
 
         private Texture2D filledHpPotion;
@@ -22,7 +22,7 @@ namespace Game2
         
       
 
-        public HealthBoost(int hpPlus, int x, int y, Mediator mediator) : base(x,y,mediator)
+        public HpBoost(int hpPlus, int x, int y, Mediator mediator) : base(x,y,mediator)
         {
             this.hpPlus = hpPlus;
             this.hitbox = new Rectangle(this.X, this.Y, 32, 32);

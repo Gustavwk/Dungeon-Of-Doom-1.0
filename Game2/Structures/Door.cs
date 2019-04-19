@@ -54,7 +54,7 @@ namespace Game2.Structures
             x = random.Next(0, 400);
             y = random.Next(0, 400);
             
-            HealthBoost ranHealthBoost = new HealthBoost(60,x,y,mediator);
+            HpBoost ranHealthBoost = new HpBoost(60,x,y,mediator);
             ranHealthBoost.Load();
             itemToBeAdded.Add(ranHealthBoost);
             Debug.WriteLine("HB added");

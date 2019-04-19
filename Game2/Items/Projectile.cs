@@ -6,19 +6,25 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Game2.gameLogic;
+using Game2.Structures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace Game2
 {
-    class Projectile : GameObject
+    class Projectile : GameObject, IProjectile
     {
         protected Texture2D projectileTextureLeft;
         protected Texture2D projectileTextureUp;
         protected Texture2D projectileTextureRight;
         protected Texture2D projectileTextureDown;
-       
+        protected Texture2D projectileTextureNorthEast;
+        protected Texture2D projectileTextureNorthWest;
+        protected Texture2D projectileTextureSouthEast;
+        protected Texture2D projectileTextureSouthWest;
+        private bool shouldDraw = true;
+
         private Direction direction;
         
         
@@ -42,20 +48,37 @@ namespace Game2
 
         }
 
+
         
-        public override void intersects(GameObject otherObject)
+        public override void intersects(GameObject other)
         {
-            //Debug.WriteLine("Projectile impacts" + otherObject.ToString());
+
+            if (other is Wall)
+            {
+                //Hvis projectil rammer en væg så mister den sin hitbox og bliver ikke tegnet mere!
+                shouldDraw = false;
+                hitbox = Rectangle.Empty;
+            }
+
+
         }
 
         
         public override void Update(GameTime gameTime)
         {
+            MoveProjectile();
+
+
+            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
+        }
+
+        public void MoveProjectile()
+        {
             if (this.direction == Direction.NORTH)
             {
-                Y-=shootSpeed;
-
-            } else if (this.direction == Direction.SOUTH)
+                Y -= shootSpeed;
+            }
+            else if (this.direction == Direction.SOUTH)
             {
                 Y += shootSpeed;
             }
@@ -67,38 +90,71 @@ namespace Game2
             {
                 X -= shootSpeed;
             }
-
-
-
-            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
-            
+            else if (this.direction == Direction.NORTHEAST)
+            {
+                X += shootSpeed;
+                Y -= shootSpeed;
+            }
+            else if (this.direction == Direction.NORTHWEST)
+            {
+                X -= shootSpeed;
+                Y -= shootSpeed;
+            }
+            else if (this.direction == Direction.SOUTHEAST)
+            {
+                X += shootSpeed;
+                Y += shootSpeed;
+            }
+            else if (this.direction == Direction.SOUTHWEST)
+            {
+                X -= shootSpeed;
+                Y += shootSpeed;
+            }
         }
 
-        
+
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            if (this.direction == Direction.NORTH)
-            {
-                spriteBatch.Draw(projectileTextureUp,hitbox,Color.White);
-            }
-            else if (this.direction == Direction.SOUTH)
-            {
-                spriteBatch.Draw(projectileTextureDown, hitbox, Color.White);
-            }
-            else if(this.direction == Direction.EAST)
-            {
-                spriteBatch.Draw(projectileTextureRight, hitbox, Color.White);
-            }
-            else if (this.direction == Direction.WEST)
-            {
-                spriteBatch.Draw(projectileTextureLeft, hitbox, Color.White);
-            }
+            DrawAccordingToDirection(spriteBatch);
+        }
 
-
-          
-
-
-            
+        public void DrawAccordingToDirection(SpriteBatch spriteBatch)
+        {
+            if (shouldDraw)
+            {
+                if (this.direction == Direction.NORTH)
+                {
+                    spriteBatch.Draw(projectileTextureUp, hitbox, Color.White);
+                }
+                else if (this.direction == Direction.SOUTH)
+                {
+                    spriteBatch.Draw(projectileTextureDown, hitbox, Color.White);
+                }
+                else if (this.direction == Direction.EAST)
+                {
+                    spriteBatch.Draw(projectileTextureRight, hitbox, Color.White);
+                }
+                else if (this.direction == Direction.WEST)
+                {
+                    spriteBatch.Draw(projectileTextureLeft, hitbox, Color.White);
+                }
+                else if (this.direction == Direction.NORTHEAST)
+                {
+                    spriteBatch.Draw(projectileTextureNorthEast, hitbox, Color.White);
+                }
+                else if (this.direction == Direction.NORTHWEST)
+                {
+                    spriteBatch.Draw(projectileTextureNorthWest, hitbox, Color.White);
+                }
+                else if (this.direction == Direction.SOUTHEAST)
+                {
+                    spriteBatch.Draw(projectileTextureSouthEast, hitbox, Color.White);
+                }
+                else if (this.direction == Direction.SOUTHWEST)
+                {
+                    spriteBatch.Draw(projectileTextureSouthWest, hitbox, Color.White);
+                }
+            }
         }
 
         public void preLoad()
@@ -118,6 +174,14 @@ namespace Game2
                 Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_0");
             projectileTextureDown =
                 Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_4");
+            projectileTextureNorthWest =
+                Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_7");
+            projectileTextureNorthEast =
+                Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_1");
+            projectileTextureSouthWest =
+                Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_5");
+            projectileTextureSouthEast =
+                Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_3");
         }
 
         // creating a new rectangle for our projectile hitbox 
@@ -137,9 +201,6 @@ namespace Game2
             spriteBatch.Draw(projectileTextureLeft, hitbox, Color.White);
         }
 
-        //intersecting with a wall method, dont know if this should be here
-        public virtual void intersectsWithWall(GameObject player, GameObject wall)
-        {
-        }
+        
     }
 }

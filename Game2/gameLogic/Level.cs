@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Game2.gameLogic
 {
-     public enum Direction
+    class Level : IMediator
     {
-    
-        NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST
-    
-}
+        public Mediator mediator { get; set; }
+        private int level = 0;
+        private int multiplier = 0;
+    }
 }

@@ -19,17 +19,16 @@ namespace Game2
         SpriteBatch spriteBatch;
         private List<GameObject> allObjects = new List<GameObject>();
         private List<GameObject> itesmToBeAdded = new List<GameObject>();
-        Player.Player player = new Player.Player(100,100);
-        Creep.Creep creep = new Creep.Creep(200, 200);
+        Player.Player player = new Player.Player(400,200);
         Mediator mediator;
-        
 
-       
+
+
 
 
         public GameMain()
         {
-            
+
             graphics = new GraphicsDeviceManager(this);
             room = new Room(800, 480, mediator);
             Mediator.Game = this;
@@ -37,14 +36,13 @@ namespace Game2
             mediator = new Mediator(allObjects, itesmToBeAdded, player, room, creep);
             room.mediator = mediator;
             room.addToAllObjects();
-            allObjects.Add(new HealthBoost(60, 60, 60, mediator));
+
             allObjects.Add(player);
             allObjects.Add(creep);
             player.mediator = mediator;
-            creep.mediator = mediator;
 
-          
-           
+
+
 
 
             //give all mediator
@@ -52,7 +50,7 @@ namespace Game2
 
         }
 
-     
+
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -63,7 +61,7 @@ namespace Game2
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
- 
+
 
             base.Initialize();
         }
@@ -114,10 +112,22 @@ namespace Game2
                 {
                     player.intersects(gameObject);
                     gameObject.intersects(player);
+
                 }
 
+                //Game objects kan nu intersecte med andre gameObejcts
+                foreach (var otherGameObject in allObjects)
+                {
+                    if (gameObject.hitbox.Intersects(otherGameObject.hitbox))
+                    {
+                        gameObject.intersects(otherGameObject);
+                    }
+                }
+
+
+
                 gameObject.Update(gameTime);
-            
+
             }
 
             allObjects.AddRange(itesmToBeAdded);
@@ -138,16 +148,16 @@ namespace Game2
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-    
+
             GraphicsDevice.Clear(Color.Azure);
             spriteBatch.Begin();
-            
+
 
             foreach (GameObject gameObject in allObjects)
             {
 
                 gameObject.Draw(spriteBatch, gameTime);
-               
+
             }
             spriteBatch.End();
 

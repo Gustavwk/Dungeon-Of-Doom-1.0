@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Game2.gameLogic
 {
-     public enum Direction
+    interface IPowerUp
     {
-    
-        NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST
-    
-}
+      
+        void PlayerInteraction(GameObject other);
+        void EffectForDuration();
+    }
 }

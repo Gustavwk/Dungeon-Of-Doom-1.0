@@ -22,7 +22,10 @@ namespace Game2.Structures
         private int unitPosY;                                     //Holder styr på hvor den næste wall sættes på y-aksen
         private int prevUnitPosX;                                 //Holder styr på hvor den sidste wall blev sat på x-aksen  - Denne bliver ikke brugt pt.
         private int prevUnitPosY;                                 //Holder styr på hvor den sidste wall blev sat på y-aksen  - Denne bliver ikke brugt pt.
-                                              //Resolution y-akse
+                                                                  //Resolution y-akse
+
+        private int multiplier = 1;
+
         private Random random = new Random();
        
 
@@ -45,7 +48,8 @@ namespace Game2.Structures
         {
 
             layFloor();
-            populateRoom();
+            roomBoarders();
+            simpleMaze();
         }
 
         public override void Load()
@@ -69,7 +73,48 @@ namespace Game2.Structures
  
         }
 
-        public void populateRoom()
+        public int unitCoord(int coord) //den her er translater et coordinat så det giver mening i forhold til vores units !
+        {
+            int unitCoord = coord * unit;
+            return unitCoord;
+        }
+
+        public void simpleMaze()
+        {
+
+
+         Random random = new Random();
+
+         for (int i = 0; i < multiplier; i++)
+         {
+           
+                 mediator.AllObjects.Add(new LavaTile(unitCoord(random.Next(unitsAvailableX)),unitCoord(random.Next(unitsAvailableY)), 1, mediator));
+            
+         }
+
+         for (int i = unit*3; i < X-unit*3; i+=unit)
+            {
+               mediator.AllObjects.Add(new Wall(i,Y - (Y/3 * 2) - unit,mediator));
+               mediator.AllObjects.Add(new Wall(i, Y - Y /3, mediator));
+
+            }
+            mediator.AllObjects.Add(new Wall(unitCoord(3),unitCoord(5),mediator));
+            mediator.AllObjects.Add(new Wall(unitCoord(3), unitCoord(9), mediator));
+            mediator.AllObjects.Add(new Wall(unitCoord(21), unitCoord(5), mediator));
+            mediator.AllObjects.Add(new Wall(unitCoord(21), unitCoord(9), mediator));
+
+            for (int i = 0; i < multiplier; i++)
+            {
+                mediator.AllObjects.Add(new AsBoost(unitCoord(random.Next(unitsAvailableX)), unitCoord(random.Next(unitsAvailableY)),mediator));
+                mediator.AllObjects.Add(new MsBoost(unitCoord(random.Next(unitsAvailableX)), unitCoord(random.Next(unitsAvailableY)), mediator));
+                mediator.AllObjects.Add(new HpBoost(200/multiplier,unitCoord(random.Next(unitsAvailableX)), unitCoord(random.Next(unitsAvailableY)), mediator));
+            }
+
+            
+        }
+
+
+        public void roomBoarders()
         {
             
            

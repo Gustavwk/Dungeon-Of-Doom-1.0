@@ -12,12 +12,12 @@ using Game2.Structures;
 namespace Game2.Player
 {
 
-    class Player : GameObject
+    class Player : GameObject, IPlayer
 
     {
         
         private Texture2D playerPicture;
-        private int movementspeed = 2;
+        public int movementspeed = 2;
         private int WIDTH = 32;
         private int HEIGHT = 32;
         public int health = 100;
@@ -29,32 +29,15 @@ namespace Game2.Player
         private double lastShot = 0;
         private Direction direction;
 
-        
-
-        public String GetDirection()
+        public int playerCooldown
         {
-            if (this.direction == Direction.NORTH)
-            {
-                return "NORTH";
-            } else if (this.direction == Direction.SOUTH)
-            {
-                return "SOUTH";
-            }
-            else if (this.direction == Direction.EAST)
-            {
-                return "EAST";
-            }
-            else if ( this.direction == Direction.WEST)
-            {
-                return "WEST";
-            }
-            else
-            {
-                return "NONE";
-            }
-
-            
+            get { return cooldown; }
+            set { cooldown = value; }
         }
+
+        
+            
+        
 
 
 
@@ -73,6 +56,7 @@ namespace Game2.Player
         {
             if (other is Tiles || other is Projectile)
             {
+               //do nothing
             }
             else
             {
@@ -140,16 +124,47 @@ namespace Game2.Player
           
 
 
-            if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.S))
+           if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.S) || key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.W))
             {
                 this.direction = Direction.WEST;
-                this.X = this.X - movementspeed;
+                this.X = this.X - this.movementspeed;
             }
-            else if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.W))
+
+            /*if (key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.S))
             {
-                this.direction = Direction.WEST;
-                this.X = this.X - movementspeed;
+                this.direction = Direction.SOUTHEAST;
+                this.prevPositionX = this.X;
+                this.prevPositionY = this.Y;
+                this.X = this.X + this.movementspeed;
+                this.Y = this.Y + this.movementspeed;
             }
+
+            if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.S))
+            {
+                this.direction = Direction.SOUTHWEST;
+                this.prevPositionX = this.X;
+                this.prevPositionY = this.Y;
+                this.X = this.X - this.movementspeed;
+                this.Y = this.Y + this.movementspeed;
+            }
+
+            if (key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.W))
+            {
+                this.direction = Direction.NORTHEAST;
+                this.prevPositionX = this.X;
+                this.prevPositionY = this.Y;
+                this.X = this.X + this.movementspeed;
+                this.Y = this.Y - this.movementspeed;
+            }
+
+            if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.W))
+            {
+                this.direction = Direction.NORTHWEST;
+                this.prevPositionX = this.X;
+                this.prevPositionY = this.Y;
+                this.X = this.X - this.movementspeed;
+                this.Y = this.Y - this.movementspeed;
+            }*/
 
             if (key.IsKeyDown(Keys.D))
             {
@@ -178,7 +193,6 @@ namespace Game2.Player
                 this.prevPositionY = this.Y;
                 this.Y = this.Y - this.movementspeed;
             }
-            
         }
         
        
@@ -188,6 +202,7 @@ namespace Game2.Player
             lastShot += gameTime.ElapsedGameTime.TotalMilliseconds;
             movement();
             shooting(gameTime);
+           
             
                 
             
