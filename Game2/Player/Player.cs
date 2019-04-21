@@ -16,7 +16,12 @@ namespace Game2.Player
 
     {
         
-        private Texture2D playerPicture;
+        private Texture2D playerPictureRight;
+        private Texture2D playerPictureLeft;
+        private Texture2D playerPictureBack;
+        private Texture2D playerPictureBackDmg;
+        private Texture2D playerPictureLeftDmg;
+        private Texture2D playerPictureRightDmg;
         public int movementspeed = 2;
         private int WIDTH = 32;
         private int HEIGHT = 32;
@@ -103,9 +108,16 @@ namespace Game2.Player
 
         public override void Load()
         {
-            playerPicture = Mediator.Game.Content.Load<Texture2D>("player/bloody");
-            
-           
+            playerPictureRight = Mediator.Game.Content.Load<Texture2D>("player/homeMadeSprite");
+            playerPictureLeft = Mediator.Game.Content.Load<Texture2D>("Player/homeMadeSpriteReversed (2)");          
+            playerPictureLeftDmg = Mediator.Game.Content.Load<Texture2D>("Player/homeMadeSpriteDamageReversed");
+            playerPictureRightDmg = Mediator.Game.Content.Load<Texture2D>("Player/homeMadeSpriteDamage");
+            playerPictureBack = Mediator.Game.Content.Load<Texture2D>("Player/homeMadeSpriteBack");
+            playerPictureBackDmg = Mediator.Game.Content.Load<Texture2D>("Player/homeMadeSpriteDamgeBack");
+          
+
+
+
         }
 
         public Boolean isDead(Boolean alive)
@@ -244,15 +256,54 @@ namespace Game2.Player
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            
-            
-            Texture2D texture = new Texture2D(spriteBatch.GraphicsDevice,1,1);
-            texture.SetData(new Color[]{Color.Aqua});
-            spriteBatch.Draw(texture, hitbox, Color.White);
-            
-            spriteBatch.Draw(playerPicture, hitbox, Color.White);
+            spriteBatch.Draw(playerPictureRight, hitbox, Color.White);
 
-           
+            
+            if (health < 50)
+            {
+                if (direction == Direction.SOUTH)
+                {
+                    spriteBatch.Draw(playerPictureRightDmg, hitbox, Color.White);
+                }
+
+                if (direction == Direction.EAST)
+                {
+                    spriteBatch.Draw(playerPictureRightDmg, hitbox, Color.White);
+                }
+
+                if (direction == Direction.WEST)
+                {
+                    spriteBatch.Draw(playerPictureLeftDmg, hitbox, Color.White);
+                }
+
+                if (direction == Direction.NORTH)
+                {
+                    spriteBatch.Draw(playerPictureBackDmg, hitbox, Color.White);
+                }
+            }
+
+            else
+
+            {
+
+                if (direction == Direction.EAST)
+                {
+                    spriteBatch.Draw(playerPictureRight, hitbox, Color.White);
+                }
+
+                if (direction == Direction.WEST)
+                {
+                    spriteBatch.Draw(playerPictureLeft, hitbox, Color.White);
+                }
+
+                if (direction == Direction.NORTH)
+                {
+                    spriteBatch.Draw(playerPictureBack, hitbox, Color.White);
+                }
+            }
+
+
+
         }
     }
 }
