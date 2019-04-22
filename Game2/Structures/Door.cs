@@ -62,7 +62,7 @@ namespace Game2.Structures
             return level++;
         }
 
-        public override void intersects(GameObject Door)
+        public override void intersects(GameObject Door) //Er der en grund til at det er GameObject Door og ikke GameObject other ligesom de andre?
         {
             
             if (Door is Player.Player)
