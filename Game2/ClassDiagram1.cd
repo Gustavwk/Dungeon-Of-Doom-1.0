@@ -27,6 +27,7 @@
     <ShowAsAssociation>
       <Field Name="direction" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.GameObject" Collapsed="true">
     <Position X="8.5" Y="1.5" Width="1.5" />

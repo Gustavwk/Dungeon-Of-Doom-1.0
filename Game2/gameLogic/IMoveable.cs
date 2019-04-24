@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Game2.gameLogic
 {
-    interface Moveable
+    interface IMoveable
     {
+        void movement();
     }
 }

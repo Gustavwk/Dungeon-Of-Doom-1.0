@@ -44,6 +44,7 @@
     <Compile Include="Creeps\Creep.cs" />
     <Compile Include="gameLogic\ICollideable.cs" />
     <Compile Include="gameLogic\Direction.cs" />
+    <Compile Include="gameLogic\IDischargeable.cs" />
     <Compile Include="gameLogic\IDrawable.cs" />
     <Compile Include="gameLogic\IMediator.cs" />
     <Compile Include="gameLogic\IPowerUp.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="gameLogic\IUpdateable.cs" />
     <Compile Include="gameLogic\Level.cs" />
     <Compile Include="gameLogic\Mediator.cs" />
+    <Compile Include="gameLogic\IMoveable.cs" />
     <Compile Include="Items\HpBoost.cs" />
     <Compile Include="Items\Items.cs" />
     <Compile Include="Items\MsBoost.cs" />
