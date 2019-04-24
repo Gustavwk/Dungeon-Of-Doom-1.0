@@ -42,12 +42,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Creeps\Creep.cs" />
+    <Compile Include="gameLogic\ICollideable.cs" />
     <Compile Include="gameLogic\Direction.cs" />
-    <Compile Include="gameLogic\IGameObject.cs" />
+    <Compile Include="gameLogic\IDrawable.cs" />
     <Compile Include="gameLogic\IMediator.cs" />
-    <Compile Include="gameLogic\IPlayer.cs" />
     <Compile Include="gameLogic\IPowerUp.cs" />
     <Compile Include="gameLogic\IProjectile.cs" />
+    <Compile Include="gameLogic\IUpdateable.cs" />
     <Compile Include="gameLogic\Level.cs" />
     <Compile Include="gameLogic\Mediator.cs" />
     <Compile Include="Items\HpBoost.cs" />

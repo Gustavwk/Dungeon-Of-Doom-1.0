@@ -8,11 +8,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2.gameLogic
 {
-    interface IGameObject
+    interface IDrawable
     {
         void Draw(SpriteBatch spriteBatch, GameTime gameTime);
-        void Update(GameTime gameTime);
-        void Load();
-        void intersects(GameObject other);
     }
 }

@@ -12,7 +12,7 @@ using Game2.Structures;
 namespace Game2.Player
 {
 
-    class Player : GameObject, IPlayer
+    class Player : GameObject
 
     {
         

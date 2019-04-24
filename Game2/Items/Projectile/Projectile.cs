@@ -24,6 +24,7 @@ namespace Game2
         protected Texture2D projectileTextureNorthWest;
         protected Texture2D projectileTextureSouthEast;
         protected Texture2D projectileTextureSouthWest;
+
         protected bool shouldDraw = true;
         private int damage = 5;
 

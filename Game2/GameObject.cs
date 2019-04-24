@@ -8,10 +8,12 @@ using Game2.gameLogic;
 using Game2.Structures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using IDrawable = Game2.gameLogic.IDrawable;
+using IUpdateable = Game2.gameLogic.IUpdateable;
 
 namespace Game2
 {
-    abstract class GameObject : IMediator, IGameObject
+    abstract class GameObject : IMediator, IUpdateable, IDrawable, ICollideable
     {
         private Texture2D defaultSprite;
         public Rectangle hitbox;

@@ -21,13 +21,12 @@
   <Class Name="Game2.Player.Player" Collapsed="true">
     <Position X="4.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgQAgGQAAAAEIgAAAAAOAAgADDQAAAiIAAAAgGBAAAg=</HashCode>
+      <HashCode>AgQAgGQAAAAEIgAAAAAOABAALjQAAAiIgAAAgGBAAgg=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="direction" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.GameObject" Collapsed="true">
     <Position X="8.5" Y="1.5" Width="1.5" />
@@ -155,7 +154,7 @@
     </TypeIdentifier>
   </Class>
   <Interface Name="Game2.gameLogic.IMediator">
-    <Position X="10.75" Y="2.75" Width="1.5" />
+    <Position X="10.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\IMediator.cs</FileName>
@@ -178,22 +177,8 @@
       <FileName>gameLogic\IPowerUp.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Game2.gameLogic.IPlayer" Collapsed="true">
-    <Position X="14" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>gameLogic\IPlayer.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="Game2.gameLogic.IGameObject" Collapsed="true">
-    <Position X="14" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
-      <FileName>gameLogic\IGameObject.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Enum Name="Game2.gameLogic.Direction" Collapsed="true">
-    <Position X="3.75" Y="3.75" Width="1.5" />
+    <Position X="3.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgggAAAAABAAAQABABAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Direction.cs</FileName>
