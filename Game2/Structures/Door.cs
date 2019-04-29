@@ -48,26 +48,19 @@ namespace Game2.Structures
 
         public int levelUp(List<GameObject> itemToBeAdded)
         {
-            int x;
-            int y;
-            Random random = new Random();
-            x = random.Next(0, 400);
-            y = random.Next(0, 400);
+           
+
             
-            HpBoost ranHealthBoost = new HpBoost(60,x,y,mediator);
-            ranHealthBoost.Load();
-            itemToBeAdded.Add(ranHealthBoost);
-            Debug.WriteLine("HB added");
             
             return level++;
         }
 
-        public override void intersects(GameObject Door) //Er der en grund til at det er GameObject Door og ikke GameObject other ligesom de andre?
+        public override void intersects(GameObject other) //Er der en grund til at det er GameObject other og ikke GameObject other ligesom de andre?
         {
             
-            if (Door is Player.Player)
+            if (other is Player.Player)
             {
-                Player.Player p = (Player.Player)Door;
+                Player.Player p = (Player.Player)other;
                 if (this.Y < unit)
                 {
                     p.setX(this.X);

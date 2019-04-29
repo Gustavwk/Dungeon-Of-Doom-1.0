@@ -11,5 +11,6 @@ namespace Game2.gameLogic
     interface IDrawable
     {
         void Draw(SpriteBatch spriteBatch, GameTime gameTime);
+        void Load();
     }
 }

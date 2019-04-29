@@ -165,17 +165,52 @@
     </ShowAsAssociation>
   </Interface>
   <Interface Name="Game2.gameLogic.IProjectile" Collapsed="true">
-    <Position X="12.25" Y="0.5" Width="1.5" />
+    <Position X="12.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\IProjectile.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Game2.gameLogic.IPowerUp" Collapsed="true">
-    <Position X="12.25" Y="1.25" Width="1.5" />
+    <Position X="12.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>gameLogic\IPowerUp.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Game2.gameLogic.IUpdateable" Collapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>gameLogic\IUpdateable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Game2.gameLogic.IMoveable" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>gameLogic\IMoveable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Game2.gameLogic.IDischargeable" Collapsed="true">
+    <Position X="14.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>gameLogic\IDischargeable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Game2.gameLogic.ICollideable" Collapsed="true">
+    <Position X="16" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>gameLogic\ICollideable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Game2.gameLogic.IDrawable" Collapsed="true">
+    <Position X="17.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>gameLogic\IDrawable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Game2.gameLogic.Direction" Collapsed="true">

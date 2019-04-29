@@ -21,6 +21,8 @@ namespace Game2
         private List<GameObject> itesmToBeAdded = new List<GameObject>();
         Player.Player player = new Player.Player(400,200);
         Mediator mediator;
+       
+        
 
 
 
@@ -29,17 +31,26 @@ namespace Game2
         public GameMain()
         {
 
+      
             graphics = new GraphicsDeviceManager(this);
             room = new Room(800, 480, mediator);
             Mediator.Game = this;
             Content.RootDirectory = "Content";
             mediator = new Mediator(allObjects, itesmToBeAdded, player, room);
+            
             room.mediator = mediator;
             room.addToAllObjects();
 
             allObjects.Add(player);
             allObjects.Add(new Creep.Creep(100,200,mediator));
             player.mediator = mediator;
+            allObjects.Add(new HUD(800,100, mediator));
+            
+
+
+            //Plads hvor ens HUD skal være - 100 pixels ekstra må være mere end nok!
+            graphics.PreferredBackBufferHeight = 580;
+            graphics.ApplyChanges();
 
 
 

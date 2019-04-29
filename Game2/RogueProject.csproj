@@ -42,6 +42,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Creeps\Creep.cs" />
+    <Compile Include="gameLogic\HUD Objects\HUD.cs" />
+    <Compile Include="gameLogic\HUD Objects\HUDTile.cs" />
     <Compile Include="gameLogic\ICollideable.cs" />
     <Compile Include="gameLogic\Direction.cs" />
     <Compile Include="gameLogic\IDischargeable.cs" />

@@ -11,5 +11,7 @@ namespace Game2.gameLogic
         public Mediator mediator { get; set; }
         private int level = 0;
         private int multiplier = 0;
+
+        
     }
 }

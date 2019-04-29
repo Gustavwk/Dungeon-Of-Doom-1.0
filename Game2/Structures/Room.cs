@@ -26,6 +26,12 @@ namespace Game2.Structures
 
         private int multiplier = 1;
 
+        public int Multiplier
+        {
+            get => multiplier;
+            set => multiplier = value;
+        }
+
         private Random random = new Random();
        
 
@@ -84,6 +90,8 @@ namespace Game2.Structures
 
 
          Random random = new Random();
+
+         
 
          for (int i = 0; i < multiplier; i++)
          {
