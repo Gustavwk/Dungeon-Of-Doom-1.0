@@ -14,10 +14,12 @@ namespace Game2
     {
         private Texture2D sprite;
         private bool shoudDraw = true;
+        
 
         public Crossbow(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
             this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
+              
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)

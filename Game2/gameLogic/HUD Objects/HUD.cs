@@ -63,8 +63,26 @@ namespace Game2.gameLogic
             spriteBatch.DrawString(spriteFont, "Weapon: " + mediator.player.weapon, new Vector2(0+10, 480 + unit), textColor);
             spriteBatch.DrawString(spriteFont, "Cooldown: " + mediator.player.playerCooldown, new Vector2(0+10, 480+unit*2), textColor);
             spriteBatch.DrawString(spriteFont, "Movement Speed: " + mediator.player.movementspeed, new Vector2(unit*8, 480), textColor);
+            DisplayDmg(spriteBatch);
 
 
+        }
+
+        private void DisplayDmg(SpriteBatch spriteBatch)
+        {
+            int x = unit * 8;
+            int y = 480 + unit;
+
+            if (mediator.player.weapon == null)
+            {
+                Projectile p = new CrossbowProjectile(0, 0, Direction.NORTH, mediator);
+                spriteBatch.DrawString(spriteFont, "DMG " + p.Damage, new Vector2(x, y), textColor);
+            }
+            else if (mediator.player.weapon != null && mediator.player.weapon is Crossbow)
+            {
+                CrossbowProjectile cp = new CrossbowProjectile(0, 0, Direction.NORTH, mediator);
+                spriteBatch.DrawString(spriteFont, "DMG " + cp.Damage, new Vector2(x, y), textColor);
+            }
         }
 
         public override void Load()

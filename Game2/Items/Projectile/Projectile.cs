@@ -29,8 +29,12 @@ namespace Game2
         private int damage = 5;
 
         protected Direction direction;
-        
-        
+
+        public int Damage
+        {
+            get => damage;
+            set => damage = value;
+        }
 
        
 
