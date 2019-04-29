@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Game2.gameLogic;
@@ -12,12 +13,13 @@ namespace Game2
 {
     class CrossbowProjectile : Projectile
     {
-        private int damage = 10;
+        public int DamageCrossbow { get; set; } = 10;
 
         public CrossbowProjectile(int x, int y, Direction direction, Mediator mediator) : base(x, y, direction, mediator)
         {
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
             this.direction = direction;
+            
         }
 
 
@@ -47,7 +49,7 @@ namespace Game2
             {
                 Creep.Creep p = (Creep.Creep)other;
 
-                p.health = p.health - damage;
+                p.health = p.health - DamageCrossbow;
                 shouldDraw = false;
             }
 

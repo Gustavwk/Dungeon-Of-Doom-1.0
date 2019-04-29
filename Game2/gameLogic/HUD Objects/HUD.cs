@@ -17,11 +17,11 @@ namespace Game2.gameLogic
     {
         private Player.Player player;
         private Level level;
-        private int unitsAvailableX;                              //Længden af skærmen - bliver delt i 32 i Room();
+        private int unitsAvailableX;                              
         private int unitsAvailableY;
         private int unit = 32;
         private SpriteFont spriteFont;
-        private Color textColor = Color.GreenYellow;
+        private Color textColor = Color.OrangeRed;
         
 
 
@@ -73,16 +73,21 @@ namespace Game2.gameLogic
             int x = unit * 8;
             int y = 480 + unit;
 
-            if (mediator.player.weapon == null)
+            if (mediator.player.Weapon == null)
             {
+              
                 Projectile p = new CrossbowProjectile(0, 0, Direction.NORTH, mediator);
                 spriteBatch.DrawString(spriteFont, "DMG " + p.Damage, new Vector2(x, y), textColor);
             }
-            else if (mediator.player.weapon != null && mediator.player.weapon is Crossbow)
+            else if (mediator.player.Weapon is Crossbow)
             {
+
                 CrossbowProjectile cp = new CrossbowProjectile(0, 0, Direction.NORTH, mediator);
-                spriteBatch.DrawString(spriteFont, "DMG " + cp.Damage, new Vector2(x, y), textColor);
+
+                spriteBatch.DrawString(spriteFont, "DMG " + cp.DamageCrossbow, new Vector2(x, y), textColor);
+               
             }
+
         }
 
         public override void Load()
