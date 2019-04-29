@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Game2.gameLogic;
+using Game2.Structures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -35,8 +36,23 @@ namespace Game2
 
         public override void intersects(GameObject other)
         {
-          
+            if (other is Wall)
+            {
+                //Hvis projectil rammer en væg så mister den sin hitbox og bliver ikke tegnet mere!
+                shouldDraw = false;
+                hitbox = Rectangle.Empty;
+            }
+
+            if (other is Creep.Creep)
+            {
+                Creep.Creep p = (Creep.Creep)other;
+
+                p.health = p.health - damage;
+                shouldDraw = false;
+            }
+
+
         }
-        
+
     }
 }

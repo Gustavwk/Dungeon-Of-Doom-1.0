@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,7 +51,13 @@ namespace Game2
                 
                 shoudDraw = false;
                 hitbox = Rectangle.Empty;
+                mediator.player.Weapon = new Crossbow(0,0,mediator);
             }
+        }
+
+        public override string ToString()
+        {
+            return "Crossbow";
         }
 
         /*

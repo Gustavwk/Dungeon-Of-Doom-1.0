@@ -121,6 +121,13 @@
 /processorParam:TextureFormat=Color
 /build:HUD/etched_5.png
 
+#begin HUD/font/Gamefont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:HUD/font/Gamefont.spritefont
+
 #begin Items/crossbow_1.png
 /importer:TextureImporter
 /processor:TextureProcessor

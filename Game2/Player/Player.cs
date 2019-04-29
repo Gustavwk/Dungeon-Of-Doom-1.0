@@ -240,12 +240,18 @@ namespace Game2.Player
                     lastShot = 0;
                     //https://stackoverflow.com/questions/25613008/how-to-toggle-a-key-press Det her kunne være et fix!
 
+                    if (weapon is Crossbow){
+                        Projectile crossbowProjectile = new CrossbowProjectile(this.X, this.Y, this.direction, mediator);
+                        crossbowProjectile.Load();
+                        mediator.itemToBeAdded.Add(crossbowProjectile);
+                    }
+                    else if (weapon == null) {
 
-                    Projectile defaultProjectile = new Projectile(this.X, this.Y, this.direction, mediator);
-                    defaultProjectile.Load();
-                    mediator.itemToBeAdded.Add(defaultProjectile);
-                    
+                        Projectile defaultProjectile = new Projectile(this.X, this.Y, this.direction, mediator);
+                        defaultProjectile.Load();
+                        mediator.itemToBeAdded.Add(defaultProjectile);
 
+                    }
                 }
 
 

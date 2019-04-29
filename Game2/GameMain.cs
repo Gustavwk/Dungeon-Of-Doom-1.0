@@ -45,6 +45,7 @@ namespace Game2
             allObjects.Add(new Creep.Creep(100,200,mediator));
             player.mediator = mediator;
             allObjects.Add(new HUD(800,100, mediator));
+            allObjects.Add(new Crossbow(200,200,mediator));
             
 
 
