@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 using Game2.gameLogic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -55,7 +56,11 @@ namespace Game2.Structures
 
             layFloor();
             roomBoarders();
-            simpleMaze();
+            //simpleMaze();
+            lavaLoot(unitCoord(2),unitCoord(1),1);
+            lavaLoot(unitCoord(9), unitCoord(1), 1);
+            lavaLoot(unitCoord(16), unitCoord(1), 1);
+            
         }
 
         public override void Load()
@@ -79,12 +84,81 @@ namespace Game2.Structures
  
         }
 
+        public void lavaLoot(int x, int y, int multiplier)
+        {
+
+            int[,] level = new int[,]
+                {
+
+                 {1,1,1,1,1,0,0,0,1,1,1,1,1},
+                 {2,0,2,0,1,0,0,0,1,0,2,5,2},
+                 {2,0,2,2,2,0,0,0,2,2,2,0,2},
+                 {3,7,0,0,0,0,0,0,0,0,0,0,4},
+                 {2,0,2,2,2,0,0,0,2,2,2,0,2},
+                 {2,0,2,0,1,0,0,0,1,0,2,6,2},
+                 {1,1,1,1,1,0,0,0,1,1,1,1,1}
+                    
+                };
+          
+
+            TraverseLevelArray(x, y, level);
+        }
+
+        private void TraverseLevelArray(int x, int y, int[,] level)
+        {
+            int uBound0 = level.GetUpperBound(0);
+            int uBound1 = level.GetUpperBound(1);
+
+            for (int i = 0; i <= uBound0; i++)
+            {
+                for (int j = 0; j <= uBound1; j++)
+                {
+                    if (level[i, j] == 2)
+                    {
+                        mediator.itemToBeAddedButDrawnLast.Add(new LavaTile(x + unitCoord(i), y + unitCoord(j), 0, mediator));
+                    }
+
+                    if (level[i, j] == 4)
+                    {
+                        mediator.itemToBeAdded.Add(new MsBoost(x + unitCoord(i), y + unitCoord(j), mediator));
+                    }
+
+                    if (level[i, j] == 5)
+                    {
+                        mediator.itemToBeAdded.Add(new AsBoost(x + unitCoord(i), y + unitCoord(j), mediator));
+                    }
+
+                    if (level[i, j] == 6)
+                    {
+                        mediator.itemToBeAdded.Add(new HpBoost(60, x + unitCoord(i), y + unitCoord(j), mediator));
+                    }
+
+                    if (level[i, j] == 7)
+                    {
+                        mediator.itemToBeAdded.Add(new Creep.Creep(x + unitCoord(i), y + unitCoord(j), mediator));
+                    }
+
+                    if (level[i, j] == 3)
+                    {
+                        mediator.itemToBeAdded.Add(new Crossbow(x + unitCoord(i), y + unitCoord(j), mediator));
+                    }
+
+                    if (level[i, j] == 1)
+                    {
+                        mediator.itemToBeAddedButDrawnLast.Add(new Wall(x + unitCoord(i), y + unitCoord(j), mediator));
+                    }
+                }
+            }
+        }
+
+
         public int unitCoord(int coord) //den her er translater et coordinat så det giver mening i forhold til vores units !
         {
             int unitCoord = coord * unit;
             return unitCoord;
         }
 
+        
         public void simpleMaze()
         {
 
@@ -120,6 +194,7 @@ namespace Game2.Structures
 
             
         }
+        
 
 
         public void roomBoarders()

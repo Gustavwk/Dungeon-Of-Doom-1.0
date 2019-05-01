@@ -18,7 +18,8 @@ namespace Game2
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private List<GameObject> allObjects = new List<GameObject>();
-        private List<GameObject> itesmToBeAdded = new List<GameObject>();
+        private List<GameObject> itemsToBeAdded = new List<GameObject>();
+        private List<GameObject> itemsToBeAddedButDrawnFirst = new List<GameObject>();
         Player.Player player = new Player.Player(400,200);
         Mediator mediator;
        
@@ -36,12 +37,12 @@ namespace Game2
             room = new Room(800, 480, mediator);
             Mediator.Game = this;
             Content.RootDirectory = "Content";
-            mediator = new Mediator(allObjects, itesmToBeAdded, player, room);
+            mediator = new Mediator(allObjects, itemsToBeAdded,itemsToBeAddedButDrawnFirst, player, room);
             
             room.mediator = mediator;
             room.addToAllObjects();
 
-            allObjects.Add(player);
+            itemsToBeAdded.Add(player);
             allObjects.Add(new Creep.Creep(100,200,mediator));
             player.mediator = mediator;
             allObjects.Add(new HUD(800,100, mediator));
@@ -142,15 +143,22 @@ namespace Game2
                 gameObject.Update(gameTime);
 
             }
+            allObjects.AddRange(itemsToBeAddedButDrawnFirst);
+            allObjects.AddRange(itemsToBeAdded);
+            
 
-            allObjects.AddRange(itesmToBeAdded);
-
-            foreach (var gameObject in itesmToBeAdded)
+            foreach (var gameObject in itemsToBeAdded)
+            {
+                gameObject.Load();
+            }
+            foreach (var gameObject in itemsToBeAddedButDrawnFirst)
             {
                 gameObject.Load();
             }
 
-            itesmToBeAdded.Clear();
+            itemsToBeAdded.Clear();
+
+            itemsToBeAddedButDrawnFirst.Clear();
 
             base.Update(gameTime);
         }

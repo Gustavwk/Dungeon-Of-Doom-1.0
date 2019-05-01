@@ -76,14 +76,13 @@ namespace Game2.gameLogic
             if (mediator.player.Weapon == null)
             {
               
-                Projectile p = new CrossbowProjectile(0, 0, Direction.NORTH, mediator);
+                Projectile p = new Projectile(0, 0, Direction.NORTH, mediator);
                 spriteBatch.DrawString(spriteFont, "DMG " + p.Damage, new Vector2(x, y), textColor);
             }
             else if (mediator.player.Weapon is Crossbow)
             {
 
                 CrossbowProjectile cp = new CrossbowProjectile(0, 0, Direction.NORTH, mediator);
-
                 spriteBatch.DrawString(spriteFont, "DMG " + cp.DamageCrossbow, new Vector2(x, y), textColor);
                
             }
