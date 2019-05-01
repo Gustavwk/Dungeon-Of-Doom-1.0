@@ -84,6 +84,32 @@ namespace Game2.Structures
  
         }
 
+        public void templateLevel(int x, int y, int multiplier)
+        {
+            /*
+             * Smid tal ind i 2 arrayed alt efter hvilket objecter der skal spawne der
+             */
+
+            int[,] level = new int[,]
+            {
+
+                {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0}
+
+            };
+
+            /*
+             * kør nedenstående method på arrayed
+             */
+
+            TraverseLevelArray(x,y,level);
+        }
+
         public void lavaLoot(int x, int y, int multiplier)
         {
 
@@ -106,6 +132,17 @@ namespace Game2.Structures
 
         private void TraverseLevelArray(int x, int y, int[,] level)
         {
+            /*
+             * 0 = Ingenting
+             * 1 = wall
+             * 2 = lavatile
+             * 3 = crossbow
+             * 4 = movementspeed boost
+             * 5 = attack speed boost
+             * 6 = Hp boost
+             * 7 = Creep
+             */
+
             int uBound0 = level.GetUpperBound(0);
             int uBound1 = level.GetUpperBound(1);
 
