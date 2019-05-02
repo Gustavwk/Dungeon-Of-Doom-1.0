@@ -75,17 +75,9 @@ namespace Game2.Player
 
         public override void intersects(GameObject other)
         {
-            if (other is Tiles || other is Projectile)
+             if (other is Wall)
             {
-               //do nothing
-            }
-            else if (other is Wall)
-            {
-                /*
-                Random random = new Random();
-                mediator.AllObjects.Add(new HealthBoost(random.Next(100), random.Next(100), 100));
-                */ // Burde man ikke kunne tilføje løbende til programmet sådan her ??????
-
+               
                 this.Y = prevPositionY;
                 this.X = prevPositionX;
                
@@ -145,6 +137,11 @@ namespace Game2.Player
                 this.X = this.X - this.movementspeed;
             }
 
+            #region skyd Skrådt
+
+
+
+            
             /*if (key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.S))
             {
                 this.direction = Direction.SOUTHEAST;
@@ -180,6 +177,7 @@ namespace Game2.Player
                 this.X = this.X - this.movementspeed;
                 this.Y = this.Y - this.movementspeed;
             }*/
+#endregion
 
             if (key.IsKeyDown(Keys.D))
             {

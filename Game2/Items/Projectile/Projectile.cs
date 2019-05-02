@@ -26,7 +26,7 @@ namespace Game2
         protected Texture2D projectileTextureSouthWest;
 
         protected bool shouldDraw = true;
-        private int damage = 33;
+        protected int damage = 33;
 
         protected Direction direction;
 
@@ -59,34 +59,21 @@ namespace Game2
         
         public override void intersects(GameObject other)
         {
-
-            if (other is Wall)
-            {
-                //Hvis projectil rammer en væg så mister den sin hitbox og bliver ikke tegnet mere!
-                shouldDraw = false;
-                hitbox = Rectangle.Empty;
-                this.X = 0;
-                this.Y = 0;
-                this.hitbox.X = 0;
-                this.hitbox.Y = 0;
-            }
-
-            if (other is Creep.Creep && !this.hitbox.IsEmpty)
+            if (other is Creep.Creep)
             {
                 Creep.Creep p = (Creep.Creep) other;
-
                 p.health = p.health - damage;
                 Debug.WriteLine("Creep hp: " + p.Health);
-                shouldDraw = false;
-                hitbox = Rectangle.Empty;
 
-                // dette bliver løsningen ligenu - på wallbang
-                this.X = 0;
-                this.Y = 0;
-                this.hitbox.X = 0;
-                this.hitbox.Y = 0;
+                mediator.itemToBeDeleted.Add(this);
+               
+                  
             }
 
+            if (other is Wall || other is Door)
+            {
+                mediator.itemToBeDeleted.Add(this);
+            }
 
         }
 

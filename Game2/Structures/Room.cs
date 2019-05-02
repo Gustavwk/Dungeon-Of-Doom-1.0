@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Schema;
 using Game2.gameLogic;
+using Game2.Items.Weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -120,7 +121,7 @@ namespace Game2.Structures
                  {1,1,1,1,1,0,0,0,1,1,1,1,1},
                  {2,0,2,0,1,0,0,0,1,0,2,5,2},
                  {2,0,2,2,2,0,0,0,2,2,2,0,2},
-                 {3,7,0,0,0,0,0,0,0,0,0,0,4},
+                 {3,7,0,0,0,8,9,10,0,0,0,0,4},
                  {2,0,2,2,2,0,0,0,2,2,2,0,2},
                  {2,0,2,0,1,0,0,0,1,0,2,6,2},
                  {1,1,1,1,1,0,0,0,1,1,1,1,1}
@@ -185,6 +186,19 @@ namespace Game2.Structures
                     {
                         mediator.itemToBeAddedButDrawnLast.Add(new Wall(x + unitCoord(i), y + unitCoord(j), mediator));
                     }
+                    if (level[i, j] == 8)
+                    {
+                        mediator.itemToBeAddedButDrawnLast.Add(new FrozenBow(x + unitCoord(i), y + unitCoord(j), mediator));
+                    }
+                    if (level[i, j] == 9)
+                    {
+                        mediator.itemToBeAddedButDrawnLast.Add(new SimpleGun(x + unitCoord(i), y + unitCoord(j), mediator));
+                    }
+                    if (level[i, j] == 10)
+                    {
+                        mediator.itemToBeAddedButDrawnLast.Add(new Wand(x + unitCoord(i), y + unitCoord(j), mediator));
+                    }
+
                 }
             }
         }

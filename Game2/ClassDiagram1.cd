@@ -59,7 +59,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AARAEEAAAAAAgwAAAAAAAAAQAAgAAAgBAAAAAAAAAAQ=</HashCode>
+      <HashCode>AARAEEAAAAAAgwAAAAAAAAAQAAgAAAgBAAAAAAEAAAQ=</HashCode>
       <FileName>GameMain.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -113,7 +113,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAACAAQAAgAAgQBAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAQAAgCAgQBAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Mediator.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -151,7 +151,7 @@
     <Position X="6.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAAAgAEgAAAAAAAABAAAAAABAAAgAAAAAA=</HashCode>
-      <FileName>Items\Crossbow.cs</FileName>
+      <FileName>Items\Weapons\Crossbow.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.gameLogic.Level" Collapsed="true">
@@ -165,7 +165,7 @@
   <Class Name="Game2.CrossbowProjectile" Collapsed="true">
     <Position X="1.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Items\Projectile\CrossbowProjectile.cs</FileName>
     </TypeIdentifier>
   </Class>
