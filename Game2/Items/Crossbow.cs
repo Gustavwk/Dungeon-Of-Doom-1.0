@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Game2.gameLogic;
+using Game2.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2
 {
-    class Crossbow : Item
+    class Crossbow : Weapon
     {
         private Texture2D sprite;
         private bool shoudDraw = true;
@@ -35,8 +36,13 @@ namespace Game2
 
         }
 
-       
 
+        public override void fire(int x, int y, Direction direction)
+        {
+            Projectile crossbowProjectile = new CrossbowProjectile(x, y, direction, mediator);
+            crossbowProjectile.Load();
+            mediator.itemToBeAdded.Add(crossbowProjectile);
+        }
 
         public override void Load()
         {

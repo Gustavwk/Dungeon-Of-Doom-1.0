@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Game2.Items" Collapsed="true">
+  <Class Name="Game2.Item" Collapsed="true">
     <Position X="6.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Items\Items.cs</FileName>
+      <FileName>Items\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Projectile" Collapsed="true">
-    <Position X="3" Y="2.75" Width="1.5" />
+    <Position X="1.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAQAgQAAAAIAowAgAEBgACAAAAQgCEaAAAAAiABAAAA=</HashCode>
+      <HashCode>gAQAgQCAAAIAowAgAEBgACAAAAQgCEaAAAAAiABAAAA=</HashCode>
       <FileName>Items\Projectile\Projectile.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -59,7 +59,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAQAEEAAQAAAAwAAAAAAAAAQAAgAAAgBAAAAAAAAAAQ=</HashCode>
+      <HashCode>AARAEEAAAAAAgwAAAAAAAAAQAAgAAAgBAAAAAAAAAAQ=</HashCode>
       <FileName>GameMain.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -87,33 +87,33 @@
       <FileName>Structures\Tiles.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Game2.gameLogic.Mediator">
+  <Class Name="Game2.gameLogic.Mediator" Collapsed="true">
     <Position X="10.75" Y="4" Width="1.5" />
     <AssociationLine Name="AllObjects" Type="Game2.GameObject" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="10.75" Y="4.438" />
-        <Point X="8.844" Y="4.438" />
+        <Point X="10.75" Y="4.127" />
+        <Point X="8.844" Y="4.127" />
         <Point X="8.844" Y="2.062" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="player" Type="Game2.Player.Player" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="10.75" Y="5" />
-        <Point X="7.333" Y="5" Type="JumpStart" />
-        <Point X="7.167" Y="5" Type="JumpEnd" />
-        <Point X="5.773" Y="5" />
+        <Point X="10.75" Y="4.29" />
+        <Point X="7.333" Y="4.29" Type="JumpStart" />
+        <Point X="7.167" Y="4.29" Type="JumpEnd" />
+        <Point X="5.773" Y="4.29" />
         <Point X="5.773" Y="3.441" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="room" Type="Game2.GameObject" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="10.75" Y="4.688" />
-        <Point X="8.641" Y="4.688" />
+        <Point X="10.75" Y="4.199" />
+        <Point X="8.641" Y="4.199" />
         <Point X="8.641" Y="2.062" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAACAAQAAgAAgABAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAQAAgAAgQBAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Mediator.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -150,8 +150,44 @@
   <Class Name="Game2.Crossbow" Collapsed="true">
     <Position X="6.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAgAAAAAAAAgAAgAAAAAAAABAAAAAAAAAAgAAAAAA=</HashCode>
+      <HashCode>AAQAgAAAAAAAAgAEgAAAAAAAABAAAAAABAAAgAAAAAA=</HashCode>
       <FileName>Items\Crossbow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.gameLogic.Level" Collapsed="true">
+    <Position X="21" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAEAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>gameLogic\Level.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Game2.CrossbowProjectile" Collapsed="true">
+    <Position X="1.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Items\Projectile\CrossbowProjectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.Structures.Room" Collapsed="true">
+    <Position X="18.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAgAAgAAAgAgCABEAAIABgEAAAAAAAAASIAEAAAEA=</HashCode>
+      <FileName>Structures\Room.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.gameLogic.HUD" Collapsed="true">
+    <Position X="18.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAAgAgQAACAAKAAgAAEAAAABAAAAAAAAACE=</HashCode>
+      <FileName>gameLogic\HUD Objects\HUD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.gameLogic.HUD_Objects.HUDTile" Collapsed="true">
+    <Position X="18.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAgABAAAAAAgAAAAAAAEAAAAAEAAABBAAAgAAAAAA=</HashCode>
+      <FileName>gameLogic\HUD Objects\HUDTile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Game2.gameLogic.IMediator">
@@ -209,12 +245,12 @@
   <Interface Name="Game2.gameLogic.IDrawable" Collapsed="true">
     <Position X="17.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\IDrawable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Game2.gameLogic.Direction" Collapsed="true">
-    <Position X="3.75" Y="4.5" Width="1.5" />
+    <Position X="4" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgggAAAAABAAAQABABAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Direction.cs</FileName>

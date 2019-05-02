@@ -12,10 +12,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2.Structures
 {
-   
+
     class Room : GameObject
     {
-                                                                  //800 x 480 pixels er vores nuværende x og y - dette kan sikkert gøres mere scalable
+        //800 x 480 pixels er vores nuværende x og y - dette kan sikkert gøres mere scalable
         private int unit = 32;                                    //Den fælles sidelænge på det wall-billede vi bruger!
         private int unitsAvailableX;                              //Længden af skærmen - bliver delt i 32 i Room();
         private int unitsAvailableY;                              //Højden af skærmen - bliver delt i 32 i Room();
@@ -34,20 +34,20 @@ namespace Game2.Structures
         }
 
         private Random random = new Random();
-       
 
-        
-        
 
-         
-        public Room(int x, int y, Mediator mediator) : base(mediator,x,y)
+
+
+
+
+        public Room(int x, int y, Mediator mediator) : base(mediator, x, y)
         {
-            
 
-            
+
+
             this.unitsAvailableX = x / this.unit;
             this.unitsAvailableY = y / this.unit;
-           
+
 
         }
 
@@ -56,33 +56,33 @@ namespace Game2.Structures
 
             layFloor();
             roomBoarders();
-           
 
-            lavaLoot(unitCoord(2),unitCoord(1),1);
+
+            lavaLoot(unitCoord(2), unitCoord(1), 1);
             lavaLoot(unitCoord(9), unitCoord(1), 1);
             lavaLoot(unitCoord(16), unitCoord(1), 1);
-            
+
         }
 
         public override void Load()
         {
-            
-            
+
+
         }
 
         public void layFloor()
         {
-            unitPosX = 0; 
+            unitPosX = 0;
             unitPosY = 0;
 
-            for (int i = 0; i < this.X; i+=unit)
+            for (int i = 0; i < this.X; i += unit)
             {
-                for (int j = 0; j < this.Y; j+=unit)
+                for (int j = 0; j < this.Y; j += unit)
                 {
-                    mediator.AllObjects.Add(new Tiles(i, j, random.Next(3)+1,this.mediator));
+                    mediator.AllObjects.Add(new Tiles(i, j, random.Next(3) + 1, this.mediator));
                 }
             }
- 
+
         }
 
         public void templateLevel(int x, int y, int multiplier)
@@ -108,7 +108,7 @@ namespace Game2.Structures
              * kør nedenstående method på arrayed
              */
 
-            TraverseLevelArray(x,y,level);
+            TraverseLevelArray(x, y, level);
         }
 
         public void lavaLoot(int x, int y, int multiplier)
@@ -124,9 +124,9 @@ namespace Game2.Structures
                  {2,0,2,2,2,0,0,0,2,2,2,0,2},
                  {2,0,2,0,1,0,0,0,1,0,2,6,2},
                  {1,1,1,1,1,0,0,0,1,1,1,1,1}
-                    
+
                 };
-          
+
 
             TraverseLevelArray(x, y, level);
         }
@@ -196,112 +196,112 @@ namespace Game2.Structures
             return unitCoord;
         }
 
-        
+
         public void simpleMaze()
         {
 
 
-         Random random = new Random();
+            Random random = new Random();
 
-         
 
-         for (int i = 0; i < multiplier; i++)
-         {
-           
-                 mediator.AllObjects.Add(new LavaTile(unitCoord(random.Next(unitsAvailableX)),unitCoord(random.Next(unitsAvailableY)), 1, mediator));
-            
-         }
 
-         for (int i = unit*3; i < X-unit*3; i+=unit)
+            for (int i = 0; i < multiplier; i++)
             {
-               mediator.AllObjects.Add(new Wall(i,Y - (Y/3 * 2) - unit,mediator));
-               mediator.AllObjects.Add(new Wall(i, Y - Y /3, mediator));
+
+                mediator.AllObjects.Add(new LavaTile(unitCoord(random.Next(unitsAvailableX)), unitCoord(random.Next(unitsAvailableY)), 1, mediator));
 
             }
-            mediator.AllObjects.Add(new Wall(unitCoord(3),unitCoord(5),mediator));
+
+            for (int i = unit * 3; i < X - unit * 3; i += unit)
+            {
+                mediator.AllObjects.Add(new Wall(i, Y - (Y / 3 * 2) - unit, mediator));
+                mediator.AllObjects.Add(new Wall(i, Y - Y / 3, mediator));
+
+            }
+            mediator.AllObjects.Add(new Wall(unitCoord(3), unitCoord(5), mediator));
             mediator.AllObjects.Add(new Wall(unitCoord(3), unitCoord(9), mediator));
             mediator.AllObjects.Add(new Wall(unitCoord(21), unitCoord(5), mediator));
             mediator.AllObjects.Add(new Wall(unitCoord(21), unitCoord(9), mediator));
 
             for (int i = 0; i < multiplier; i++)
             {
-                mediator.AllObjects.Add(new AsBoost(unitCoord(random.Next(unitsAvailableX)), unitCoord(random.Next(unitsAvailableY)),mediator));
+                mediator.AllObjects.Add(new AsBoost(unitCoord(random.Next(unitsAvailableX)), unitCoord(random.Next(unitsAvailableY)), mediator));
                 mediator.AllObjects.Add(new MsBoost(unitCoord(random.Next(unitsAvailableX)), unitCoord(random.Next(unitsAvailableY)), mediator));
-                mediator.AllObjects.Add(new HpBoost(200/multiplier,unitCoord(random.Next(unitsAvailableX)), unitCoord(random.Next(unitsAvailableY)), mediator));
+                mediator.AllObjects.Add(new HpBoost(200 / multiplier, unitCoord(random.Next(unitsAvailableX)), unitCoord(random.Next(unitsAvailableY)), mediator));
             }
 
-            
+
         }
-        
+
 
 
         public void roomBoarders()
         {
-            
-           
+
+
 
             Random random = new Random();
 
-            int wallSpace = random.Next(1,23);
+            int wallSpace = random.Next(1, 23);
             int doorDifference = random.Next(1, 23);
             Debug.WriteLine("Wallspace" + wallSpace);
 
             for (int i = 0; i < unitsAvailableX; i++)
             {
-                
 
-                
-                    #region MyRegion
 
-                    /*
-                    * Første wall bliver lavet på unitPosX(0), unitPosY(0).
-                    * prevUnitPosX bliver til unitPosX
-                    * unitPosX bliver tilagt en unit(32)
-                    * Næste Wall bliver lavet på unitPosX(32), unitPosY(0)
-                    * ....
-                    * Dette sker indtil i < unitAvailableX
-                    *
-                    * Når mans sætter et object til at "spawne" uden for et gyldigt x eller y, sætter den x / y til 0.
-                    * Den anden wall der bliver sat i  dette loop bliver sat på det samme X-koordinat, men med et Y-koordinat
-                    * der er skærmens højre - unit (32 - Dette gør at billedet går lige til kanten).
-                    */
 
-                    #endregion
+                #region MyRegion
 
-                    mediator.AllObjects.Add(new Wall(unitPosX, 0,mediator));
-                    mediator.AllObjects.Add(new Wall(unitPosX, this.Y - unit,mediator));
-                    
-                
-                if (i == wallSpace) 
+                /*
+                * Første wall bliver lavet på unitPosX(0), unitPosY(0).
+                * prevUnitPosX bliver til unitPosX
+                * unitPosX bliver tilagt en unit(32)
+                * Næste Wall bliver lavet på unitPosX(32), unitPosY(0)
+                * ....
+                * Dette sker indtil i < unitAvailableX
+                *
+                * Når mans sætter et object til at "spawne" uden for et gyldigt x eller y, sætter den x / y til 0.
+                * Den anden wall der bliver sat i  dette loop bliver sat på det samme X-koordinat, men med et Y-koordinat
+                * der er skærmens højre - unit (32 - Dette gør at billedet går lige til kanten).
+                */
+
+                #endregion
+
+                mediator.AllObjects.Add(new Wall(unitPosX, 0, mediator));
+                mediator.AllObjects.Add(new Wall(unitPosX, this.Y - unit, mediator));
+
+
+                if (i == wallSpace)
                 {
-                    mediator.AllObjects.Add(new Door(unitPosX, 0,this.mediator));
-                    
+                    mediator.AllObjects.Add(new Door(unitPosX, 0, this.mediator));
+
                 }
 
                 if (i == doorDifference)
                 {
-                    mediator.AllObjects.Add(new Door(unitPosX, this.Y - unit,this.mediator));
+                    mediator.AllObjects.Add(new Door(unitPosX, this.Y - unit, this.mediator));
                     GameObject lastDoor = mediator.AllObjects[mediator.AllObjects.Count - 1];
-            
-                    
+
+
                 }
 
                 prevUnitPosX = unitPosX;
                 unitPosX = unitPosX + unit;
             }
-          
+
             for (int i = 0; i < unitsAvailableY; i++)
             {
 
-                mediator.AllObjects.Add(new Wall(0,unitPosY,mediator));
-                mediator.AllObjects.Add(new Wall(this.X-unit, unitPosY,mediator));
+                mediator.AllObjects.Add(new Wall(0, unitPosY, mediator));
+                mediator.AllObjects.Add(new Wall(this.X - unit, unitPosY, mediator));
 
                 prevUnitPosY = unitPosY;
-                unitPosY = unitPosY+unit;
-               
+                unitPosY = unitPosY + unit;
+
             }
         }
-        
-        
+
+
     }
 }

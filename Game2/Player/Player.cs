@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Dynamic;
 using System.Threading;
 using Game2.gameLogic;
+using Game2.Items;
 using Game2.Structures;
 
 namespace Game2.Player
@@ -32,7 +33,7 @@ namespace Game2.Player
         private int prevPositionY;
         private int cooldown = 500; //mills between shots
         private double lastShot = 0;
-        public Item weapon;
+        public Weapon weapon;
         private Direction direction;
 
         public int playerCooldown
@@ -41,7 +42,7 @@ namespace Game2.Player
             set { cooldown = value; }
         }
 
-        public Item Weapon
+        public Weapon Weapon
         {
             get => weapon;
             set => weapon = value;
@@ -240,10 +241,9 @@ namespace Game2.Player
                     lastShot = 0;
                     //https://stackoverflow.com/questions/25613008/how-to-toggle-a-key-press Det her kunne være et fix!
 
-                    if (weapon is Crossbow){
-                        Projectile crossbowProjectile = new CrossbowProjectile(this.X, this.Y, this.direction, mediator);
-                        crossbowProjectile.Load();
-                        mediator.itemToBeAdded.Add(crossbowProjectile);
+                    if (weapon != null)
+                    {
+                        mediator.player.weapon.fire(this.X,this.Y,this.direction);
                     }
                     else if (weapon == null) {
 

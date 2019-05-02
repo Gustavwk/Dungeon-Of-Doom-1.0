@@ -62,6 +62,7 @@
     <Compile Include="Items\Projectile\Projectile.cs" />
     <Compile Include="Items\Crossbow.cs" />
     <Compile Include="Items\AsBoost.cs" />
+    <Compile Include="Items\Weapon.cs" />
     <Compile Include="Player\Player.cs" />
     <Compile Include="GameMain.cs" />
     <Compile Include="GameObject.cs" />

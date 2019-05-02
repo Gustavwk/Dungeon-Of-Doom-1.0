@@ -60,14 +60,10 @@ namespace Game2
             if (other is Player.Player)
             {
                 
-                Player.Player p = (Player.Player) other;
-                Debug.Write("Player health rose from " + p.health);
-                p.health = p.health + hpPlus;
-                Debug.WriteLine(" to :" + p.health);
+                            
+                mediator.player.health = mediator.player.health + hpPlus;               
                 this.hitbox = Rectangle.Empty;
                 this.taken = true;
-
-
 
             }
         }
