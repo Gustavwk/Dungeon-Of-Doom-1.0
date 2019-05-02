@@ -21,7 +21,7 @@
   <Class Name="Game2.Player.Player" Collapsed="true">
     <Position X="4.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgQAgGQAAAAEIgAAAAAOABAALjQAAAiIgAAAgGBAAgg=</HashCode>
+      <HashCode>AgQAgGQAAAAEIgAAAAAOAhAALjQAAAiIgAAAgGBAAgg=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

@@ -245,18 +245,22 @@ namespace Game2.Player
                     {
                         mediator.player.weapon.fire(this.X,this.Y,this.direction);
                     }
-                    else if (weapon == null) {
-
-                        Projectile defaultProjectile = new Projectile(this.X, this.Y, this.direction, mediator);
-                        defaultProjectile.Load();
-                        mediator.itemToBeAdded.Add(defaultProjectile);
-
+                    else if (weapon == null)
+                    {
+                        fireDefualt(this.X, this.Y, this.direction);
                     }
                 }
 
 
                    
             }
+        }
+
+        private void fireDefualt(int x, int y, Direction direction)
+        {
+            Projectile defaultProjectile = new Projectile(x,y,direction, mediator);
+            defaultProjectile.Load();
+            mediator.itemToBeAdded.Add(defaultProjectile);
         }
 
 

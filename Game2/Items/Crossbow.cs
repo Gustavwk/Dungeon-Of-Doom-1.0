@@ -68,18 +68,7 @@ namespace Game2
             return "Crossbow";
         }
 
-        /*
-         * Kreative overvejelser - Vi står lidt i den situation nu er at CrossBow(og alle andre våben) skal have et nyt projectile på den ene elelr den anden måde.
-         * En måde at gøre det på kunne være at idet man samler våbnet op, så ændre hele projectile classen sig, inde i projectile. Dette virker dog ikke som en særlig "SOLID"
-         * Måde at gøre tingende på.
-         *
-         * En anden løsning kunne være at hvert eneste våben havde en understående projectile classe. eksempelvis kunne crossbow have subclassen crossbowProjectile
-         * Og hvis player havde samlet en crossbow op, så skød player med crossbowProjectile istedet for den projectile classe som player skyder med nu..
-         *
-         * jeg synes personeligt selv at den sidste løsning er meget fed, selvom den måske kræver lidt benarbejde. Vi kunne derudover også tilføje en abstract class der hedder
-         * Allprojectiles eller sådan noget så vi slipper for at skrive mega meget dubplicate kode. 
-         *
-         */
+       
 
 
     }
