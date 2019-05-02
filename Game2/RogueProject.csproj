@@ -56,7 +56,7 @@
     <Compile Include="gameLogic\Mediator.cs" />
     <Compile Include="gameLogic\IMoveable.cs" />
     <Compile Include="Items\HpBoost.cs" />
-    <Compile Include="Items\Items.cs" />
+    <Compile Include="Items\Item.cs" />
     <Compile Include="Items\MsBoost.cs" />
     <Compile Include="Items\Projectile\CrossbowProjectile.cs" />
     <Compile Include="Items\Projectile\Projectile.cs" />

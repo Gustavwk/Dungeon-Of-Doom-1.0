@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2
 {
-    class MsBoost : Items, IPowerUp
+    class MsBoost : Item, IPowerUp
     {
         private Texture2D filledPotion;
         private Texture2D emptyPotion;

@@ -56,7 +56,8 @@ namespace Game2.Structures
 
             layFloor();
             roomBoarders();
-            //simpleMaze();
+           
+
             lavaLoot(unitCoord(2),unitCoord(1),1);
             lavaLoot(unitCoord(9), unitCoord(1), 1);
             lavaLoot(unitCoord(16), unitCoord(1), 1);

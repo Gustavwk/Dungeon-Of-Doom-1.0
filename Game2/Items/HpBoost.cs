@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Game2
 {
-    class HpBoost : Items
+    class HpBoost : Item
     {
 
         private Texture2D filledHpPotion;

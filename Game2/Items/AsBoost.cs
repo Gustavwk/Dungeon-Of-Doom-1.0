@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2
 {
-    class AsBoost : Items, IPowerUp
+    class AsBoost : Item, IPowerUp
     {
         private Texture2D filledSpeedBoost;
         private Texture2D emptySpeedBoost;

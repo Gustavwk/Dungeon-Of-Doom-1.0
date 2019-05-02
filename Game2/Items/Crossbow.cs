@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2
 {
-    class Crossbow : Items
+    class Crossbow : Item
     {
         private Texture2D sprite;
         private bool shoudDraw = true;

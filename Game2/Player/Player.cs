@@ -32,7 +32,7 @@ namespace Game2.Player
         private int prevPositionY;
         private int cooldown = 500; //mills between shots
         private double lastShot = 0;
-        public Items weapon;
+        public Item weapon;
         private Direction direction;
 
         public int playerCooldown
@@ -41,7 +41,7 @@ namespace Game2.Player
             set { cooldown = value; }
         }
 
-        public Items Weapon
+        public Item Weapon
         {
             get => weapon;
             set => weapon = value;

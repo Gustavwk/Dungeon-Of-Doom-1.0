@@ -21,7 +21,7 @@ namespace Game2.gameLogic
         private int unitsAvailableY;
         private int unit = 32;
         private SpriteFont spriteFont;
-        private Color textColor = Color.OrangeRed;
+        private Color textColor = Color.LightYellow;
         
 
 
