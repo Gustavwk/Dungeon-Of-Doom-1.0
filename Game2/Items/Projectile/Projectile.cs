@@ -26,7 +26,7 @@ namespace Game2
         protected Texture2D projectileTextureSouthWest;
 
         protected bool shouldDraw = true;
-        private int damage = 5;
+        private int damage = 33;
 
         protected Direction direction;
 
@@ -39,7 +39,7 @@ namespace Game2
        
 
         bool visible; // is the projectile visible
-        int shootSpeed = 8; //the speed the projectile moves
+        protected int shootSpeed = 8; //the speed the projectile moves
 
         protected const int HEIGHT = 32;
         protected const int WIDTH = 32;
@@ -65,14 +65,26 @@ namespace Game2
                 //Hvis projectil rammer en væg så mister den sin hitbox og bliver ikke tegnet mere!
                 shouldDraw = false;
                 hitbox = Rectangle.Empty;
+                this.X = 0;
+                this.Y = 0;
+                this.hitbox.X = 0;
+                this.hitbox.Y = 0;
             }
 
-            if (other is Creep.Creep)
+            if (other is Creep.Creep && !this.hitbox.IsEmpty)
             {
                 Creep.Creep p = (Creep.Creep) other;
 
                 p.health = p.health - damage;
+                Debug.WriteLine("Creep hp: " + p.Health);
                 shouldDraw = false;
+                hitbox = Rectangle.Empty;
+
+                // dette bliver løsningen ligenu - på wallbang
+                this.X = 0;
+                this.Y = 0;
+                this.hitbox.X = 0;
+                this.hitbox.Y = 0;
             }
 
 

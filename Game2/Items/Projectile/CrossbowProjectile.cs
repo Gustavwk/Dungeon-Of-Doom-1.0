@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Game2
 {
     class CrossbowProjectile : Projectile
     {
-        public int DamageCrossbow { get; set; } = 10;
+        public int DamageCrossbow { get; set; } = 50;
 
         public CrossbowProjectile(int x, int y, Direction direction, Mediator mediator) : base(x, y, direction, mediator)
         {
@@ -43,14 +44,25 @@ namespace Game2
                 //Hvis projectil rammer en væg så mister den sin hitbox og bliver ikke tegnet mere!
                 shouldDraw = false;
                 hitbox = Rectangle.Empty;
+                this.X = 0;
+                this.Y = 0;
+                this.hitbox.X = 0;
+                this.hitbox.Y = 0;
             }
 
-            if (other is Creep.Creep)
+            if (other is Creep.Creep && !this.hitbox.IsEmpty)
             {
                 Creep.Creep p = (Creep.Creep)other;
 
                 p.health = p.health - DamageCrossbow;
                 shouldDraw = false;
+                hitbox = Rectangle.Empty;
+                Debug.WriteLine("Creep hp: " + p.Health);
+                // dette bliver løsningen ligenu - på wallbang
+                this.X = 0;
+                this.Y = 0;
+                this.hitbox.X = 0;
+                this.hitbox.Y = 0;
             }
 
 

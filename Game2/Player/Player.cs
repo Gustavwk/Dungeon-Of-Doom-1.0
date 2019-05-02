@@ -239,7 +239,6 @@ namespace Game2.Player
                 if ( lastShot > cooldown)
                 {
                     lastShot = 0;
-                    //https://stackoverflow.com/questions/25613008/how-to-toggle-a-key-press Det her kunne være et fix!
 
                     if (weapon != null)
                     {
@@ -250,9 +249,7 @@ namespace Game2.Player
                         fireDefualt(this.X, this.Y, this.direction);
                     }
                 }
-
-
-                   
+       
             }
         }
 
