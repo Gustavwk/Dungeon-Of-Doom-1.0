@@ -24,8 +24,8 @@ namespace Game2.Player
         private Texture2D playerPictureLeftDmg;
         private Texture2D playerPictureRightDmg;
         public int movementspeed = 2;
-        private int WIDTH = 32;
-        private int HEIGHT = 32;
+        private int WIDTH = 24;
+        private int HEIGHT = 24;
         public int health = 100;
         public Rectangle  hitbox;
         private Boolean alive = true;

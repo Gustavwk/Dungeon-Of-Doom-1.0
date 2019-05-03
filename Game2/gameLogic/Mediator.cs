@@ -10,12 +10,10 @@ namespace Game2.gameLogic
     class Mediator
     {
         public static GameMain Game { get; set; }
-
         public List<GameObject> AllObjects { get; }
         public List<GameObject> itemToBeAdded { get; }
         public List<GameObject> itemToBeAddedButDrawnLast { get; }
         public List<GameObject> itemToBeDeleted { get; }
-
         public Player.Player player { get; }
         public GameObject room { get; }
 

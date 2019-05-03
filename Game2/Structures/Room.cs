@@ -52,16 +52,21 @@ namespace Game2.Structures
 
         }
 
-        public void addToAllObjects()
+        public void initRandomLevel()
         {
+            Level level = new Level();
+            Random random = new Random();
 
             layFloor();
             roomBoarders();
+            int randomLevelOne = random.Next(level.LevelList.Count);
+            int randomLevelTwo = random.Next(level.LevelList.Count);
+            int randomLevelTree = random.Next(level.LevelList.Count);
 
-
-            lavaLoot(unitCoord(2), unitCoord(1), 1);
-            lavaLoot(unitCoord(9), unitCoord(1), 1);
-            lavaLoot(unitCoord(16), unitCoord(1), 1);
+            
+            TraverseLevelArray(unitCoord(2), unitCoord(1),level.LevelList[randomLevelOne]);
+            TraverseLevelArray(unitCoord(9), unitCoord(1), level.LevelList[randomLevelTwo]);
+            TraverseLevelArray(unitCoord(16), unitCoord(1), level.LevelList[randomLevelTree]);
 
         }
 
@@ -86,52 +91,7 @@ namespace Game2.Structures
 
         }
 
-        public void templateLevel(int x, int y, int multiplier)
-        {
-            /*
-             * Smid tal ind i 2 arrayed alt efter hvilket objecter der skal spawne der
-             */
-
-            int[,] level = new int[,]
-            {
-
-                {0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0}
-
-            };
-
-            /*
-             * kør nedenstående method på arrayed
-             */
-
-            TraverseLevelArray(x, y, level);
-        }
-
-        public void lavaLoot(int x, int y, int multiplier)
-        {
-
-            int[,] level = new int[,]
-                {
-
-                 {1,1,1,1,1,0,0,0,1,1,1,1,1},
-                 {2,0,2,0,1,0,0,0,1,0,2,5,2},
-                 {2,0,2,2,2,0,0,0,2,2,2,0,2},
-                 {3,7,0,0,0,8,9,10,0,0,0,0,4},
-                 {2,0,2,2,2,0,0,0,2,2,2,0,2},
-                 {2,0,2,0,1,0,0,0,1,0,2,6,2},
-                 {1,1,1,1,1,0,0,0,1,1,1,1,1}
-
-                };
-
-
-            TraverseLevelArray(x, y, level);
-        }
-
+    
         private void TraverseLevelArray(int x, int y, int[,] level)
         {
             /*

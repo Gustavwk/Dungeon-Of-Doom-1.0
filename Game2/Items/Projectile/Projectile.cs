@@ -41,14 +41,17 @@ namespace Game2
         bool visible; // is the projectile visible
         protected int shootSpeed = 8; //the speed the projectile moves
 
-        protected const int HEIGHT = 32;
-        protected const int WIDTH = 32;
+        protected const int HEIGHT = 30;
+        protected const int WIDTH = 30;
 
-       
+        protected const int actualHEIGHT = 1;
+        protected const int actualWIDTH = 1;
+
+
 
         public Projectile(int x, int y, Direction direction, Mediator mediator) : base(mediator, x, y)
         {
-            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
+            this.hitbox = new Rectangle(this.X, this.Y, actualWIDTH, actualHEIGHT);
             this.direction = direction;
             //spawn projectile alt efter direction hvis op, så lidt længere 
 

@@ -41,7 +41,7 @@ namespace Game2
             mediator = new Mediator(allObjects, itemsToBeAdded, itemsToBeDeleted, itemsToBeAddedButDrawnFirst, player, room);
             
             room.mediator = mediator;
-            room.addToAllObjects();
+            room.initRandomLevel();
 
             itemsToBeAdded.Add(player);
             allObjects.Add(new Creep.Creep(100,200,mediator));
