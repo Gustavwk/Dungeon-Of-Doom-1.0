@@ -69,9 +69,10 @@ namespace Game2
             emptyPotion = Mediator.Game.Content.Load<Texture2D>("items/white_old");
         }
 
-        public override void intersects(GameObject other)
+        public override bool intersects(GameObject other)
         {
             PlayerInteraction(other);
+            return true;
         }
 
         public void PlayerInteraction(GameObject other)

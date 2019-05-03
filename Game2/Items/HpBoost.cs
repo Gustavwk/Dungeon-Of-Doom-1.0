@@ -55,7 +55,7 @@ namespace Game2
             emptyHpPotion = Mediator.Game.Content.Load<Texture2D>("items/white_old");
         }
 
-        public override void intersects(GameObject other)
+        public override bool intersects(GameObject other)
         {
             if (other is Player.Player)
             {
@@ -66,6 +66,7 @@ namespace Game2
                 this.taken = true;
 
             }
+            return true;
         }
 
         public override void Update(GameTime gameTime)

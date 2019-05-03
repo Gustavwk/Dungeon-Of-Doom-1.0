@@ -28,7 +28,7 @@ namespace Game2
         {
         }
 
-        public override void intersects(GameObject other)
+        public override bool intersects(GameObject other)
         {
             if (other is Player.Player)
             {
@@ -41,6 +41,7 @@ namespace Game2
                   
                 }
             }
+            return true;
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)

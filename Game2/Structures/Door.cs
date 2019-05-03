@@ -55,7 +55,7 @@ namespace Game2.Structures
             return level++;
         }
 
-        public override void intersects(GameObject other) //Er der en grund til at det er GameObject other og ikke GameObject other ligesom de andre?
+        public override bool intersects(GameObject other) //Er der en grund til at det er GameObject other og ikke GameObject other ligesom de andre?
         {
             
             if (other is Player.Player)
@@ -77,7 +77,8 @@ namespace Game2.Structures
 
                 //Load new level
             }
-            
+            return true;
+
         }
 
 

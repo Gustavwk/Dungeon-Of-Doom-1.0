@@ -38,13 +38,14 @@ namespace Game2.Items.Weapons
             sprite = Mediator.Game.Content.Load<Texture2D>("Items/Weapons/urand_piercer_new");
         }
 
-        public override void intersects(GameObject other)
+        public override bool intersects(GameObject other)
         {
             if (other is Player.Player)
             {
                 mediator.player.Weapon = new FrozenBow(0, 0, mediator);
                 mediator.itemToBeDeleted.Add(this);
             }
+            return true;
         }
 
         public override string ToString()

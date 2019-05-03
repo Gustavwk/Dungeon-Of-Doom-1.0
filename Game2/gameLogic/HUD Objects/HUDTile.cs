@@ -66,9 +66,9 @@ namespace Game2.gameLogic.HUD_Objects
             backgroundFive = Mediator.Game.Content.Load<Texture2D>("HUD/etched_4");
         }
 
-        public override void intersects(GameObject other)
+        public override bool intersects(GameObject other)
         {
-           
+            return true;
         }
     }
 }

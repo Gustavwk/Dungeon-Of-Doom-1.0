@@ -73,7 +73,7 @@ namespace Game2.Player
 
         }
 
-        public override void intersects(GameObject other)
+        public override bool intersects(GameObject other)
         {
              if (other is Wall)
             {
@@ -86,7 +86,7 @@ namespace Game2.Player
                 Debug.WriteLine("Y: " + this.Y);
             }
 
-
+             return true;
         }
 
         public void setX(int x)

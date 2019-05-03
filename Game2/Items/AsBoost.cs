@@ -38,9 +38,10 @@ namespace Game2
             }
         }
 
-        public override void intersects(GameObject other)
+        public override bool intersects(GameObject other)
         {
             PlayerInteraction(other);
+            return true;
         }
 
         public void PlayerInteraction(GameObject other)
@@ -53,6 +54,7 @@ namespace Game2
                 active = true;
                 this.hitbox = Rectangle.Empty;
             }
+
         }
 
         public override void Update(GameTime gameTime) //Det virker nu, men jeg tror det kan gøres bedre!

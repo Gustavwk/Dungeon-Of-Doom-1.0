@@ -60,7 +60,7 @@ namespace Game2
 
 
         
-        public override void intersects(GameObject other)
+        public override bool intersects(GameObject other)
         {
             if (other is Creep.Creep)
             {
@@ -77,7 +77,7 @@ namespace Game2
             {
                 mediator.itemToBeDeleted.Add(this);
             }
-
+            return true;
         }
 
         

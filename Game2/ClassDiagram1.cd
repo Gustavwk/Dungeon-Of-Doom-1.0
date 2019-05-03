@@ -10,7 +10,7 @@
   <Class Name="Game2.Projectile" Collapsed="true">
     <Position X="3.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAQAgQCAAAIAowAgAEBgACAAAAQgCEaAAAAAiABAAAA=</HashCode>
+      <HashCode>gAQBgQCAAAIAowAgAEBgACAAAAQgCEaAAAAAiABAAQA=</HashCode>
       <FileName>Items\Projectile\Projectile.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -156,14 +156,14 @@
   <Class Name="Game2.Crossbow" Collapsed="true">
     <Position X="11.5" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAgAEAAAAAAAAABAAAAAABAAAgAAAAAA=</HashCode>
       <FileName>Items\Weapons\Crossbow.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.gameLogic.Level" Collapsed="true">
     <Position X="19" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAEAAAgAAAAAAAAAAAA=</HashCode>
+      <HashCode>AQAAAgEAAAAAAAAAAEAAAABAAAEAAAgAAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Level.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -186,7 +186,7 @@
   <Class Name="Game2.Structures.Room" Collapsed="true">
     <Position X="18.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAgAAgAAAgAgCABEAAIABgEAAAAAAAAASIAEAAAEA=</HashCode>
+      <HashCode>QAAAgAAgAAAgAACABEAAIABgEAAAAAAAAAQAAECAAEA=</HashCode>
       <FileName>Structures\Room.cs</FileName>
     </TypeIdentifier>
   </Class>

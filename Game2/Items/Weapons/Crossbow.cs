@@ -42,13 +42,14 @@ namespace Game2
             sprite = Mediator.Game.Content.Load<Texture2D>("items/crossbow_1");
         }
 
-        public override void intersects(GameObject other)
+        public override bool intersects(GameObject other)
         {
             if (other is Player.Player)
             {
                     mediator.player.Weapon = new Crossbow(0,0,mediator);
                     mediator.itemToBeDeleted.Add(this);
             }
+            return true;
         }
 
         public override string ToString()

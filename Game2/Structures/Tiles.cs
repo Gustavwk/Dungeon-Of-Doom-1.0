@@ -38,9 +38,9 @@ namespace Game2.Structures
            
         }
 
-        public override void intersects(GameObject other)
+        public override bool intersects(GameObject other)
         {
-           
+            return true;
         }
 
 
