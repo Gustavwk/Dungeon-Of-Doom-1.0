@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2.Items
 {
-    class Weapon : Item
+    abstract class Weapon : Item
     {
         protected Projectile projectile;
         private Texture2D sprite;
