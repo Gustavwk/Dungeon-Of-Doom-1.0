@@ -103,6 +103,9 @@ namespace Game2.Structures
              * 5 = attack speed boost
              * 6 = Hp boost
              * 7 = Creep
+             * 8 = FrozenBow
+             * 9 = SimpleGun
+             * 10 = Wand
              */
 
             int uBound0 = level.GetUpperBound(0);
