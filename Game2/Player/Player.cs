@@ -13,7 +13,7 @@ using Game2.Structures;
 namespace Game2.Player
 {
 
-    class Player : GameObject, IDischargeable, IMoveable
+    class Player : GameObject, IMoveable
 
     {
         

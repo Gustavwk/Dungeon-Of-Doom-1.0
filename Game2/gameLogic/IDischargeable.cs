@@ -9,6 +9,6 @@ namespace Game2.gameLogic
 {
     interface IDischargeable
     {
-        void shooting(GameTime gameTime);
+        void fire(int x, int y, Direction direction);
     }
 }
