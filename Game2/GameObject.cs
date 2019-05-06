@@ -19,6 +19,8 @@ namespace Game2
         public Rectangle hitbox;
         protected int X;
         protected int Y;
+        protected int WIDTH = 32;
+        protected int HEIGHT = 32;
         public Mediator mediator { get; set; }
 
         public GameObject()

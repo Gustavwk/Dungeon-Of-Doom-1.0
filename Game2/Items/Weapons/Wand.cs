@@ -18,7 +18,7 @@ namespace Game2.Items.Weapons
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             this.Projectile = new WandProjectile(0,0,Direction.NORTH,mediator);
-            spriteBatch.Draw(sprite, new Rectangle(this.X, this.Y, 32, 32), Color.White);
+            spriteBatch.Draw(sprite, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White);
 
         }
 

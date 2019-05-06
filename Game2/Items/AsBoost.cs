@@ -21,7 +21,7 @@ namespace Game2
 
         public AsBoost(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
-            this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
+            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
         }
 
 
@@ -29,12 +29,12 @@ namespace Game2
         {
             if (taken)
             {
-                spriteBatch.Draw(emptySpeedBoost, new Rectangle(this.X,this.Y,32,32), Color.White);
+                spriteBatch.Draw(emptySpeedBoost, new Rectangle(this.X,this.Y,WIDTH,HEIGHT), Color.White); //Kunne de to new rectangles ikke være hitboxen i stedet?
             }
             else
 
             {
-                spriteBatch.Draw(filledSpeedBoost, new Rectangle(this.X, this.Y, 32, 32), Color.White);
+                spriteBatch.Draw(filledSpeedBoost, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White); //Kunne de to new rectangles ikke være hitboxen i stedet?
             }
         }
 

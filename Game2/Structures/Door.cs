@@ -19,7 +19,7 @@ namespace Game2.Structures
         public Door(int x, int y, Mediator mediator) : base(mediator,x,y)
         {
             
-            this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
+            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
 
            
 

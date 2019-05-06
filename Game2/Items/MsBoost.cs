@@ -21,19 +21,19 @@ namespace Game2
 
         public MsBoost(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
-            this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
+            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             if (taken)
             {
-                spriteBatch.Draw(emptyPotion, new Rectangle(this.X, this.Y, 32, 32), Color.White);
+                spriteBatch.Draw(emptyPotion, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White); //Kunne de to new rectangles ikke være hitboxen i stedet?
             }
             else
 
             {
-                spriteBatch.Draw(filledPotion, new Rectangle(this.X, this.Y, 32, 32), Color.White);
+                spriteBatch.Draw(filledPotion, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White); //Kunne de to new rectangles ikke være hitboxen i stedet?
             }
         }
 

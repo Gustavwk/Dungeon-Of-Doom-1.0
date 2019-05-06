@@ -22,7 +22,7 @@ namespace Game2.Items
 
         public Weapon(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
-            this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
+            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
 
         }
 

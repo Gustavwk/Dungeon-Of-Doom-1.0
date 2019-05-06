@@ -15,8 +15,6 @@ namespace Game2.Creep
     {
         private Texture2D creepPicture;
         private int movementspeed = 1;
-        private const int WIDTH = 32;
-        private const int HEIGHT = 32;
         public int health = 100;
         private Boolean alive = true;
         private int prevX;
@@ -47,7 +45,7 @@ namespace Game2.Creep
 
         public Creep(int x, int y, Mediator mediator) : base(mediator,x,y)
         {
-            this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
+            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
             
         }
 

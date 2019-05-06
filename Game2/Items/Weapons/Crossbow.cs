@@ -26,7 +26,7 @@ namespace Game2
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             
-                spriteBatch.Draw(sprite, new Rectangle(this.X, this.Y, 32, 32), Color.White);
+                spriteBatch.Draw(sprite, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White);
             
         }
 

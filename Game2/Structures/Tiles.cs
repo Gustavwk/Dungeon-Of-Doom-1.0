@@ -22,7 +22,7 @@ namespace Game2.Structures
 
         public Tiles(int X, int Y, int loopCount, Mediator mediator) : base(mediator,X,Y)
         {
-            this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
+            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
             this.loopCount = loopCount;
 
 

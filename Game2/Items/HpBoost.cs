@@ -25,7 +25,7 @@ namespace Game2
         public HpBoost(int hpPlus, int x, int y, Mediator mediator) : base(x,y,mediator)
         {
             this.hpPlus = hpPlus;
-            this.hitbox = new Rectangle(this.X, this.Y, 32, 32);
+            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
             
         }
 
@@ -34,19 +34,13 @@ namespace Game2
 
             if (taken)
             {
-              spriteBatch.Draw(emptyHpPotion, new Rectangle(this.X, this.Y, 32, 32), Color.White);
+              spriteBatch.Draw(emptyHpPotion, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White); //Kunne de to new rectangles ikke være hitboxen i stedet?
             }
             else
             {
-                spriteBatch.Draw(filledHpPotion, new Rectangle(this.X, this.Y, 32, 32), Color.White);
+                spriteBatch.Draw(filledHpPotion, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White); //Kunne de to new rectangles ikke være hitboxen i stedet?
             }
-
             
-
-             
-
-
-
         }
 
         public override void Load()
