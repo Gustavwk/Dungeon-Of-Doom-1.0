@@ -248,6 +248,13 @@
 /processorParam:TextureFormat=Color
 /build:Menus/Buttons/ButtonHowered.png
 
+#begin Menus/menusFont/File.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Menus/menusFont/File.spritefont
+
 #begin Player/bloody.png
 /importer:TextureImporter
 /processor:TextureProcessor

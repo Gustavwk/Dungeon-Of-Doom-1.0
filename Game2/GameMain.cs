@@ -49,6 +49,7 @@ namespace Game2
             allObjects.Add(new HUD(800,100, mediator));
             allObjects.Add(new Crossbow(200,200,mediator));
             
+            
 
 
             //Plads hvor ens HUD skal være - 100 pixels ekstra må være mere end nok!

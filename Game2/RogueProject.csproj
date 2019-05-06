@@ -69,6 +69,11 @@
     <Compile Include="Items\Weapons\SimpleGun.cs" />
     <Compile Include="Items\Weapons\Wand.cs" />
     <Compile Include="Items\Weapons\Weapon.cs" />
+    <Compile Include="Menus\Components.cs" />
+    <Compile Include="Menus\Controls\Button.cs" />
+    <Compile Include="Menus\States\GameState.cs" />
+    <Compile Include="Menus\States\MenuState.cs" />
+    <Compile Include="Menus\States\State.cs" />
     <Compile Include="Player\Player.cs" />
     <Compile Include="GameMain.cs" />
     <Compile Include="GameObject.cs" />

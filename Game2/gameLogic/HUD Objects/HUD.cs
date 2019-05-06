@@ -42,10 +42,6 @@ namespace Game2.gameLogic
             }
         }
 
-        public void showPlayerHP()
-        {
-
-        }
 
         public HUD(int x, int y, Mediator mediator) : base(mediator,x,y)
         {
@@ -84,8 +80,8 @@ namespace Game2.gameLogic
 
                 //null pointer her - fucking irri
 
-                Projectile cp = mediator.player.Weapon.Projectile;
-                spriteBatch.DrawString(spriteFont, "DMG " + cp.Damage, new Vector2(x, y), textColor);
+               // Projectile cp = mediator.player.Weapon.Projectile;
+              //  spriteBatch.DrawString(spriteFont, "DMG " + cp.Damage, new Vector2(x, y), textColor);
                
             }
 

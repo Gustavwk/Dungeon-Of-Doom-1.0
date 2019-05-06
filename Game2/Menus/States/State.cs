@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Game2.Menus.States
 {
-    class State
+    abstract class State
     {
+
     }
 }
