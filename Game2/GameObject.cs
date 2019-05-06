@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Game2.gameLogic;
 using Game2.Structures;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using IDrawable = Game2.gameLogic.IDrawable;
 using IUpdateable = Game2.gameLogic.IUpdateable;
@@ -21,6 +22,7 @@ namespace Game2
         protected int Y;
         protected int WIDTH = 32;
         protected int HEIGHT = 32;
+        protected SoundEffect effect;
         public Mediator mediator { get; set; }
 
         public GameObject()
@@ -37,6 +39,14 @@ namespace Game2
         public virtual void Update(GameTime gameTime)
         {
            
+        }
+
+        public virtual void playEffect()
+        {
+            if (effect != null)
+            {
+                effect.Play();
+            }
         }
 
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)

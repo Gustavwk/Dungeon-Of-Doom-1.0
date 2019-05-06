@@ -94,12 +94,26 @@ namespace Game2.gameLogic
                 {0,0,0,0,0,0,0,0,0,0,0,0,0}
             };
 
+            int[,] lavaLake = new int[,]
+            {
+                {2,2,2,2,2,2,2,2,2,2,2,2,2},
+                {2,0,0,0,0,0,0,0,0,0,0,0,2},
+                {2,0,2,2,2,2,2,2,2,2,2,0,2},
+                {2,0,2,2,2,6,6,6,2,2,2,0,2},
+                {2,0,2,2,2,2,2,2,2,2,2,0,2},
+                {2,0,0,0,0,0,0,0,0,0,0,0,2},
+                {2,2,2,2,2,2,2,2,2,2,2,2,2}
+            };
+
+            
+
             levelList.Add(lavaLoot);
             levelList.Add(healthBoostFrostBow);
             levelList.Add(creepSwarm);
             LevelList.Add(lavaWandBoosters);
             LevelList.Add(emptyLevel);
             LevelList.Add(lavaLootBoost);
+            levelList.Add(lavaLake);
         }
 
         #region Level array template

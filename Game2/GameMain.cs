@@ -48,6 +48,7 @@ namespace Game2
             player.mediator = mediator;
             allObjects.Add(new HUD(800,100, mediator));
             allObjects.Add(new Crossbow(200,200,mediator));
+            //allObjects.Add(new Button(200,200,mediator,"hej"));
             
             
 

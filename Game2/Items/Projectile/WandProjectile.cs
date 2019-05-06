@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Game2;
 using Game2.gameLogic;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2
@@ -27,6 +28,9 @@ namespace Game2
             this.projectileTextureNorthWest = null;
             this.projectileTextureSouthEast = null;
             this.projectileTextureSouthWest = null;
+
+
+           // this.effect = Mediator.Game.Content.Load<SoundEffect>("");
         }
     }
 }
