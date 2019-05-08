@@ -82,6 +82,8 @@ namespace Game2.Structures
                     p.setX(unitCoord(1));
                     p.setY(unitCoord(7));
                     mediator.room.initRandomLevel();
+                    mediator.itemToBeAdded.Add(mediator.player); 
+                    mediator.itemToBeDeleted.Add(mediator.player);
                 }
                
            
