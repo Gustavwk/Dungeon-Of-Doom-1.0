@@ -15,6 +15,7 @@ namespace Game2
 
         public Item(int x, int y, Mediator mediator) :base (mediator,x,y)
         {
+            this.priority = 3;
         }
 
 

@@ -26,6 +26,7 @@ namespace Game2
 
         public LavaTile(int X, int Y, int loopCount, Mediator mediator) : base(X, Y, loopCount, mediator)
         {
+            this.priority = 1;
         }
 
         public override bool intersects(GameObject other)

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Game2.gameLogic;
+using Game2.gameLogic.HUD_Objects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -14,11 +15,12 @@ namespace Game2.Structures
     {
         private Texture2D defaultDoor;
         private int level;
+        private bool isOpen;
 
 
-        public Door(int x, int y, Mediator mediator) : base(mediator,x,y)
+        public Door(int x, int y, Mediator mediator, bool isOpen) : base(mediator,x,y)
         {
-            
+            this.isOpen = isOpen;
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
 
            
@@ -61,26 +63,38 @@ namespace Game2.Structures
             if (other is Player.Player)
             {
                 Player.Player p = (Player.Player)other;
-                if (this.Y < unit)
+                if (this.isOpen == true)
                 {
-                    p.setX(this.X);
-                    p.setY(480 - unit*2);
-                    levelUp(mediator.itemToBeAdded);
+                  
+                    foreach (var gameObject in mediator.AllObjects)
+                    {
+                        if (gameObject is Player.Player || gameObject is HUDTile ||
+                              gameObject is HUD)
+                        {
+                           // do nothing
+                        }
+                        else
+                        {
+                            mediator.itemToBeDeleted.Add(gameObject);
+                        }
+                    }
                     
+                    p.setX(unitCoord(1));
+                    p.setY(unitCoord(7));
+                    mediator.room.initRandomLevel();
                 }
-                else
-                {
-                    p.setX(this.X);
-                    p.setY(0 + unit);
-                }
-                //removeRoom(room.roomList);
-
-                //Load new level
+               
+           
             }
             return true;
 
         }
 
+        public int unitCoord(int coord) //den her er translater et coordinat så det giver mening i forhold til vores units !
+        {
+            int unitCoord = coord * unit;
+            return unitCoord;
+        }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {

@@ -85,7 +85,7 @@ namespace Game2.Structures
             {
                 for (int j = 0; j < this.Y; j += unit)
                 {
-                    mediator.AllObjects.Add(new Tiles(i, j, random.Next(3) + 1, this.mediator));
+                    mediator.itemToBeAdded.Add(new Tiles(i, j, random.Next(3) + 1, this.mediator));
                 }
             }
 
@@ -117,7 +117,7 @@ namespace Game2.Structures
                 {
                     if (level[i, j] == 2)
                     {
-                        mediator.itemToBeAddedButDrawnLast.Add(new LavaTile(x + unitCoord(i), y + unitCoord(j), 0, mediator));
+                        mediator.itemToBeAdded.Add(new LavaTile(x + unitCoord(i), y + unitCoord(j), 0, mediator));
                     }
 
                     if (level[i, j] == 4)
@@ -147,19 +147,19 @@ namespace Game2.Structures
 
                     if (level[i, j] == 1)
                     {
-                        mediator.itemToBeAddedButDrawnLast.Add(new Wall(x + unitCoord(i), y + unitCoord(j), mediator));
+                        mediator.itemToBeAdded.Add(new Wall(x + unitCoord(i), y + unitCoord(j), mediator));
                     }
                     if (level[i, j] == 8)
                     {
-                        mediator.itemToBeAddedButDrawnLast.Add(new FrozenBow(x + unitCoord(i), y + unitCoord(j), mediator));
+                        mediator.itemToBeAdded.Add(new FrozenBow(x + unitCoord(i), y + unitCoord(j), mediator));
                     }
                     if (level[i, j] == 9)
                     {
-                        mediator.itemToBeAddedButDrawnLast.Add(new SimpleGun(x + unitCoord(i), y + unitCoord(j), mediator));
+                        mediator.itemToBeAdded.Add(new SimpleGun(x + unitCoord(i), y + unitCoord(j), mediator));
                     }
                     if (level[i, j] == 10)
                     {
-                        mediator.itemToBeAddedButDrawnLast.Add(new Wand(x + unitCoord(i), y + unitCoord(j), mediator));
+                        mediator.itemToBeAdded.Add(new Wand(x + unitCoord(i), y + unitCoord(j), mediator));
                     }
 
                 }
@@ -215,7 +215,7 @@ namespace Game2.Structures
         public void roomBoarders()
         {
 
-
+            
 
             Random random = new Random();
 
@@ -245,23 +245,11 @@ namespace Game2.Structures
 
                 #endregion
 
-                mediator.AllObjects.Add(new Wall(unitPosX, 0, mediator));
-                mediator.AllObjects.Add(new Wall(unitPosX, this.Y - unit, mediator));
+                mediator.itemToBeAdded.Add(new Wall(unitPosX, 0, mediator));
+                mediator.itemToBeAdded.Add(new Wall(unitPosX, this.Y - unit, mediator));
 
 
-                if (i == wallSpace)
-                {
-                    mediator.AllObjects.Add(new Door(unitPosX, 0, this.mediator));
-
-                }
-
-                if (i == doorDifference)
-                {
-                    mediator.AllObjects.Add(new Door(unitPosX, this.Y - unit, this.mediator));
-                    GameObject lastDoor = mediator.AllObjects[mediator.AllObjects.Count - 1];
-
-
-                }
+               
 
                 prevUnitPosX = unitPosX;
                 unitPosX = unitPosX + unit;
@@ -270,14 +258,19 @@ namespace Game2.Structures
             for (int i = 0; i < unitsAvailableY; i++)
             {
 
-                mediator.AllObjects.Add(new Wall(0, unitPosY, mediator));
-                mediator.AllObjects.Add(new Wall(this.X - unit, unitPosY, mediator));
+                mediator.itemToBeAdded.Add(new Wall(0, unitPosY, mediator));
+                mediator.itemToBeAdded.Add(new Wall(this.X - unit, unitPosY, mediator));
 
                 prevUnitPosY = unitPosY;
                 unitPosY = unitPosY + unit;
+                
 
             }
+            mediator.itemToBeAdded.Add(new Door(unitCoord(0),unitCoord(7),mediator,false));
+            mediator.itemToBeAdded.Add(new Door(unitCoord(24), unitCoord(7), mediator,true));
         }
+
+        
 
 
     }

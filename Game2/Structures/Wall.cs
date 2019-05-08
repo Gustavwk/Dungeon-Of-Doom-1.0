@@ -19,6 +19,7 @@ namespace Game2.Structures
         {
            
             this.hitbox = new Rectangle(this.X,this.Y, WIDTH,HEIGHT);
+            this.priority = 6;
         }
 
         public override void Load()

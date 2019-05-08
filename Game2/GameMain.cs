@@ -42,13 +42,12 @@ namespace Game2
             
             room.mediator = mediator;
             room.initRandomLevel();
-
+           
             itemsToBeAdded.Add(player);
-            allObjects.Add(new Creep.Creep(100,200,mediator));
             player.mediator = mediator;
             allObjects.Add(new HUD(800,100, mediator));
             allObjects.Add(new Crossbow(200,200,mediator));
-            //allObjects.Add(new Button(200,200,mediator,"hej"));
+            
             
             
 
@@ -146,10 +145,11 @@ namespace Game2
                 gameObject.Update(gameTime);
 
             }
-            allObjects.AddRange(itemsToBeAddedButDrawnFirst);
-            allObjects.AddRange(itemsToBeAdded);
-            
 
+            //itemsToBeAdded.Sort();
+           
+            
+            
             foreach (var gameObject in itemsToBeAdded)
             {
                 gameObject.Load();
@@ -159,13 +159,19 @@ namespace Game2
                 gameObject.Load();
             }
 
+
+            //itemsToBeAdded.Sort(); - denne linje fucker det helle meget up ! 
+
+
+            allObjects.AddRange(itemsToBeAddedButDrawnFirst);
+            allObjects.AddRange(itemsToBeAdded);
             itemsToBeAdded.Clear();
 
             itemsToBeAddedButDrawnFirst.Clear();
 
+           
 
-
-                foreach (var gameObject in itemsToBeDeleted)
+            foreach (var gameObject in itemsToBeDeleted)
                 {
                     allObjects.Remove(gameObject);
                 }

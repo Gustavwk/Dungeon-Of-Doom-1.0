@@ -14,7 +14,7 @@ using IUpdateable = Game2.gameLogic.IUpdateable;
 
 namespace Game2
 {
-    abstract class GameObject : IMediator, IUpdateable, IDrawable, ICollideable
+    abstract class GameObject : IMediator, IUpdateable, IDrawable, ICollideable, IComparable
     {
         private Texture2D defaultSprite;
         public Rectangle hitbox;
@@ -23,6 +23,7 @@ namespace Game2
         protected int WIDTH = 32;
         protected int HEIGHT = 32;
         protected SoundEffect effect;
+        protected int priority = 2;
         public Mediator mediator { get; set; }
 
         public GameObject()
@@ -77,7 +78,16 @@ namespace Game2
             return true;
         }
 
-        
+
+        public int CompareTo(object obj)
+        {
+            GameObject gameObject = (GameObject)obj;
+            int rtn = 0;
+
+            if (this.priority < gameObject.priority) { rtn = -1; }
+            if (this.priority > gameObject.priority) { rtn = +1; }
+            return rtn;
+        }
     }
 }
 

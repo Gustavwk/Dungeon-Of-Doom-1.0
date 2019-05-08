@@ -53,6 +53,7 @@ namespace Game2
         {
             this.hitbox = new Rectangle(this.X, this.Y, actualWIDTH, actualHEIGHT);
             this.direction = direction;
+            this.priority = 4;
             //spawn projectile alt efter direction hvis op, så lidt længere 
 
 

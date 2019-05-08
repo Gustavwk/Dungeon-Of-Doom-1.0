@@ -24,7 +24,7 @@ namespace Game2.Structures
         {
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
             this.loopCount = loopCount;
-
+            this.priority = 0;
 
         }
 

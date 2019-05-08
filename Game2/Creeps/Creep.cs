@@ -46,7 +46,7 @@ namespace Game2.Creep
         public Creep(int x, int y, Mediator mediator) : base(mediator,x,y)
         {
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
-            
+            this.priority = 5;
         }
 
 

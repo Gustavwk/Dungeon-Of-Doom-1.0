@@ -15,7 +15,7 @@ namespace Game2.gameLogic
         public List<GameObject> itemToBeAddedButDrawnLast { get; }
         public List<GameObject> itemToBeDeleted { get; }
         public Player.Player player { get; }
-        public GameObject room { get; }
+        public Room room { get; set; }
 
         public Mediator(List<GameObject> allObjects, List<GameObject> itemToBeAdded, List<GameObject> itemToBeDeleted , List<GameObject> itemToBeAddedButDrawnLast, Player.Player player, Room room)
         {
