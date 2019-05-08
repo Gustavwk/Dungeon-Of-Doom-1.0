@@ -82,12 +82,15 @@ namespace Game2.Creep
             if (health <= 0)
             {
                 alive = false;
+               
+                
             }
 
             if (!alive)
             {
-                shouldDraw = false;
-                this.hitbox = Rectangle.Empty;
+                
+                mediator.itemToBeDeleted.Add(this);
+                mediator.room.EnemyCount--;
             }
             else
             {

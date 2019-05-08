@@ -35,7 +35,14 @@ namespace Game2.Structures
         public override void Update(GameTime gameTime)
         {
 
-            base.Update(gameTime);
+            if (mediator.room.EnemyCount == 0)
+            {
+                isOpen = true;
+            }
+            else
+            {
+                isOpen = false;
+            }
         }
 
         public bool removeRoom(List<GameObject> items)

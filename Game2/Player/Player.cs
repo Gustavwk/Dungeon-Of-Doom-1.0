@@ -217,7 +217,7 @@ namespace Game2.Player
             shooting(gameTime);
            
             
-                
+               
             
 
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);

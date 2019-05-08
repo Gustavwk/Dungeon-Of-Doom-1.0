@@ -24,7 +24,13 @@ namespace Game2.Structures
         private int unitPosY;                                     //Holder styr på hvor den næste wall sættes på y-aksen
         private int prevUnitPosX;                                 //Holder styr på hvor den sidste wall blev sat på x-aksen  - Denne bliver ikke brugt pt.
         private int prevUnitPosY;                                 //Holder styr på hvor den sidste wall blev sat på y-aksen  - Denne bliver ikke brugt pt.
-                                                                  //Resolution y-akse
+        private int enemyCount = 0;
+
+        public int EnemyCount
+        {
+            get => enemyCount;
+            set => enemyCount = value;
+        }
 
         private int multiplier = 1;
 
@@ -138,6 +144,7 @@ namespace Game2.Structures
                     if (level[i, j] == 7)
                     {
                         mediator.itemToBeAdded.Add(new Creep.Creep(x + unitCoord(i), y + unitCoord(j), mediator));
+                        enemyCount++;
                     }
 
                     if (level[i, j] == 3)
