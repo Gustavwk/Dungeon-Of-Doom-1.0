@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Creeps\BossGhost.cs" />
     <Compile Include="Creeps\Creep.cs" />
     <Compile Include="gameLogic\HUD Objects\HUD.cs" />
     <Compile Include="gameLogic\HUD Objects\HUDTile.cs" />
