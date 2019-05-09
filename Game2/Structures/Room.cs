@@ -222,18 +222,9 @@ namespace Game2.Structures
         public void roomBoarders()
         {
 
-            
-
-           
-
-           
-           
-
             for (int i = 0; i < unitsAvailableX; i++)
             {
-
-
-
+               
                 #region MyRegion
 
                 /*
@@ -250,36 +241,34 @@ namespace Game2.Structures
                 */
 
                 #endregion
-
-             
                 
                     mediator.itemToBeAdded.Add(new Wall(unitPosX, 0, mediator));
                     mediator.itemToBeAdded.Add(new Wall(unitPosX, this.Y - unit, mediator));
                 
-
-
-
                 prevUnitPosX = unitPosX;
                 unitPosX = unitPosX + unit;
             }
 
             for (int i = 0; i < unitsAvailableY; i++)
             {
-                
+
+                if (unitPosY == unitCoord(7))
+                {
+                    mediator.itemToBeAdded.Add(new Door(unitCoord(0), unitCoord(7), mediator, false));
+                    mediator.itemToBeAdded.Add(new Door(unitCoord(24), unitCoord(7), mediator, true));
+                }
+
+                else
+                {
                     mediator.itemToBeAdded.Add(new Wall(0, unitPosY, mediator));
                     mediator.itemToBeAdded.Add(new Wall(this.X - unit, unitPosY, mediator));
+                }
 
-                    prevUnitPosY = unitPosY;
-                    unitPosY = unitPosY + unit;
-                
-
+                prevUnitPosY = unitPosY;
+                unitPosY = unitPosY + unit;
             }
-            mediator.itemToBeAdded.Add(new Door(unitCoord(0),unitCoord(7),mediator,false));
-            mediator.itemToBeAdded.Add(new Door(unitCoord(24), unitCoord(7), mediator,true));
+            
         }
-
         
-
-
     }
 }

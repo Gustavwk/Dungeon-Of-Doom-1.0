@@ -22,7 +22,7 @@ namespace Game2
         private List<GameObject> itemsToBeAdded = new List<GameObject>();
         private List<GameObject> itemsToBeAddedButDrawnFirst = new List<GameObject>();
         private List<GameObject> itemsToBeDeleted = new List<GameObject>();
-        Player.Player player = new Player.Player(400,200);
+        Player.Player player = new Player.Player(33,230);
         Mediator mediator;
        
         
