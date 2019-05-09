@@ -13,7 +13,8 @@ namespace Game2.Structures
 {
     class Door : Structures
     {
-        private Texture2D defaultDoor;
+        private Texture2D closedDoor;
+        private Texture2D openDoor;
         private int level;
         private bool isOpen;
 
@@ -28,7 +29,8 @@ namespace Game2.Structures
         }
         public override void Load()
         {
-            defaultDoor = Mediator.Game.Content.Load<Texture2D>("Doors/closed_door");
+            closedDoor = Mediator.Game.Content.Load<Texture2D>("Doors/closed_door");
+            openDoor = Mediator.Game.Content.Load<Texture2D>("Doors/open_door");
         }
 
 
@@ -107,7 +109,16 @@ namespace Game2.Structures
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(defaultDoor, hitbox, Color.White);
+            if (!isOpen)
+            {
+                spriteBatch.Draw(closedDoor, hitbox, Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(openDoor, hitbox, Color.White);
+            }
+
+           
 
         }
     }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Game2.gameLogic;
 using Game2.Structures;
 using Game2.Creep;
+using Game2.Creeps;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -63,11 +64,11 @@ namespace Game2
         
         public override bool intersects(GameObject other)
         {
-            if (other is Creep.Creep)
+            if (other is Monster)
             {
-                Creep.Creep p = (Creep.Creep) other;
-                p.health = p.health - damage;
-                Debug.WriteLine("Creep hp: " + p.Health);
+                Monster p = (Monster)other;
+                p.Health = p.Health - damage;
+                Debug.WriteLine("Monster hp: " + p.Health);
 
                 mediator.itemToBeDeleted.Add(this);
                

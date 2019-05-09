@@ -224,11 +224,10 @@ namespace Game2.Structures
 
             
 
-            Random random = new Random();
+           
 
-            int wallSpace = random.Next(1, 23);
-            int doorDifference = random.Next(1, 23);
-            Debug.WriteLine("Wallspace" + wallSpace);
+           
+           
 
             for (int i = 0; i < unitsAvailableX; i++)
             {
@@ -252,11 +251,13 @@ namespace Game2.Structures
 
                 #endregion
 
-                mediator.itemToBeAdded.Add(new Wall(unitPosX, 0, mediator));
-                mediator.itemToBeAdded.Add(new Wall(unitPosX, this.Y - unit, mediator));
+             
+                
+                    mediator.itemToBeAdded.Add(new Wall(unitPosX, 0, mediator));
+                    mediator.itemToBeAdded.Add(new Wall(unitPosX, this.Y - unit, mediator));
+                
 
 
-               
 
                 prevUnitPosX = unitPosX;
                 unitPosX = unitPosX + unit;
@@ -264,12 +265,12 @@ namespace Game2.Structures
 
             for (int i = 0; i < unitsAvailableY; i++)
             {
+                
+                    mediator.itemToBeAdded.Add(new Wall(0, unitPosY, mediator));
+                    mediator.itemToBeAdded.Add(new Wall(this.X - unit, unitPosY, mediator));
 
-                mediator.itemToBeAdded.Add(new Wall(0, unitPosY, mediator));
-                mediator.itemToBeAdded.Add(new Wall(this.X - unit, unitPosY, mediator));
-
-                prevUnitPosY = unitPosY;
-                unitPosY = unitPosY + unit;
+                    prevUnitPosY = unitPosY;
+                    unitPosY = unitPosY + unit;
                 
 
             }

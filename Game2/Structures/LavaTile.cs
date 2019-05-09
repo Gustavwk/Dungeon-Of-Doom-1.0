@@ -37,6 +37,7 @@ namespace Game2
               
                 if (lastStir >= cooldown-100)
                 {
+                   
                     mediator.player.health = mediator.player.health - 1;
                 
                   
@@ -85,6 +86,7 @@ namespace Game2
                 show = random.Next(4);
                 lastStir = 0;
             }
+           
 
         }
     }

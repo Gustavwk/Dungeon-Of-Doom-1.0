@@ -55,13 +55,31 @@ namespace Game2.gameLogic
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.DrawString(spriteFont, "HP: " + mediator.player.health, new Vector2(0+10, 480), textColor);
-            spriteBatch.DrawString(spriteFont, "Weapon: " + mediator.player.weapon, new Vector2(0+10, 480 + unit), textColor);
-            spriteBatch.DrawString(spriteFont, "Cooldown: " + mediator.player.playerCooldown, new Vector2(0+10, 480+unit*2), textColor);
-            spriteBatch.DrawString(spriteFont, "Movement Speed: " + mediator.player.movementspeed, new Vector2(unit*8, 480), textColor);
+            StaticHUDText(spriteBatch);
+        }
+
+        private void StaticHUDText(SpriteBatch spriteBatch)
+        {
+            if (mediator.player.health > 0)
+            {
+                spriteBatch.DrawString(spriteFont, "HP: " + mediator.player.health, new Vector2(0 + 10, 480), textColor);
+            }
+            else
+            {
+                spriteBatch.DrawString(spriteFont, "DEAD", new Vector2(0 + 10, 480), textColor);
+            }
+
+
+            spriteBatch.DrawString(spriteFont, "Weapon: " + mediator.player.weapon, new Vector2(0 + 10, 480 + unit), textColor);
+            spriteBatch.DrawString(spriteFont, "Cooldown: " + mediator.player.playerCooldown,
+                new Vector2(0 + 10, 480 + unit * 2), textColor);
+            spriteBatch.DrawString(spriteFont, "Movement Speed: " + mediator.player.movementspeed, new Vector2(unit * 8, 480),
+                textColor);
+            spriteBatch.DrawString(spriteFont, "Kills: " + mediator.player.Kills, new Vector2(unit * 8, 480 + unit * 2),
+                textColor);
+            spriteBatch.DrawString(spriteFont, "Enemies in Room: " + mediator.room.EnemyCount, new Vector2(unit * 16, 480),
+                textColor);
             DisplayDmg(spriteBatch);
-
-
         }
 
         private void DisplayDmg(SpriteBatch spriteBatch)

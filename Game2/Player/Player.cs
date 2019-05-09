@@ -34,12 +34,26 @@ namespace Game2.Player
         private int cooldown = 500; //mills between shots
         private double lastShot = 0;
         public Weapon weapon;
+        private bool hurting = false;
         private Direction direction;
+        private int kills = 0;
+
+        public bool Hurting
+        {
+            get => hurting;
+            set => hurting = value;
+        }
 
         public int playerCooldown
         {
             get { return cooldown; }
             set { cooldown = value; }
+        }
+
+        public int Kills
+        {
+            get => kills;
+            set => kills = value;
         }
 
         public Weapon Weapon
@@ -215,10 +229,10 @@ namespace Game2.Player
             lastShot += gameTime.ElapsedGameTime.TotalMilliseconds;
             movement();
             shooting(gameTime);
+
+
            
-            
-               
-            
+
 
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
            

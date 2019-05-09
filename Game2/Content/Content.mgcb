@@ -121,6 +121,18 @@
 /processorParam:TextureFormat=Color
 /build:Doors/closed_door.png
 
+#begin Doors/open_door.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Doors/open_door.png
+
 #begin HUD/etched_0.png
 /importer:TextureImporter
 /processor:TextureProcessor

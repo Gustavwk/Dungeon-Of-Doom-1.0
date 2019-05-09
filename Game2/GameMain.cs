@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
+using Game2.Creeps;
 using Game2.gameLogic;
 using Game2.Structures;
 using Microsoft.Xna.Framework;
@@ -46,7 +47,8 @@ namespace Game2
             itemsToBeAdded.Add(player);
             player.mediator = mediator;
             allObjects.Add(new HUD(800,100, mediator));
-            allObjects.Add(new Crossbow(200,200,mediator));
+            
+            itemsToBeAdded.Add(new BossGhost(200,200,mediator));
             
             
             
