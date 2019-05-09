@@ -48,20 +48,12 @@ namespace Game2
             player.mediator = mediator;
             allObjects.Add(new HUD(800,100, mediator));
             
-            itemsToBeAdded.Add(new BossGhost(200,200,mediator));
-            
-            
-            
-
 
             //Plads hvor ens HUD skal være - 100 pixels ekstra må være mere end nok!
             graphics.PreferredBackBufferHeight = 580;
             graphics.ApplyChanges();
 
-
-
-
-
+            
             //give all mediator
 
 

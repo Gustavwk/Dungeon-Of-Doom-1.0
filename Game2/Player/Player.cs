@@ -29,8 +29,8 @@ namespace Game2.Player
         public int health = 100;
         public Rectangle  hitbox;
         private Boolean alive = true;
-        private int prevPositionX;
-        private int prevPositionY;
+        public int prevPositionX;
+        public int prevPositionY;
         private int cooldown = 500; //mills between shots
         private double lastShot = 0;
         public Weapon weapon;
@@ -99,7 +99,7 @@ namespace Game2.Player
                 Debug.WriteLine("X: " + this.X);
                 Debug.WriteLine("Y: " + this.Y);
             }
-
+             
              return true;
         }
 

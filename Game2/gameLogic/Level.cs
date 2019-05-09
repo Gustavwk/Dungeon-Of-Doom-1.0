@@ -105,7 +105,18 @@ namespace Game2.gameLogic
                 {2,2,2,2,2,2,2,2,2,2,2,2,2}
             };
 
-            
+            int[,] bossLevel = new int[,]
+            {
+                {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,11,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0}
+            };
+
+
 
             levelList.Add(lavaLoot);
             levelList.Add(healthBoostFrostBow);
@@ -114,6 +125,7 @@ namespace Game2.gameLogic
             LevelList.Add(emptyLevel);
             LevelList.Add(lavaLootBoost);
             levelList.Add(lavaLake);
+            levelList.Add(bossLevel);
         }
 
         #region Level array template

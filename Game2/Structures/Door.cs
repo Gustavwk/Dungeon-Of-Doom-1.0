@@ -94,9 +94,15 @@ namespace Game2.Structures
                     mediator.itemToBeAdded.Add(mediator.player); 
                     mediator.itemToBeDeleted.Add(mediator.player);
                 }
+                else
+                {
+                    p.setX(mediator.player.prevPositionX);
+                    p.setY(mediator.player.prevPositionY);
+                }
                
            
             }
+           
             return true;
 
         }

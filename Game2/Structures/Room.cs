@@ -112,6 +112,7 @@ namespace Game2.Structures
              * 8 = FrozenBow
              * 9 = SimpleGun
              * 10 = Wand
+             * 11 = BossGhost
              */
 
             int uBound0 = level.GetUpperBound(0);
@@ -167,6 +168,11 @@ namespace Game2.Structures
                     if (level[i, j] == 10)
                     {
                         mediator.itemToBeAdded.Add(new Wand(x + unitCoord(i), y + unitCoord(j), mediator));
+                    }
+                    if (level[i,j] == 11)
+                    {
+                        mediator.itemToBeAdded.Add(new Creeps.BossGhost(x + unitCoord(i), y + unitCoord(j), mediator));
+                        enemyCount++;
                     }
 
                 }
