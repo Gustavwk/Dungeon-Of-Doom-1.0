@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Game2.Item" Collapsed="true">
-    <Position X="6.75" Y="5" Width="1.5" />
+    <Position X="9" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Items\Item.cs</FileName>
@@ -38,9 +38,9 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.HpBoost" Collapsed="true">
-    <Position X="15" Y="7.75" Width="1.5" />
+    <Position X="15" Y="10.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgQAgAAAAAQAAgAAAAQAAAAAAAAAAAAAAAAAhAAAAAA=</HashCode>
+      <HashCode>AgSAgAAAAAQAAgAAAAQAAAAAAAAAAAAAAAAAhAAAAAA=</HashCode>
       <FileName>Items\HpBoost.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -52,16 +52,19 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.GameMain" Collapsed="true">
-    <Position X="4.75" Y="1.5" Width="1.5" />
+    <Position X="5.75" Y="0.5" Width="1.5" />
     <AssociationLine Name="allObjects" Type="Game2.GameObject">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.07" Y="-1.098" />
+        <Position X="-1.098" Y="0.07" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AARCUEAAAAABgwAAAAAAAACQAAgAAAgFAAAAAAEAAAQ=</HashCode>
+      <HashCode>AARCUEAAAAAAgwgAAAAAAAAQAAkAAAgBAAAgAAEAAAQ=</HashCode>
       <FileName>GameMain.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="gameState" />
+    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Field Name="allObjects" />
     </ShowAsCollectionAssociation>
@@ -69,7 +72,7 @@
   <Class Name="Game2.Structures.Door" Collapsed="true">
     <Position X="14.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAgAAAAAAAAgAEAEAAEAAgAAEAAQAAAAAAgCAAAAA=</HashCode>
+      <HashCode>AASAgAAAAAAAAgAEAEAAEAAgAAEAAQAAAAAAgCAAAAA=</HashCode>
       <FileName>Structures\Door.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -122,17 +125,17 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Game2.AsBoost" Collapsed="true">
-    <Position X="13.5" Y="7.75" Width="1.5" />
+    <Position X="13.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAUAkAIEAAAAAgAAAAAAAAQAAAAAAAAAAAAApAAAgAA=</HashCode>
+      <HashCode>AAWAkAIEAAAAAgAAAAAAAAQAAAAAAAAAAAAApAAAgAA=</HashCode>
       <FileName>Items\AsBoost.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.MsBoost" Collapsed="true">
-    <Position X="12" Y="7.75" Width="1.5" />
+    <Position X="12" Y="10.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAgAIAIAAAAgAAAAAAAAQAAAAAAAAgAAAA5AAAgAA=</HashCode>
+      <HashCode>AASAgAIAIAAAAgAAAAAAAAQAAAAAAAAgAAAA5AAAgAA=</HashCode>
       <FileName>Items\MsBoost.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -145,14 +148,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Crossbow" Collapsed="true">
-    <Position X="11.5" Y="9.25" Width="1.5" />
+    <Position X="11.5" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAgAEAAAAAAAAABAAAAAABAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAEAAAAgAEAAAAAAAAABAAAAAABAAAgAAAAAA=</HashCode>
       <FileName>Items\Weapons\Crossbow.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.gameLogic.Level" Collapsed="true">
-    <Position X="19" Y="1.25" Width="1.5" />
+    <Position X="27.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAgEAAAAAAAAAAEAAAABAAAEAAAgAAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Level.cs</FileName>
@@ -182,7 +185,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.gameLogic.HUD" Collapsed="true">
-    <Position X="18.25" Y="2.5" Width="1.5" />
+    <Position X="19.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAgAgAAACAAKAAgAAEAAAABAAAAAABAACE=</HashCode>
       <FileName>gameLogic\HUD Objects\HUD.cs</FileName>
@@ -196,28 +199,28 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Items.Weapons.FrozenBow" Collapsed="true">
-    <Position X="7" Y="9.25" Width="1.5" />
+    <Position X="7" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAgAEAAAAAAAAABAAAAAABAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAgAEAAAACAAAABAAAAAABAAAgAAAAAA=</HashCode>
       <FileName>Items\Weapons\FrozenBow.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Items.Weapons.SimpleGun" Collapsed="true">
-    <Position X="8.5" Y="9.25" Width="1.5" />
+    <Position X="8.5" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAgAEAAAAAAAAABAAAAAABAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAgAEAAAAAAAAABIAAAAABAAAgAAAAAA=</HashCode>
       <FileName>Items\Weapons\SimpleGun.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Items.Weapons.Wand" Collapsed="true">
-    <Position X="10" Y="9.25" Width="1.5" />
+    <Position X="10" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAgAEAAAAAAAAABAAAAAABAAAgAAAAAA=</HashCode>
+      <HashCode>AACAgAAAAAAAAgAEAAAAAAAAABAAAAAABAAAgCAAAAA=</HashCode>
       <FileName>Items\Weapons\Wand.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Items.Weapon" Collapsed="true">
-    <Position X="9" Y="7.75" Width="1.5" />
+    <Position X="9" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAABAAAAAABAAAAAAAIAA=</HashCode>
       <FileName>Items\Weapons\Weapon.cs</FileName>
@@ -242,6 +245,81 @@
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Items\Projectile\WandProjectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Button" Collapsed="true">
+    <Position X="24.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAYAgAAAQACAAgBAAAAAAMAAQAAgAAAEAAAigAgQAAA=</HashCode>
+      <FileName>Statemachine\Controls\Button.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.Menus.Controls.Cursor" Collapsed="true">
+    <Position X="21.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAgQAAA=</HashCode>
+      <FileName>Statemachine\Controls\Cursor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.Menus.Controls.ExitButton" Collapsed="true">
+    <Position X="23.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Statemachine\Controls\ExitButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.Menus.Controls.StartMenu" Collapsed="true">
+    <Position X="27.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Statemachine\Controls\StartMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.Menus.Controls.PlayButton" Collapsed="true">
+    <Position X="25.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Statemachine\Controls\PlayButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.Menus.States.ActualGameState" Collapsed="true">
+    <Position X="1.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAgBAAAAAA=</HashCode>
+      <FileName>Statemachine\States\ActualGameState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="gameState" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Game2.Creeps.Monster" Collapsed="true">
+    <Position X="18.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASACRAAAAAAYACAAAAGAAAABAAAAAIIAAAAAAAAAAg=</HashCode>
+      <FileName>Monster\Monster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.Creeps.BossGhost" Collapsed="true">
+    <Position X="17.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAEIwCIAAAABAHAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Monster\BossGhost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.Creep.Creep" Collapsed="true">
+    <Position X="18.75" Y="9.75" Width="1.5" />
+    <InheritanceLine Type="Game2.Creeps.Monster" FixedFromPoint="true">
+      <Path>
+        <Point X="19" Y="9.191" />
+        <Point X="19" Y="9.45" />
+        <Point X="19.5" Y="9.45" />
+        <Point X="19.5" Y="9.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAgAAAAAAAAAACAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Monster\Creep.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Game2.gameLogic.IMediator">
@@ -308,6 +386,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAgggAAAAABAAAQABABAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Direction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Game2.Menus.States.GameState" Collapsed="true">
+    <Position X="1.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAACAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Statemachine\States\GameState.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

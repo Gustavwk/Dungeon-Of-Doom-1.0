@@ -24,12 +24,14 @@ namespace Game2
         private List<GameObject> itemsToBeAdded = new List<GameObject>();
         private List<GameObject> itemsToBeAddedButDrawnFirst = new List<GameObject>();
         private List<GameObject> itemsToBeDeleted = new List<GameObject>();
+        private ActualGameState gameState = new ActualGameState(GameState.MENU);
+        private GameTime gameTime;
         Player.Player player = new Player.Player(33,230);
         Mediator mediator;
-        private ActualGameState state = new ActualGameState(GameState.MENU);
+        
 
-        private Menu meny;
-
+        private StartMenu startMenu;
+    
 
 
 
@@ -37,31 +39,21 @@ namespace Game2
 
 
         public GameMain()
-        {
-
-      
+        { 
             graphics = new GraphicsDeviceManager(this);
+            
             room = new Room(800, 480, mediator);
             Mediator.Game = this;
             Content.RootDirectory = "Content";
-            mediator = new Mediator(allObjects, itemsToBeAdded, itemsToBeDeleted, itemsToBeAddedButDrawnFirst, player, room,state);
-            
+            mediator = new Mediator(allObjects, itemsToBeAdded, itemsToBeDeleted, itemsToBeAddedButDrawnFirst, player, room,gameState);           
             room.mediator = mediator;
-            room.initRandomLevel();
-           
+            room.initRandomLevel();  
             itemsToBeAdded.Add(player);
             player.mediator = mediator;
             allObjects.Add(new HUD(800,100, mediator));
-            meny = new Menu(800,580,mediator);
-
-            //Plads hvor ens HUD skal være - 100 pixels ekstra må være mere end nok!
+            startMenu = new StartMenu(800,580,mediator,gameTime);
             graphics.PreferredBackBufferHeight = 580;
             graphics.ApplyChanges();
-
-            
-            //give all mediator
-
-
         }
 
 
@@ -115,42 +107,36 @@ namespace Game2
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (this.state.State == GameState.PLAY) { 
-            PlayUpdate(gameTime);
-
-            } else if (this.state.State == GameState.MENU)
+            this.gameTime = gameTime;
+            switch (this.gameState.State)
             {
-                MenuUpdate(gameTime);
+                case GameState.PLAY:
+                    PlayUpdate(gameTime);
+                    break;
+                case GameState.MENU:
+                    startMenu.MenuUpdate(gameTime,spriteBatch);
+                    break;
             }
         }
 
-        private void MenuUpdate(GameTime gameTime)
-        {
-            
-            foreach (GameObject gameObject in this.meny.MenuObjects)
-            {
-                gameObject.Load();
-                gameObject.Update(gameTime);
-            }
-        }
+        
 
         private void PlayUpdate(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
                 Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            // TODO: Add your update logic here
+          
 
-            for (var index = 0; index < allObjects.Count; index++)
+            foreach (var gameObject in allObjects)
             {
-                GameObject gameObject = allObjects[index];
                 if (player.hitbox.Intersects(gameObject.hitbox))
                 {
                     player.intersects(gameObject);
                     gameObject.intersects(player);
                 }
 
-                //Game objects kan nu intersecte med andre gameObejcts
+                
                 foreach (var otherGameObject in allObjects)
                 {
                     if (gameObject.hitbox.Intersects(otherGameObject.hitbox))
@@ -176,22 +162,16 @@ namespace Game2
                 gameObject.Load();
             }
 
-
             allObjects.AddRange(itemsToBeAddedButDrawnFirst);
             allObjects.AddRange(itemsToBeAdded);
             itemsToBeAdded.Clear();
-
             itemsToBeAddedButDrawnFirst.Clear();
-
 
             foreach (var gameObject in itemsToBeDeleted)
             {
                 allObjects.Remove(gameObject);
             }
-
             itemsToBeDeleted.Clear();
-
-
             base.Update(gameTime);
         }
 
@@ -201,41 +181,33 @@ namespace Game2
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-
             GraphicsDevice.Clear(Color.Azure);
             spriteBatch.Begin();
 
-            if (this.state.State == GameState.PLAY) { 
-            PlayDraw(gameTime);
-            
-            }
-            else if (this.state.State == GameState.MENU)
+            switch (this.gameState.State)
             {
-                menuDraw(gameTime);
-            }
+                case GameState.PLAY:
+                    PlayDraw(gameTime);
+                    break;
 
-            // TODO: Add your drawing code here
+                case GameState.MENU:
+                    startMenu.stateDraw(gameTime,spriteBatch);
+                    break;
+            }
 
             base.Draw(gameTime);
             spriteBatch.End();
         }
 
-        private void menuDraw(GameTime gameTime)
-        {
-            foreach (GameObject gameObject in meny.MenuObjects)
-            {
-                gameObject.Draw(spriteBatch, gameTime);
-            }
-        }
+       
 
         private void PlayDraw(GameTime gameTime)
         {
             foreach (GameObject gameObject in allObjects)
             {
-                if (this.state.State == GameState.PLAY)
-                {
+               
                     gameObject.Draw(spriteBatch, gameTime);
-                }
+                
             }
 
             

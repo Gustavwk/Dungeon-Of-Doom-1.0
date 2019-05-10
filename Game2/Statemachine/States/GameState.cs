@@ -8,6 +8,6 @@ namespace Game2.Menus.States
 {
     enum GameState
     {
-        PLAY, MENU
+        PLAY, MENU, GAMEOVER
     }
 }
