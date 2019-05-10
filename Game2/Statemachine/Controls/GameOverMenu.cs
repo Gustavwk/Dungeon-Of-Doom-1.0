@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Game2.gameLogic;
+using Game2.Statemachine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -18,6 +19,8 @@ namespace Game2.Menus.Controls
         public GameOverMenu(int x, int y, Mediator mediator, GameTime gameTime) : base(x, y, mediator, gameTime)
         {
             MenuBackground();
+
+            stateObjects.Add(new TextField(50,100,mediator,"KILLS: " + mediator.player.Kills,Color.Yellow));
         }
 
         public void stats()

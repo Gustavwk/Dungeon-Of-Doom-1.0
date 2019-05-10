@@ -31,6 +31,7 @@ namespace Game2
         
 
         private StartMenu startMenu;
+        private GameOverMenu gameOverMenu;
     
 
 
@@ -52,6 +53,8 @@ namespace Game2
             player.mediator = mediator;
             allObjects.Add(new HUD(800,100, mediator));
             startMenu = new StartMenu(800,580,mediator,gameTime);
+            gameOverMenu = new GameOverMenu(800,580,mediator,gameTime);
+
             graphics.PreferredBackBufferHeight = 580;
             graphics.ApplyChanges();
         }
@@ -116,6 +119,10 @@ namespace Game2
                 case GameState.MENU:
                     startMenu.MenuUpdate(gameTime,spriteBatch);
                     break;
+                case GameState.GAMEOVER:
+                    gameOverMenu.MenuUpdate(gameTime,spriteBatch);
+                    break;
+                   
             }
         }
 
@@ -192,6 +199,9 @@ namespace Game2
 
                 case GameState.MENU:
                     startMenu.stateDraw(gameTime,spriteBatch);
+                    break;
+                case GameState.GAMEOVER:
+                    gameOverMenu.stateDraw(gameTime, spriteBatch);
                     break;
             }
 

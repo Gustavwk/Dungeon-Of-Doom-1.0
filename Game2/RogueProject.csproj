@@ -47,6 +47,7 @@
     <Compile Include="Statemachine\Controls\GameOverMenu.cs" />
     <Compile Include="Statemachine\Controls\StartMenu.cs" />
     <Compile Include="Statemachine\Controls\PlayButton.cs" />
+    <Compile Include="Statemachine\Controls\TextField.cs" />
     <Compile Include="Statemachine\States\ActualGameState.cs" />
     <Compile Include="Monster\BossGhost.cs" />
     <Compile Include="Monster\Creep.cs" />

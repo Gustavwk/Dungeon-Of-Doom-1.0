@@ -8,6 +8,7 @@ using System.Dynamic;
 using System.Threading;
 using Game2.gameLogic;
 using Game2.Items;
+using Game2.Menus.States;
 using Game2.Structures;
 
 namespace Game2.Player
@@ -127,14 +128,15 @@ namespace Game2.Player
 
         }
 
-        public Boolean isDead(Boolean alive)
+        private Boolean isDead()
         {
-            if (health >= 0)
+            if (health <= 0)
             {
                 this.alive = false;
+                return true;
             }
 
-            return this.alive;
+            return false;
         }
 
         public void movement()
@@ -193,7 +195,10 @@ namespace Game2.Player
             shooting(gameTime);
 
 
-           
+            if (isDead())
+            {
+              //  mediator.State.State = GameState.GAMEOVER;
+            }
 
 
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
