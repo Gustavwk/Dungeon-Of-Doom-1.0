@@ -40,8 +40,10 @@ namespace Game2.Menus.Controls
         public void initMenu()
         {
             MenuBackground();
+            
             menuObjects.Add(new PlayButton(400,200,mediator,"Play"));
             menuObjects.Add(new Button(400, 300, mediator, "Exit"));
+            menuObjects.Add(new Cursor());
         }
 
         private void MenuBackground()
