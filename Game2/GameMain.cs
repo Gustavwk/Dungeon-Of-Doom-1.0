@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.Reflection;
 using Game2.Creeps;
 using Game2.gameLogic;
+using Game2.Menus.Controls;
+using Game2.Menus.States;
 using Game2.Structures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -24,8 +26,11 @@ namespace Game2
         private List<GameObject> itemsToBeDeleted = new List<GameObject>();
         Player.Player player = new Player.Player(33,230);
         Mediator mediator;
-       
-        
+        private ActualGameState state = new ActualGameState(GameState.MENU);
+
+        private Menu meny;
+
+
 
 
 
@@ -39,7 +44,7 @@ namespace Game2
             room = new Room(800, 480, mediator);
             Mediator.Game = this;
             Content.RootDirectory = "Content";
-            mediator = new Mediator(allObjects, itemsToBeAdded, itemsToBeDeleted, itemsToBeAddedButDrawnFirst, player, room);
+            mediator = new Mediator(allObjects, itemsToBeAdded, itemsToBeDeleted, itemsToBeAddedButDrawnFirst, player, room,state);
             
             room.mediator = mediator;
             room.initRandomLevel();
@@ -47,7 +52,7 @@ namespace Game2
             itemsToBeAdded.Add(player);
             player.mediator = mediator;
             allObjects.Add(new HUD(800,100, mediator));
-            
+            meny = new Menu(800,580,mediator);
 
             //Plads hvor ens HUD skal være - 100 pixels ekstra må være mere end nok!
             graphics.PreferredBackBufferHeight = 580;
@@ -110,7 +115,29 @@ namespace Game2
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (this.state.State == GameState.PLAY) { 
+            PlayUpdate(gameTime);
+
+            } else if (this.state.State == GameState.MENU)
+            {
+                MenuUpdate(gameTime);
+            }
+        }
+
+        private void MenuUpdate(GameTime gameTime)
+        {
+            
+            foreach (GameObject gameObject in this.meny.MenuObjects)
+            {
+                gameObject.Load();
+                gameObject.Update(gameTime);
+            }
+        }
+
+        private void PlayUpdate(GameTime gameTime)
+        {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
+                Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             // TODO: Add your update logic here
 
@@ -121,7 +148,6 @@ namespace Game2
                 {
                     player.intersects(gameObject);
                     gameObject.intersects(player);
-
                 }
 
                 //Game objects kan nu intersecte med andre gameObejcts
@@ -130,31 +156,25 @@ namespace Game2
                     if (gameObject.hitbox.Intersects(otherGameObject.hitbox))
                     {
                         gameObject.intersects(otherGameObject);
-                       
                     }
                 }
 
 
-
                 gameObject.Update(gameTime);
-
             }
 
-            //itemsToBeAdded.Sort();
-           
-            
-            
+            itemsToBeAdded.Sort();
+
+
             foreach (var gameObject in itemsToBeAdded)
             {
                 gameObject.Load();
             }
+
             foreach (var gameObject in itemsToBeAddedButDrawnFirst)
             {
                 gameObject.Load();
             }
-
-
-            //itemsToBeAdded.Sort(); - denne linje fucker det helle meget up ! 
 
 
             allObjects.AddRange(itemsToBeAddedButDrawnFirst);
@@ -163,15 +183,14 @@ namespace Game2
 
             itemsToBeAddedButDrawnFirst.Clear();
 
-           
 
             foreach (var gameObject in itemsToBeDeleted)
-                {
-                    allObjects.Remove(gameObject);
-                }
+            {
+                allObjects.Remove(gameObject);
+            }
 
-                itemsToBeDeleted.Clear();
-            
+            itemsToBeDeleted.Clear();
+
 
             base.Update(gameTime);
         }
@@ -186,18 +205,40 @@ namespace Game2
             GraphicsDevice.Clear(Color.Azure);
             spriteBatch.Begin();
 
-
-            foreach (GameObject gameObject in allObjects)
-            {
-
-                gameObject.Draw(spriteBatch, gameTime);
-
+            if (this.state.State == GameState.PLAY) { 
+            PlayDraw(gameTime);
+            
             }
-            spriteBatch.End();
+            else if (this.state.State == GameState.MENU)
+            {
+                menuDraw(gameTime);
+            }
 
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+            spriteBatch.End();
+        }
+
+        private void menuDraw(GameTime gameTime)
+        {
+            foreach (GameObject gameObject in meny.MenuObjects)
+            {
+                gameObject.Draw(spriteBatch, gameTime);
+            }
+        }
+
+        private void PlayDraw(GameTime gameTime)
+        {
+            foreach (GameObject gameObject in allObjects)
+            {
+                if (this.state.State == GameState.PLAY)
+                {
+                    gameObject.Draw(spriteBatch, gameTime);
+                }
+            }
+
+            
         }
     }
 }

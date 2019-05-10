@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game2.Menus.States;
 using Game2.Structures;
 
 namespace Game2.gameLogic
@@ -14,10 +15,12 @@ namespace Game2.gameLogic
         public List<GameObject> itemToBeAdded { get; }
         public List<GameObject> itemToBeAddedButDrawnLast { get; }
         public List<GameObject> itemToBeDeleted { get; }
+        public ActualGameState State { get;set; }
+
         public Player.Player player { get; }
         public Room room { get; set; }
 
-        public Mediator(List<GameObject> allObjects, List<GameObject> itemToBeAdded, List<GameObject> itemToBeDeleted , List<GameObject> itemToBeAddedButDrawnLast, Player.Player player, Room room)
+        public Mediator(List<GameObject> allObjects, List<GameObject> itemToBeAdded, List<GameObject> itemToBeDeleted , List<GameObject> itemToBeAddedButDrawnLast, Player.Player player, Room room, ActualGameState actual)
         {
             this.AllObjects = allObjects;
             this.itemToBeAdded = itemToBeAdded;
@@ -25,6 +28,7 @@ namespace Game2.gameLogic
             this.itemToBeDeleted = itemToBeDeleted;
             this.player = player;
             this.room = room;
+            this.State = actual;
         }
     }
 }

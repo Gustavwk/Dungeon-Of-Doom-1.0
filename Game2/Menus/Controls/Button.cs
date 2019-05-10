@@ -9,25 +9,26 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Game2;
 using Game2.gameLogic;
+using Game2.Menus.States;
 
 
 class Button : GameObject
     {
-        private MouseState currentMouseState;
-        private SpriteFont font;
-        private bool isHovered;
-        private MouseState prevMouse;
-        private Texture2D buttonTexture;
-        private Texture2D buttonTextureHovered;
-        private event EventHandler click;
-        private bool clicked { get; set; }
-        private Color fontColor = Color.Red;
-        private Vector2 pos { get; set; }
+        protected MouseState currentMouseState;
+        protected SpriteFont font;
+        protected bool isHovered;
+        protected MouseState prevMouse;
+        protected Texture2D buttonTexture;
+        protected Texture2D buttonTextureHovered;
+        protected event EventHandler click;
+        protected bool clicked { get; set; }
+        protected Color fontColor = Color.Red;
+        protected Vector2 pos { get; set; }
         protected int ButtonHeight = 124;
         protected int ButtonWidth = 124;
-        private string buttonString;
-        private int stringPosX;
-        private int stringPosY;
+        protected string buttonString;
+        protected int stringPosX;
+        protected int stringPosY;
 
 
     public Rectangle Rectangle
@@ -65,21 +66,10 @@ class Button : GameObject
 
         public override void Update(GameTime gameTime)
         {
-            prevMouse = currentMouseState;
-            currentMouseState = Mouse.GetState();
-            Rectangle mouseRect = new Rectangle(currentMouseState.X,currentMouseState.Y,1,1);
-
-            isHovered = false;
-
-            if (mouseRect.Intersects(this.hitbox))
-            {
-                isHovered = true;
-                if (currentMouseState.LeftButton == ButtonState.Released && prevMouse.LeftButton == ButtonState.Pressed)
-                {
-                   Debug.Write("hej");
-                }
-            }
+            
         }
+
+      
 
         public override void Load()
         {

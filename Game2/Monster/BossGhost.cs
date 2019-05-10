@@ -26,7 +26,7 @@ namespace Game2.Creeps
         public BossGhost(int x, int y, Mediator mediator) : base( x, y, mediator)
         {
             this.hitbox = new Rectangle(this.X, this.Y, 96, 96);
-            this.priority = 5;
+            this.priority = 10;
             this.health = 250;
             
         }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Game2.Menus.States
 {
-    class GameState
+    enum GameState
     {
+        PLAY, MENU
     }
 }

@@ -55,8 +55,9 @@ namespace Game2.Creeps
             if (!alive)
             {
                 mediator.player.Kills++;
-                mediator.itemToBeDeleted.Add(this);
                 mediator.room.EnemyCount--;
+                mediator.itemToBeDeleted.Add(this);
+                
             }
             else
             {
@@ -74,9 +75,6 @@ namespace Game2.Creeps
 
 
         {
-
-
-            
 
             if (!stuckInWall)
             {
