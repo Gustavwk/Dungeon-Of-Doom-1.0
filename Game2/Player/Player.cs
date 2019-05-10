@@ -152,45 +152,7 @@ namespace Game2.Player
             }
 
             #region skyd Skrådt
-
-
-
-            
-            /*if (key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.S))
-            {
-                this.direction = Direction.SOUTHEAST;
-                this.prevPositionX = this.X;
-                this.prevPositionY = this.Y;
-                this.X = this.X + this.movementspeed;
-                this.Y = this.Y + this.movementspeed;
-            }
-
-            if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.S))
-            {
-                this.direction = Direction.SOUTHWEST;
-                this.prevPositionX = this.X;
-                this.prevPositionY = this.Y;
-                this.X = this.X - this.movementspeed;
-                this.Y = this.Y + this.movementspeed;
-            }
-
-            if (key.IsKeyDown(Keys.D) && key.IsKeyDown(Keys.W))
-            {
-                this.direction = Direction.NORTHEAST;
-                this.prevPositionX = this.X;
-                this.prevPositionY = this.Y;
-                this.X = this.X + this.movementspeed;
-                this.Y = this.Y - this.movementspeed;
-            }
-
-            if (key.IsKeyDown(Keys.A) && key.IsKeyDown(Keys.W))
-            {
-                this.direction = Direction.NORTHWEST;
-                this.prevPositionX = this.X;
-                this.prevPositionY = this.Y;
-                this.X = this.X - this.movementspeed;
-                this.Y = this.Y - this.movementspeed;
-            }*/
+           
 #endregion
 
             if (key.IsKeyDown(Keys.D))
@@ -261,7 +223,6 @@ namespace Game2.Player
                         fireDefualt(this.X, this.Y, this.direction);
                     }
                 }
-       
             }
         }
 

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Game2.gameLogic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Game2
 {
@@ -18,6 +19,7 @@ namespace Game2
         private bool taken = false;
         private double duration = 250;
         private int speedBoost = 4;
+        private SoundEffect soundEffect;
 
         public MsBoost(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
@@ -67,6 +69,8 @@ namespace Game2
         {
             filledPotion = Mediator.Game.Content.Load<Texture2D>("items/Potions/yellow_old");
             emptyPotion = Mediator.Game.Content.Load<Texture2D>("items/white_old");
+            soundEffect = Mediator.Game.Content.Load<SoundEffect>("SoundS/MsBoost");
+
         }
 
         public override bool intersects(GameObject other)
@@ -84,6 +88,7 @@ namespace Game2
                 taken = true;
                 active = true;
                 this.hitbox = Rectangle.Empty;
+                soundEffect.CreateInstance().Play();
             }
         }
     }

@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 using Game2.gameLogic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Game2.Items.Weapons
 {
     class Wand : Weapon 
     {
         private Texture2D sprite;
+        private SoundEffect soundEffect;
+        private SoundEffect pickupWand;
+
         public Wand(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
         }
@@ -22,17 +26,22 @@ namespace Game2.Items.Weapons
 
         }
 
-        public override void fire(int x, int y, Direction direction)
-        {
-            Projectile wandProjectile = new WandProjectile(x, y, direction, mediator);
-            wandProjectile.Load();
-            mediator.itemToBeAdded.Add(wandProjectile);
-        }
-
         public override void Load()
         {
             sprite = Mediator.Game.Content.Load<Texture2D>("Items/Weapons/spwpn_staff_of_dispater_new");
+            soundEffect = Mediator.Game.Content.Load<SoundEffect>("Sounds/Wand");
+            pickupWand = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupWand");
         }
+
+        public override void fire(int x, int y, Direction direction)
+        {
+            Projectile wandProjectile = new WandProjectile(x, y, direction, mediator);
+            //soundEffect.CreateInstance().Play(); //Virker ikke pt.
+            wandProjectile.Load();
+            mediator.itemToBeAdded.Add(wandProjectile);
+            
+        }
+
 
         public override bool intersects(GameObject other)
         {
@@ -40,6 +49,7 @@ namespace Game2.Items.Weapons
             {
                 mediator.player.Weapon = new Wand(0, 0, mediator);
                 mediator.itemToBeDeleted.Add(this);
+                pickupWand.CreateInstance().Play();
             }
 
             return true;

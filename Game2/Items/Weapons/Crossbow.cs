@@ -8,13 +8,14 @@ using Game2.gameLogic;
 using Game2.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Game2
 {
     class Crossbow : Weapon
     {
         private Texture2D sprite;
-        
+        private SoundEffect pickupCrossbow;
        
 
 
@@ -40,14 +41,16 @@ namespace Game2
         public override void Load()
         {
             sprite = Mediator.Game.Content.Load<Texture2D>("items/crossbow_1");
+            pickupCrossbow = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupCrossbow");
         }
 
         public override bool intersects(GameObject other)
         {
             if (other is Player.Player)
             {
-                    mediator.player.Weapon = new Crossbow(0,0,mediator);
-                    mediator.itemToBeDeleted.Add(this);
+                mediator.player.Weapon = new Crossbow(0,0,mediator);
+                mediator.itemToBeDeleted.Add(this);
+                pickupCrossbow.CreateInstance().Play();
             }
             return true;
         }

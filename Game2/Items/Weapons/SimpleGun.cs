@@ -7,12 +7,14 @@ using Game2.gameLogic;
 using Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Game2.Items.Weapons
 {
     class SimpleGun : Weapon
     {
         private Texture2D sprite;
+        private SoundEffect pickupSimpleGun;
 
         public SimpleGun(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
@@ -34,6 +36,7 @@ namespace Game2.Items.Weapons
         public override void Load()
         {
             sprite = Mediator.Game.Content.Load<Texture2D>("Items/Weapons/urand_blowgun");
+            pickupSimpleGun = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupSimpleGun");
         }
 
         public override bool intersects(GameObject other)
@@ -42,6 +45,7 @@ namespace Game2.Items.Weapons
             {
                 mediator.player.Weapon = new SimpleGun(0, 0, mediator);
                 mediator.itemToBeDeleted.Add(this);
+                pickupSimpleGun.CreateInstance().Play();
             }
             return true;
         }

@@ -7,17 +7,21 @@ using Game2.gameLogic;
 using Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Game2.Items.Weapons
 {
     
     class FrozenBow : Weapon
     {
+        private Texture2D sprite;
+        private SoundEffect pickupFrozenBow;
+
         public FrozenBow(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
         }
 
-        private Texture2D sprite;
+        
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
@@ -36,6 +40,7 @@ namespace Game2.Items.Weapons
         public override void Load()
         {
             sprite = Mediator.Game.Content.Load<Texture2D>("Items/Weapons/urand_piercer_new");
+            pickupFrozenBow = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupFrozenBow");
         }
 
         public override bool intersects(GameObject other)
@@ -44,6 +49,7 @@ namespace Game2.Items.Weapons
             {
                 mediator.player.Weapon = new FrozenBow(0, 0, mediator);
                 mediator.itemToBeDeleted.Add(this);
+                pickupFrozenBow.CreateInstance().Play();
             }
             return true;
         }

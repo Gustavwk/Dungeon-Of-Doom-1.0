@@ -759,6 +759,60 @@
 /processorParam:TextureFormat=Color
 /build:Projectiles/WandProjectile/magic_dart_3.png
 
+#begin Sounds/AsBoost.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/AsBoost.wav
+
+#begin Sounds/LevelUp.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/LevelUp.wav
+
+#begin Sounds/MsBoost.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/MsBoost.wav
+
+#begin Sounds/PickupCrossbow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/PickupCrossbow.wav
+
+#begin Sounds/PickupFrozenBow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/PickupFrozenBow.wav
+
+#begin Sounds/PickupSimpleGun.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/PickupSimpleGun.wav
+
+#begin Sounds/PickupWand.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/PickupWand.wav
+
+#begin Sounds/Powerup.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Powerup.wav
+
+#begin Sounds/Wand.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Wand.wav
+
 #begin tiles/LavaTiles/lava_0.png
 /importer:TextureImporter
 /processor:TextureProcessor

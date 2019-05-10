@@ -9,6 +9,7 @@ using Game2.gameLogic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Game2
 {
@@ -19,14 +20,15 @@ namespace Game2
         private Texture2D emptyHpPotion;
         private int hpPlus;
         private bool taken = false;
-        
-      
+        private SoundEffect soundEffect;
+
+
 
         public HpBoost(int hpPlus, int x, int y, Mediator mediator) : base(x,y,mediator)
         {
             this.hpPlus = hpPlus;
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
-            
+
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -47,6 +49,7 @@ namespace Game2
         {
             filledHpPotion = Mediator.Game.Content.Load<Texture2D>("items/ruby_old");
             emptyHpPotion = Mediator.Game.Content.Load<Texture2D>("items/white_old");
+            soundEffect = Mediator.Game.Content.Load<SoundEffect>("Sounds/Powerup");
         }
 
         public override bool intersects(GameObject other)
@@ -58,6 +61,7 @@ namespace Game2
                 mediator.player.health = mediator.player.health + hpPlus;               
                 this.hitbox = Rectangle.Empty;
                 this.taken = true;
+                soundEffect.CreateInstance().Play();
 
             }
             return true;

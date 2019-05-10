@@ -8,6 +8,7 @@ using Game2.gameLogic;
 using Game2.gameLogic.HUD_Objects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Game2.Structures 
 {
@@ -17,6 +18,7 @@ namespace Game2.Structures
         private Texture2D openDoor;
         private int level;
         private bool isOpen;
+        private SoundEffect soundEffect;
 
 
         public Door(int x, int y, Mediator mediator, bool isOpen) : base(mediator,x,y)
@@ -31,6 +33,7 @@ namespace Game2.Structures
         {
             closedDoor = Mediator.Game.Content.Load<Texture2D>("Doors/closed_door");
             openDoor = Mediator.Game.Content.Load<Texture2D>("Doors/open_door");
+            soundEffect = Mediator.Game.Content.Load<SoundEffect>("Sounds/LevelUp");
         }
 
 
@@ -74,7 +77,7 @@ namespace Game2.Structures
                 Player.Player p = (Player.Player)other;
                 if (this.isOpen == true)
                 {
-                  
+                    soundEffect.CreateInstance().Play();  
                     foreach (var gameObject in mediator.AllObjects)
                     {
                         if (gameObject is Player.Player || gameObject is HUDTile ||
