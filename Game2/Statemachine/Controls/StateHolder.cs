@@ -46,12 +46,12 @@ namespace Game2.Menus.Controls
                 }
             }
         }
-        public void MenuUpdate(GameTime gameTime, SpriteBatch spriteBatch)
+        public void StateUpdate(GameTime gameTime, SpriteBatch spriteBatch)
         {
-
+           
             foreach (GameObject gameObject in stateObjects)
             {
-                gameObject.Load();
+                
                 gameObject.Update(gameTime);
             }
         }
@@ -60,6 +60,7 @@ namespace Game2.Menus.Controls
         {
             foreach (GameObject gameObject in stateObjects)
             {
+                gameObject.Load();
                 gameObject.Draw(spriteBatch, gameTime);
             }
         }

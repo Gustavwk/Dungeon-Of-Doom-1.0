@@ -117,10 +117,10 @@ namespace Game2
                     PlayUpdate(gameTime);
                     break;
                 case GameState.MENU:
-                    startMenu.MenuUpdate(gameTime,spriteBatch);
+                    startMenu.StateUpdate(gameTime,spriteBatch);
                     break;
                 case GameState.GAMEOVER:
-                    gameOverMenu.MenuUpdate(gameTime,spriteBatch);
+                    gameOverMenu.StateUpdate(gameTime,spriteBatch);
                     break;
                    
             }

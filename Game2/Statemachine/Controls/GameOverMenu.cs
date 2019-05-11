@@ -21,6 +21,7 @@ namespace Game2.Menus.Controls
             MenuBackground();
 
             stateObjects.Add(new TextField(50,100,mediator,"KILLS: " + mediator.player.Kills,Color.Yellow));
+            stateObjects.Add(new TextField(50, 100, mediator,"" + mediator.player.Weapon, Color.Yellow));
         }
 
         public void stats()

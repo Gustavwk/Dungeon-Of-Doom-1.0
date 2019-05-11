@@ -197,7 +197,7 @@ namespace Game2.Player
 
             if (isDead())
             {
-              //  mediator.State.State = GameState.GAMEOVER;
+              mediator.State.State = GameState.GAMEOVER;
             }
 
 
