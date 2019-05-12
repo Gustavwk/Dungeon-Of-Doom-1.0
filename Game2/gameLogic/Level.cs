@@ -82,17 +82,7 @@ namespace Game2.gameLogic
                 {0,0,0,0,0,0,6,0,0,0,0,0,0},
                 {7,0,0,0,0,0,0,0,0,0,0,0,7}
             };
-
-            int[,] emptyLevel = new int[,]
-            {
-                {0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0}
-            };
+           
 
             int[,] lavaLake = new int[,]
             {
@@ -125,14 +115,25 @@ namespace Game2.gameLogic
                 {0,0,0,2,0,0,0,2,0,0,0,2,0},
                 {0,0,0,2,0,0,0,2,0,0,0,2,0}
             };
+            int[,] mazeLevel = new int[,]
+            {
+
+                {1,1,1,1,1,0,0,0,0,0,0,1,1},
+                {0,0,0,1,0,0,1,1,1,1,0,1,7},
+                {0,1,0,1,10,0,1,1,7,0,0,1,0},
+                {0,1,0,1,1,1,1,1,1,1,0,1,0},
+                {0,1,0,0,0,0,0,0,0,0,0,1,0},
+                {0,1,0,0,0,0,0,0,0,0,0,0,0},
+                {0,1,1,1,1,1,0,1,1,1,1,1,0}
+
+            };
 
 
-
+            levelList.Add(mazeLevel);
             levelList.Add(lavaLoot);
             levelList.Add(healthBoostFrostBow);
             levelList.Add(creepSwarm);
             LevelList.Add(lavaWandBoosters);
-            LevelList.Add(emptyLevel);
             LevelList.Add(lavaLootBoost);
             levelList.Add(lavaLake);
             levelList.Add(bossLevel);
