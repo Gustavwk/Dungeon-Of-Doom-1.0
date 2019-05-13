@@ -27,6 +27,7 @@ namespace Game2
             this.projectileTextureNorthWest = null;
             this.projectileTextureSouthEast = null;
             this.projectileTextureSouthWest = null;
+            hitMonster = Mediator.Game.Content.Load<SoundEffect>("Sounds/Hit");
 
         }
 

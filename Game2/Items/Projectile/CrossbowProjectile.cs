@@ -33,7 +33,8 @@ namespace Game2
             this.projectileTextureNorthWest = Mediator.Game.Content.Load<Texture2D>("Projectiles/CrossbowProjectiles/arrow_7");
             this.projectileTextureSouthEast = Mediator.Game.Content.Load<Texture2D>("Projectiles/CrossbowProjectiles/arrow_3");
             this.projectileTextureSouthWest = Mediator.Game.Content.Load<Texture2D>("Projectiles/CrossbowProjectiles/arrow_5");
-            
+            hitMonster = Mediator.Game.Content.Load<SoundEffect>("Sounds/Hit");
+
         }
 
         

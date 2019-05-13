@@ -70,8 +70,8 @@ namespace Game2
                 Monster p = (Monster)other;
                 p.Health = p.Health - damage;
                 Debug.WriteLine("Monster hp: " + p.Health);
-
-                //hitMonster.CreateInstance().Play();
+                
+                hitMonster.CreateInstance().Play();
 
                 mediator.itemToBeDeleted.Add(this);
                
