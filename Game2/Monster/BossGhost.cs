@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Game2.gameLogic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Game2.Creeps
 {
@@ -93,6 +94,8 @@ namespace Game2.Creeps
             this.undamgedLeft = Mediator.Game.Content.Load<Texture2D>("Creeps/Boss Ghost/boss ghost");
             this.undamgedRight = Mediator.Game.Content.Load<Texture2D>("Creeps/Boss Ghost/boss ghost reversed");
             this.undamgedBack = Mediator.Game.Content.Load<Texture2D>("Creeps/Boss Ghost/boss ghost back");
+
+            dead = Mediator.Game.Content.Load<SoundEffect>("Sounds/MonsterDead");
         }
 
         public override void move()

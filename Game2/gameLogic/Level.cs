@@ -28,6 +28,21 @@ namespace Game2.gameLogic
 
         public void initLevels()
         {
+            /*
+             * 0 = Ingenting
+             * 1 = wall
+             * 2 = lavatile
+             * 3 = crossbow
+             * 4 = movementspeed boost
+             * 5 = attack speed boost
+             * 6 = Hp boost
+             * 7 = Creep
+             * 8 = FrozenBow
+             * 9 = SimpleGun
+             * 10 = Wand
+             * 11 = BossGhost
+             */
+
             int[,] lavaLoot = new int[,]
             {
                 {1,1,1,1,1,0,0,0,1,1,1,1,1},
@@ -143,8 +158,8 @@ namespace Game2.gameLogic
             levelList.Add(lavaLoot);
             levelList.Add(healthBoostFrostBow);
             levelList.Add(creepSwarm);
-            LevelList.Add(lavaWandBoosters);
-            LevelList.Add(lavaLootBoost);
+            levelList.Add(lavaWandBoosters);
+            levelList.Add(lavaLootBoost);
             levelList.Add(lavaLake);
             levelList.Add(bossLevel);
             levelList.Add(creepyCrawly);

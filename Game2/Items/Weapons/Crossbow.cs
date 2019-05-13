@@ -16,7 +16,7 @@ namespace Game2
     {
         private Texture2D sprite;
         private SoundEffect pickupCrossbow;
-       
+        private SoundEffect shoot;       
 
 
         public Crossbow(int x, int y, Mediator mediator) : base(x, y, mediator)
@@ -34,6 +34,8 @@ namespace Game2
         public override void fire(int x, int y, Direction direction)
         {
             Projectile crossbowProjectile = new CrossbowProjectile(x, y, direction, mediator);
+            this.Load();
+            shoot.CreateInstance().Play();
             crossbowProjectile.Load();
             mediator.itemToBeAdded.Add(crossbowProjectile);
         }
@@ -42,6 +44,7 @@ namespace Game2
         {
             sprite = Mediator.Game.Content.Load<Texture2D>("items/crossbow_1");
             pickupCrossbow = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupCrossbow");
+            shoot = Mediator.Game.Content.Load<SoundEffect>("Sounds/CrossBow");
         }
 
         public override bool intersects(GameObject other)

@@ -10,6 +10,7 @@ using Game2.gameLogic;
 using Game2.Items;
 using Game2.Menus.States;
 using Game2.Structures;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Game2.Player
 {
@@ -24,6 +25,7 @@ namespace Game2.Player
         private Texture2D playerPictureBackDmg;
         private Texture2D playerPictureLeftDmg;
         private Texture2D playerPictureRightDmg;
+        private SoundEffect defaultShoot;
         public int movementspeed = 2;
         private int WIDTH = 24;
         private int HEIGHT = 24;
@@ -122,8 +124,8 @@ namespace Game2.Player
             playerPictureRightDmg = Mediator.Game.Content.Load<Texture2D>("Player/homeMadeSpriteDamage");
             playerPictureBack = Mediator.Game.Content.Load<Texture2D>("Player/homeMadeSpriteBack");
             playerPictureBackDmg = Mediator.Game.Content.Load<Texture2D>("Player/homeMadeSpriteDamgeBack");
-          
 
+            defaultShoot = Mediator.Game.Content.Load<SoundEffect>("Sounds/DefaultWeapon");
 
 
         }
@@ -200,10 +202,7 @@ namespace Game2.Player
               mediator.State.State = GameState.GAMEOVER;
             }
 
-
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
-           
-         
         }
 
         public void shooting(GameTime gameTime)
@@ -213,8 +212,7 @@ namespace Game2.Player
             KeyboardState key = Keyboard.GetState();
             if (key.IsKeyDown(Keys.Space))
             {
-
-
+                
                 if ( lastShot > cooldown)
                 {
                     lastShot = 0;
@@ -234,6 +232,8 @@ namespace Game2.Player
         private void fireDefualt(int x, int y, Direction direction)
         {
             Projectile defaultProjectile = new Projectile(x,y,direction, mediator);
+            this.Load();
+            defaultShoot.CreateInstance().Play();
             defaultProjectile.Load();
             mediator.itemToBeAdded.Add(defaultProjectile);
         }
@@ -268,9 +268,7 @@ namespace Game2.Player
             }
 
             else
-
             {
-
                 if (direction == Direction.EAST)
                 {
                     spriteBatch.Draw(playerPictureRight, hitbox, Color.White);
@@ -286,9 +284,6 @@ namespace Game2.Player
                     spriteBatch.Draw(playerPictureBack, hitbox, Color.White);
                 }
             }
-
-
-
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Game2.Items.Weapons
     {
         private Texture2D sprite;
         private SoundEffect pickupFrozenBow;
+        private SoundEffect shoot;
 
         public FrozenBow(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
@@ -33,6 +34,8 @@ namespace Game2.Items.Weapons
         public override void fire(int x, int y, Direction direction)
         {
             Projectile frozenBowProjectile = new FrozenBowProjectile(x, y, direction, mediator);
+            this.Load();
+            shoot.CreateInstance().Play();
             frozenBowProjectile.Load();
             mediator.itemToBeAdded.Add(frozenBowProjectile);
         }
@@ -41,6 +44,7 @@ namespace Game2.Items.Weapons
         {
             sprite = Mediator.Game.Content.Load<Texture2D>("Items/Weapons/urand_piercer_new");
             pickupFrozenBow = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupFrozenBow");
+            shoot = Mediator.Game.Content.Load<SoundEffect>("Sounds/FrozenBow");
         }
 
         public override bool intersects(GameObject other)

@@ -55,7 +55,7 @@ namespace Game2.Creeps
             if (health <= 0)
             {
                 alive = false;
-                //dead.Play(); //Virker ikke pt.
+                dead.Play();
 
             }
 

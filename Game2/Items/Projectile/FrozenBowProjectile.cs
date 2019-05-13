@@ -25,11 +25,9 @@ namespace Items
             this.projectileTextureRight = Mediator.Game.Content.Load<Texture2D>("Projectiles/FrozenBowProjectile/icicle_2");
             this.projectileTextureLeft = Mediator.Game.Content.Load<Texture2D>("Projectiles/FrozenBowProjectile/icicle_6");
             this.projectileTextureDown = Mediator.Game.Content.Load<Texture2D>("Projectiles/FrozenBowProjectile/icicle_4");
-            this.projectileTextureNorthEast = null;
-            this.projectileTextureNorthWest = null;
-            this.projectileTextureSouthEast = null;
-            this.projectileTextureSouthWest = null;
+
             hitMonster = Mediator.Game.Content.Load<SoundEffect>("Sounds/Hit");
+            hitWall = Mediator.Game.Content.Load<SoundEffect>("Sounds/HitWall");
         }
     }
 }

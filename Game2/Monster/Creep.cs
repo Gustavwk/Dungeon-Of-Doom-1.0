@@ -10,6 +10,7 @@ using Game2.Creeps;
 using Game2.gameLogic;
 using Game2.Structures;
 using Game2.Player;
+using Microsoft.Xna.Framework.Audio;
 namespace Game2.Creep
 {
     class Creep : Monster
@@ -48,8 +49,9 @@ namespace Game2.Creep
 
         public override void Load()
         {
-        
             creepPicture = Mediator.Game.Content.Load<Texture2D>("Creeps/big_kobold_new");
+
+            dead = Mediator.Game.Content.Load<SoundEffect>("Sounds/CreepDead");
         }
 
 

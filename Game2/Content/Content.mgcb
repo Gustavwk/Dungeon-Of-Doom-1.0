@@ -765,11 +765,41 @@
 /processorParam:Quality=Best
 /build:Sounds/AsBoost.wav
 
+#begin Sounds/CreepDead.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/CreepDead.wav
+
+#begin Sounds/CrossBow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/CrossBow.wav
+
+#begin Sounds/DefaultWeapon.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/DefaultWeapon.wav
+
+#begin Sounds/FrozenBow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/FrozenBow.wav
+
 #begin Sounds/Hit.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sounds/Hit.wav
+
+#begin Sounds/HitWall.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/HitWall.wav
 
 #begin Sounds/LevelUp.wav
 /importer:WavImporter
@@ -818,6 +848,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sounds/Powerup.wav
+
+#begin Sounds/SimpleGun.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/SimpleGun.wav
 
 #begin Sounds/Wand.wav
 /importer:WavImporter

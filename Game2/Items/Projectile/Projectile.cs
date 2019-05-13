@@ -28,6 +28,7 @@ namespace Game2
         protected Texture2D projectileTextureSouthWest;
 
         protected SoundEffect hitMonster;
+        protected SoundEffect hitWall;
 
         protected bool shouldDraw = true;
         protected int damage = 33;
@@ -79,6 +80,8 @@ namespace Game2
 
             if (other is Wall || other is Door)
             {
+                hitWall.CreateInstance().Play();
+
                 mediator.itemToBeDeleted.Add(this);
             }
             return true;
@@ -111,26 +114,6 @@ namespace Game2
             {
                 X -= shootSpeed;
             }
-            else if (this.direction == Direction.NORTHEAST)
-            {
-                X += shootSpeed;
-                Y -= shootSpeed;
-            }
-            else if (this.direction == Direction.NORTHWEST)
-            {
-                X -= shootSpeed;
-                Y -= shootSpeed;
-            }
-            else if (this.direction == Direction.SOUTHEAST)
-            {
-                X += shootSpeed;
-                Y += shootSpeed;
-            }
-            else if (this.direction == Direction.SOUTHWEST)
-            {
-                X -= shootSpeed;
-                Y += shootSpeed;
-            }
         }
 
 
@@ -159,22 +142,6 @@ namespace Game2
                 {
                     spriteBatch.Draw(projectileTextureLeft, hitbox, Color.White);
                 }
-                else if (this.direction == Direction.NORTHEAST)
-                {
-                    spriteBatch.Draw(projectileTextureNorthEast, hitbox, Color.White);
-                }
-                else if (this.direction == Direction.NORTHWEST)
-                {
-                    spriteBatch.Draw(projectileTextureNorthWest, hitbox, Color.White);
-                }
-                else if (this.direction == Direction.SOUTHEAST)
-                {
-                    spriteBatch.Draw(projectileTextureSouthEast, hitbox, Color.White);
-                }
-                else if (this.direction == Direction.SOUTHWEST)
-                {
-                    spriteBatch.Draw(projectileTextureSouthWest, hitbox, Color.White);
-                }
             }
         }
 
@@ -195,16 +162,9 @@ namespace Game2
                 Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_0");
             projectileTextureDown =
                 Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_4");
-            projectileTextureNorthWest =
-                Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_7");
-            projectileTextureNorthEast =
-                Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_1");
-            projectileTextureSouthWest =
-                Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_5");
-            projectileTextureSouthEast =
-                Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_3");
 
             hitMonster = Mediator.Game.Content.Load<SoundEffect>("Sounds/Hit");
+            hitWall = Mediator.Game.Content.Load<SoundEffect>("Sounds/HitWall");
         }
 
         // creating a new rectangle for our projectile hitbox 

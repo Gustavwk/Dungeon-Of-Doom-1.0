@@ -13,7 +13,7 @@ namespace Game2.Items.Weapons
     class Wand : Weapon 
     {
         private Texture2D sprite;
-        private SoundEffect soundEffect;
+        private SoundEffect shoot;
         private SoundEffect pickupWand;
 
         public Wand(int x, int y, Mediator mediator) : base(x, y, mediator)
@@ -29,17 +29,17 @@ namespace Game2.Items.Weapons
         public override void Load()
         {
             sprite = Mediator.Game.Content.Load<Texture2D>("Items/Weapons/spwpn_staff_of_dispater_new");
-            soundEffect = Mediator.Game.Content.Load<SoundEffect>("Sounds/Wand");
+            shoot = Mediator.Game.Content.Load<SoundEffect>("Sounds/Wand");
             pickupWand = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupWand");
         }
 
         public override void fire(int x, int y, Direction direction)
         {
             Projectile wandProjectile = new WandProjectile(x, y, direction, mediator);
-            //soundEffect.Play(); //Virker ikke pt.
+            this.Load();
+            shoot.Play();
             wandProjectile.Load();
             mediator.itemToBeAdded.Add(wandProjectile);
-            
         }
 
 
