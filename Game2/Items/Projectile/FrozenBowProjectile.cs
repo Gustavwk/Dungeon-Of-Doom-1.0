@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using Game2;
 using Game2.gameLogic;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Items
 {
     class FrozenBowProjectile : Projectile
     {
+
         public FrozenBowProjectile(int x, int y, Direction direction, Mediator mediator) : base(x, y, direction,
             mediator)
         {

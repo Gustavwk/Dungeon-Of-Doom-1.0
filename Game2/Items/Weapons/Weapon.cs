@@ -30,6 +30,7 @@ namespace Game2.Items
 
         public virtual void fire(int x, int y, Direction direction)
         {
+
         }
     }
 }

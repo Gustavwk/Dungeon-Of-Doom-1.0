@@ -36,7 +36,7 @@ namespace Game2.Items.Weapons
         public override void fire(int x, int y, Direction direction)
         {
             Projectile wandProjectile = new WandProjectile(x, y, direction, mediator);
-            //soundEffect.CreateInstance().Play(); //Virker ikke pt.
+            //soundEffect.Play(); //Virker ikke pt.
             wandProjectile.Load();
             mediator.itemToBeAdded.Add(wandProjectile);
             

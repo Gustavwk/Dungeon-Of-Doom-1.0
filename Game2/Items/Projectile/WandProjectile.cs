@@ -7,14 +7,18 @@ using Game2;
 using Game2.gameLogic;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Game2
 {
     class WandProjectile : Projectile
     {
+        SoundEffect shoot;
+
         public WandProjectile(int x, int y, Direction direction, Mediator mediator) : base(x, y, direction, mediator)
         {
             this.damage = 100;
+           //shoot.CreateInstance().Play();
         }
 
 
@@ -29,8 +33,7 @@ namespace Game2
             this.projectileTextureSouthEast = null;
             this.projectileTextureSouthWest = null;
 
-
-           // this.effect = Mediator.Game.Content.Load<SoundEffect>("");
+            this.shoot = Mediator.Game.Content.Load<SoundEffect>("Sounds/Wand");
         }
     }
 }

@@ -27,6 +27,8 @@ namespace Game2
         protected Texture2D projectileTextureSouthEast;
         protected Texture2D projectileTextureSouthWest;
 
+        protected SoundEffect hitMonster;
+
         protected bool shouldDraw = true;
         protected int damage = 33;
 
@@ -60,8 +62,6 @@ namespace Game2
 
 
         }
-
-
         
         public override bool intersects(GameObject other)
         {
@@ -71,9 +71,10 @@ namespace Game2
                 p.Health = p.Health - damage;
                 Debug.WriteLine("Monster hp: " + p.Health);
 
+                //hitMonster.CreateInstance().Play();
+
                 mediator.itemToBeDeleted.Add(this);
                
-                  
             }
 
             if (other is Wall || other is Door)
@@ -202,6 +203,8 @@ namespace Game2
                 Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_5");
             projectileTextureSouthEast =
                 Mediator.Game.Content.Load<Texture2D>("Projectiles/DefaultProjectiles/poison_arrow_3");
+
+            hitMonster = Mediator.Game.Content.Load<SoundEffect>("Sounds/Hit");
         }
 
         // creating a new rectangle for our projectile hitbox 

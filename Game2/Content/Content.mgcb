@@ -765,11 +765,23 @@
 /processorParam:Quality=Best
 /build:Sounds/AsBoost.wav
 
+#begin Sounds/Hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Hit.wav
+
 #begin Sounds/LevelUp.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sounds/LevelUp.wav
+
+#begin Sounds/MonsterDead.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/MonsterDead.wav
 
 #begin Sounds/MsBoost.wav
 /importer:WavImporter

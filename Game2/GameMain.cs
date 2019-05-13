@@ -33,12 +33,7 @@ namespace Game2
         private StartMenu startMenu;
         private GameOverMenu gameOverMenu;
     
-
-
-
-
-
-
+        
         public GameMain()
         { 
             graphics = new GraphicsDeviceManager(this);

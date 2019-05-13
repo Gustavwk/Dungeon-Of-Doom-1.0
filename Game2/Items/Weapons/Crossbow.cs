@@ -27,7 +27,7 @@ namespace Game2
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             
-                spriteBatch.Draw(sprite, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White);
+            spriteBatch.Draw(sprite, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White);
             
         }
 
@@ -58,7 +58,7 @@ namespace Game2
         public override string ToString()
         {
             return "Crossbow";
-        }        
+        }
     }
 }
 

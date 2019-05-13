@@ -122,59 +122,46 @@ namespace Game2.Structures
             {
                 for (int j = 0; j <= uBound1; j++)
                 {
-                    if (level[i, j] == 2)
+                    switch (level[i, j])
                     {
-                        mediator.itemToBeAdded.Add(new LavaTile(x + unitCoord(i), y + unitCoord(j), 0, mediator));
+                        case 1:
+                            mediator.itemToBeAdded.Add(new Wall(x + unitCoord(i), y + unitCoord(j), mediator));
+                            break;
+                        case 2:
+                            mediator.itemToBeAdded.Add(new LavaTile(x + unitCoord(i), y + unitCoord(j), 0, mediator));
+                            break;
+                        case 3:
+                            mediator.itemToBeAdded.Add(new Crossbow(x + unitCoord(i), y + unitCoord(j), mediator));
+                            break;
+                        case 4:
+                            mediator.itemToBeAdded.Add(new MsBoost(x + unitCoord(i), y + unitCoord(j), mediator));
+                            break;
+                        case 5:
+                            mediator.itemToBeAdded.Add(new AsBoost(x + unitCoord(i), y + unitCoord(j), mediator));
+                            break;
+                        case 6:
+                            mediator.itemToBeAdded.Add(new HpBoost(60, x + unitCoord(i), y + unitCoord(j), mediator));
+                            break;
+                        case 7:
+                            mediator.itemToBeAdded.Add(new Creep.Creep(x + unitCoord(i), y + unitCoord(j), mediator));
+                            enemyCount++;
+                            break;
+                        case 8:
+                            mediator.itemToBeAdded.Add(new FrozenBow(x + unitCoord(i), y + unitCoord(j), mediator));
+                            break;
+                        case 9:
+                            mediator.itemToBeAdded.Add(new SimpleGun(x + unitCoord(i), y + unitCoord(j), mediator));
+                            break;
+                        case 10:
+                            mediator.itemToBeAdded.Add(new Wand(x + unitCoord(i), y + unitCoord(j), mediator));
+                            break;
+                        case 11:
+                            mediator.itemToBeAdded.Add(new Creeps.BossGhost(x + unitCoord(i), y + unitCoord(j), mediator));
+                            enemyCount++;
+                            break;
+                        default:
+                            break;
                     }
-
-                    if (level[i, j] == 4)
-                    {
-                        mediator.itemToBeAdded.Add(new MsBoost(x + unitCoord(i), y + unitCoord(j), mediator));
-                    }
-
-                    if (level[i, j] == 5)
-                    {
-                        mediator.itemToBeAdded.Add(new AsBoost(x + unitCoord(i), y + unitCoord(j), mediator));
-                    }
-
-                    if (level[i, j] == 6)
-                    {
-                        mediator.itemToBeAdded.Add(new HpBoost(60, x + unitCoord(i), y + unitCoord(j), mediator));
-                    }
-
-                    if (level[i, j] == 7)
-                    {
-                        mediator.itemToBeAdded.Add(new Creep.Creep(x + unitCoord(i), y + unitCoord(j), mediator));
-                        enemyCount++;
-                    }
-
-                    if (level[i, j] == 3)
-                    {
-                        mediator.itemToBeAdded.Add(new Crossbow(x + unitCoord(i), y + unitCoord(j), mediator));
-                    }
-
-                    if (level[i, j] == 1)
-                    {
-                        mediator.itemToBeAdded.Add(new Wall(x + unitCoord(i), y + unitCoord(j), mediator));
-                    }
-                    if (level[i, j] == 8)
-                    {
-                        mediator.itemToBeAdded.Add(new FrozenBow(x + unitCoord(i), y + unitCoord(j), mediator));
-                    }
-                    if (level[i, j] == 9)
-                    {
-                        mediator.itemToBeAdded.Add(new SimpleGun(x + unitCoord(i), y + unitCoord(j), mediator));
-                    }
-                    if (level[i, j] == 10)
-                    {
-                        mediator.itemToBeAdded.Add(new Wand(x + unitCoord(i), y + unitCoord(j), mediator));
-                    }
-                    if (level[i,j] == 11)
-                    {
-                        mediator.itemToBeAdded.Add(new Creeps.BossGhost(x + unitCoord(i), y + unitCoord(j), mediator));
-                        enemyCount++;
-                    }
-
                 }
             }
         }
@@ -260,8 +247,8 @@ namespace Game2.Structures
 
                 if (unitPosY == unitCoord(7))
                 {
-                    mediator.itemToBeAdded.Add(new Door(unitCoord(0), unitCoord(7), mediator, false));
-                    mediator.itemToBeAdded.Add(new Door(unitCoord(24), unitCoord(7), mediator, true));
+                    mediator.itemToBeAdded.Add(new Door(unitCoord(0), unitPosY, mediator, false));
+                    mediator.itemToBeAdded.Add(new Door(unitCoord(24), unitPosY, mediator, true));
                 }
 
                 else

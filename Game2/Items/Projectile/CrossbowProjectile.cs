@@ -9,12 +9,12 @@ using Game2.gameLogic;
 using Game2.Structures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Game2
 {
     class CrossbowProjectile : Projectile
     {
-
 
         public CrossbowProjectile(int x, int y, Direction direction, Mediator mediator) : base(x, y, direction,
             mediator)
@@ -33,6 +33,7 @@ namespace Game2
             this.projectileTextureNorthWest = Mediator.Game.Content.Load<Texture2D>("Projectiles/CrossbowProjectiles/arrow_7");
             this.projectileTextureSouthEast = Mediator.Game.Content.Load<Texture2D>("Projectiles/CrossbowProjectiles/arrow_3");
             this.projectileTextureSouthWest = Mediator.Game.Content.Load<Texture2D>("Projectiles/CrossbowProjectiles/arrow_5");
+            
         }
 
         

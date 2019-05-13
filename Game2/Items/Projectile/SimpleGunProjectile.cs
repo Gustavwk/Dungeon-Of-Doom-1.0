@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using Game2;
 using Game2.gameLogic;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Game2
 {
     class SimpleGunProjectile : Projectile
     {
+
         public SimpleGunProjectile(int x, int y, Direction direction, Mediator mediator) : base(x, y, direction, mediator)
         {
             this.Damage = 75;
@@ -25,6 +27,7 @@ namespace Game2
             this.projectileTextureNorthWest = null;
             this.projectileTextureSouthEast = null;
             this.projectileTextureSouthWest = null;
+
         }
 
     }

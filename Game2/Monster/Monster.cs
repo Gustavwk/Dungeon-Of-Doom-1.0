@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Game2.gameLogic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Game2.Creeps
 {
@@ -22,11 +23,17 @@ namespace Game2.Creeps
         protected bool stuckInWall;
         protected Vector2 previousPosition;
         protected int bounceBack = 4;
+        protected SoundEffect dead;
         
 
         public Monster(int x, int y, Mediator mediator) : base(mediator, x, y)
         {
             
+        }
+
+        public override void Load()
+        {
+            dead = Mediator.Game.Content.Load<SoundEffect>("Sounds/MonsterDead");
         }
 
         public void setX(int x)
@@ -48,7 +55,7 @@ namespace Game2.Creeps
             if (health <= 0)
             {
                 alive = false;
-
+                //dead.Play(); //Virker ikke pt.
 
             }
 
@@ -57,6 +64,7 @@ namespace Game2.Creeps
                 mediator.player.Kills++;
                 mediator.room.EnemyCount--;
                 mediator.itemToBeDeleted.Add(this);
+                
                 
             }
             else
