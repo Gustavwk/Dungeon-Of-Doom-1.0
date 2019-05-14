@@ -25,27 +25,7 @@ namespace Game2.Creep
         }
 
 
-        public override bool intersects(GameObject other)
-        {
-            if (other is Player.Player)
-            {
-                mediator.player.health = mediator.player.health - 1;
-                
-                Debug.WriteLine("player health " + mediator.player.health);              
-                return true;
-            }
-
-           
-
-            if (other is Wall || other is Creep && other != this)
-            {
-                stuckInWall = true;
-                return true;
-                
-            }
-
-            return false;
-        }
+        
 
         public override void Load()
         {

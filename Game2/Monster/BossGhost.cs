@@ -100,6 +100,7 @@ namespace Game2.Creeps
 
         public override void move()
         {
+            
             if (this.X < mediator.player.getX())
             {
                 this.prevX = this.X;
