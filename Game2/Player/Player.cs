@@ -40,6 +40,14 @@ namespace Game2.Player
         private bool hurting = false;
         private Direction direction;
         private int kills = 0;
+        private int levelsCompleted;
+
+        public int LevelsCompleted
+        {
+            get => levelsCompleted;
+            set => levelsCompleted = value;
+        }
+        
 
         public bool Hurting
         {
@@ -199,6 +207,9 @@ namespace Game2.Player
 
             if (isDead())
             {
+             // mediator.gameOverMenu.PlayerKills = mediator.player.kills;
+             mediator.gameOverMenu.player = this;
+             mediator.gameOverMenu.stats();
               mediator.State.State = GameState.GAMEOVER;
             }
 

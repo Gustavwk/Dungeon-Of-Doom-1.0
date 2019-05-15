@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game2.Menus.Controls;
 using Game2.Menus.States;
 using Game2.Structures;
 
@@ -16,6 +17,7 @@ namespace Game2.gameLogic
         public List<GameObject> itemToBeAddedButDrawnLast { get; }
         public List<GameObject> itemToBeDeleted { get; }
         public ActualGameState State { get;set; }
+        public GameOverMenu gameOverMenu { get; set; }
 
         public Player.Player player { get; }
         public Room room { get; set; }
@@ -29,6 +31,7 @@ namespace Game2.gameLogic
             this.player = player;
             this.room = room;
             this.State = actual;
+            
         }
     }
 }

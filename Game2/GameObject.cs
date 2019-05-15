@@ -30,6 +30,18 @@ namespace Game2
         {
             
         }
+
+        public int x
+        {
+            get => X;
+            set => X = value;
+        }
+
+        public int y
+        {
+            get => Y;
+            set => Y = value;
+        }
         public GameObject(Mediator mediator, int x, int y)
         {
             this.mediator = mediator;

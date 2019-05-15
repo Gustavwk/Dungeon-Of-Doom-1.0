@@ -49,6 +49,7 @@ namespace Game2
             allObjects.Add(new HUD(800,100, mediator));
             startMenu = new StartMenu(800,580,mediator,gameTime);
             gameOverMenu = new GameOverMenu(800,580,mediator,gameTime);
+            mediator.gameOverMenu = gameOverMenu;
 
             graphics.PreferredBackBufferHeight = 580;
             graphics.ApplyChanges();

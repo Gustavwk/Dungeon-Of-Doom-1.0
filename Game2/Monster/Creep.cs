@@ -16,12 +16,13 @@ namespace Game2.Creep
     class Creep : Monster
     {
         private Texture2D creepPicture;
-  
-     
+
+
         public Creep(int x, int y, Mediator mediator) : base(x,y, mediator)
         {
-            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
             this.priority = 6;
+
+            
         }
 
 
@@ -38,13 +39,14 @@ namespace Game2.Creep
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
 
-
             if (shouldDraw)
             {
                 spriteBatch.Draw(creepPicture, hitbox, Color.White);
             }
 
            
+
+
 
 
         }

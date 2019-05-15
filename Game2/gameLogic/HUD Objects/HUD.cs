@@ -31,7 +31,7 @@ namespace Game2.gameLogic
         public void initHUDBackground()
         {
             Random random = new Random();
-
+            
             for (int i = 0; i < this.X; i+=unit)
             {
                     for (int j = 0; j < this.Y; j += unit)
@@ -48,8 +48,9 @@ namespace Game2.gameLogic
             this.unitsAvailableX = this.X / this.unit;
             this.unitsAvailableY = this.Y / this.unit;
 
+            
             initHUDBackground();
-
+            
         }
 
 

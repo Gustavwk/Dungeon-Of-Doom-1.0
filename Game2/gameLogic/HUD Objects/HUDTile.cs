@@ -26,6 +26,7 @@ namespace Game2.gameLogic.HUD_Objects
         public HUDTile(int X, int Y, int loopCount, Mediator mediator) : base(X,Y,loopCount,mediator)
         {
             show = loopCount;
+            this.priority = 0;
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)

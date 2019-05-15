@@ -77,7 +77,8 @@ namespace Game2.Structures
                 Player.Player p = (Player.Player)other;
                 if (this.isOpen == true)
                 {
-                    soundEffect.CreateInstance().Play();  
+                    soundEffect.CreateInstance().Play();
+                    p.LevelsCompleted++;
                     foreach (var gameObject in mediator.AllObjects)
                     {
                         if (gameObject is Player.Player || gameObject is HUDTile ||

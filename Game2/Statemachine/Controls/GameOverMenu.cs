@@ -15,22 +15,36 @@ namespace Game2.Menus.Controls
     {
         private SpriteFont spriteFont;
         private Color textColor = Color.LightYellow;
+        private int playerKills;
+
+        public Player.Player player= new Player.Player(0,0);
+
+
+        public int PlayerKills
+        {
+            get => playerKills;
+            set => playerKills = value;
+        }
 
         public GameOverMenu(int x, int y, Mediator mediator, GameTime gameTime) : base(x, y, mediator, gameTime)
         {
-
-            MenuBackground();
-            stateObjects.Add(new TextField(50, 50, mediator, "YOU HAVE DIED", Color.Yellow));
-            stateObjects.Add(new TextField(50,100,mediator,"KILLS: " + mediator.player.Kills,Color.Yellow));
-            stateObjects.Add(new TextField(50, 100, mediator,"" + mediator.player.Weapon, Color.Yellow));
-            stateObjects.Add(new TextField(50, 200, mediator, "" + mediator.player.Hurting, Color.Yellow));
-            stateObjects.Add(new PlayButton(400,400,mediator,"PLAY"));
-            stateObjects.Add(new Cursor());
-
+            
+            
         }
 
         public void stats()
         {
+            
+            stateObjects.Clear();
+            MenuBackground();
+            stateObjects.Add(new TextField(50, 50, this.mediator, "YOU HAVE DIED", Color.Yellow));
+            stateObjects.Add(new TextField(50, 100, this.mediator, "KILLS: " + player.Kills, Color.Yellow));
+            stateObjects.Add(new TextField(50, 150, this.mediator, "LEVELS COMPLETED: " + player.LevelsCompleted, Color.Yellow));
+
+
+            stateObjects.Add(new Cursor());
         }
+
+       
     }
 }

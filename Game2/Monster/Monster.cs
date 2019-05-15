@@ -31,7 +31,8 @@ namespace Game2.Creeps
 
         public Monster(int x, int y, Mediator mediator) : base(mediator, x, y)
         {
-            
+            this.hitbox = new Rectangle(X, Y, WIDTH, HEIGHT);
+
         }
 
         public override void Load()
@@ -55,6 +56,10 @@ namespace Game2.Creeps
         }
         public override void Update(GameTime gameTime)
         {
+            Debug.WriteLine(stuck);
+            this.prevX = this.X;
+            this.prevY = this.Y;
+
             if (health <= 0)
             {
                 alive = false;
@@ -66,6 +71,7 @@ namespace Game2.Creeps
             {
                 mediator.player.Kills++;
                 mediator.room.EnemyCount--;
+                mediator.gameOverMenu.PlayerKills = mediator.player.Kills;
                 mediator.itemToBeDeleted.Add(this);
                 
                 
@@ -97,8 +103,10 @@ namespace Game2.Creeps
 
             if (other is Wall || other is Creep.Creep && other != this)
             {
-                
-                stuck = true;
+
+                this.X = prevX;
+                this.Y = prevY;
+                //stuck = true;
                 return true;
 
             }
@@ -112,10 +120,10 @@ namespace Game2.Creeps
         {
              
 
-            if (!stuck)
-            {
-                this.prevX = this.X;
-                this.prevY = this.Y;
+           // if (!stuck)
+           // {
+               
+
                 if (this.X < mediator.player.getX())
                 {
                  
@@ -153,19 +161,18 @@ namespace Game2.Creeps
                     this.Y = this.Y - this.movementspeed;
                 }
 
-            }
-            else
+          //  }
+         /*   else
             {
 
 
 
                 stuck = false;
-                this.prevX = this.X;
-                this.prevY = this.Y;
+                
                 if (prevX < this.X)
                 {
                    
-                    this.prevX = this.X;
+                   
                    
                     this.X = this.X - bounceBack;
                     
@@ -200,7 +207,11 @@ namespace Game2.Creeps
                 }
 
 
-            }
+            }*/
+
+         
         }
+
+       
     }
 }
