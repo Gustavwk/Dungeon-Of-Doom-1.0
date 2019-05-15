@@ -41,6 +41,35 @@ namespace Game2.Player
         private Direction direction;
         private int kills = 0;
         private int levelsCompleted;
+        private int overallDamgeTaken;
+        private int overallDamegeDone;
+        private int overallHealingDone;
+        private int projectilesFired;
+
+        public int OverallDamegeDone
+        {
+            get => overallDamegeDone;
+            set => overallDamegeDone = value;
+        }
+
+        public int OverallDamgeTaken
+        {
+            get => overallDamgeTaken;
+            set => overallDamgeTaken = value;
+        }
+
+        public int OverallHealingDone
+        {
+            get => overallHealingDone;
+            set => overallHealingDone = value;
+        }
+
+        public int ProjectilesFired
+        {
+            get => projectilesFired;
+            set => projectilesFired = value;
+        }
+        
 
         public int LevelsCompleted
         {
@@ -226,6 +255,7 @@ namespace Game2.Player
                 
                 if ( lastShot > cooldown)
                 {
+                    projectilesFired++;
                     lastShot = 0;
 
                     if (weapon != null)

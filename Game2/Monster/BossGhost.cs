@@ -145,8 +145,9 @@ namespace Game2.Creeps
             if (other is Player.Player)
             {
                 mediator.player.health = mediator.player.health - 2;
+                mediator.player.OverallDamgeTaken = mediator.player.OverallDamgeTaken + 2;
 
-                
+
                 return true;
             }
             return true;

@@ -69,7 +69,11 @@ namespace Game2
             if (other is Monster)
             {
                 Monster p = (Monster)other;
+
                 p.Health = p.Health - damage;
+
+                mediator.player.OverallDamegeDone += damage;
+
                 Debug.WriteLine("Monster hp: " + p.Health);
                 
                 hitMonster.CreateInstance().Play();

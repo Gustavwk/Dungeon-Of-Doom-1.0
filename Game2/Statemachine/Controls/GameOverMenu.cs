@@ -38,8 +38,12 @@ namespace Game2.Menus.Controls
             stateObjects.Clear();
             MenuBackground();
             stateObjects.Add(new TextField(50, 50, this.mediator, "YOU HAVE DIED", Color.Yellow));
-            stateObjects.Add(new TextField(50, 100, this.mediator, "KILLS: " + player.Kills, Color.Yellow));
-            stateObjects.Add(new TextField(50, 150, this.mediator, "LEVELS COMPLETED: " + player.LevelsCompleted, Color.Yellow));
+            stateObjects.Add(new TextField(50, 150, this.mediator, "KILLS: " + player.Kills, Color.Yellow));
+            stateObjects.Add(new TextField(50, 200, this.mediator, "LEVELS COMPLETED: " + player.LevelsCompleted, Color.Yellow));
+            stateObjects.Add(new TextField(50, 250, this.mediator, "HEALING DONE: " + player.OverallHealingDone, Color.Yellow));
+            stateObjects.Add(new TextField(50, 300, this.mediator, "DAMAGE TAKEN: " + player.OverallDamgeTaken, Color.Yellow));
+            stateObjects.Add(new TextField(50, 350, this.mediator, "DAMAGE DONE: " + player.OverallDamegeDone, Color.Yellow));
+            stateObjects.Add(new TextField(50, 400, this.mediator, "PROJECTILES FIRED: " + player.ProjectilesFired, Color.Yellow));
 
 
             stateObjects.Add(new Cursor());

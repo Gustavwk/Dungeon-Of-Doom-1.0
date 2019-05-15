@@ -58,7 +58,8 @@ namespace Game2
             {
                 
                             
-                mediator.player.health = mediator.player.health + hpPlus;               
+                mediator.player.health = mediator.player.health + hpPlus;
+                mediator.player.OverallHealingDone += hpPlus;
                 this.hitbox = Rectangle.Empty;
                 this.taken = true;
                 soundEffect.CreateInstance().Play();

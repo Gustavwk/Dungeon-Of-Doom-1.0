@@ -39,8 +39,9 @@ namespace Game2
                 {
                    
                     mediator.player.health = mediator.player.health - 1;
-                
-                  
+                    mediator.player.OverallDamgeTaken = mediator.player.OverallDamgeTaken + 1;
+
+
                 }
             }
             return true;
