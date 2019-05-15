@@ -104,10 +104,10 @@ namespace Game2.Creeps
 
             if (other is Wall || other is Creep.Creep && other != this)
             {
-
+            
                 this.X = prevX;
                 this.Y = prevY;
-                //stuck = true;
+             
                 return true;
 
             }
@@ -119,99 +119,48 @@ namespace Game2.Creeps
 
 
         {
-             
+            
 
-           // if (!stuck)
-           // {
-               
-
-                if (this.X < mediator.player.getX())
-                {
-                 
-
-                    this.direction = Direction.EAST;
-                    this.X = this.X + this.movementspeed;
-                   
-                    
-                }
-
-                if (this.Y < mediator.player.getY())
-                {
-                    
-
-                    this.direction = Direction.SOUTH;
-                    this.Y = this.Y + this.movementspeed;
-                }
-
-                if (this.X > mediator.player.getX())
-                {
+            if (this.X < mediator.player.getX())
+            {
 
 
-                    
-                    this.direction = Direction.WEST;
-                    this.X = this.X - this.movementspeed;
-                }
-
-                if (this.Y > mediator.player.getY())
-                {
+                this.direction = Direction.EAST;
+                this.X = this.X + this.movementspeed;
 
 
-                   
+            }
 
-                    this.direction = Direction.NORTH;
-                    this.Y = this.Y - this.movementspeed;
-                }
+            if (this.Y < mediator.player.getY())
+            {
 
-          //  }
-         /*   else
+
+                this.direction = Direction.SOUTH;
+                this.Y = this.Y + this.movementspeed;
+            }
+
+            if (this.X > mediator.player.getX())
             {
 
 
 
-                stuck = false;
-                
-                if (prevX < this.X)
-                {
-                   
-                   
-                   
-                    this.X = this.X - bounceBack;
-                    
+                this.direction = Direction.WEST;
+                this.X = this.X - this.movementspeed;
+            }
 
-                }
-
-                if (prevX > this.X)
-                {
-                    
-                  
-                    
-                    this.X = this.X + bounceBack;
-                   
-                }
-
-                if (prevY < this.Y)
-                {
-                   
-                 
-                   
-                    this.Y = this.Y - bounceBack;
-                    
-                }
-
-                if (prevY > this.Y)
-                {
-                   
-                    
-                    
-                    this.Y = this.Y + bounceBack;
-                    
-                }
+            if (this.Y > mediator.player.getY())
+            {
 
 
-            }*/
 
-         
-        }
+
+                this.direction = Direction.NORTH;
+                this.Y = this.Y - this.movementspeed;
+            }
+        
+
+
+    }
 
        
     }
