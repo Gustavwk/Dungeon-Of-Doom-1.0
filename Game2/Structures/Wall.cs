@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2.Structures
 {
-    class Wall : Structures
+    public class Wall : Structures
     {
         
         private Texture2D defaultWall;
@@ -25,6 +25,7 @@ namespace Game2.Structures
         public override void Load()
         {
            defaultWall = Mediator.Game.Content.Load<Texture2D>("wall/brick_gray_0");
+           
         }
 
 

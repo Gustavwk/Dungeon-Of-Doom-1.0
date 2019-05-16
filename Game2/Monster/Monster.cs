@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game2.Creeps
 {
-     abstract class Monster : GameObject
+     public abstract class Monster : GameObject
     {
        
         protected int movementspeed = 1;
@@ -27,7 +27,7 @@ namespace Game2.Creeps
         protected Vector2 previousPosition;
         protected int bounceBack = 3;
         protected SoundEffect dead;
-        protected Wall stuckWall;
+        
         protected Rectangle rallyPoint;
         protected Rectangle randomRallyPoint;
         protected int randomRallyPointCoord = 999;

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Schema;
+using Game2.Creeps;
 using Game2.gameLogic;
 using Game2.gameLogic.HUD_Objects;
 using Game2.Items.Weapons;
@@ -166,6 +167,10 @@ namespace Game2.Structures
                             break;
                         case 11:
                             mediator.itemToBeAdded.Add(new Creeps.BossGhost(x + unitCoord(i), y + unitCoord(j), mediator));
+                            enemyCount++;
+                            break;
+                        case 12:
+                            mediator.itemToBeAdded.Add(new Fiend(x + unitCoord(i), y + unitCoord(j), mediator));
                             enemyCount++;
                             break;
                         default:

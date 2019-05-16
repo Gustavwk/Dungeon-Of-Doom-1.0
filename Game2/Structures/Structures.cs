@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2.Structures
 {
-    abstract class Structures : GameObject
+    public abstract class Structures : GameObject
     {
         protected Room room;
         protected int unit = 32;
