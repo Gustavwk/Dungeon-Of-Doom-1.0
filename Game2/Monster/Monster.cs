@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using Game2.gameLogic;
@@ -27,11 +28,18 @@ namespace Game2.Creeps
         protected int bounceBack = 3;
         protected SoundEffect dead;
         protected Wall stuckWall;
+        protected Rectangle rallyPoint;
+        protected Rectangle randomRallyPoint;
+        protected int randomRallyPointCoord = 999;
         
 
         public Monster(int x, int y, Mediator mediator) : base(mediator, x, y)
         {
+            Random random = new Random();
             this.hitbox = new Rectangle(X, Y, WIDTH, HEIGHT);
+            this.rallyPoint = new Rectangle(X,Y,WIDTH,HEIGHT);
+            this.randomRallyPoint = new Rectangle(X+ random.Next(-randomRallyPointCoord, randomRallyPointCoord), Y+ random.Next(-randomRallyPointCoord, randomRallyPointCoord), HEIGHT,WIDTH);
+            
 
         }
 
@@ -74,7 +82,7 @@ namespace Game2.Creeps
           
 
             
-            move();
+            moveTo(mediator.player);
 
 
 
@@ -103,25 +111,59 @@ namespace Game2.Creeps
 
             if (other is Wall || other is Creep.Creep && other != this)
             {
-            
-                this.X = prevX;
-                this.Y = prevY;
-             
-                return true;
+                Random random = new Random();
+                moveTo(rallyPoint);
 
+                if (other is Creep.Creep && other != this)
+                {
+                    moveTo(randomRallyPoint);
+                    this.randomRallyPoint.X = this.X + random.Next(-randomRallyPointCoord, randomRallyPointCoord);
+                    this.randomRallyPoint.Y = this.Y + random.Next(-randomRallyPointCoord, randomRallyPointCoord);
+                    
+                }
+
+                return true;
             }
 
             return false;
         }
 
-        public virtual void move()
+        private void moveTo(Rectangle where)
+        {
+            if (this.X < where.X)
+            {
+                this.direction = Direction.EAST;
+                this.X = this.X + this.movementspeed;
+            }
+
+            if (this.Y < where.Y)
+            {
+                this.direction = Direction.SOUTH;
+                this.Y = this.Y + this.movementspeed;
+            }
+
+            if (this.X > where.X)
+            {
+                this.direction = Direction.WEST;
+                this.X = this.X - this.movementspeed;
+            }
+
+            if (this.Y > where.Y)
+            {
+                this.direction = Direction.NORTH;
+                this.Y = this.Y - this.movementspeed;
+            }
+        }
+
+        public virtual void moveTo(Player.Player where)
 
 
         {
             this.hitbox.X = X;
             this.hitbox.Y = Y;
+            
 
-            if (this.X < mediator.player.getX())
+            if (this.X < where.getX())
             {
 
 
@@ -131,7 +173,7 @@ namespace Game2.Creeps
 
             }
 
-            if (this.Y < mediator.player.getY())
+            if (this.Y < where.getY())
             {
 
 
@@ -139,7 +181,7 @@ namespace Game2.Creeps
                 this.Y = this.Y + this.movementspeed;
             }
 
-            if (this.X > mediator.player.getX())
+            if (this.X > where.getX())
             {
 
 
@@ -148,7 +190,7 @@ namespace Game2.Creeps
                 this.X = this.X - this.movementspeed;
             }
 
-            if (this.Y > mediator.player.getY())
+            if (this.Y > where.getY())
             {
 
 

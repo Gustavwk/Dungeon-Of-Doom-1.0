@@ -16,7 +16,7 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game2
 {
-    class Projectile : GameObject, IProjectile
+    public class Projectile : GameObject, IProjectile
     {
         protected Texture2D projectileTextureLeft;
         protected Texture2D projectileTextureUp;

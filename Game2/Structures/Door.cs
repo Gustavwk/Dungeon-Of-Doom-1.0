@@ -79,18 +79,7 @@ namespace Game2.Structures
                 {
                     soundEffect.CreateInstance().Play();
                     p.LevelsCompleted++;
-                    foreach (var gameObject in mediator.AllObjects)
-                    {
-                        if (gameObject is Player.Player || gameObject is HUDTile ||
-                              gameObject is HUD)
-                        {
-                           // do nothing
-                        }
-                        else
-                        {
-                            mediator.itemToBeDeleted.Add(gameObject);
-                        }
-                    }
+                  
                     
                     p.setX(unitCoord(1));
                     p.setY(unitCoord(7));

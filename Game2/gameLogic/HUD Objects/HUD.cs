@@ -81,6 +81,25 @@ namespace Game2.gameLogic
             spriteBatch.DrawString(spriteFont, "Enemies in Room: " + mediator.room.EnemyCount, new Vector2(unit * 16, 480),
                 textColor);
             DisplayDmg(spriteBatch);
+            if (mediator.player.BloodRush)
+            {
+
+                spriteBatch.DrawString(spriteFont, "STATUS: BLOOD RUSH", new Vector2(unit * 12, 480 + (unit*2)),
+                    Color.Red);
+
+            }
+            else if (mediator.player.Hybris)
+            {
+                spriteBatch.DrawString(spriteFont, "STATUS: HYBRIS" , new Vector2(unit * 12, 480 + (unit*2)),
+                    Color.Yellow);
+            }
+            else
+            {
+                spriteBatch.DrawString(spriteFont, "STATUS:", new Vector2(unit * 12, 480 + (unit * 2)),
+                    textColor);
+
+            }
+
         }
 
         private void DisplayDmg(SpriteBatch spriteBatch)

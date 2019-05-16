@@ -5,17 +5,19 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Dynamic;
+using System.Runtime.CompilerServices;
+using System.Security.Policy;
 using System.Threading;
 using Game2.gameLogic;
 using Game2.Items;
 using Game2.Menus.States;
+using Game2.Statemachine;
 using Game2.Structures;
 using Microsoft.Xna.Framework.Audio;
 
 namespace Game2.Player
 {
-
-    class Player : GameObject, IMoveable
+    public class Player : GameObject, IMoveable
 
     {
         
@@ -45,6 +47,23 @@ namespace Game2.Player
         private int overallDamegeDone;
         private int overallHealingDone;
         private int projectilesFired;
+        private int maxHp = 500;
+        private int bloodRushHp = 25;
+        private bool bloodRush = false;
+        private bool hybris = false;
+        private TextField bloodRushText;
+
+        public bool Hybris
+        {
+            get => hybris;
+            set => hybris = value;
+        }
+
+        public bool BloodRush
+        {
+            get => bloodRush;
+            set => bloodRush = value;
+        }
 
         public int OverallDamegeDone
         {
@@ -233,6 +252,29 @@ namespace Game2.Player
             movement();
             shooting(gameTime);
 
+
+            if (health > maxHp)
+            {
+                hybris = true;
+                bloodRush = false;
+                this.movementspeed = 1;
+                this.health--;
+
+            }
+            else if (health < bloodRushHp)
+            {
+                hybris = false;
+                bloodRush = true;
+                this.movementspeed = 3;
+                this.cooldown = 250;
+            }
+            else
+            {
+                hybris = false;
+                bloodRush = false;
+                this.movementspeed = 2;
+                this.cooldown = 500;
+            }
 
             if (isDead())
             {

@@ -7,14 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Schema;
 using Game2.gameLogic;
+using Game2.gameLogic.HUD_Objects;
 using Game2.Items.Weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2.Structures
 {
-
-    class Room : GameObject
+    public class Room : GameObject
     {
         //800 x 480 pixels er vores nuværende x og y - dette kan sikkert gøres mere scalable
         private int unit = 32;                                    //Den fælles sidelænge på det wall-billede vi bruger!
@@ -60,6 +60,15 @@ namespace Game2.Structures
 
         public void initRandomLevel()
         {
+            foreach (var gameObject in mediator.AllObjects)
+            {
+                if (!(gameObject is Player.Player || gameObject is HUDTile ||
+                    gameObject is HUD))
+                {
+                    mediator.itemToBeDeleted.Add(gameObject);
+                }
+               
+            }
             Level level = new Level();
             Random random = new Random();
 

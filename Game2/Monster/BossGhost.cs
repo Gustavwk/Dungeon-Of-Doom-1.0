@@ -29,7 +29,8 @@ namespace Game2.Creeps
             this.hitbox = new Rectangle(this.X, this.Y, 64, 64);
             this.priority = 10;
             this.health = 250;
-            
+            this.WIDTH = 24;
+            this.HEIGHT = 24;
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -97,13 +98,13 @@ namespace Game2.Creeps
 
             dead = Mediator.Game.Content.Load<SoundEffect>("Sounds/MonsterDead");
         }
-
-        public override void move()
+       
+        public override void moveTo(Player.Player player)
         {
             this.hitbox.X = X;
             this.hitbox.Y = Y;
 
-            if (this.X < mediator.player.getX())
+            if (this.X < player.getX())
             {
                 this.prevX = this.X;
 
@@ -112,7 +113,7 @@ namespace Game2.Creeps
                
             }
 
-            if (this.Y < mediator.player.getY())
+            if (this.Y <player.getY())
             {
                 this.prevY = this.Y;
 
@@ -120,7 +121,7 @@ namespace Game2.Creeps
                 this.Y = this.Y + this.movementspeed;
             }
 
-            if (this.X > mediator.player.getX())
+            if (this.X > player.getX())
             {
 
 
@@ -130,7 +131,7 @@ namespace Game2.Creeps
                 this.X = this.X - this.movementspeed;
             }
 
-            if (this.Y > mediator.player.getY())
+            if (this.Y > player.getY())
             {
 
 
