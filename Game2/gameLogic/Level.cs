@@ -167,7 +167,21 @@ namespace Game2.gameLogic
 
         #region Level array template
         /*
-         *  int[,] level = new int[,]
+         *
+         * 0 = Ingenting
+         * 1 = wall
+         * 2 = lavatile
+         * 3 = crossbow
+         * 4 = movementspeed boost
+         * 5 = attack speed boost
+         * 6 = Hp boost
+         * 7 = Creep
+         * 8 = FrozenBow
+         * 9 = SimpleGun
+         * 10 = Wand
+         * 11 = BossGhost
+         *
+         * int[,] level = new int[,]
             {
 
                 {0,0,0,0,0,0,0,0,0,0,0,0,0},
