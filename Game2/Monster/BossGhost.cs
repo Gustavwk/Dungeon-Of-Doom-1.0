@@ -26,7 +26,7 @@ namespace Game2.Creeps
 
         public BossGhost(int x, int y, Mediator mediator) : base( x, y, mediator)
         {
-            this.hitbox = new Rectangle(this.X, this.Y, 96, 96);
+            this.hitbox = new Rectangle(this.X, this.Y, 64, 64);
             this.priority = 10;
             this.health = 250;
             
@@ -100,7 +100,9 @@ namespace Game2.Creeps
 
         public override void move()
         {
-            
+            this.hitbox.X = X;
+            this.hitbox.Y = Y;
+
             if (this.X < mediator.player.getX())
             {
                 this.prevX = this.X;

@@ -69,24 +69,23 @@ namespace Game2.Creeps
 
             if (!alive)
             {
-                mediator.player.Kills++;
-                mediator.room.EnemyCount--;
-                mediator.gameOverMenu.PlayerKills = mediator.player.Kills;
-                mediator.itemToBeDeleted.Add(this);
-                
-                
+                Die();
             }
-            else
-            {
-                this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
-            }
+          
 
-            this.previousPosition.X = prevX;
-            this.previousPosition.Y = prevY;
+            
             move();
 
 
 
+        }
+
+        private void Die()
+        {
+            mediator.player.Kills++;
+            mediator.room.EnemyCount--;
+            mediator.gameOverMenu.PlayerKills = mediator.player.Kills;
+            mediator.itemToBeDeleted.Add(this);
         }
 
         public override bool intersects(GameObject other)
@@ -119,7 +118,8 @@ namespace Game2.Creeps
 
 
         {
-            
+            this.hitbox.X = X;
+            this.hitbox.Y = Y;
 
             if (this.X < mediator.player.getX())
             {
