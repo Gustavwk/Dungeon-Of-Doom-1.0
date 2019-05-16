@@ -9,7 +9,7 @@ using Game2.Structures;
 
 namespace Game2.gameLogic
 {
-    class Mediator
+    public class Mediator
     {
         public static GameMain Game { get; set; }
         public List<GameObject> AllObjects { get; }

@@ -14,7 +14,7 @@ using IUpdateable = Game2.gameLogic.IUpdateable;
 
 namespace Game2
 {
-    abstract class GameObject : IMediator, IUpdateable, IDrawable, ICollideable, IComparable
+    public abstract class GameObject : IMediator, IUpdateable, IDrawable, ICollideable, IComparable
     {
         private Texture2D defaultSprite;
         public Rectangle hitbox;
