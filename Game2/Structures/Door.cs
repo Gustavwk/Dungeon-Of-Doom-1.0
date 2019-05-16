@@ -50,14 +50,7 @@ namespace Game2.Structures
             }
         }
 
-        public bool removeRoom(List<GameObject> items)
-        {
-            foreach (GameObject item in items)
-            {
-                items.Remove(item);
-            }
-            return true;
-        }
+       
 
 
         public int levelUp(List<GameObject> itemToBeAdded)
