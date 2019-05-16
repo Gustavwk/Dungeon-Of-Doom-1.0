@@ -30,7 +30,7 @@ namespace Game2.Menus.Controls
                 isHovered = true;
                 if (currentMouseState.LeftButton == ButtonState.Released && prevMouse.LeftButton == ButtonState.Pressed)
                 {
-                    
+                     
                 }
             }
         }
