@@ -15,7 +15,9 @@ namespace Game2.Creep
 {
     class Creep : Monster
     {
-        private Texture2D creepPicture;
+        private Texture2D creepPictureRight;
+        private Texture2D creepPictureLeft;
+        private Texture2D creepPictureBack;
 
 
         public Creep(int x, int y, Mediator mediator) : base(x,y, mediator)
@@ -30,7 +32,9 @@ namespace Game2.Creep
 
         public override void Load()
         {
-            creepPicture = Mediator.Game.Content.Load<Texture2D>("Creeps/big_kobold_new");
+            creepPictureRight = Mediator.Game.Content.Load<Texture2D>("Creeps/big_kobold_new");
+            creepPictureLeft = Mediator.Game.Content.Load<Texture2D>("Creeps/big_kobold_new");
+            creepPictureBack = Mediator.Game.Content.Load<Texture2D>("Creeps/big_kobold_new");
 
             dead = Mediator.Game.Content.Load<SoundEffect>("Sounds/CreepDead");
         }
@@ -39,11 +43,7 @@ namespace Game2.Creep
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
 
-            if (shouldDraw)
-            {
-                spriteBatch.Draw(creepPicture, hitbox, Color.White);
-            }
-
+           DrawAccordingToStats(spriteBatch);
            
 
 
@@ -53,7 +53,32 @@ namespace Game2.Creep
 
 
 
+        private void DrawAccordingToStats(SpriteBatch spriteBatch)
+        {
 
+            {
+                if (this.direction == Direction.EAST)
+                {
+                    spriteBatch.Draw(creepPictureRight, hitbox, Color.White);
+                }
+
+                if (this.direction == Direction.NORTH)
+                {
+                    spriteBatch.Draw(creepPictureBack, hitbox, Color.White);
+                }
+
+                if (this.direction == Direction.WEST)
+                {
+                    spriteBatch.Draw(creepPictureLeft, hitbox, Color.White);
+                }
+
+                if (this.direction == Direction.SOUTH)
+                {
+                    spriteBatch.Draw(creepPictureRight, hitbox, Color.White);
+                }
+            }
+
+        }
 
 
     }
