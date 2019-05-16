@@ -20,7 +20,8 @@ namespace Game2.Creeps
         public Fiend(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
             this.Health = 30;
-            this.movementspeed = 2;
+            this.movementspeed = 1;
+            this.priority = 8;
         }
 
         public override void Load()
@@ -50,6 +51,7 @@ namespace Game2.Creeps
 
         public override void moveTo(Player.Player @where)
         {
+           
             this.hitbox.X = X;
             this.hitbox.Y = Y;
 
