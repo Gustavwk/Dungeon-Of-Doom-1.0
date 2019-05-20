@@ -22,7 +22,7 @@ namespace Game2
         SpriteBatch spriteBatch;
         private List<GameObject> allObjects = new List<GameObject>();
         private List<GameObject> itemsToBeAdded = new List<GameObject>();
-        private List<GameObject> itemsToBeAddedButDrawnFirst = new List<GameObject>();
+        
         private List<GameObject> itemsToBeDeleted = new List<GameObject>();
         private ActualGameState gameState = new ActualGameState(GameState.MENU);
         private GameTime gameTime;
@@ -41,7 +41,7 @@ namespace Game2
             room = new Room(800, 480, mediator);
             Mediator.Game = this;
             Content.RootDirectory = "Content";
-            mediator = new Mediator(allObjects, itemsToBeAdded, itemsToBeDeleted, itemsToBeAddedButDrawnFirst, player, room,gameState);           
+            mediator = new Mediator(allObjects, itemsToBeAdded, itemsToBeDeleted, player, room,gameState);           
             room.mediator = mediator;
             room.initRandomLevel();  
             itemsToBeAdded.Add(player);
@@ -160,15 +160,11 @@ namespace Game2
                 gameObject.Load();
             }
 
-            foreach (var gameObject in itemsToBeAddedButDrawnFirst)
-            {
-                gameObject.Load();
-            }
-
-            allObjects.AddRange(itemsToBeAddedButDrawnFirst);
+           
+            
             allObjects.AddRange(itemsToBeAdded);
             itemsToBeAdded.Clear();
-            itemsToBeAddedButDrawnFirst.Clear();
+          
 
             foreach (var gameObject in itemsToBeDeleted)
             {
