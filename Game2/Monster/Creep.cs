@@ -13,7 +13,7 @@ using Game2.Player;
 using Microsoft.Xna.Framework.Audio;
 namespace Game2.Creep
 {
-    class Creep : Monster
+    public class Creep : Monster
     {
         private Texture2D creepPictureRight;
         private Texture2D creepPictureLeft;
