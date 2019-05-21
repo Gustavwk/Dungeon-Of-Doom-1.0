@@ -15,7 +15,9 @@ namespace Game2.Items
         protected Projectile projectile;
         private Texture2D sprite;
         protected SoundEffect pickUp;
+        protected SoundEffect shoot;
         protected bool taken = false;
+ 
 
         public Projectile Projectile
         {
@@ -35,6 +37,8 @@ namespace Game2.Items
         {
 
         }
+
+        
 
         public virtual void PlayPickUp()
         {

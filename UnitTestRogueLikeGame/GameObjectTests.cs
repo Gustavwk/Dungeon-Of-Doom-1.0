@@ -14,6 +14,7 @@ using Game2.Items.Weapons;
 using Game2.Menus.Controls;
 using Game2.Menus.States;
 using Game2.Structures;
+using Items;
 
 namespace Game2.Tests
 {
@@ -42,6 +43,11 @@ namespace Game2.Tests
         private LavaTile testLaveTile;
         private Door testDoor;
         private Room testRoom;
+        private CrossbowProjectile CBProjectile;
+        private SimpleGunProjectile SGProjectile;
+        private WandProjectile WProjectile;
+        private FrozenBowProjectile FBProjectile;
+       
 
 
 
@@ -69,6 +75,10 @@ namespace Game2.Tests
             testWand = new Wand(200, 200, testMediator);
             testLaveTile = new LavaTile(200,200,5,testMediator);
             testDoor = new Door(200,200,testMediator,true);
+            FBProjectile = new FrozenBowProjectile(200,200,Direction.NORTH,testMediator);
+            WProjectile = new WandProjectile(200, 200, Direction.NORTH, testMediator);
+            SGProjectile = new SimpleGunProjectile(200, 200, Direction.NORTH, testMediator);
+            CBProjectile = new CrossbowProjectile(200, 200, Direction.NORTH, testMediator);
 
 
         }
@@ -160,9 +170,9 @@ namespace Game2.Tests
             Assert.IsTrue(testLaveTile.hitbox.Intersects(testPlayer.hitbox));
             testLaveTile.LastStir = 500;
             testLaveTile.intersects(testPlayer);
-            int expected = testPlayer.health;
-            int actual = 99;
-            Assert.AreEqual(expected, actual);
+            int expectedHp = testPlayer.health;
+            int actualHp = 99;
+            Assert.AreEqual(expectedHp, actualHp);
 
 
         }
@@ -182,9 +192,7 @@ namespace Game2.Tests
         [TestMethod()]
         public void CreepIntersectWall()
         {
-            Assert.IsTrue(testMonster.hitbox.Intersects(testWall.hitbox));
-            
-
+            Assert.IsTrue(testMonster.hitbox.Intersects(testWall.hitbox));         
         }
 
         [TestMethod()]
@@ -192,6 +200,45 @@ namespace Game2.Tests
         {
             Assert.IsTrue(testMonster.hitbox.Intersects(testMonster2.hitbox));
 
+        }
+
+        [TestMethod()]
+        public void CreepIntersectCBProjectil()
+        {
+            Assert.IsTrue(CBProjectile.hitbox.Intersects(testMonster.hitbox));
+            int expectedHp = testMonster.Health - CBProjectile.Damage;
+            CBProjectile.intersects(testMonster);
+            int actualHp = testMonster.Health;
+            Assert.AreEqual(expectedHp,actualHp);
+
+        }
+        [TestMethod()]
+        public void CreepIntersectWProjectil()
+        {
+            Assert.IsTrue(WProjectile.hitbox.Intersects(testMonster.hitbox));
+            int expectedHp = testMonster.Health - WProjectile.Damage;
+            WProjectile.intersects(testMonster);
+            int actualHp = testMonster.Health;
+            Assert.AreEqual(expectedHp, actualHp);
+        }
+        [TestMethod()]
+        public void CreepIntersectFBProjectil()
+        {
+            Assert.IsTrue(FBProjectile.hitbox.Intersects(testMonster.hitbox));
+            int expectedHp = testMonster.Health - FBProjectile.Damage;
+            FBProjectile.intersects(testMonster);
+            int actualHp = testMonster.Health;
+            Assert.AreEqual(expectedHp, actualHp);
+        }
+
+        [TestMethod()]
+        public void CreepIntersectSGProjectil()
+        {
+            Assert.IsTrue(SGProjectile.hitbox.Intersects(testMonster.hitbox));
+            int expectedHp = testMonster.Health - SGProjectile.Damage;
+            SGProjectile.intersects(testMonster);
+            int actualHp = testMonster.Health;
+            Assert.AreEqual(expectedHp, actualHp);
         }
 
 

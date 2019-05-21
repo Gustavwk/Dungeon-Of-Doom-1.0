@@ -51,6 +51,7 @@ namespace Game2
 
         protected const int actualHEIGHT = 1;
         protected const int actualWIDTH = 1;
+        protected bool hasHit = false;
 
 
 
@@ -68,6 +69,7 @@ namespace Game2
         {
             if (other is Monster)
             {
+                hasHit = true;
                 Monster p = (Monster)other;
 
                 p.Health = p.Health - damage;
@@ -75,8 +77,7 @@ namespace Game2
                 mediator.player.OverallDamegeDone += damage;
 
                 Debug.WriteLine("Monster hp: " + p.Health);
-                
-                hitMonster.CreateInstance().Play();
+              
 
                 mediator.itemToBeDeleted.Add(this);
                
@@ -90,15 +91,28 @@ namespace Game2
             }
             return true;
         }
-
         
+
+        private void playShot()
+        {
+            hitMonster.CreateInstance().Play();
+        }
+
+
         public override void Update(GameTime gameTime)
         {
             MoveProjectile();
 
 
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
-        }
+
+            if (hasHit)
+            {
+                playShot();
+                hasHit = false;
+            }
+        
+    }
 
         public void MoveProjectile()
         {

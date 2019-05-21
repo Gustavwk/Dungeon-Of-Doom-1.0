@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game2
 {
-    class WandProjectile : Projectile
+   public class WandProjectile : Projectile
     {
         SoundEffect shoot;
 

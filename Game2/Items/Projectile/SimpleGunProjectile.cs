@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game2
 {
-    class SimpleGunProjectile : Projectile
+   public class SimpleGunProjectile : Projectile
     {
 
         public SimpleGunProjectile(int x, int y, Direction direction, Mediator mediator) : base(x, y, direction, mediator)
