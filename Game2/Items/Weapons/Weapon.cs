@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Game2.gameLogic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2.Items
@@ -13,6 +14,8 @@ namespace Game2.Items
     {
         protected Projectile projectile;
         private Texture2D sprite;
+        protected SoundEffect pickUp;
+        protected bool taken = false;
 
         public Projectile Projectile
         {
@@ -32,5 +35,15 @@ namespace Game2.Items
         {
 
         }
+
+        public virtual void PlayPickUp()
+        {
+            if (taken)
+            {
+                pickUp.CreateInstance().Play();
+                taken = false;
+            }
+        }
+
     }
 }

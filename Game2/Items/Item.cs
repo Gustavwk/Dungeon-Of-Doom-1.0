@@ -12,6 +12,7 @@ namespace Game2
 {
     public abstract class Item : GameObject
     {
+        protected bool playSoundBool = false;
 
         public Item(int x, int y, Mediator mediator) :base (mediator,x,y)
         {

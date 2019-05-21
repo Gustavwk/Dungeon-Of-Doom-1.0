@@ -11,11 +11,11 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game2.Items.Weapons
 {
-    
-    class FrozenBow : Weapon
+
+    public class FrozenBow : Weapon
     {
         private Texture2D sprite;
-        private SoundEffect pickupFrozenBow;
+      
         private SoundEffect shoot;
 
         public FrozenBow(int x, int y, Mediator mediator) : base(x, y, mediator)
@@ -40,10 +40,15 @@ namespace Game2.Items.Weapons
             mediator.itemToBeAdded.Add(frozenBowProjectile);
         }
 
+        public override void Update(GameTime gameTime)
+        {
+            PlayPickUp();
+        }
+
         public override void Load()
         {
             sprite = Mediator.Game.Content.Load<Texture2D>("Items/Weapons/urand_piercer_new");
-            pickupFrozenBow = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupFrozenBow");
+            pickUp = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupFrozenBow");
             shoot = Mediator.Game.Content.Load<SoundEffect>("Sounds/FrozenBow");
         }
 
@@ -51,9 +56,10 @@ namespace Game2.Items.Weapons
         {
             if (other is Player.Player)
             {
+                taken = true;
                 mediator.player.Weapon = new FrozenBow(0, 0, mediator);
                 mediator.itemToBeDeleted.Add(this);
-                pickupFrozenBow.CreateInstance().Play();
+               
             }
             return true;
         }

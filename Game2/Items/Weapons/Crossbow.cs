@@ -12,10 +12,10 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game2
 {
-    class Crossbow : Weapon
+    public class Crossbow : Weapon
     {
         private Texture2D sprite;
-        private SoundEffect pickupCrossbow;
+       
         private SoundEffect shoot;       
 
 
@@ -43,7 +43,7 @@ namespace Game2
         public override void Load()
         {
             sprite = Mediator.Game.Content.Load<Texture2D>("items/crossbow_1");
-            pickupCrossbow = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupCrossbow");
+            pickUp = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupCrossbow");
             shoot = Mediator.Game.Content.Load<SoundEffect>("Sounds/CrossBow");
         }
 
@@ -51,11 +51,17 @@ namespace Game2
         {
             if (other is Player.Player)
             {
+                taken = true;
                 mediator.player.Weapon = new Crossbow(0,0,mediator);
                 mediator.itemToBeDeleted.Add(this);
-                pickupCrossbow.CreateInstance().Play();
+                
             }
             return true;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            PlayPickUp();
         }
 
         public override string ToString()

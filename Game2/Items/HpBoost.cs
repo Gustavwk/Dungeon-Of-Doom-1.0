@@ -13,14 +13,15 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game2
 {
-    class HpBoost : Item
+    public class HpBoost : Item
     {
 
         private Texture2D filledHpPotion;
         private Texture2D emptyHpPotion;
         private int hpPlus;
         private bool taken = false;
-        private SoundEffect soundEffect;
+       
+        
 
 
 
@@ -36,7 +37,10 @@ namespace Game2
 
             if (taken)
             {
-              spriteBatch.Draw(emptyHpPotion, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White); //Kunne de to new rectangles ikke være hitboxen i stedet?
+               
+
+
+                spriteBatch.Draw(emptyHpPotion, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White); //Kunne de to new rectangles ikke være hitboxen i stedet?
             }
             else
             {
@@ -44,6 +48,8 @@ namespace Game2
             }
             
         }
+
+        
 
         public override void Load()
         {
@@ -56,22 +62,35 @@ namespace Game2
         {
             if (other is Player.Player)
             {
-                
-                            
+
+                playSoundBool = true;          
                 mediator.player.health = mediator.player.health + hpPlus;
                 mediator.player.OverallHealingDone += hpPlus;
                 this.hitbox = Rectangle.Empty;
                 this.taken = true;
-                soundEffect.CreateInstance().Play();
+           
 
             }
             return true;
         }
+        
+        public override void playSound()
+        {
+            
+            soundEffect.CreateInstance().Play();
+        }
 
         public override void Update(GameTime gameTime)
         {
-           
+            if (playSoundBool)
+            {
+                playSound();
+                playSoundBool = false;
+            }
+
         }
+
+      
     }
 }
 

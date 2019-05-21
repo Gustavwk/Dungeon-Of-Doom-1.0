@@ -24,6 +24,8 @@ namespace Game2
         protected int HEIGHT = 32;
         protected SoundEffect effect;
         protected int priority = 2;
+        protected bool yelled;
+        protected SoundEffect soundEffect;
         public Mediator mediator { get; set; }
 
         public GameObject()
@@ -100,6 +102,13 @@ namespace Game2
             if (this.priority > gameObject.priority) { rtn = +1; }
             return rtn;
         }
+
+        public virtual void playSound()
+        {
+            
+        }
+
+        
     }
 }
 

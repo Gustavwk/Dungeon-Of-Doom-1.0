@@ -7,14 +7,15 @@ using Game2.gameLogic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
+using IUpdateable = Game2.gameLogic.IUpdateable;
 
 namespace Game2.Items.Weapons
 {
-    class Wand : Weapon 
+    public class Wand : Weapon 
     {
         private Texture2D sprite;
         private SoundEffect shoot;
-        private SoundEffect pickupWand;
+        
 
         public Wand(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
@@ -30,7 +31,7 @@ namespace Game2.Items.Weapons
         {
             sprite = Mediator.Game.Content.Load<Texture2D>("Items/Weapons/spwpn_staff_of_dispater_new");
             shoot = Mediator.Game.Content.Load<SoundEffect>("Sounds/Wand");
-            pickupWand = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupWand");
+            pickUp = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupWand");
         }
 
         public override void fire(int x, int y, Direction direction)
@@ -45,15 +46,25 @@ namespace Game2.Items.Weapons
 
         public override bool intersects(GameObject other)
         {
+            
+
             if (other is Player.Player)
             {
+                taken = true;
                 mediator.player.Weapon = new Wand(0, 0, mediator);
                 mediator.itemToBeDeleted.Add(this);
-                pickupWand.CreateInstance().Play();
+               
             }
 
             return true;
         }
+
+        public override void Update(GameTime gameTime)
+        {
+           PlayPickUp();
+        }
+
+        
 
         public override string ToString()
         {

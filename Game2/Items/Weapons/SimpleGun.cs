@@ -11,10 +11,10 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game2.Items.Weapons
 {
-    class SimpleGun : Weapon
+    public class SimpleGun : Weapon
     {
         private Texture2D sprite;
-        private SoundEffect pickupSimpleGun;
+        
         private SoundEffect shoot;
 
         public SimpleGun(int x, int y, Mediator mediator) : base(x, y, mediator)
@@ -39,19 +39,27 @@ namespace Game2.Items.Weapons
         public override void Load()
         {
             sprite = Mediator.Game.Content.Load<Texture2D>("Items/Weapons/urand_blowgun");
-            pickupSimpleGun = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupSimpleGun");
+            pickUp = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupSimpleGun");
             shoot = Mediator.Game.Content.Load<SoundEffect>("Sounds/SimpleGun");
         }
+
+      
 
         public override bool intersects(GameObject other)
         {
             if (other is Player.Player)
             {
+                taken = true;
                 mediator.player.Weapon = new SimpleGun(0, 0, mediator);
                 mediator.itemToBeDeleted.Add(this);
-                pickupSimpleGun.CreateInstance().Play();
+               
             }
             return true;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            PlayPickUp();
         }
 
         public override string ToString()

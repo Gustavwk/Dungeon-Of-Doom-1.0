@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2
 {
-    class LavaTile : Tiles
+   public class LavaTile : Tiles
     {
         private Texture2D spriteOne;
         private Texture2D spriteTwo;
@@ -22,6 +22,11 @@ namespace Game2
         private double lastStir = 0;
         private int cooldown = 600;
 
+        public double LastStir
+        {
+            get => lastStir;
+            set => lastStir = value;
+        }
         
 
         public LavaTile(int X, int Y, int loopCount, Mediator mediator) : base(X, Y, loopCount, mediator)

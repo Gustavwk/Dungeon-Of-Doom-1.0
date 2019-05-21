@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game2
 {
-    class MsBoost : Item, IPowerUp
+    public class MsBoost : Item, IPowerUp
     {
         private Texture2D filledPotion;
         private Texture2D emptyPotion;
@@ -19,7 +19,13 @@ namespace Game2
         private bool taken = false;
         private double duration = 250;
         private int speedBoost = 4;
-        private SoundEffect soundEffect;
+
+        public int SpeedBoost
+        {
+            get => speedBoost;
+            set => speedBoost = value;
+        }
+        
 
         public MsBoost(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
@@ -30,6 +36,7 @@ namespace Game2
         {
             if (taken)
             {
+              
                 spriteBatch.Draw(emptyPotion, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White); //Kunne de to new rectangles ikke være hitboxen i stedet?
             }
             else
@@ -42,6 +49,11 @@ namespace Game2
         public override void Update(GameTime gameTime)
         {
             EffectForDuration();
+            if (playSoundBool)
+            {
+                playSound();
+                playSoundBool = false;
+            }
         }
 
 
@@ -83,13 +95,18 @@ namespace Game2
         {
             if (other is Player.Player)
             {
-               
 
+                playSoundBool = true;
                 taken = true;
                 active = true;
                 this.hitbox = Rectangle.Empty;
-                soundEffect.CreateInstance().Play();
+                
             }
+        }
+
+        public override void playSound()
+        {
+            soundEffect.CreateInstance().Play();
         }
     }
 }

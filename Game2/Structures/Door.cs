@@ -12,13 +12,14 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game2.Structures 
 {
-    class Door : Structures
+   public class Door : Structures
     {
         private Texture2D closedDoor;
         private Texture2D openDoor;
         private int level;
         private bool isOpen;
         private SoundEffect soundEffect;
+        private bool PlaySoundBool = false;
 
 
         public Door(int x, int y, Mediator mediator, bool isOpen) : base(mediator,x,y)
@@ -39,7 +40,13 @@ namespace Game2.Structures
 
         public override void Update(GameTime gameTime)
         {
+            if (PlaySoundBool)
+            {
+                soundEffect.CreateInstance().Play();
+                PlaySoundBool = false;
+            }
 
+            
             if (mediator.room.EnemyCount == 0)
             {
                 isOpen = true;
@@ -70,7 +77,7 @@ namespace Game2.Structures
                 Player.Player p = (Player.Player)other;
                 if (this.isOpen == true)
                 {
-                    soundEffect.CreateInstance().Play();
+                    PlaySoundBool = true;
                     p.LevelsCompleted++;
                   
                     

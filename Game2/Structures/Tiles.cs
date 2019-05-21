@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2.Structures
 {
-    class Tiles : Structures
+    public class Tiles : Structures
     {
         private Texture2D tilesPicOne;
         private Texture2D tilesPicTwo;
