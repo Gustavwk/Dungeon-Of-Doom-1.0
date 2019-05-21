@@ -171,7 +171,7 @@ namespace Game2.Tests
             testLaveTile.LastStir = 500;
             testLaveTile.intersects(testPlayer);
             int expectedHp = testPlayer.health;
-            int actualHp = 99;
+            int actualHp = testPlayer.health-1;
             Assert.AreEqual(expectedHp, actualHp);
 
 
