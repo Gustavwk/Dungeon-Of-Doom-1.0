@@ -135,8 +135,8 @@ namespace Game2
             {
                 if (player.hitbox.Intersects(gameObject.hitbox))
                 {
-                    player.intersects(gameObject);
-                    gameObject.intersects(player);
+                    player.Collision(gameObject);
+                    gameObject.Collision(player);
                 }
 
                 
@@ -144,7 +144,7 @@ namespace Game2
                 {
                     if (gameObject.hitbox.Intersects(otherGameObject.hitbox))
                     {
-                        gameObject.intersects(otherGameObject);
+                        gameObject.Collision(otherGameObject);
                     }
                 }
 

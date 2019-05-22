@@ -76,9 +76,6 @@ namespace Game2
 
                 mediator.player.OverallDamegeDone += damage;
 
-                Debug.WriteLine("Monster hp: " + p.Health);
-              
-
                 mediator.itemToBeDeleted.Add(this);
                
             }
