@@ -47,7 +47,7 @@ namespace Game2
             shoot = Mediator.Game.Content.Load<SoundEffect>("Sounds/CrossBow");
         }
 
-        public override bool intersects(GameObject other)
+        public override bool Collision(GameObject other)
         {
             if (other is Player.Player)
             {

@@ -101,7 +101,7 @@ namespace Game2.Tests
         public void PlayerIntersectsWithCreep()
         {
             Assert.IsTrue(testMonster.hitbox.Intersects(testPlayer.hitbox));
-            testMonster.intersects(testPlayer);
+            testMonster.Collision(testPlayer);
             int expected = testPlayer.health;
             int actual = 99;
             Assert.AreEqual(expected,actual);
@@ -113,7 +113,7 @@ namespace Game2.Tests
         {
             ExpectedHp = testPlayer.health + HpPlus;
             Assert.IsTrue(testHpBoost.hitbox.Intersects(testPlayer.hitbox));
-            testHpBoost.intersects(testPlayer);
+            testHpBoost.Collision(testPlayer);
             int actualHp = testPlayer.health; 
             Assert.AreEqual(ExpectedHp, actualHp);
           
@@ -123,7 +123,7 @@ namespace Game2.Tests
         public void PlayerPickUpMSBoost()
         {
             Assert.IsTrue(testMSBoost.hitbox.Intersects(testPlayer.hitbox));
-            testMSBoost.intersects(testPlayer);
+            testMSBoost.Collision(testPlayer);
             testMSBoost.EffectForDuration();
             int actualMs = testPlayer.movementspeed;      
             Assert.AreEqual(ExpectedMs, actualMs);
@@ -134,7 +134,7 @@ namespace Game2.Tests
         public void PlayerPickUpWand()
         {
             Assert.IsTrue(testWand.hitbox.Intersects(testPlayer.hitbox));
-            testWand.intersects(testPlayer);
+            testWand.Collision(testPlayer);
             Assert.IsTrue(testPlayer.weapon is Wand);
 
         }
@@ -143,7 +143,7 @@ namespace Game2.Tests
         public void PlayerPickUpFrozenBow()
         {
             Assert.IsTrue(testBow.hitbox.Intersects(testPlayer.hitbox));
-            testBow.intersects(testPlayer);
+            testBow.Collision(testPlayer);
             Assert.IsTrue(testPlayer.weapon is FrozenBow);
         }
         [TestMethod()]
@@ -151,7 +151,7 @@ namespace Game2.Tests
         {
 
             Assert.IsTrue(testGun.hitbox.Intersects(testPlayer.hitbox));
-            testGun.intersects(testPlayer);
+            testGun.Collision(testPlayer);
             Assert.IsTrue(testPlayer.weapon is SimpleGun);
         }
 
@@ -159,7 +159,7 @@ namespace Game2.Tests
         public void PlayerPickUpCrossBow()
         {
             Assert.IsTrue(testCrossbow.hitbox.Intersects(testPlayer.hitbox));
-            testCrossbow.intersects(testPlayer);
+            testCrossbow.Collision(testPlayer);
             Assert.IsTrue(testPlayer.weapon is Crossbow);
 
         }
@@ -169,7 +169,7 @@ namespace Game2.Tests
         {
             Assert.IsTrue(testLaveTile.hitbox.Intersects(testPlayer.hitbox));
             testLaveTile.LastStir = 500;
-            testLaveTile.intersects(testPlayer);
+            testLaveTile.Collision(testPlayer);
             int expectedHp = testPlayer.health;
             int actualHp = testPlayer.health-1;
             Assert.AreEqual(expectedHp, actualHp);
@@ -183,7 +183,7 @@ namespace Game2.Tests
             Assert.IsTrue(testDoor.hitbox.Intersects(testPlayer.hitbox));
 
             int levelsExpectedToBeCompleted = testPlayer.LevelsCompleted + 1;
-            testDoor.intersects(testPlayer);
+            testDoor.Collision(testPlayer);
             int levelsActuallyCompleted = testPlayer.LevelsCompleted;
 
             Assert.AreEqual(levelsExpectedToBeCompleted,levelsActuallyCompleted);
@@ -207,7 +207,7 @@ namespace Game2.Tests
         {
             Assert.IsTrue(CBProjectile.hitbox.Intersects(testMonster.hitbox));
             int expectedHp = testMonster.Health - CBProjectile.Damage;
-            CBProjectile.intersects(testMonster);
+            CBProjectile.Collision(testMonster);
             int actualHp = testMonster.Health;
             Assert.AreEqual(expectedHp,actualHp);
 
@@ -217,7 +217,7 @@ namespace Game2.Tests
         {
             Assert.IsTrue(WProjectile.hitbox.Intersects(testMonster.hitbox));
             int expectedHp = testMonster.Health - WProjectile.Damage;
-            WProjectile.intersects(testMonster);
+            WProjectile.Collision(testMonster);
             int actualHp = testMonster.Health;
             Assert.AreEqual(expectedHp, actualHp);
         }
@@ -226,7 +226,7 @@ namespace Game2.Tests
         {
             Assert.IsTrue(FBProjectile.hitbox.Intersects(testMonster.hitbox));
             int expectedHp = testMonster.Health - FBProjectile.Damage;
-            FBProjectile.intersects(testMonster);
+            FBProjectile.Collision(testMonster);
             int actualHp = testMonster.Health;
             Assert.AreEqual(expectedHp, actualHp);
         }
@@ -236,7 +236,7 @@ namespace Game2.Tests
         {
             Assert.IsTrue(SGProjectile.hitbox.Intersects(testMonster.hitbox));
             int expectedHp = testMonster.Health - SGProjectile.Damage;
-            SGProjectile.intersects(testMonster);
+            SGProjectile.Collision(testMonster);
             int actualHp = testMonster.Health;
             Assert.AreEqual(expectedHp, actualHp);
         }

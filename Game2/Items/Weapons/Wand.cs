@@ -44,7 +44,7 @@ namespace Game2.Items.Weapons
         }
 
 
-        public override bool intersects(GameObject other)
+        public override bool Collision(GameObject other)
         {
             
 

@@ -143,7 +143,7 @@ namespace Game2.Creeps
         }
         
 
-        public override bool intersects(GameObject other)
+        public override bool Collision(GameObject other)
         {
             if (other is Player.Player)
             {

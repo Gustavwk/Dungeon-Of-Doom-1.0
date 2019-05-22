@@ -52,7 +52,7 @@ namespace Game2.Items.Weapons
             shoot = Mediator.Game.Content.Load<SoundEffect>("Sounds/FrozenBow");
         }
 
-        public override bool intersects(GameObject other)
+        public override bool Collision(GameObject other)
         {
             if (other is Player.Player)
             {

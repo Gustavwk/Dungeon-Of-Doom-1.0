@@ -32,9 +32,9 @@ namespace Game2.Creep
 
         public override void Load()
         {
-            creepPictureRight = Mediator.Game.Content.Load<Texture2D>("Creeps/big_kobold_new");
-            creepPictureLeft = Mediator.Game.Content.Load<Texture2D>("Creeps/big_kobold_new");
-            creepPictureBack = Mediator.Game.Content.Load<Texture2D>("Creeps/big_kobold_new");
+            creepPictureRight = Mediator.Game.Content.Load<Texture2D>("Creeps/mr.TwoHead/mr.twoheadRight");
+            creepPictureLeft = Mediator.Game.Content.Load<Texture2D>("Creeps/mr.TwoHead/mr.twoHeadLeft");
+            creepPictureBack = Mediator.Game.Content.Load<Texture2D>("Creeps/mr.TwoHead/mr.twoHeadBack");
 
             dead = Mediator.Game.Content.Load<SoundEffect>("Sounds/CreepDead");
         }

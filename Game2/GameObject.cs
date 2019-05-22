@@ -87,7 +87,7 @@ namespace Game2
         public void drawHitbox() { }
 
 
-        public virtual bool intersects(GameObject other)
+        public virtual bool Collision(GameObject other)
         {
             return true;
         }
