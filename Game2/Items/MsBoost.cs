@@ -85,7 +85,7 @@ namespace Game2
 
         }
 
-        public override bool intersects(GameObject other)
+        public override bool Collision(GameObject other)
         {
             PlayerInteraction(other);
             return true;

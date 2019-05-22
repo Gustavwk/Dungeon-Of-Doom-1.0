@@ -8,6 +8,6 @@ namespace Game2.gameLogic
 {
     interface ICollideable
     {
-        bool intersects(GameObject other);
+        bool Collision(GameObject other);
     }
 }

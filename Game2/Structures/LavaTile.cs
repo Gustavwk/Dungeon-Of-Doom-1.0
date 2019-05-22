@@ -34,7 +34,7 @@ namespace Game2
             this.priority = 1;
         }
 
-        public override bool intersects(GameObject other)
+        public override bool Collision(GameObject other)
         {
             if (other is Player.Player)
             {

@@ -96,7 +96,7 @@ namespace Game2.Creeps
             mediator.itemToBeDeleted.Add(this);
         }
 
-        public override bool intersects(GameObject other)
+        public override bool Collision(GameObject other)
         {
             if (other is Player.Player)
             {

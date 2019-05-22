@@ -58,7 +58,7 @@ namespace Game2
             soundEffect = Mediator.Game.Content.Load<SoundEffect>("Sounds/Powerup");
         }
 
-        public override bool intersects(GameObject other)
+        public override bool Collision(GameObject other)
         {
             if (other is Player.Player)
             {
