@@ -145,7 +145,7 @@
 /processorParam:TextureFormat=Color
 /build:Creeps/First_Creep.PNG
 
-#begin Creeps/mr.TwoHead/mr (1).png
+#begin Creeps/mr.TwoHead/mr.twoHeadBack.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -155,9 +155,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Creeps/mr.TwoHead/mr (1).png;Creeps/mr.TwoHead/mr.TwoHeadFront.png
+/build:Creeps/mr.TwoHead/mr.twoHeadBack.png
 
-#begin Creeps/mr.TwoHead/mr (2).png
+#begin Creeps/mr.TwoHead/mr.twoHeadLeft.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -167,7 +167,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Creeps/mr.TwoHead/mr (2).png;Creeps/mr.TwoHead/mr.TwoHeadBack.png
+/build:Creeps/mr.TwoHead/mr.twoHeadLeft.png
 
 #begin Creeps/mr.TwoHead/mr.twoheadRight.png
 /importer:TextureImporter
