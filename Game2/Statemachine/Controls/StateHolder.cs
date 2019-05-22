@@ -26,14 +26,7 @@ namespace Game2.Menus.Controls
             this.x = x;
             this.y = y;
         }
-
-        public List<GameObject> MenuObjects
-        {
-            get => stateObjects;
-            set => stateObjects = value;
-        }
         
-
         public void MenuBackground()
         {
             Random random = new Random();
@@ -46,15 +39,6 @@ namespace Game2.Menus.Controls
                 }
             }
         }
-        public void StateUpdate(GameTime gameTime, SpriteBatch spriteBatch)
-        {
-           
-            foreach (GameObject gameObject in stateObjects)
-            {
-                
-                gameObject.Update(gameTime);
-            }
-        }
 
         public virtual void stateDraw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -63,6 +47,20 @@ namespace Game2.Menus.Controls
                 gameObject.Load();
                 gameObject.Draw(spriteBatch, gameTime);
             }
+        }
+
+        public void StateUpdate(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            foreach (GameObject gameObject in stateObjects)
+            {
+                gameObject.Update(gameTime);
+            }
+        }
+
+        public List<GameObject> MenuObjects
+        {
+            get => stateObjects;
+            set => stateObjects = value;
         }
     }
 }

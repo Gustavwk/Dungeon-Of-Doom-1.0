@@ -20,6 +20,12 @@ namespace Game2.Structures
         {
             
         }
+
+        protected Structures(Mediator mediator, int x, int y) : base(mediator, x, y)
+        {
+
+        }
+
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
 
@@ -32,16 +38,7 @@ namespace Game2.Structures
 
         public override void Update(GameTime gameTime)
         {
-
-        }
-
-        public void setRoom(Room room)
-        {
-            //this.room = room;
-        }
-
-        protected Structures(Mediator mediator, int x, int y) : base(mediator,x,y)
-        {
+            base.Update(gameTime);
         }
     }
 }

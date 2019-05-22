@@ -15,41 +15,41 @@ namespace Game2
 {
     public class HpBoost : Item
     {
-
         private Texture2D filledHpPotion;
         private Texture2D emptyHpPotion;
         private int hpPlus;
         private bool taken = false;
-       
-        
-
-
 
         public HpBoost(int hpPlus, int x, int y, Mediator mediator) : base(x,y,mediator)
         {
             this.hpPlus = hpPlus;
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
+        }
 
+        public override bool Collision(GameObject other)
+        {
+            if (other is Player.Player)
+            {
+                playSoundBool = true;
+                mediator.player.health = mediator.player.health + hpPlus;
+                mediator.player.OverallHealingDone += hpPlus;
+                this.hitbox = Rectangle.Empty;
+                this.taken = true;
+            }
+            return true;
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-
             if (taken)
             {
-               
-
-
                 spriteBatch.Draw(emptyHpPotion, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White); //Kunne de to new rectangles ikke være hitboxen i stedet?
             }
             else
             {
                 spriteBatch.Draw(filledHpPotion, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White); //Kunne de to new rectangles ikke være hitboxen i stedet?
             }
-            
         }
-
-        
 
         public override void Load()
         {
@@ -58,25 +58,8 @@ namespace Game2
             soundEffect = Mediator.Game.Content.Load<SoundEffect>("Sounds/Powerup");
         }
 
-        public override bool Collision(GameObject other)
-        {
-            if (other is Player.Player)
-            {
-
-                playSoundBool = true;          
-                mediator.player.health = mediator.player.health + hpPlus;
-                mediator.player.OverallHealingDone += hpPlus;
-                this.hitbox = Rectangle.Empty;
-                this.taken = true;
-           
-
-            }
-            return true;
-        }
-        
         public override void playSound()
         {
-            
             soundEffect.CreateInstance().Play();
         }
 
@@ -87,10 +70,7 @@ namespace Game2
                 playSound();
                 playSoundBool = false;
             }
-
         }
-
-      
     }
 }
 

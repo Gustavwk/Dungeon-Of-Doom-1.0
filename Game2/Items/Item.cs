@@ -19,8 +19,6 @@ namespace Game2
             this.priority = 3;
         }
 
-
-
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             

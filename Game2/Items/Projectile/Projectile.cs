@@ -32,28 +32,15 @@ namespace Game2
 
         protected bool shouldDraw = true;
         protected int damage = 33;
-
         protected Direction direction;
-
-        public int Damage
-        {
-            get => damage;
-            set => damage = value;
-        }
-
-       
-
-        bool visible; // is the projectile visible
+        protected bool visible; // is the projectile visible
         protected int shootSpeed = 8; //the speed the projectile moves
 
         protected const int HEIGHT = 30;
         protected const int WIDTH = 30;
-
         protected const int actualHEIGHT = 1;
         protected const int actualWIDTH = 1;
         protected bool hasHit = false;
-
-
 
         public Projectile(int x, int y, Direction direction, Mediator mediator) : base(mediator, x, y)
         {
@@ -61,8 +48,6 @@ namespace Game2
             this.direction = direction;
             this.priority = 4;
             //spawn projectile alt efter direction hvis op, så lidt længere 
-
-
         }
         
         public override bool Collision(GameObject other)
@@ -71,66 +56,18 @@ namespace Game2
             {
                 hasHit = true;
                 Monster p = (Monster)other;
-
                 p.Health = p.Health - damage;
-
                 mediator.player.OverallDamegeDone += damage;
-
                 mediator.itemToBeDeleted.Add(this);
-               
             }
 
             if (other is Wall || other is Door)
             {
                 hitWall.CreateInstance().Play();
-
                 mediator.itemToBeDeleted.Add(this);
             }
             return true;
         }
-        
-
-        private void playShot()
-        {
-            hitMonster.CreateInstance().Play();
-        }
-
-
-        public override void Update(GameTime gameTime)
-        {
-            MoveProjectile();
-
-
-            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
-
-            if (hasHit)
-            {
-                playShot();
-                hasHit = false;
-            }
-        
-    }
-
-        public void MoveProjectile()
-        {
-            if (this.direction == Direction.NORTH)
-            {
-                Y -= shootSpeed;
-            }
-            else if (this.direction == Direction.SOUTH)
-            {
-                Y += shootSpeed;
-            }
-            else if (this.direction == Direction.EAST)
-            {
-                X += shootSpeed;
-            }
-            else if (this.direction == Direction.WEST)
-            {
-                X -= shootSpeed;
-            }
-        }
-
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
@@ -160,10 +97,14 @@ namespace Game2
             }
         }
 
-        public void preLoad()
+        // draws the hitbox of the projectile
+        public void drawHitbox(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            //skriv noget her som preloader xD
-            // preload til variable som man kan hente fra i runtime.
+            Texture2D texture = new Texture2D(projectileTextureLeft.GraphicsDevice, 1, 1);
+            texture.SetData(new Color[] { Color.Aqua });
+            spriteBatch.Draw(texture, hitbox, Color.White);
+
+            spriteBatch.Draw(projectileTextureLeft, hitbox, Color.White);
         }
 
         //loading our projectile image
@@ -182,23 +123,59 @@ namespace Game2
             hitWall = Mediator.Game.Content.Load<SoundEffect>("Sounds/HitWall");
         }
 
+        public void MoveProjectile()
+        {
+            if (this.direction == Direction.NORTH)
+            {
+                Y -= shootSpeed;
+            }
+            else if (this.direction == Direction.SOUTH)
+            {
+                Y += shootSpeed;
+            }
+            else if (this.direction == Direction.EAST)
+            {
+                X += shootSpeed;
+            }
+            else if (this.direction == Direction.WEST)
+            {
+                X -= shootSpeed;
+            }
+        }
+
+        private void playShot()
+        {
+            hitMonster.CreateInstance().Play();
+        }
+
+        public void preLoad()
+        {
+            //skriv noget her som preloader xD
+            // preload til variable som man kan hente fra i runtime.
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            MoveProjectile();
+            this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
+
+            if (hasHit)
+            {
+                playShot();
+                hasHit = false;
+            }
+         }
+
+        public int Damage
+        {
+            get => damage;
+            set => damage = value;
+        }
+
         // creating a new rectangle for our projectile hitbox 
         public Rectangle Rectangle
         {
             get { return new Rectangle(this.X, this.Y, projectileTextureLeft.Width, projectileTextureLeft.Height); }
         }
-
-        // draws the hitbox of the projectile
-
-        public void drawHitbox(SpriteBatch spriteBatch, GameTime gameTime)
-        {
-            Texture2D texture = new Texture2D(projectileTextureLeft.GraphicsDevice, 1, 1);
-            texture.SetData(new Color[] {Color.Aqua});
-            spriteBatch.Draw(texture, hitbox, Color.White);
-
-            spriteBatch.Draw(projectileTextureLeft, hitbox, Color.White);
-        }
-
-        
     }
 }

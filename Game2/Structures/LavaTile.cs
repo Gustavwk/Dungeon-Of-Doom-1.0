@@ -21,14 +21,7 @@ namespace Game2
         private int show;
         private double lastStir = 0;
         private int cooldown = 600;
-
-        public double LastStir
-        {
-            get => lastStir;
-            set => lastStir = value;
-        }
         
-
         public LavaTile(int X, int Y, int loopCount, Mediator mediator) : base(X, Y, loopCount, mediator)
         {
             this.priority = 1;
@@ -38,15 +31,10 @@ namespace Game2
         {
             if (other is Player.Player)
             {
-
-              
                 if (lastStir >= cooldown-100)
                 {
-                   
                     mediator.player.health = mediator.player.health - 1;
                     mediator.player.OverallDamgeTaken = mediator.player.OverallDamgeTaken + 1;
-
-
                 }
             }
             return true;
@@ -69,10 +57,6 @@ namespace Game2
             {
                 spriteBatch.Draw(spriteFour, hitbox, Color.White);
             }
-            
-            
-            
-           
         }
 
         public override void Load()
@@ -92,8 +76,12 @@ namespace Game2
                 show = random.Next(4);
                 lastStir = 0;
             }
-           
+        }
 
+        public double LastStir
+        {
+            get => lastStir;
+            set => lastStir = value;
         }
     }
 }

@@ -14,17 +14,28 @@ namespace Game2.Items.Weapons
     public class SimpleGun : Weapon
     {
         private Texture2D sprite;
-        
         private SoundEffect shoot;
 
         public SimpleGun(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
+
         }
+
+        public override bool Collision(GameObject other)
+        {
+            if (other is Player.Player)
+            {
+                taken = true;
+                mediator.player.Weapon = new SimpleGun(0, 0, mediator);
+                mediator.itemToBeDeleted.Add(this);
+            }
+            return true;
+        }
+
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             this.Projectile = new SimpleGunProjectile(0, 0, Direction.NORTH, mediator);
             spriteBatch.Draw(sprite, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White);
-
         }
 
         public override void fire(int x, int y, Direction direction)
@@ -43,28 +54,14 @@ namespace Game2.Items.Weapons
             shoot = Mediator.Game.Content.Load<SoundEffect>("Sounds/SimpleGun");
         }
 
-      
-
-        public override bool Collision(GameObject other)
+        public override string ToString()
         {
-            if (other is Player.Player)
-            {
-                taken = true;
-                mediator.player.Weapon = new SimpleGun(0, 0, mediator);
-                mediator.itemToBeDeleted.Add(this);
-               
-            }
-            return true;
+            return "Simple Gun";
         }
 
         public override void Update(GameTime gameTime)
         {
             PlayPickUp();
-        }
-
-        public override string ToString()
-        {
-            return "Simple Gun";
         }
     }
 }

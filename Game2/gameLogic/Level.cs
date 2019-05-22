@@ -12,13 +12,6 @@ namespace Game2.gameLogic
         private int level = 0;
         private int multiplier = 0;
         private List<int[,]> levelList = new List<int[,]>();
-
-        public int Multiplier
-        {
-            get => multiplier;
-            set => multiplier = value;
-        }
-
         public List<int[,]> LevelList => levelList;
 
         public Level()
@@ -43,15 +36,15 @@ namespace Game2.gameLogic
              * 11 = BossGhost
              */
 
-            int[,] FiendLevel  = new int[,]
+            int[,] FiendLevel = new int[,]
             {
-                {1, 0, 0, 12, 0, 12, 0, 0, 0, 0, 1, 1, 1},
-                {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-                {1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1},
-                {1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1},
-                {1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1},
-                {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-                {1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+                {1,0,0,12,0,12,0,0,0,0,1,1,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,1,0,0,0,0,1,0,0,0,1},
+                {1,0,0,1,1,1,0,1,1,1,0,0,1},
+                {1,0,0,1,0,0,0,0,1,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,1,1,0,0,0,0,0,0,0,0,0,1}
             };
 
             int[,] lavaLoot = new int[,]
@@ -108,7 +101,7 @@ namespace Game2.gameLogic
                 {0,0,0,0,0,0,6,0,0,0,0,0,0},
                 {7,0,0,0,0,0,0,0,0,0,0,0,7}
             };
-           
+
             int[,] lavaLake = new int[,]
             {
                 {2,2,2,2,2,2,2,2,2,2,2,2,2},
@@ -163,6 +156,7 @@ namespace Game2.gameLogic
                 {0,0,0,0,0,0,0,0,0,0,0,0,0},
                 {0,6,0,0,0,0,6,0,0,0,0,6,0}
             };
+
             levelList.Add(FiendLevel);
             levelList.Add(ScaryGhostLevel);
             levelList.Add(mazeLevel);
@@ -206,5 +200,11 @@ namespace Game2.gameLogic
             };
          */
         #endregion
+
+        public int Multiplier
+        {
+            get => multiplier;
+            set => multiplier = value;
+        }
     }
 }

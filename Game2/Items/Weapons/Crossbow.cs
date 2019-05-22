@@ -15,20 +15,27 @@ namespace Game2
     public class Crossbow : Weapon
     {
         private Texture2D sprite;
-       
         private SoundEffect shoot;       
-
 
         public Crossbow(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
             
         }
 
+        public override bool Collision(GameObject other)
+        {
+            if (other is Player.Player)
+            {
+                taken = true;
+                mediator.player.Weapon = new Crossbow(0, 0, mediator);
+                mediator.itemToBeDeleted.Add(this);
+            }
+            return true;
+        }
+
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            
             spriteBatch.Draw(sprite, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White);
-            
         }
 
         public override void fire(int x, int y, Direction direction)
@@ -47,26 +54,14 @@ namespace Game2
             shoot = Mediator.Game.Content.Load<SoundEffect>("Sounds/CrossBow");
         }
 
-        public override bool Collision(GameObject other)
+        public override string ToString()
         {
-            if (other is Player.Player)
-            {
-                taken = true;
-                mediator.player.Weapon = new Crossbow(0,0,mediator);
-                mediator.itemToBeDeleted.Add(this);
-                
-            }
-            return true;
+            return "Crossbow";
         }
 
         public override void Update(GameTime gameTime)
         {
             PlayPickUp();
-        }
-
-        public override string ToString()
-        {
-            return "Crossbow";
         }
     }
 }

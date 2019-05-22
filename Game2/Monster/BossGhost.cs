@@ -12,8 +12,6 @@ using Microsoft.Xna.Framework.Audio;
 namespace Game2.Creeps
 {
     class BossGhost : Monster
-
-
     {
         private Texture2D undamgedRight;
         private Texture2D undamgedLeft;
@@ -86,7 +84,6 @@ namespace Game2.Creeps
             }
         }
 
-
         public override void Load()
         {
             this.damgedLeft = Mediator.Game.Content.Load<Texture2D>("Creeps/Boss Ghost/boss ghost damaged");
@@ -107,41 +104,31 @@ namespace Game2.Creeps
             if (this.X < player.getX())
             {
                 this.prevX = this.X;
-
                 this.direction = Direction.EAST;
                 this.X = this.X + this.movementspeed;
-               
             }
 
             if (this.Y <player.getY())
             {
                 this.prevY = this.Y;
-
                 this.direction = Direction.SOUTH;
                 this.Y = this.Y + this.movementspeed;
             }
 
             if (this.X > player.getX())
             {
-
-
                 this.prevX = this.X;
-
                 this.direction = Direction.WEST;
                 this.X = this.X - this.movementspeed;
             }
 
             if (this.Y > player.getY())
             {
-
-
                 this.prevY = this.Y;
-
                 this.direction = Direction.NORTH;
                 this.Y = this.Y - this.movementspeed;
             }
         }
-        
 
         public override bool Collision(GameObject other)
         {
@@ -149,13 +136,12 @@ namespace Game2.Creeps
             {
                 mediator.player.health = mediator.player.health - 2;
                 mediator.player.OverallDamgeTaken = mediator.player.OverallDamgeTaken + 2;
-
-
                 return true;
             }
-            return true;
+            else
+            {
+                return false;
+            }
         }
-
     }
-   
 }

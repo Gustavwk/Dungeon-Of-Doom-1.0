@@ -32,66 +32,13 @@ namespace Game2
         {
             
         }
-
-        public int x
-        {
-            get => X;
-            set => X = value;
-        }
-
-        public int y
-        {
-            get => Y;
-            set => Y = value;
-        }
+        
         public GameObject(Mediator mediator, int x, int y)
         {
             this.mediator = mediator;
             this.X = x;
             this.Y = y;
         }
-
-        public virtual void Update(GameTime gameTime)
-        {
-           
-        }
-
-        public virtual void playEffect()
-        {
-            if (effect != null)
-            {
-                effect.Play();
-            }
-        }
-
-        public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
-        {
-            
-        }
-
-        public virtual void Load()
-        {
-           
-        }
-
-
-        public Rectangle Rectangle
-        {
-            get
-            {
-                return new Rectangle(this.X, this.Y, defaultSprite.Width, defaultSprite.Height); 
-
-            }
-        }
-
-        public void drawHitbox() { }
-
-
-        public virtual bool Collision(GameObject other)
-        {
-            return true;
-        }
-
 
         public int CompareTo(object obj)
         {
@@ -103,12 +50,63 @@ namespace Game2
             return rtn;
         }
 
-        public virtual void playSound()
+        public virtual bool Collision(GameObject other)
         {
-            
+            return true;
         }
 
+        public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+
+        }
+
+        public void drawHitbox()
+        {
+
+        }
+
+        public virtual void Load()
+        {
+
+        }
+
+        public virtual void playEffect()
+        {
+            if (effect != null)
+            {
+                effect.Play();
+            }
+        }
+
+        public virtual void playSound()
+        {
+
+        }
+
+        public virtual void Update(GameTime gameTime)
+        {
+           
+        }
         
+        public Rectangle Rectangle
+        {
+            get
+            {
+                return new Rectangle(this.X, this.Y, defaultSprite.Width, defaultSprite.Height); 
+            }
+        }
+        
+        public int x
+        {
+            get => X;
+            set => X = value;
+        }
+
+        public int y
+        {
+            get => Y;
+            set => Y = value;
+        }
     }
 }
 

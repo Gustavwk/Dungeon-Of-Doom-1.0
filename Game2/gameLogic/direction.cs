@@ -8,8 +8,6 @@ namespace Game2.gameLogic
 {
      public enum Direction
      {
-    
         NORTH, SOUTH, EAST, WEST
-    
      }
 }

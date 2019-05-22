@@ -8,7 +8,6 @@ namespace Game2.gameLogic
 {
     interface IPowerUp
     {
-      
         void PlayerInteraction(GameObject other);
         void EffectForDuration();
     }

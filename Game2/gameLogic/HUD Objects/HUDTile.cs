@@ -10,9 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Game2.gameLogic.HUD_Objects
 {
     class HUDTile : Tiles
-
     {
-
         private Texture2D backgroundOne;
         private Texture2D backgroundTwo;
         private Texture2D backgroundThree;
@@ -20,13 +18,16 @@ namespace Game2.gameLogic.HUD_Objects
         private Texture2D backgroundFive;
 
         private int show = 0;
-
-        public int Show;
        
         public HUDTile(int X, int Y, int loopCount, Mediator mediator) : base(X,Y,loopCount,mediator)
         {
             show = loopCount;
             this.priority = 0;
+        }
+
+        public override bool Collision(GameObject other)
+        {
+            return true;
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -53,11 +54,6 @@ namespace Game2.gameLogic.HUD_Objects
             }
         }
 
-        public override void Update(GameTime gameTime)
-        {
-          
-        }
-
         public override void Load()
         {
             backgroundOne = Mediator.Game.Content.Load<Texture2D>("HUD/etched_0");
@@ -67,9 +63,9 @@ namespace Game2.gameLogic.HUD_Objects
             backgroundFive = Mediator.Game.Content.Load<Texture2D>("HUD/etched_4");
         }
 
-        public override bool Collision(GameObject other)
+        public override void Update(GameTime gameTime)
         {
-            return true;
+          
         }
     }
 }

@@ -17,28 +17,16 @@ namespace Game2.Items
         protected SoundEffect pickUp;
         protected SoundEffect shoot;
         protected bool taken = false;
- 
-
-        public Projectile Projectile
-        {
-            get => projectile;
-            set => projectile = value;
-        }
 
         public Weapon(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
-
         }
-
-       
 
         public virtual void fire(int x, int y, Direction direction)
         {
 
         }
-
-        
 
         public virtual void PlayPickUp()
         {
@@ -49,5 +37,10 @@ namespace Game2.Items
             }
         }
 
+        public Projectile Projectile
+        {
+            get => projectile;
+            set => projectile = value;
+        }
     }
 }

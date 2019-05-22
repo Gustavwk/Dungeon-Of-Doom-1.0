@@ -19,43 +19,18 @@ namespace Game2.Creep
         private Texture2D creepPictureLeft;
         private Texture2D creepPictureBack;
 
-
         public Creep(int x, int y, Mediator mediator) : base(x,y, mediator)
         {
             this.priority = 6;
-
-            
         }
-
-
-        
-
-        public override void Load()
-        {
-            creepPictureRight = Mediator.Game.Content.Load<Texture2D>("Creeps/mr.TwoHead/mr.twoheadRight");
-            creepPictureLeft = Mediator.Game.Content.Load<Texture2D>("Creeps/mr.TwoHead/mr.twoHeadLeft");
-            creepPictureBack = Mediator.Game.Content.Load<Texture2D>("Creeps/mr.TwoHead/mr.twoHeadBack");
-
-            dead = Mediator.Game.Content.Load<SoundEffect>("Sounds/CreepDead");
-        }
-
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-
-           DrawAccordingToStats(spriteBatch);
-           
-
-
-
-
+            DrawAccordingToStats(spriteBatch);
         }
-
-
 
         private void DrawAccordingToStats(SpriteBatch spriteBatch)
         {
-
             {
                 if (this.direction == Direction.EAST)
                 {
@@ -77,10 +52,15 @@ namespace Game2.Creep
                     spriteBatch.Draw(creepPictureRight, hitbox, Color.White);
                 }
             }
-
         }
 
+        public override void Load()
+        {
+            creepPictureRight = Mediator.Game.Content.Load<Texture2D>("Creeps/mr.TwoHead/mr.twoheadRight");
+            creepPictureLeft = Mediator.Game.Content.Load<Texture2D>("Creeps/mr.TwoHead/mr.twoHeadLeft");
+            creepPictureBack = Mediator.Game.Content.Load<Texture2D>("Creeps/mr.TwoHead/mr.twoHeadBack");
 
+            dead = Mediator.Game.Content.Load<SoundEffect>("Sounds/CreepDead");
+        }
     }
-
 }

@@ -20,42 +20,28 @@ namespace Game2
         private double duration = 250;
         private int speedBoost = 4;
 
-        public int SpeedBoost
-        {
-            get => speedBoost;
-            set => speedBoost = value;
-        }
-        
-
         public MsBoost(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
             this.hitbox = new Rectangle(this.X, this.Y, WIDTH, HEIGHT);
+        }
+
+        public override bool Collision(GameObject other)
+        {
+            PlayerInteraction(other);
+            return true;
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             if (taken)
             {
-              
                 spriteBatch.Draw(emptyPotion, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White); //Kunne de to new rectangles ikke være hitboxen i stedet?
             }
             else
-
             {
                 spriteBatch.Draw(filledPotion, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White); //Kunne de to new rectangles ikke være hitboxen i stedet?
             }
         }
-
-        public override void Update(GameTime gameTime)
-        {
-            EffectForDuration();
-            if (playSoundBool)
-            {
-                playSound();
-                playSoundBool = false;
-            }
-        }
-
 
         public void EffectForDuration()
         {
@@ -68,7 +54,6 @@ namespace Game2
                 }
 
                 if (duration < 1)
-
                 {
                     active = false;
                     mediator.player.movementspeed = 2;
@@ -82,31 +67,38 @@ namespace Game2
             filledPotion = Mediator.Game.Content.Load<Texture2D>("items/Potions/yellow_old");
             emptyPotion = Mediator.Game.Content.Load<Texture2D>("items/white_old");
             soundEffect = Mediator.Game.Content.Load<SoundEffect>("SoundS/MsBoost");
-
-        }
-
-        public override bool Collision(GameObject other)
-        {
-            PlayerInteraction(other);
-            return true;
         }
 
         public void PlayerInteraction(GameObject other)
         {
             if (other is Player.Player)
             {
-
                 playSoundBool = true;
                 taken = true;
                 active = true;
                 this.hitbox = Rectangle.Empty;
-                
             }
         }
 
         public override void playSound()
         {
             soundEffect.CreateInstance().Play();
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            EffectForDuration();
+            if (playSoundBool)
+            {
+                playSound();
+                playSoundBool = false;
+            }
+        }
+
+        public int SpeedBoost
+        {
+            get => speedBoost;
+            set => speedBoost = value;
         }
     }
 }

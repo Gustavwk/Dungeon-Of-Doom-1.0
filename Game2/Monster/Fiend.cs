@@ -24,12 +24,17 @@ namespace Game2.Creeps
             this.priority = 8;
         }
 
-        public override void Load()
+        public override bool Collision(GameObject other)
         {
-            this.spriteLeft = Mediator.Game.Content.Load<Texture2D>("Creeps/Fiend/Fiend left");
-            this.spriteRight = Mediator.Game.Content.Load<Texture2D>("Creeps/Fiend/Fiend Right");
-            this.spriteBack = Mediator.Game.Content.Load<Texture2D>("Creeps/Fiend/Fiend back");
-            this.dead = Mediator.Game.Content.Load<SoundEffect>("Sounds/CreepDead");
+            if (other is Player.Player)
+            {
+                mediator.player.health--;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -38,64 +43,8 @@ namespace Game2.Creeps
             DrawAccordingToStats(spriteBatch);
         }
 
-        public override bool Collision(GameObject other)
-        {
-            if (other is Player.Player)
-            {
-                mediator.player.health--;
-                return true;
-            }
-
-            return false;
-        }
-
-        public override void moveTo(Player.Player @where)
-        {
-           
-            this.hitbox.X = X;
-            this.hitbox.Y = Y;
-
-            if (this.X < @where.getX())
-            {
-                this.prevX = this.X;
-
-                this.direction = Direction.EAST;
-                this.X = this.X + this.movementspeed;
-
-            }
-
-            if (this.Y < @where.getY())
-            {
-                this.prevY = this.Y;
-
-                this.direction = Direction.SOUTH;
-                this.Y = this.Y + this.movementspeed;
-            }
-
-            if (this.X > @where.getX())
-            {
-
-
-                this.prevX = this.X;
-
-                this.direction = Direction.WEST;
-                this.X = this.X - this.movementspeed;
-            }
-
-            if (this.Y > @where.getY())
-            {
-
-
-                this.prevY = this.Y;
-
-                this.direction = Direction.NORTH;
-                this.Y = this.Y - this.movementspeed;
-            }
-        }
-
         private void DrawAccordingToStats(SpriteBatch spriteBatch)
         {
-
             {
                 if (this.direction == Direction.EAST)
                 {
@@ -117,7 +66,48 @@ namespace Game2.Creeps
                     spriteBatch.Draw(spriteLeft, hitbox, Color.White);
                 }
             }
+        }
 
+        public override void Load()
+        {
+            this.spriteLeft = Mediator.Game.Content.Load<Texture2D>("Creeps/Fiend/Fiend left");
+            this.spriteRight = Mediator.Game.Content.Load<Texture2D>("Creeps/Fiend/Fiend Right");
+            this.spriteBack = Mediator.Game.Content.Load<Texture2D>("Creeps/Fiend/Fiend back");
+            this.dead = Mediator.Game.Content.Load<SoundEffect>("Sounds/CreepDead");
+        }
+
+        public override void moveTo(Player.Player @where)
+        {
+            this.hitbox.X = X;
+            this.hitbox.Y = Y;
+
+            if (this.X < @where.getX())
+            {
+                this.prevX = this.X;
+                this.direction = Direction.EAST;
+                this.X = this.X + this.movementspeed;
+            }
+
+            if (this.Y < @where.getY())
+            {
+                this.prevY = this.Y;
+                this.direction = Direction.SOUTH;
+                this.Y = this.Y + this.movementspeed;
+            }
+
+            if (this.X > @where.getX())
+            {
+                this.prevX = this.X;
+                this.direction = Direction.WEST;
+                this.X = this.X - this.movementspeed;
+            }
+
+            if (this.Y > @where.getY())
+            {
+                this.prevY = this.Y;
+                this.direction = Direction.NORTH;
+                this.Y = this.Y - this.movementspeed;
+            }
         }
     }
 }
