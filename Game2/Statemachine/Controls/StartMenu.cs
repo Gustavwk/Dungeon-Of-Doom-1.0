@@ -27,7 +27,7 @@ namespace Game2.Menus.Controls
         {
             MenuBackground();
 
-            stateObjects.Add(new TextField( 50, 100, mediator, "WELCOME TO THE GAME, HAS YET TO BE NAMED", Color.Yellow));
+            stateObjects.Add(new TextField( 50, 100, mediator, "WELCOME TO THE DUNGEON OF DOOM", Color.Yellow));
             stateObjects.Add(new PlayButton(400-100, 150,mediator,"Play"));
             stateObjects.Add(new ExitButton(400-100, 350, mediator, "Exit"));
             stateObjects.Add(new Cursor());
