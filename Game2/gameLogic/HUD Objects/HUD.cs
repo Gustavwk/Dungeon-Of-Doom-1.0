@@ -43,8 +43,6 @@ namespace Game2.gameLogic
             }
             else if (mediator.player.Weapon != null)
             {
-                //null pointer her - fucking irri
-                
                 spriteBatch.DrawString(spriteFont, "DMG " + mediator.player.weapon.Projectile.Damage, new Vector2(x, y), textColor);
             }
         }
