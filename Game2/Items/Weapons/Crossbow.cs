@@ -29,6 +29,7 @@ namespace Game2
                 taken = true;
                 mediator.player.Weapon = new Crossbow(0, 0, mediator);
                 mediator.itemToBeDeleted.Add(this);
+                mediator.player.weapon.Projectile = new CrossbowProjectile(x, y, Direction.NORTH, mediator);
             }
             return true;
         }

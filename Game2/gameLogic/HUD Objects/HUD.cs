@@ -44,9 +44,8 @@ namespace Game2.gameLogic
             else if (mediator.player.Weapon != null)
             {
                 //null pointer her - fucking irri
-
-                //Projectile cp = mediator.player.Weapon.Projectile;
-                //spriteBatch.DrawString(spriteFont, "DMG " + cp.Damage, new Vector2(x, y), textColor);
+                
+                spriteBatch.DrawString(spriteFont, "DMG " + mediator.player.weapon.Projectile.Damage, new Vector2(x, y), textColor);
             }
         }
 

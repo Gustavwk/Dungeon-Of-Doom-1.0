@@ -28,6 +28,7 @@ namespace Game2.Items.Weapons
                 taken = true;
                 mediator.player.Weapon = new Wand(0, 0, mediator);
                 mediator.itemToBeDeleted.Add(this);
+                mediator.player.weapon.Projectile = new WandProjectile(x, y, Direction.NORTH, mediator); 
             }
             return true;
         }
