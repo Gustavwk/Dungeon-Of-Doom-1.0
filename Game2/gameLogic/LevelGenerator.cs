@@ -47,5 +47,14 @@ namespace Game2.gameLogic
         {
             return generatedLevelSlice;
         }
+
+        public void swapElements(int[,] array, int ElementOneIndex, int ElementOneIndexTwo, int ElementTwoIndex, int ElementTwoIndexTwo)
+        {
+            int temp = array[ElementOneIndex, ElementOneIndexTwo];
+            array[ElementOneIndex, ElementOneIndexTwo] = array[ElementTwoIndex, ElementTwoIndexTwo];
+            array[ElementTwoIndex, ElementTwoIndexTwo] = temp;
+
+        }
+
     }
 }
