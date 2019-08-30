@@ -41,6 +41,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="gameLogic\LevelGenerator.cs" />
+    <Compile Include="Monster\Fiend.cs" />
     <Compile Include="Statemachine\Controls\StateHolder.cs" />
     <Compile Include="Statemachine\Controls\Cursor.cs" />
     <Compile Include="Statemachine\Controls\ExitButton.cs" />

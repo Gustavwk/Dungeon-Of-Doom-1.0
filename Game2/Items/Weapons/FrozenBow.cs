@@ -11,22 +11,31 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game2.Items.Weapons
 {
-    
-    class FrozenBow : Weapon
+
+    public class FrozenBow : Weapon
     {
         private Texture2D sprite;
-        private SoundEffect pickupFrozenBow;
         private SoundEffect shoot;
 
         public FrozenBow(int x, int y, Mediator mediator) : base(x, y, mediator)
         {
+
         }
 
-        
+        public override bool Collision(GameObject other)
+        {
+            if (other is Player.Player)
+            {
+                taken = true;
+                mediator.player.Weapon = new FrozenBow(0, 0, mediator);
+                mediator.itemToBeDeleted.Add(this);
+                mediator.player.weapon.Projectile = new FrozenBowProjectile(x, y, Direction.NORTH, mediator);
+            }
+            return true;
+        }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-
             spriteBatch.Draw(sprite, new Rectangle(this.X, this.Y, WIDTH, HEIGHT), Color.White);
             this.Projectile = new FrozenBowProjectile(0, 0, Direction.NORTH, mediator);
         }
@@ -43,24 +52,18 @@ namespace Game2.Items.Weapons
         public override void Load()
         {
             sprite = Mediator.Game.Content.Load<Texture2D>("Items/Weapons/urand_piercer_new");
-            pickupFrozenBow = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupFrozenBow");
+            pickUp = Mediator.Game.Content.Load<SoundEffect>("Sounds/PickupFrozenBow");
             shoot = Mediator.Game.Content.Load<SoundEffect>("Sounds/FrozenBow");
-        }
-
-        public override bool intersects(GameObject other)
-        {
-            if (other is Player.Player)
-            {
-                mediator.player.Weapon = new FrozenBow(0, 0, mediator);
-                mediator.itemToBeDeleted.Add(this);
-                pickupFrozenBow.CreateInstance().Play();
-            }
-            return true;
         }
 
         public override string ToString()
         {
             return "Frozen Bow";
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            PlayPickUp();
         }
     }
 }

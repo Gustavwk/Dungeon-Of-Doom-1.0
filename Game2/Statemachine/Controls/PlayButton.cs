@@ -14,6 +14,7 @@ namespace Game2.Menus.Controls
     {
         public PlayButton(int X, int Y, Mediator mediator, string buttonString) : base(X, Y, mediator, buttonString)
         {
+
         }
 
         public override void Update(GameTime gameTime)
@@ -23,7 +24,6 @@ namespace Game2.Menus.Controls
             Rectangle mouseRect = new Rectangle(currentMouseState.X, currentMouseState.Y, 1, 1);
 
             isHovered = false;
-            
 
             if (mouseRect.Intersects(this.hitbox))
             {

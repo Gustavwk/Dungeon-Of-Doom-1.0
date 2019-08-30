@@ -10,11 +10,10 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Items
 {
-    class FrozenBowProjectile : Projectile
+   public class FrozenBowProjectile : Projectile
     {
 
-        public FrozenBowProjectile(int x, int y, Direction direction, Mediator mediator) : base(x, y, direction,
-            mediator)
+        public FrozenBowProjectile(int x, int y, Direction direction, Mediator mediator) : base(x, y, direction, mediator)
         {
             this.damage = 50;
         }

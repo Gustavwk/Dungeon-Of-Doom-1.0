@@ -10,13 +10,13 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game2
 {
-    class SimpleGunProjectile : Projectile
+   public class SimpleGunProjectile : Projectile
     {
-
         public SimpleGunProjectile(int x, int y, Direction direction, Mediator mediator) : base(x, y, direction, mediator)
         {
             this.Damage = 75;
         }
+
         public override void Load()
         {
             this.projectileTextureUp = Mediator.Game.Content.Load<Texture2D>("Projectiles/SimpleGunProjectile/iron_shot_0");
@@ -26,8 +26,6 @@ namespace Game2
 
             hitMonster = Mediator.Game.Content.Load<SoundEffect>("Sounds/Hit");
             hitWall = Mediator.Game.Content.Load<SoundEffect>("Sounds/HitWall");
-
         }
-
     }
 }

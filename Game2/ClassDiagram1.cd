@@ -1,16 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Game2.Item" Collapsed="true">
-    <Position X="9" Y="8.75" Width="1.5" />
+    <Position X="21.25" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Items\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Projectile" Collapsed="true">
-    <Position X="3.25" Y="7.5" Width="1.5" />
+    <Position X="4" Y="6" Width="1.5" />
+    <Members>
+      <Field Name="direction" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>gAQBgQCAAAIAowAgAEBgACAAAAQgCEaAAAAAiABAAQA=</HashCode>
+      <HashCode>gAQBgQCAEAIAowAgAEBgACAAAAQgCEaAAACAiABAAQA=</HashCode>
       <FileName>Items\Projectile\Projectile.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -19,9 +22,12 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.Player.Player" Collapsed="true">
-    <Position X="4.75" Y="2.75" Width="1.5" />
+    <Position X="6.5" Y="6" Width="1.5" />
+    <Members>
+      <Field Name="direction" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>AgQAgGQAAAAMIgAICAAOChAALjQAAAiIgAAAgGBAAgg=</HashCode>
+      <HashCode>EgQAkWQQAAAMogBoKIAOChAALjQAAAiIgAEIgGBAGmk=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -30,36 +36,43 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.GameObject" Collapsed="true">
-    <Position X="8.5" Y="1.5" Width="1.5" />
+    <Position X="10.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAiAQIAAQAAgQAAAAAAAAAAAQgCAgAAAAAgABAYAA=</HashCode>
+      <HashCode>AAQAiAQIAAQAAgQAAAAAAAAAAAQgCAgAAABggABAYAA=</HashCode>
       <FileName>GameObject.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.HpBoost" Collapsed="true">
-    <Position X="15" Y="10.25" Width="1.5" />
+    <Position X="25.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgSAgAAAAAQAAgAAAAQAAAAAAAAAAAAAAAAAhAAAAAA=</HashCode>
       <FileName>Items\HpBoost.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Structures.Wall" Collapsed="true">
-    <Position X="12.75" Y="5.25" Width="1.5" />
+    <Position X="12.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAEAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Structures\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.GameMain" Collapsed="true">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Position X="8.25" Y="3.75" Width="1.5" />
     <AssociationLine Name="allObjects" Type="Game2.GameObject">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-1.098" Y="0.07" />
+        <Position X="0.07" Y="-1.098" />
       </MemberNameLabel>
     </AssociationLine>
+    <AssociationLine Name="gameState" Type="Game2.Menus.States.ActualGameState" ManuallyRouted="true">
+      <Path>
+        <Point X="9.75" Y="3.892" />
+        <Point X="12.75" Y="3.892" />
+        <Point X="12.75" Y="4.25" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AARCUEAAAAAAgwgAAAAAAAAQAAkAAAgBAAAgAAEAAAQ=</HashCode>
+      <HashCode>AARCUEAAAAAAAwgAAAAAAAAQAAlAAAgBAAAgAAEAAAQ=</HashCode>
       <FileName>GameMain.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -70,50 +83,48 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Game2.Structures.Door" Collapsed="true">
-    <Position X="14.5" Y="5.25" Width="1.5" />
+    <Position X="13.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AASAgAAAAAAAAgAEAEAAEAAgAAEAAQAAAAAAgCAAAAA=</HashCode>
+      <HashCode>AASAgAAAAAAAAgAEAEAAAAAgAAEAAQAAAAAAgCAAAAA=</HashCode>
       <FileName>Structures\Door.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Structures.Structures" Collapsed="true">
-    <Position X="14.75" Y="2.75" Width="1.5" />
+    <Position X="12.75" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAEAAgAgAAAAAAAAAQAAAAAAAAAABgAAAAAAA=</HashCode>
       <FileName>Structures\Structures.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Structures.Tiles" Collapsed="true">
-    <Position X="16.25" Y="5.25" Width="1.5" />
+    <Position X="15.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAAAgAAAAJCAAIAAAAAAAAAAAABgAAAAAA=</HashCode>
       <FileName>Structures\Tiles.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.gameLogic.Mediator" Collapsed="true">
-    <Position X="10.5" Y="3" Width="1.5" />
-    <AssociationLine Name="AllObjects" Type="Game2.GameObject" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="10.5" Y="3.127" />
-        <Point X="9.333" Y="3.127" Type="JumpStart" />
-        <Point X="9.167" Y="3.127" Type="JumpEnd" />
-        <Point X="8.844" Y="3.127" />
-        <Point X="8.844" Y="2.062" />
-      </Path>
-    </AssociationLine>
+    <Position X="17" Y="4.25" Width="1.5" />
     <AssociationLine Name="player" Type="Game2.Player.Player" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="10.5" Y="3.29" />
-        <Point X="9.333" Y="3.29" Type="JumpStart" />
-        <Point X="9.167" Y="3.29" Type="JumpEnd" />
-        <Point X="9.098" Y="3.29" />
-        <Point X="9.098" Y="3.549" />
-        <Point X="6.25" Y="3.549" />
-        <Point X="6.25" Y="3.375" />
+        <Point X="17" Y="4.5" />
+        <Point X="15.312" Y="4.5" />
+        <Point X="15.312" Y="4.874" />
+        <Point X="7.656" Y="4.874" />
+        <Point X="7.656" Y="6" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="room" Type="Game2.Structures.Room" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17" Y="4.5" />
+        <Point X="15.312" Y="4.5" />
+        <Point X="15.312" Y="4.874" />
+        <Point X="12.406" Y="4.874" />
+        <Point X="12.406" Y="6" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAACAAQAAgCAgQBAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAQAAhCAgABAAAABAAAAAA=</HashCode>
       <FileName>gameLogic\Mediator.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -125,7 +136,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Game2.AsBoost" Collapsed="true">
-    <Position X="13.5" Y="10.25" Width="1.5" />
+    <Position X="24.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAWAkAIEAAAAAgAAAAAAAAQAAAAAAAAAAAAApAAAgAA=</HashCode>
       <FileName>Items\AsBoost.cs</FileName>
@@ -133,7 +144,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.MsBoost" Collapsed="true">
-    <Position X="12" Y="10.25" Width="1.5" />
+    <Position X="22.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AASAgAIAIAAAAgAAAAAAAAQAAAAAAAAgAAAA5AAAgAA=</HashCode>
       <FileName>Items\MsBoost.cs</FileName>
@@ -141,149 +152,147 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.LavaTile" Collapsed="true">
-    <Position X="16.25" Y="6.25" Width="1.5" />
+    <Position X="14.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAACAAABgAAAIAAAIAAACAAAAAIBAAAgAAAAAA=</HashCode>
       <FileName>Structures\LavaTile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Crossbow" Collapsed="true">
-    <Position X="11.5" Y="11.75" Width="1.5" />
+    <Position X="23.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAEAAAAgAEAAAAAAAAABAAAAAABAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAgAAEEAAAAgAEAAAAAAAAABAAAAAABAAAgAAAAAA=</HashCode>
       <FileName>Items\Weapons\Crossbow.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.gameLogic.Level" Collapsed="true">
-    <Position X="27.75" Y="3.5" Width="1.5" />
+    <Position X="26.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAgEAAAAAAAAAAEAAAABAAAEAAAgAAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Level.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="LevelList" />
+    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.CrossbowProjectile" Collapsed="true">
-    <Position X="0.5" Y="8.75" Width="1.5" />
-    <InheritanceLine Type="Game2.Projectile" FixedFromPoint="true">
-      <Path>
-        <Point X="4" Y="8.191" />
-        <Point X="4" Y="8.45" />
-        <Point X="1.25" Y="8.45" />
-        <Point X="1.25" Y="8.75" />
-      </Path>
-    </InheritanceLine>
+    <Position X="1.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Items\Projectile\CrossbowProjectile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Structures.Room" Collapsed="true">
-    <Position X="18.5" Y="4.25" Width="1.5" />
+    <Position X="11.25" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAggAgAAIgAACABEAAIABgEAAAAAAAAAQAAECAAEA=</HashCode>
       <FileName>Structures\Room.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.gameLogic.HUD" Collapsed="true">
-    <Position X="19.75" Y="3" Width="1.5" />
+    <Position X="16.5" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAgAgAAACAAKAAgAAEAAAABAAAAAABAACE=</HashCode>
       <FileName>gameLogic\HUD Objects\HUD.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.gameLogic.HUD_Objects.HUDTile" Collapsed="true">
-    <Position X="18.5" Y="5.25" Width="1.5" />
+    <Position X="16" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAQAgABAAAAAAgAAAAAAAEAAAAAEAAABBAAAgAAAAAA=</HashCode>
       <FileName>gameLogic\HUD Objects\HUDTile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Items.Weapons.FrozenBow" Collapsed="true">
-    <Position X="7" Y="11.75" Width="1.5" />
+    <Position X="19.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAgAEAAAACAAAABAAAAAABAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAgAAEAAAAAgAEAAAACAAAABAAAAAABAAAgAAAAAA=</HashCode>
       <FileName>Items\Weapons\FrozenBow.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Items.Weapons.SimpleGun" Collapsed="true">
-    <Position X="8.5" Y="11.75" Width="1.5" />
+    <Position X="20.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAgAEAAAAAAAAABIAAAAABAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAgAAEAAAAAgAEAAAAAAAAABIAAAAABAAAgAAAAAA=</HashCode>
       <FileName>Items\Weapons\SimpleGun.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Items.Weapons.Wand" Collapsed="true">
-    <Position X="10" Y="11.75" Width="1.5" />
+    <Position X="22.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAgAAAAAAAAgAEAAAAAAAAABAAAAAABAAAgCAAAAA=</HashCode>
+      <HashCode>AAAAgAAEAAAAAgAEAAAAAAAAABAAAAAABAAAgCAAAAA=</HashCode>
       <FileName>Items\Weapons\Wand.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Items.Weapon" Collapsed="true">
-    <Position X="9" Y="10.25" Width="1.5" />
+    <Position X="21" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAABAAAAAABAAAAAAAIAA=</HashCode>
       <FileName>Items\Weapons\Weapon.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Items.FrozenBowProjectile" Collapsed="true">
-    <Position X="3.5" Y="8.75" Width="1.5" />
+    <Position X="4.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Items\Projectile\FrozenBowProjectile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.SimpleGunProjectile" Collapsed="true">
-    <Position X="5" Y="8.75" Width="1.5" />
+    <Position X="5.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Items\Projectile\SimpleGunProjectile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.WandProjectile" Collapsed="true">
-    <Position X="2" Y="8.75" Width="1.5" />
+    <Position X="2.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Items\Projectile\WandProjectile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Button" Collapsed="true">
-    <Position X="24.5" Y="1.25" Width="1.5" />
+    <Position X="19.5" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAYAgAAAQACAAgBAAAAAAMAAQAAgAAAEAAAigAgQAAA=</HashCode>
       <FileName>Statemachine\Controls\Button.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Menus.Controls.Cursor" Collapsed="true">
-    <Position X="21.25" Y="3" Width="1.5" />
+    <Position X="18" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAgAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAgQAAA=</HashCode>
       <FileName>Statemachine\Controls\Cursor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Menus.Controls.ExitButton" Collapsed="true">
-    <Position X="23.25" Y="2.5" Width="1.5" />
+    <Position X="17.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Statemachine\Controls\ExitButton.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Menus.Controls.StartMenu" Collapsed="true">
-    <Position X="27.75" Y="2.5" Width="1.5" />
+    <Position X="23" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
       <FileName>Statemachine\Controls\StartMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Menus.Controls.PlayButton" Collapsed="true">
-    <Position X="25.75" Y="2.5" Width="1.5" />
+    <Position X="19.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Statemachine\Controls\PlayButton.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Menus.States.ActualGameState" Collapsed="true">
-    <Position X="1.5" Y="2.75" Width="1.5" />
+    <Position X="12" Y="4.25" Width="1.5" />
+    <Members>
+      <Field Name="gameState" Hidden="true" />
+    </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAgBAAAAAA=</HashCode>
       <FileName>Statemachine\States\ActualGameState.cs</FileName>
@@ -294,36 +303,72 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Game2.Creeps.Monster" Collapsed="true">
-    <Position X="18.25" Y="8.5" Width="1.5" />
+    <Position X="9.5" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AASACRAAAAAAYACAAAAGAAAABAAAAAIIAAAAAAAAAAg=</HashCode>
+      <HashCode>AASAiQAAAQAAYAAgAAAGAAAABAAQAYIICAAAgAAAAAg=</HashCode>
       <FileName>Monster\Monster.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Creeps.BossGhost" Collapsed="true">
-    <Position X="17.25" Y="9.75" Width="1.5" />
+    <Position X="9" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAEIwCIAAAABAHAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAEIwAIAAAABAHAAAAAAAAACAAAgAAAAAA=</HashCode>
       <FileName>Monster\BossGhost.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game2.Creep.Creep" Collapsed="true">
-    <Position X="18.75" Y="9.75" Width="1.5" />
+    <Position X="10.5" Y="7.25" Width="1.5" />
     <InheritanceLine Type="Game2.Creeps.Monster" FixedFromPoint="true">
       <Path>
-        <Point X="19" Y="9.191" />
-        <Point X="19" Y="9.45" />
-        <Point X="19.5" Y="9.45" />
-        <Point X="19.5" Y="9.75" />
+        <Point X="10.625" Y="6.691" />
+        <Point X="10.625" Y="6.95" />
+        <Point X="11.25" Y="6.95" />
+        <Point X="11.25" Y="7.25" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAgAAAAAAAAAACAAAAAAAAAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAgAAQAAAEAEAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Monster\Creep.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="Game2.gameLogic.IMediator">
-    <Position X="10.75" Y="0.5" Width="1.5" />
+  <Class Name="Game2.Menus.Controls.GameOverMenu" Collapsed="true">
+    <Position X="24.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAQAAAAAAAAACAACAAAAACAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Statemachine\Controls\GameOverMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.Menus.Controls.StateHolder" Collapsed="true">
+    <Position X="23.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgEAgAAAAAAgAAAAAACAgAAQBgAAAAAgA=</HashCode>
+      <FileName>Statemachine\Controls\StateHolder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game2.Statemachine.TextField" Collapsed="true">
+    <Position X="15" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAAAAAAgAAAAAACAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Statemachine\Controls\TextField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Collections.Generic.List&lt;T&gt;" Collapsed="true">
+    <Position X="26.25" Y="6" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Game2.Creeps.Fiend" Collapsed="true">
+    <Position X="7.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAgAAAAAAAAgAAAAAAAAEAQAAgAAAACAAAgAAAAAA=</HashCode>
+      <FileName>Monster\Fiend.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Game2.gameLogic.IMediator" Collapsed="true">
+    <Position X="2.25" Y="4" Width="1.5" />
+    <Members>
+      <Property Name="mediator" Hidden="true" />
+    </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\IMediator.cs</FileName>
@@ -333,63 +378,63 @@
     </ShowAsAssociation>
   </Interface>
   <Interface Name="Game2.gameLogic.IProjectile" Collapsed="true">
-    <Position X="12.75" Y="0.5" Width="1.5" />
+    <Position X="2.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\IProjectile.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Game2.gameLogic.IPowerUp" Collapsed="true">
-    <Position X="12.75" Y="1.25" Width="1.5" />
+    <Position X="3.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>gameLogic\IPowerUp.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Game2.gameLogic.IUpdateable" Collapsed="true">
-    <Position X="14.25" Y="0.5" Width="1.5" />
+    <Position X="5.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\IUpdateable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Game2.gameLogic.IMoveable" Collapsed="true">
-    <Position X="15.75" Y="0.5" Width="1.5" />
+    <Position X="3.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\IMoveable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Game2.gameLogic.IDischargeable" Collapsed="true">
-    <Position X="14.25" Y="1.25" Width="1.5" />
+    <Position X="2.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\IDischargeable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Game2.gameLogic.ICollideable" Collapsed="true">
-    <Position X="15.75" Y="1.25" Width="1.5" />
+    <Position X="3.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>gameLogic\ICollideable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Game2.gameLogic.IDrawable" Collapsed="true">
-    <Position X="17.25" Y="1.25" Width="1.5" />
+    <Position X="5.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\IDrawable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Game2.gameLogic.Direction" Collapsed="true">
-    <Position X="4" Y="4.75" Width="1.5" />
+    <Position X="13.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAgggAAAAABAAAQABABAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAgAAAAAABAAAQAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>gameLogic\Direction.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="Game2.Menus.States.GameState" Collapsed="true">
-    <Position X="1.5" Y="4" Width="1.5" />
+    <Position X="13.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAACAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Statemachine\States\GameState.cs</FileName>

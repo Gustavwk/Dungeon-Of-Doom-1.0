@@ -12,8 +12,6 @@ using Microsoft.Xna.Framework.Audio;
 namespace Game2.Creeps
 {
     class BossGhost : Monster
-
-
     {
         private Texture2D undamgedRight;
         private Texture2D undamgedLeft;
@@ -26,10 +24,11 @@ namespace Game2.Creeps
 
         public BossGhost(int x, int y, Mediator mediator) : base( x, y, mediator)
         {
-            this.hitbox = new Rectangle(this.X, this.Y, 96, 96);
+            this.hitbox = new Rectangle(this.X, this.Y, 64, 64);
             this.priority = 10;
             this.health = 250;
-            
+            this.WIDTH = 24;
+            this.HEIGHT = 24;
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -85,7 +84,6 @@ namespace Game2.Creeps
             }
         }
 
-
         public override void Load()
         {
             this.damgedLeft = Mediator.Game.Content.Load<Texture2D>("Creeps/Boss Ghost/boss ghost damaged");
@@ -97,62 +95,53 @@ namespace Game2.Creeps
 
             dead = Mediator.Game.Content.Load<SoundEffect>("Sounds/MonsterDead");
         }
-
-        public override void move()
+       
+        public override void moveTo(Player.Player player)
         {
-            
-            if (this.X < mediator.player.getX())
+            this.hitbox.X = X;
+            this.hitbox.Y = Y;
+
+            if (this.X < player.getX())
             {
                 this.prevX = this.X;
-
                 this.direction = Direction.EAST;
                 this.X = this.X + this.movementspeed;
-               
             }
 
-            if (this.Y < mediator.player.getY())
+            if (this.Y <player.getY())
             {
                 this.prevY = this.Y;
-
                 this.direction = Direction.SOUTH;
                 this.Y = this.Y + this.movementspeed;
             }
 
-            if (this.X > mediator.player.getX())
+            if (this.X > player.getX())
             {
-
-
                 this.prevX = this.X;
-
                 this.direction = Direction.WEST;
                 this.X = this.X - this.movementspeed;
             }
 
-            if (this.Y > mediator.player.getY())
+            if (this.Y > player.getY())
             {
-
-
                 this.prevY = this.Y;
-
                 this.direction = Direction.NORTH;
                 this.Y = this.Y - this.movementspeed;
             }
         }
-        
 
-        public override bool intersects(GameObject other)
+        public override bool Collision(GameObject other)
         {
             if (other is Player.Player)
             {
                 mediator.player.health = mediator.player.health - 2;
                 mediator.player.OverallDamgeTaken = mediator.player.OverallDamgeTaken + 2;
-
-
                 return true;
             }
-            return true;
+            else
+            {
+                return false;
+            }
         }
-
     }
-   
 }

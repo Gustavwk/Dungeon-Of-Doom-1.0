@@ -15,12 +15,21 @@ namespace Game2.Menus.Controls
         protected MouseState currentMouseState;
         protected MouseState prevMouse;
         private Texture2D mouseSprite;
+
         public Cursor()
         {
             this.priority = 5;
         }
 
-        
+        public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            spriteBatch.Draw(mouseSprite, hitbox, Color.White);
+        }
+
+        public override void Load()
+        {
+            mouseSprite = Mediator.Game.Content.Load<Texture2D>("Projectiles/WandProjectile/magic_dart_0");
+        }
 
         public override void Update(GameTime gameTime)
         {
@@ -29,16 +38,5 @@ namespace Game2.Menus.Controls
             Rectangle mouseRect = new Rectangle(currentMouseState.X, currentMouseState.Y, WIDTH, HEIGHT);
             this.hitbox = mouseRect;
         }
-
-        public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
-        {
-           spriteBatch.Draw(mouseSprite, hitbox, Color.White);
-        }
-
-        public override void Load()
-        {
-            mouseSprite = Mediator.Game.Content.Load<Texture2D>("Projectiles/WandProjectile/magic_dart_0");
-        }
-        
     }
 }

@@ -13,15 +13,13 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game2
 {
-    class CrossbowProjectile : Projectile
+  public class CrossbowProjectile : Projectile
     {
 
-        public CrossbowProjectile(int x, int y, Direction direction, Mediator mediator) : base(x, y, direction,
-            mediator)
+        public CrossbowProjectile(int x, int y, Direction direction, Mediator mediator) : base(x, y, direction, mediator)
         {
             this.damage = 50;
         }
-
 
         public override void Load()
         {
@@ -32,10 +30,6 @@ namespace Game2
 
             hitMonster = Mediator.Game.Content.Load<SoundEffect>("Sounds/Hit");
             hitWall = Mediator.Game.Content.Load<SoundEffect>("Sounds/HitWall");
-
         }
-
-        
-
     }
 }

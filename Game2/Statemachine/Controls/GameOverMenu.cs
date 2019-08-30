@@ -17,8 +17,12 @@ namespace Game2.Menus.Controls
         private Color textColor = Color.LightYellow;
         private int playerKills;
 
-        public Player.Player player= new Player.Player(0,0);
+        public Player.Player player = new Player.Player(0,0);
 
+        public GameOverMenu(int x, int y, Mediator mediator, GameTime gameTime) : base(x, y, mediator, gameTime)
+        {
+
+        }
 
         public int PlayerKills
         {
@@ -26,15 +30,8 @@ namespace Game2.Menus.Controls
             set => playerKills = value;
         }
 
-        public GameOverMenu(int x, int y, Mediator mediator, GameTime gameTime) : base(x, y, mediator, gameTime)
-        {
-            
-            
-        }
-
         public void stats()
         {
-            
             stateObjects.Clear();
             MenuBackground();
             stateObjects.Add(new TextField(50, 50, this.mediator, "YOU HAVE DIED", Color.Yellow));
@@ -44,11 +41,9 @@ namespace Game2.Menus.Controls
             stateObjects.Add(new TextField(50, 300, this.mediator, "DAMAGE TAKEN: " + player.OverallDamgeTaken, Color.Yellow));
             stateObjects.Add(new TextField(50, 350, this.mediator, "DAMAGE DONE: " + player.OverallDamegeDone, Color.Yellow));
             stateObjects.Add(new TextField(50, 400, this.mediator, "PROJECTILES FIRED: " + player.ProjectilesFired, Color.Yellow));
-
+            stateObjects.Add(new ExitButton(50, 450, this.mediator, "EXIT"));
 
             stateObjects.Add(new Cursor());
         }
-
-       
     }
 }

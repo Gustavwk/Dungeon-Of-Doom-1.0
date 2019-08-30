@@ -22,26 +22,21 @@ namespace Game2
         SpriteBatch spriteBatch;
         private List<GameObject> allObjects = new List<GameObject>();
         private List<GameObject> itemsToBeAdded = new List<GameObject>();
-        private List<GameObject> itemsToBeAddedButDrawnFirst = new List<GameObject>();
         private List<GameObject> itemsToBeDeleted = new List<GameObject>();
         private ActualGameState gameState = new ActualGameState(GameState.MENU);
         private GameTime gameTime;
         Player.Player player = new Player.Player(33,230);
         Mediator mediator;
-        
-
         private StartMenu startMenu;
         private GameOverMenu gameOverMenu;
     
-        
         public GameMain()
         { 
             graphics = new GraphicsDeviceManager(this);
-            
             room = new Room(800, 480, mediator);
             Mediator.Game = this;
             Content.RootDirectory = "Content";
-            mediator = new Mediator(allObjects, itemsToBeAdded, itemsToBeDeleted, itemsToBeAddedButDrawnFirst, player, room,gameState);           
+            mediator = new Mediator(allObjects, itemsToBeAdded, itemsToBeDeleted, player, room,gameState);           
             room.mediator = mediator;
             room.initRandomLevel();  
             itemsToBeAdded.Add(player);
@@ -50,12 +45,36 @@ namespace Game2
             startMenu = new StartMenu(800,580,mediator,gameTime);
             gameOverMenu = new GameOverMenu(800,580,mediator,gameTime);
             mediator.gameOverMenu = gameOverMenu;
-
             graphics.PreferredBackBufferHeight = 580;
             graphics.ApplyChanges();
         }
 
+        /// <summary>
+        /// This is called when the game should draw itself.
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        protected override void Draw(GameTime gameTime)
+        {
+            GraphicsDevice.Clear(Color.Azure);
+            spriteBatch.Begin();
 
+            switch (this.gameState.State)
+            {
+                case GameState.PLAY:
+                    PlayDraw(gameTime);
+                    break;
+
+                case GameState.MENU:
+                    startMenu.stateDraw(gameTime, spriteBatch);
+                    break;
+                case GameState.GAMEOVER:
+                    gameOverMenu.stateDraw(gameTime, spriteBatch);
+                    break;
+            }
+
+            base.Draw(gameTime);
+            spriteBatch.End();
+        }
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -67,7 +86,6 @@ namespace Game2
         {
             // TODO: Add your initialization logic here
 
-
             base.Initialize();
         }
 
@@ -78,16 +96,66 @@ namespace Game2
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             foreach (GameObject gameObject in allObjects)
             {
                 gameObject.Load();
             }
 
-
             // Create a new SpriteBatch, which can be used to draw textures
             // TODO: use this.Content to load your game content here
+        }
 
+        private void PlayDraw(GameTime gameTime)
+        {
+            foreach (GameObject gameObject in allObjects)
+            {
+                gameObject.Draw(spriteBatch, gameTime);
+            }
+        }
+
+        private void PlayUpdate(GameTime gameTime)
+        {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
+                Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
+
+            foreach (var gameObject in allObjects)
+            {
+                if (player.hitbox.Intersects(gameObject.hitbox))
+                {
+                    player.Collision(gameObject);
+                    gameObject.Collision(player);
+                }
+
+                foreach (var otherGameObject in allObjects)
+                {
+                    if (gameObject.hitbox.Intersects(otherGameObject.hitbox))
+                    {
+                        gameObject.Collision(otherGameObject);
+                    }
+                }
+
+                gameObject.Update(gameTime);
+            }
+
+            itemsToBeAdded.Sort();
+
+            foreach (var gameObject in itemsToBeAdded)
+            {
+                gameObject.Load();
+            }
+
+            allObjects.AddRange(itemsToBeAdded);
+            itemsToBeAdded.Clear();
+
+            foreach (var gameObject in itemsToBeDeleted)
+            {
+                allObjects.Remove(gameObject);
+            }
+            itemsToBeDeleted.Clear();
+            base.Update(gameTime);
         }
 
         /// <summary>
@@ -118,105 +186,7 @@ namespace Game2
                 case GameState.GAMEOVER:
                     gameOverMenu.StateUpdate(gameTime,spriteBatch);
                     break;
-                   
             }
-        }
-
-        
-
-        private void PlayUpdate(GameTime gameTime)
-        {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
-                Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-          
-
-            foreach (var gameObject in allObjects)
-            {
-                if (player.hitbox.Intersects(gameObject.hitbox))
-                {
-                    player.intersects(gameObject);
-                    gameObject.intersects(player);
-                }
-
-                
-                foreach (var otherGameObject in allObjects)
-                {
-                    if (gameObject.hitbox.Intersects(otherGameObject.hitbox))
-                    {
-                        gameObject.intersects(otherGameObject);
-                    }
-                }
-
-
-                gameObject.Update(gameTime);
-            }
-
-            itemsToBeAdded.Sort();
-
-
-            foreach (var gameObject in itemsToBeAdded)
-            {
-                gameObject.Load();
-            }
-
-            foreach (var gameObject in itemsToBeAddedButDrawnFirst)
-            {
-                gameObject.Load();
-            }
-
-            allObjects.AddRange(itemsToBeAddedButDrawnFirst);
-            allObjects.AddRange(itemsToBeAdded);
-            itemsToBeAdded.Clear();
-            itemsToBeAddedButDrawnFirst.Clear();
-
-            foreach (var gameObject in itemsToBeDeleted)
-            {
-                allObjects.Remove(gameObject);
-            }
-            itemsToBeDeleted.Clear();
-            base.Update(gameTime);
-        }
-
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw(GameTime gameTime)
-        {
-            GraphicsDevice.Clear(Color.Azure);
-            spriteBatch.Begin();
-
-            switch (this.gameState.State)
-            {
-                case GameState.PLAY:
-                    PlayDraw(gameTime);
-                    break;
-
-                case GameState.MENU:
-                    startMenu.stateDraw(gameTime,spriteBatch);
-                    break;
-                case GameState.GAMEOVER:
-                    gameOverMenu.stateDraw(gameTime, spriteBatch);
-                    break;
-            }
-
-            base.Draw(gameTime);
-            spriteBatch.End();
-        }
-
-       
-
-        private void PlayDraw(GameTime gameTime)
-        {
-            foreach (GameObject gameObject in allObjects)
-            {
-               
-                    gameObject.Draw(spriteBatch, gameTime);
-                
-            }
-
-            
-        }
+        }   
     }
 }

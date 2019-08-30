@@ -24,24 +24,15 @@ namespace Game2
         protected int HEIGHT = 32;
         protected SoundEffect effect;
         protected int priority = 2;
+        protected bool yelled;
+        protected SoundEffect soundEffect;
         public Mediator mediator { get; set; }
 
         public GameObject()
         {
             
         }
-
-        public int x
-        {
-            get => X;
-            set => X = value;
-        }
-
-        public int y
-        {
-            get => Y;
-            set => Y = value;
-        }
+        
         public GameObject(Mediator mediator, int x, int y)
         {
             this.mediator = mediator;
@@ -49,9 +40,34 @@ namespace Game2
             this.Y = y;
         }
 
-        public virtual void Update(GameTime gameTime)
+        public int CompareTo(object obj)
         {
-           
+            GameObject gameObject = (GameObject)obj;
+            int rtn = 0;
+
+            if (this.priority < gameObject.priority) { rtn = -1; }
+            if (this.priority > gameObject.priority) { rtn = +1; }
+            return rtn;
+        }
+
+        public virtual bool Collision(GameObject other)
+        {
+            return true;
+        }
+
+        public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+
+        }
+
+        public void drawHitbox()
+        {
+
+        }
+
+        public virtual void Load()
+        {
+
         }
 
         public virtual void playEffect()
@@ -62,43 +78,34 @@ namespace Game2
             }
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        public virtual void playSound()
         {
-            
+
         }
 
-        public virtual void Load()
+        public virtual void Update(GameTime gameTime)
         {
            
         }
-
-
+        
         public Rectangle Rectangle
         {
             get
             {
                 return new Rectangle(this.X, this.Y, defaultSprite.Width, defaultSprite.Height); 
-
             }
         }
-
-        public void drawHitbox() { }
-
-
-        public virtual bool intersects(GameObject other)
+        
+        public int x
         {
-            return true;
+            get => X;
+            set => X = value;
         }
 
-
-        public int CompareTo(object obj)
+        public int y
         {
-            GameObject gameObject = (GameObject)obj;
-            int rtn = 0;
-
-            if (this.priority < gameObject.priority) { rtn = -1; }
-            if (this.priority > gameObject.priority) { rtn = +1; }
-            return rtn;
+            get => Y;
+            set => Y = value;
         }
     }
 }
