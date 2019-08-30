@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2.Menus.Controls
 {
-    class StateHolder
+    public class StateHolder
     {
         protected Mediator mediator;
         protected List<GameObject> stateObjects = new List<GameObject>();

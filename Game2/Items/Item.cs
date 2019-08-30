@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Game2
 {
-    abstract class Item : GameObject
+    public abstract class Item : GameObject
     {
 
         public Item(int x, int y, Mediator mediator) :base (mediator,x,y)

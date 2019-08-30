@@ -14,8 +14,7 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game2.Player
 {
-
-    class Player : GameObject, IMoveable
+    public class Player : GameObject, IMoveable
 
     {
         

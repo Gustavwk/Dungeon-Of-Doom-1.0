@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game2.Menus.Controls
 {
-    class GameOverMenu : StateHolder
+    public class GameOverMenu : StateHolder
     {
         private SpriteFont spriteFont;
         private Color textColor = Color.LightYellow;

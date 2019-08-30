@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 
 namespace Game2.Menus.States
 {
-    class ActualGameState: IMediator
+    public class ActualGameState: IMediator
     {
         private GameState gameState;
 
